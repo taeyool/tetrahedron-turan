@@ -1,0 +1,284 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7CellSem
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7FoldSum
+
+/-! # A certificate cell is a sum of weight products
+
+Two steps turn a fold cell into the shape the fiber coefficients carry.
+
+First, an index lookup weighted by the factor entries is the
+isomorphism-indicator weight: `s1Idx_iso` and its three-root siblings
+say the lookup returns `i` exactly when the `i`-th canonical flag
+matches, and the canonical flags are pairwise non-isomorphic, so the
+indicator sum over all indices collapses to the single entry at the
+lookup.
+
+Second, a Gram entry is the row-product sum, so summing a cell over the
+factor rows produces the product of two such weights. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-! ## Indicator sums collapse to lookups -/
+
+/-- A weighted indicator sum over a finite index range, when exactly one
+index satisfies the predicate, is the weight at that index. -/
+private lemma sum_indicator_eq {n : ℕ} (f : ℕ → ℤ) (P : ℕ → Prop)
+    [DecidablePred P] (k : ℕ) (hk : k < n)
+    (huniq : ∀ i : Fin n, P i.val ↔ i.val = k) :
+    (∑ i : Fin n, ((f i.val : ℤ) : ℚ)
+        * (if P i.val then 1 else 0))
+      = ((f k : ℤ) : ℚ) := by
+  rw [Finset.sum_eq_single (⟨k, hk⟩ : Fin n)]
+  · rw [if_pos ((huniq ⟨k, hk⟩).mpr rfl), mul_one]
+  · intro b _ hb
+    rw [if_neg (fun h => hb (Fin.ext ((huniq b).mp h))), mul_zero]
+  · intro h
+    exact absurd (Finset.mem_univ _) h
+
+set_option maxHeartbeats 2000000 in
+/-- **The one-root weight is the factor entry at the lookup.** -/
+lemma weightS1_eq_lookup (r : ℕ) {w : ℕ} {u a b c : Fin 7}
+    (hmask : gatherBits (mkGather4 u.val a.val b.val c.val) 4 w < 16)
+    (hinj : Function.Injective ![u, a, b, c])
+    (hk4 : k4FreeMask (quadIdxList 4)
+      (gatherBits (mkGather4 u.val a.val b.val c.val) 4 w) = true) :
+    (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+        * (if (s1Flag i.val).IsIso
+            (extFlagS1 (graphOfMask 7 w) ![u] a b c) then 1 else 0))
+      = ((fS1 r (s1IdxT.getD
+          (gatherBits (mkGather4 u.val a.val b.val c.val) 4 w) 999)
+            : ℤ) : ℚ) := by
+  obtain ⟨hlt, -⟩ := s1_table_spec _ hmask hk4
+  refine sum_indicator_eq (n := 7) (fS1 r)
+    (fun k => (s1Flag k).IsIso (extFlagS1 (graphOfMask 7 w) ![u] a b c))
+    _ hlt fun i => ?_
+  constructor
+  · intro hiso
+    exact ((s1Idx_iso i.isLt hmask hinj hk4).mpr hiso).symm
+  · intro hik
+    have := (s1Idx_iso (i := i.val) i.isLt hmask hinj hk4).mp hik.symm
+    exact this
+
+set_option maxHeartbeats 2000000 in
+/-- **The three-root nonedge weight is the factor entry at the
+lookup.** -/
+lemma weightS30_eq_lookup (r : ℕ) {w : ℕ} {r0 r1 r2 v x : Fin 7}
+    (hmask : gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+      10 w < 1024)
+    (hinj : Function.Injective ![r0, r1, r2, v, x])
+    (hk4 : k4FreeMask (quadIdxList 5) (gatherBits
+      (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w) = true)
+    (hbit : (gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+      10 w).testBit 0 = false) :
+    (∑ i : Fin 236, ((fS30 r i.val : ℤ) : ℚ)
+        * (if (s30Flag i.val).IsIso
+            (extFlagS3 (graphOfMask 7 w) ![r0, r1, r2] v x)
+          then 1 else 0))
+      = ((fS30 r (s3Idx0T.getD (gatherBits
+          (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w) 999)
+            : ℤ) : ℚ) := by
+  obtain ⟨hlt, -⟩ := s30_table_spec _ hmask hk4 hbit
+  refine sum_indicator_eq (n := 236) (fS30 r)
+    (fun k => (s30Flag k).IsIso
+      (extFlagS3 (graphOfMask 7 w) ![r0, r1, r2] v x))
+    _ hlt fun i => ?_
+  constructor
+  · intro hiso
+    exact ((s30Idx_iso i.isLt hmask hinj hk4 hbit).mpr hiso).symm
+  · intro hik
+    exact (s30Idx_iso (i := i.val) i.isLt hmask hinj hk4 hbit).mp hik.symm
+
+set_option maxHeartbeats 2000000 in
+/-- **The three-root edge weight is the factor entry at the lookup.** -/
+lemma weightS31_eq_lookup (r : ℕ) {w : ℕ} {r0 r1 r2 v x : Fin 7}
+    (hmask : gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+      10 w < 1024)
+    (hinj : Function.Injective ![r0, r1, r2, v, x])
+    (hk4 : k4FreeMask (quadIdxList 5) (gatherBits
+      (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w) = true)
+    (hbit : (gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+      10 w).testBit 0 = true) :
+    (∑ i : Fin 191, ((fS31 r i.val : ℤ) : ℚ)
+        * (if (s31Flag i.val).IsIso
+            (extFlagS3 (graphOfMask 7 w) ![r0, r1, r2] v x)
+          then 1 else 0))
+      = ((fS31 r (s3Idx1T.getD (gatherBits
+          (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w) 999)
+            : ℤ) : ℚ) := by
+  obtain ⟨hlt, -⟩ := s31_table_spec _ hmask hk4 hbit
+  refine sum_indicator_eq (n := 191) (fS31 r)
+    (fun k => (s31Flag k).IsIso
+      (extFlagS3 (graphOfMask 7 w) ![r0, r1, r2] v x))
+    _ hlt fun i => ?_
+  constructor
+  · intro hiso
+    exact ((s31Idx_iso i.isLt hmask hinj hk4 hbit).mpr hiso).symm
+  · intro hik
+    exact (s31Idx_iso (i := i.val) i.isLt hmask hinj hk4 hbit).mp hik.symm
+
+/-! ## Gram entries are row-product sums -/
+
+/-- The range-fold of row products is the `Finset` sum of the casts. -/
+private lemma foldl_rows_eq_sum (g : ℕ → ℤ) :
+    ∀ n : ℕ, (((List.range n).foldl (fun s r => s + g r) 0 : ℤ) : ℚ)
+      = ∑ r ∈ Finset.range n, ((g r : ℤ) : ℚ) := by
+  intro n
+  induction n with
+  | zero => simp
+  | succ k ih =>
+    rw [List.range_succ, List.foldl_append, List.foldl_cons,
+      List.foldl_nil, Finset.sum_range_succ, ← ih]
+    push_cast
+    ring
+
+/-- Summing the one-root cell over the factor rows produces the Gram
+entry the certificate reads. -/
+lemma sum_rows_gramS1 (i j : ℕ) (hi : i < 7) (hj : j < 7) :
+    (∑ r ∈ Finset.range 6, ((fS1 r i : ℤ) : ℚ) * ((fS1 r j : ℤ) : ℚ))
+      = ((gram7s1.getD (i * 7 + j) 0 : ℤ) : ℚ) := by
+  rw [gram7s1_spec i hi j hj,
+    foldl_rows_eq_sum (fun r => fS1 r i * fS1 r j) 6]
+  refine Finset.sum_congr rfl fun r _ => ?_
+  push_cast
+  ring
+
+/-- The nonedge-root analogue. -/
+lemma sum_rows_gramS30 (i j : ℕ) (hi : i < 236) (hj : j < 236) :
+    (∑ r ∈ Finset.range 60,
+        ((fS30 r i : ℤ) : ℚ) * ((fS30 r j : ℤ) : ℚ))
+      = ((gram7s30.getD (i * 236 + j) 0 : ℤ) : ℚ) := by
+  rw [gram7s30_spec i hi j hj,
+    foldl_rows_eq_sum (fun r => fS30 r i * fS30 r j) 60]
+  refine Finset.sum_congr rfl fun r _ => ?_
+  push_cast
+  ring
+
+/-- The edge-root analogue. -/
+lemma sum_rows_gramS31 (i j : ℕ) (hi : i < 191) (hj : j < 191) :
+    (∑ r ∈ Finset.range 46,
+        ((fS31 r i : ℤ) : ℚ) * ((fS31 r j : ℤ) : ℚ))
+      = ((gram7s31.getD (i * 191 + j) 0 : ℤ) : ℚ) := by
+  rw [gram7s31_spec i hi j hj,
+    foldl_rows_eq_sum (fun r => fS31 r i * fS31 r j) 46]
+  refine Finset.sum_congr rfl fun r _ => ?_
+  push_cast
+  ring
+
+/-! ## A cell, summed over rows, is a weight product
+
+Putting the two steps together: the Gram entry a cell reads is the
+row-sum of the products of the two lookups, and each lookup is the
+isomorphism-indicator weight. So summing a cell over the factor rows
+gives the product of two weights — the summand of the rooting sums the
+fiber coefficients carry. -/
+
+/-- **The one-root cell is the row-sum of weight products**: the Gram
+entry a witness pair reads is exactly what the fiber coefficients sum
+over the factor rows. -/
+theorem cellS1_eq_weights {w : ℕ} {u a b c u' a' b' c' : Fin 7}
+    (hm : gatherBits (mkGather4 u.val a.val b.val c.val) 4 w < 16)
+    (hm' : gatherBits (mkGather4 u'.val a'.val b'.val c'.val) 4 w < 16)
+    (hinj : Function.Injective ![u, a, b, c])
+    (hinj' : Function.Injective ![u', a', b', c'])
+    (hk4 : k4FreeMask (quadIdxList 4)
+      (gatherBits (mkGather4 u.val a.val b.val c.val) 4 w) = true)
+    (hk4' : k4FreeMask (quadIdxList 4)
+      (gatherBits (mkGather4 u'.val a'.val b'.val c'.val) 4 w) = true) :
+    ((s1Cell w (mkGather4 u.val a.val b.val c.val,
+        mkGather4 u'.val a'.val b'.val c'.val) : ℤ) : ℚ)
+      = ∑ r ∈ Finset.range 6,
+          (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+              * (if (s1Flag i.val).IsIso
+                  (extFlagS1 (graphOfMask 7 w) ![u] a b c)
+                then 1 else 0))
+            * (∑ j : Fin 7, ((fS1 r j.val : ℤ) : ℚ)
+                * (if (s1Flag j.val).IsIso
+                    (extFlagS1 (graphOfMask 7 w) ![u'] a' b' c')
+                  then 1 else 0)) := by
+  obtain ⟨hlt, -⟩ := s1_table_spec _ hm hk4
+  obtain ⟨hlt', -⟩ := s1_table_spec _ hm' hk4'
+  rw [Finset.sum_congr rfl fun r (_ : r ∈ Finset.range 6) => by
+    rw [weightS1_eq_lookup r hm hinj hk4,
+      weightS1_eq_lookup r hm' hinj' hk4'],
+    sum_rows_gramS1 _ _ hlt hlt']
+  rfl
+
+/-- **The nonedge-root Gram lookup is the row-sum of weight products.**
+The three-root cell reads six such entries; this is one of them. -/
+theorem gramS30_eq_weights {w : ℕ} {r0 r1 r2 v x r0' r1' r2' v' x' : Fin 7}
+    (hm : gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+      10 w < 1024)
+    (hm' : gatherBits (mkGather5 r0'.val r1'.val r2'.val v'.val x'.val)
+      10 w < 1024)
+    (hinj : Function.Injective ![r0, r1, r2, v, x])
+    (hinj' : Function.Injective ![r0', r1', r2', v', x'])
+    (hk4 : k4FreeMask (quadIdxList 5) (gatherBits
+      (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w) = true)
+    (hk4' : k4FreeMask (quadIdxList 5) (gatherBits
+      (mkGather5 r0'.val r1'.val r2'.val v'.val x'.val) 10 w) = true)
+    (hbit : (gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+      10 w).testBit 0 = false)
+    (hbit' : (gatherBits (mkGather5 r0'.val r1'.val r2'.val v'.val x'.val)
+      10 w).testBit 0 = false) :
+    ((gram7s30.getD
+        ((s3Idx0T.getD (gatherBits
+            (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w) 999) * 236
+          + s3Idx0T.getD (gatherBits
+            (mkGather5 r0'.val r1'.val r2'.val v'.val x'.val) 10 w) 999)
+        0 : ℤ) : ℚ)
+      = ∑ r ∈ Finset.range 60,
+          (∑ i : Fin 236, ((fS30 r i.val : ℤ) : ℚ)
+              * (if (s30Flag i.val).IsIso
+                  (extFlagS3 (graphOfMask 7 w) ![r0, r1, r2] v x)
+                then 1 else 0))
+            * (∑ j : Fin 236, ((fS30 r j.val : ℤ) : ℚ)
+                * (if (s30Flag j.val).IsIso
+                    (extFlagS3 (graphOfMask 7 w) ![r0', r1', r2'] v' x')
+                  then 1 else 0)) := by
+  obtain ⟨hlt, -⟩ := s30_table_spec _ hm hk4 hbit
+  obtain ⟨hlt', -⟩ := s30_table_spec _ hm' hk4' hbit'
+  rw [Finset.sum_congr rfl fun r (_ : r ∈ Finset.range 60) => by
+    rw [weightS30_eq_lookup r hm hinj hk4 hbit,
+      weightS30_eq_lookup r hm' hinj' hk4' hbit'],
+    sum_rows_gramS30 _ _ hlt hlt']
+
+/-- **The edge-root Gram lookup is the row-sum of weight products.** -/
+theorem gramS31_eq_weights {w : ℕ} {r0 r1 r2 v x r0' r1' r2' v' x' : Fin 7}
+    (hm : gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+      10 w < 1024)
+    (hm' : gatherBits (mkGather5 r0'.val r1'.val r2'.val v'.val x'.val)
+      10 w < 1024)
+    (hinj : Function.Injective ![r0, r1, r2, v, x])
+    (hinj' : Function.Injective ![r0', r1', r2', v', x'])
+    (hk4 : k4FreeMask (quadIdxList 5) (gatherBits
+      (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w) = true)
+    (hk4' : k4FreeMask (quadIdxList 5) (gatherBits
+      (mkGather5 r0'.val r1'.val r2'.val v'.val x'.val) 10 w) = true)
+    (hbit : (gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+      10 w).testBit 0 = true)
+    (hbit' : (gatherBits (mkGather5 r0'.val r1'.val r2'.val v'.val x'.val)
+      10 w).testBit 0 = true) :
+    ((gram7s31.getD
+        ((s3Idx1T.getD (gatherBits
+            (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w) 999) * 191
+          + s3Idx1T.getD (gatherBits
+            (mkGather5 r0'.val r1'.val r2'.val v'.val x'.val) 10 w) 999)
+        0 : ℤ) : ℚ)
+      = ∑ r ∈ Finset.range 46,
+          (∑ i : Fin 191, ((fS31 r i.val : ℤ) : ℚ)
+              * (if (s31Flag i.val).IsIso
+                  (extFlagS3 (graphOfMask 7 w) ![r0, r1, r2] v x)
+                then 1 else 0))
+            * (∑ j : Fin 191, ((fS31 r j.val : ℤ) : ℚ)
+                * (if (s31Flag j.val).IsIso
+                    (extFlagS3 (graphOfMask 7 w) ![r0', r1', r2'] v' x')
+                  then 1 else 0)) := by
+  obtain ⟨hlt, -⟩ := s31_table_spec _ hm hk4 hbit
+  obtain ⟨hlt', -⟩ := s31_table_spec _ hm' hk4' hbit'
+  rw [Finset.sum_congr rfl fun r (_ : r ∈ Finset.range 46) => by
+    rw [weightS31_eq_lookup r hm hinj hk4 hbit,
+      weightS31_eq_lookup r hm' hinj' hk4' hbit'],
+    sum_rows_gramS31 _ _ hlt hlt']
+
+end FlagAlgebras.Core.Tetrahedron

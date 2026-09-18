@@ -1,0 +1,909 @@
+{
+  "note": "First builds of the FullSevenLong chain on this machine, staged before the verifier run. These are overlapping operational timings under the stated Lake parallelism, not a clean-build benchmark; adding them gives neither wall time nor CPU time. The tracked formalization.json is the authority for the result.",
+  "machine": "Intel Core i7-14700K (28 threads), 64 GB, Windows 11; Lean 4.27.0, Lake 5.0.0",
+  "stages": {
+    "stage1-data.log": {
+      "description": "21 five-root data modules, 3 old-family factor modules, Ext56/RootingReindex/Sym3RootingReindex/Mask6Inj (LEAN_NUM_THREADS=8)",
+      "wall_clock": "3m45.295s",
+      "exit_line": "exit 0"
+    },
+    "stage2-semantics.log": {
+      "description": "five-root semantic modules through FiveRootSem and FiveRootSOS, Blocks, Column, Check (LEAN_NUM_THREADS=8)",
+      "wall_clock": "13m19.949s",
+      "exit_line": "exit 0"
+    },
+    "stage3-headline.log": {
+      "description": "all 49 sweeps, BlockCheck/BlockElt/DegreeCheck, the remaining chain, TetrahedronDifferential, TetrahedronBoost, TetrahedronLongHeadline in one Lake invocation (LEAN_NUM_THREADS=12)",
+      "wall_clock": "174m45.604s",
+      "exit_line": "exit 0"
+    }
+  },
+  "sweep_count": 49,
+  "sweep_seconds_min": 579.0,
+  "sweep_seconds_median": 2150.0,
+  "sweep_seconds_max": 3217.0,
+  "module_timings": [
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors10",
+      "seconds": 34.0,
+      "log": "stage1-data.log",
+      "line": "✔ [153/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors10 (34s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors09",
+      "seconds": 7.5,
+      "log": "stage1-data.log",
+      "line": "✔ [154/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors09 (7.5s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors12",
+      "seconds": 46.0,
+      "log": "stage1-data.log",
+      "line": "✔ [155/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors12 (46s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors13",
+      "seconds": 46.0,
+      "log": "stage1-data.log",
+      "line": "✔ [156/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors13 (46s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors14",
+      "seconds": 46.0,
+      "log": "stage1-data.log",
+      "line": "✔ [157/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors14 (46s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors15",
+      "seconds": 46.0,
+      "log": "stage1-data.log",
+      "line": "✔ [158/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors15 (46s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors16",
+      "seconds": 46.0,
+      "log": "stage1-data.log",
+      "line": "✔ [159/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors16 (46s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors17",
+      "seconds": 46.0,
+      "log": "stage1-data.log",
+      "line": "✔ [160/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors17 (46s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors11",
+      "seconds": 46.0,
+      "log": "stage1-data.log",
+      "line": "✔ [161/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors11 (46s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors08",
+      "seconds": 17.0,
+      "log": "stage1-data.log",
+      "line": "✔ [162/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors08 (17s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors07",
+      "seconds": 34.0,
+      "log": "stage1-data.log",
+      "line": "✔ [163/177] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors07 (34s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors03",
+      "seconds": 42.0,
+      "log": "stage1-data.log",
+      "line": "✔ [406/430] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors03 (42s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors04",
+      "seconds": 42.0,
+      "log": "stage1-data.log",
+      "line": "✔ [407/430] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors04 (42s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors05",
+      "seconds": 42.0,
+      "log": "stage1-data.log",
+      "line": "✔ [408/430] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors05 (42s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors06",
+      "seconds": 42.0,
+      "log": "stage1-data.log",
+      "line": "✔ [409/430] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors06 (42s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors02",
+      "seconds": 42.0,
+      "log": "stage1-data.log",
+      "line": "✔ [415/444] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors02 (42s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors01",
+      "seconds": 44.0,
+      "log": "stage1-data.log",
+      "line": "✔ [726/759] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors01 (44s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Compute.RootingReindex",
+      "seconds": 17.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1268/1279] Built LeanFlagAlgebras.Core.Compute.RootingReindex (17s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootBits",
+      "seconds": 22.0,
+      "log": "stage1-data.log",
+      "line": "⚠ [1269/1279] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootBits (22s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Compute.Mask6Inj",
+      "seconds": 20.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1270/1279] Built LeanFlagAlgebras.Core.Compute.Mask6Inj (20s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Compute.Sym3RootingReindex",
+      "seconds": 9.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1271/1279] Built LeanFlagAlgebras.Core.Compute.Sym3RootingReindex (9.0s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootTables",
+      "seconds": 9.8,
+      "log": "stage1-data.log",
+      "line": "✔ [1272/1279] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootTables (9.8s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedData",
+      "seconds": 24.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1273/1279] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedData (24s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS1",
+      "seconds": 64.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1274/1279] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS1 (64s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS31",
+      "seconds": 64.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1275/1279] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS31 (64s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS30",
+      "seconds": 64.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1276/1279] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS30 (64s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors00",
+      "seconds": 135.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1277/1279] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors00 (135s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Ext56",
+      "seconds": 101.0,
+      "log": "stage1-data.log",
+      "line": "✔ [1278/1279] Built LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Ext56 (101s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootData",
+      "seconds": 7.8,
+      "log": "stage1-data.log",
+      "line": "✔ [1279/1279] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootData (7.8s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootColumn",
+      "seconds": 9.8,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1283/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootColumn (9.8s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootPullback",
+      "seconds": 9.9,
+      "log": "stage2-semantics.log",
+      "line": "⚠ [1284/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootPullback (9.9s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedColumn",
+      "seconds": 7.4,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1285/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedColumn (7.4s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFlags",
+      "seconds": 216.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1286/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFlags (216s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSOS",
+      "seconds": 120.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1287/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSOS (120s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootTableFacts",
+      "seconds": 121.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1288/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootTableFacts (121s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootGramSem",
+      "seconds": 17.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1289/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootGramSem (17s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSamples",
+      "seconds": 17.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1290/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSamples (17s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Extension",
+      "seconds": 410.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1291/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Extension (410s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootColumnSum",
+      "seconds": 74.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1292/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootColumnSum (74s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedSem",
+      "seconds": 74.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1293/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedSem (74s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSem",
+      "seconds": 5.8,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1294/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSem (5.8s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Blocks",
+      "seconds": 43.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1295/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Blocks (43s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Column",
+      "seconds": 337.0,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1296/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Column (337s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Check",
+      "seconds": 5.9,
+      "log": "stage2-semantics.log",
+      "line": "✔ [1297/1297] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Check (5.9s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_03",
+      "seconds": 2360.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2681/2706] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_03 (2360s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_11",
+      "seconds": 2369.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2682/2707] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_11 (2369s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_06",
+      "seconds": 2487.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2683/2707] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_06 (2487s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_10",
+      "seconds": 2514.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2686/2709] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_10 (2514s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_09",
+      "seconds": 2554.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2688/2710] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_09 (2554s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_01",
+      "seconds": 2782.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2690/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_01 (2782s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_04",
+      "seconds": 2782.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2691/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_04 (2782s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_05",
+      "seconds": 2782.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2692/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_05 (2782s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_07",
+      "seconds": 2782.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2693/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_07 (2782s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_08",
+      "seconds": 2782.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2694/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_08 (2782s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_02",
+      "seconds": 2782.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2696/2716] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_02 (2782s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_00",
+      "seconds": 3217.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2698/2717] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_00 (3217s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_15",
+      "seconds": 2114.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2699/2717] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_15 (2114s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_14",
+      "seconds": 2142.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2702/2719] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_14 (2142s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_13",
+      "seconds": 2265.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2704/2720] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_13 (2265s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_12",
+      "seconds": 2368.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2706/2721] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_12 (2368s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_16",
+      "seconds": 2193.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2708/2722] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_16 (2193s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_21",
+      "seconds": 1995.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2709/2723] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_21 (1995s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_17",
+      "seconds": 2153.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2710/2724] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_17 (2153s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_18",
+      "seconds": 2185.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2711/2725] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_18 (2185s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_20",
+      "seconds": 2231.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2712/2726] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_20 (2231s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_19",
+      "seconds": 2232.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2713/2727] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_19 (2232s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_22",
+      "seconds": 2279.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2714/2728] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_22 (2279s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_23",
+      "seconds": 2202.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2715/2729] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_23 (2202s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_26",
+      "seconds": 2150.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2716/2730] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_26 (2150s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_25",
+      "seconds": 2193.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2717/2731] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_25 (2193s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_31",
+      "seconds": 1876.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2718/2732] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_31 (1876s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_24",
+      "seconds": 2234.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2719/2733] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_24 (2234s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_29",
+      "seconds": 2094.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2720/2734] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_29 (2094s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_30",
+      "seconds": 1937.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2721/2735] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_30 (1937s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_27",
+      "seconds": 2148.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2722/2736] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_27 (2148s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_33",
+      "seconds": 1869.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2723/2737] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_33 (1869s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_28",
+      "seconds": 2197.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2724/2738] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_28 (2197s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_32",
+      "seconds": 2032.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2725/2739] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_32 (2032s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_34",
+      "seconds": 1989.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2726/2740] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_34 (1989s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_35",
+      "seconds": 1972.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2727/2743] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_35 (1972s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_36",
+      "seconds": 1895.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2728/2743] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_36 (1895s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_45",
+      "seconds": 1641.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2729/2744] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_45 (1641s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Split",
+      "seconds": 10.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2731/2752] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Split (10s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Edges",
+      "seconds": 10.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2733/2752] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Edges (10s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Realize",
+      "seconds": 7.3,
+      "log": "stage3-headline.log",
+      "line": "✔ [2734/2754] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Realize (7.3s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Deck",
+      "seconds": 7.8,
+      "log": "stage3-headline.log",
+      "line": "✔ [2762/2787] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Deck (7.8s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induced",
+      "seconds": 8.1,
+      "log": "stage3-headline.log",
+      "line": "✔ [2763/2787] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induced (8.1s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Chain",
+      "seconds": 6.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2764/2787] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Chain (6.0s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassIdx",
+      "seconds": 16.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2765/2789] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassIdx (16s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Fiber",
+      "seconds": 7.2,
+      "log": "stage3-headline.log",
+      "line": "✔ [2766/2789] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Fiber (7.2s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassNum",
+      "seconds": 7.1,
+      "log": "stage3-headline.log",
+      "line": "✔ [2768/2790] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassNum (7.1s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FoldSum",
+      "seconds": 7.7,
+      "log": "stage3-headline.log",
+      "line": "✔ [2771/2798] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FoldSum (7.7s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_41",
+      "seconds": 1909.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2772/2798] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_41 (1909s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_42",
+      "seconds": 1938.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2774/2804] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_42 (1938s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_43",
+      "seconds": 1943.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2775/2823] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_43 (1943s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Objective",
+      "seconds": 7.5,
+      "log": "stage3-headline.log",
+      "line": "✔ [2777/2825] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Objective (7.5s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockFlags",
+      "seconds": 24.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2885/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockFlags (24s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induce5",
+      "seconds": 9.4,
+      "log": "stage3-headline.log",
+      "line": "✔ [2886/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induce5 (9.4s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext24",
+      "seconds": 9.5,
+      "log": "stage3-headline.log",
+      "line": "✔ [2887/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext24 (9.5s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_37",
+      "seconds": 2031.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2888/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_37 (2031s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext45",
+      "seconds": 11.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2889/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext45 (11s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_44",
+      "seconds": 1922.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2890/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_44 (1922s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockGamma",
+      "seconds": 7.1,
+      "log": "stage3-headline.log",
+      "line": "✔ [2891/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockGamma (7.1s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_40",
+      "seconds": 1997.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2892/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_40 (1997s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_46",
+      "seconds": 1821.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2893/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_46 (1821s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_39",
+      "seconds": 2046.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2894/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_39 (2046s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_38",
+      "seconds": 2134.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2895/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_38 (2134s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockCheck",
+      "seconds": 132.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2896/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockCheck (132s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockSOS",
+      "seconds": 6.2,
+      "log": "stage3-headline.log",
+      "line": "✔ [2897/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockSOS (6.2s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_47",
+      "seconds": 1718.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2898/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_47 (1718s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7GatherPull",
+      "seconds": 349.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2899/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7GatherPull (349s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootFlags",
+      "seconds": 389.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2900/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootFlags (389s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellSem",
+      "seconds": 5.6,
+      "log": "stage3-headline.log",
+      "line": "✔ [2901/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellSem (5.6s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellWeight",
+      "seconds": 6.8,
+      "log": "stage3-headline.log",
+      "line": "✔ [2902/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellWeight (6.8s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootAcct",
+      "seconds": 6.8,
+      "log": "stage3-headline.log",
+      "line": "✔ [2903/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootAcct (6.8s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootSOS",
+      "seconds": 9.3,
+      "log": "stage3-headline.log",
+      "line": "✔ [2904/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootSOS (9.3s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reindex",
+      "seconds": 9.3,
+      "log": "stage3-headline.log",
+      "line": "✔ [2905/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reindex (9.3s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootMatch",
+      "seconds": 6.7,
+      "log": "stage3-headline.log",
+      "line": "⚠ [2906/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootMatch (6.7s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_48",
+      "seconds": 579.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2907/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_48 (579s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Verified",
+      "seconds": 5.6,
+      "log": "stage3-headline.log",
+      "line": "✔ [2908/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Verified (5.6s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Bound",
+      "seconds": 10.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2909/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Bound (10s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Covered",
+      "seconds": 10.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2910/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Covered (10s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Slack",
+      "seconds": 5.7,
+      "log": "stage3-headline.log",
+      "line": "✔ [2911/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Slack (5.7s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Assembly",
+      "seconds": 6.4,
+      "log": "stage3-headline.log",
+      "line": "✔ [2912/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Assembly (6.4s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootExpand",
+      "seconds": 6.4,
+      "log": "stage3-headline.log",
+      "line": "✔ [2913/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootExpand (6.4s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reduce",
+      "seconds": 6.5,
+      "log": "stage3-headline.log",
+      "line": "✔ [2914/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reduce (6.5s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeExpand",
+      "seconds": 6.4,
+      "log": "stage3-headline.log",
+      "line": "✔ [2915/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeExpand (6.4s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootExpand",
+      "seconds": 6.4,
+      "log": "stage3-headline.log",
+      "line": "✔ [2916/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootExpand (6.4s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Pieces",
+      "seconds": 6.5,
+      "log": "stage3-headline.log",
+      "line": "✔ [2917/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Pieces (6.5s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockElt",
+      "seconds": 1020.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2918/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockElt (1020s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeCheck",
+      "seconds": 1021.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2919/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeCheck (1021s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootElt",
+      "seconds": 5.9,
+      "log": "stage3-headline.log",
+      "line": "✔ [2920/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootElt (5.9s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootScaled",
+      "seconds": 6.3,
+      "log": "stage3-headline.log",
+      "line": "✔ [2921/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootScaled (6.3s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronMaximizer",
+      "seconds": 5.6,
+      "log": "stage3-headline.log",
+      "line": "✔ [2922/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronMaximizer (5.6s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealize",
+      "seconds": 10.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2923/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealize (10s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronCompact",
+      "seconds": 6.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2924/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronCompact (6.0s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitLin",
+      "seconds": 6.3,
+      "log": "stage3-headline.log",
+      "line": "✔ [2925/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitLin (6.3s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitMul",
+      "seconds": 6.2,
+      "log": "stage3-headline.log",
+      "line": "⚠ [2926/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitMul (6.2s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitHom",
+      "seconds": 6.1,
+      "log": "stage3-headline.log",
+      "line": "✔ [2927/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitHom (6.1s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealizedApply",
+      "seconds": 5.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2928/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealizedApply (5.0s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronTuran",
+      "seconds": 6.6,
+      "log": "stage3-headline.log",
+      "line": "✔ [2929/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronTuran (6.6s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronAntitone",
+      "seconds": 58.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2930/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronAntitone (58s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronStatComb",
+      "seconds": 58.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2931/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronStatComb (58s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronExtremal",
+      "seconds": 6.2,
+      "log": "stage3-headline.log",
+      "line": "✔ [2932/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronExtremal (6.2s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronBoost",
+      "seconds": 14.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2933/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronBoost (14s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDifferential",
+      "seconds": 21.0,
+      "log": "stage3-headline.log",
+      "line": "✔ [2934/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDifferential (21s)"
+    },
+    {
+      "module": "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLongHeadline",
+      "seconds": 7.6,
+      "log": "stage3-headline.log",
+      "line": "✔ [2935/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLongHeadline (7.6s)"
+    }
+  ]
+}

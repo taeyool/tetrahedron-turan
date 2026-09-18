@@ -1,0 +1,79 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootSOS
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Reduce
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7BlockElt
+import LeanFlagAlgebras.Core.Examples.TetrahedronDegreeCheck
+
+/-! # The root element, and what is left of the bound
+
+The order-6 half of the certificate's semidefinite part is settled:
+`blockElt6 = (1 / D²) • blockSOS` with `blockSOS` a sum of downward
+squares, so `0 ≤ blockElt6`. The order-7 half has all of its pieces in
+place — the extension-flag bridges at the three rooted types, the
+reconstructed family flags with their table and Gram specifications,
+the folds rewritten as sums over the measured enumerations, the gather
+words identified with pullback masks, the index lookups identified with
+isomorphism indicators, and the rooting accounting — but the final
+recombination of those into the coefficient identity is not yet
+written.
+
+This file names that identity, `IsRootScaled`, and draws the two
+consequences: `0 ≤ rootElt` from it, and the full semidefinite
+hypothesis of `positiveHom_edge_le_of_pieces`.
+
+The scalars behind the identity have been measured and fold exactly:
+`36 / 5040 = (1/7)(1/20)` for the one-root family and
+`4 / 5040 = (1/210)(1/6)` for the three-root families, both against
+`1 / D²` — the same shape the order-6 assembly came out with. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+open Classical
+
+/-- The order-7 coefficient identity: the certificate's rooted element
+is the root SOS element over `D²`. -/
+def IsRootScaled : Prop :=
+  rootElt = ((1 : ℝ) / 10000000000) • rootSOS
+
+/-- **The order-7 semidefinite part**, from the coefficient identity. -/
+theorem rootElt_nonneg (h : IsRootScaled) :
+    (0 : FlagAlgebra TetraFree emptyType) ≤ rootElt := by
+  rw [show rootElt = ((1 : ℝ) / 10000000000) • rootSOS from h]
+  exact smul_nonneg_of_nonneg (by norm_num) rootSOS_nonneg
+
+/-- **The semidefinite hypothesis of the bound**, from the same
+identity: the order-6 half is already unconditional. -/
+theorem blockElt6_add_rootElt_nonneg (h : IsRootScaled) :
+    (0 : FlagAlgebra TetraFree emptyType) ≤ blockElt6 + rootElt := by
+  have hb := blockElt6_nonneg
+  have hr := rootElt_nonneg h
+  intro φ
+  have e1 := hb φ
+  have e2 := hr φ
+  rw [sub_zero] at e1 e2 ⊢
+  rw [PositiveHom.map_add]
+  linarith
+
+/-- **The bound on one hypothesis.** With the stationarity
+identification proved and the order-6 semidefinite part discharged, a
+degree-stationary positive homomorphism assigns the hyperedge at most
+the certificate's value as soon as the order-7 coefficient identity
+holds. -/
+theorem positiveHom_edge_le_of_rootScaled
+    (φ : PositiveHom TetraFree emptyType) (hφ : IsDegreeStationary φ)
+    (h : IsRootScaled) :
+    φ edgeElt ≤ ((certBound : ℚ) : ℝ) :=
+  positiveHom_edge_le_of_pieces φ hφ
+    (blockElt6_add_rootElt_nonneg h) statElt6_eq
+
+/-- **Below the published record**, on the same single hypothesis. -/
+theorem positiveHom_edge_lt_published_of_rootScaled
+    (φ : PositiveHom TetraFree emptyType) (hφ : IsDegreeStationary φ)
+    (h : IsRootScaled) :
+    φ edgeElt < (1123 / 2000 : ℝ) := by
+  refine lt_of_le_of_lt (positiveHom_edge_le_of_rootScaled φ hφ h) ?_
+  rw [certBound_cast]
+  norm_num
+
+end FlagAlgebras.Core.Tetrahedron

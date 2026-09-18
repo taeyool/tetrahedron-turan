@@ -1,0 +1,14 @@
+{
+  "main_configurations": 13,
+  "main_repetitions": 39,
+  "new_productions": 18,
+  "long_runs": 3,
+  "independent_m6_reference": 1,
+  "new_checkpoint_slots": 119,
+  "production_checkpoint_slots": 195,
+  "production_verified_checkpoints": 153,
+  "new_unique_certificates_audited": 93,
+  "all_source_dual_hashes_and_exact_fractions_agree": true,
+  "no_late_candidate_selected": true,
+  "archived_headline_sha256": "cf96758a94ce476f76c5a75cd459de28121cdc11b1c3f5be6aa2810ffdeb80e1"
+}

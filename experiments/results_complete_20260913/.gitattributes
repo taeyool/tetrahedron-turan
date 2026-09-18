@@ -1,0 +1,4 @@
+# Preserve the exact published bytes used by the SHA-256 manifests.
+* -text whitespace=cr-at-eol
+# Matplotlib emits whitespace inside SVG path data.
+*.svg whitespace=cr-at-eol,-blank-at-eol

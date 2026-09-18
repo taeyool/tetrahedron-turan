@@ -1,0 +1,3 @@
+# Preserve the exact bytes of the verification record: formalization.json records raw
+# hashes of the logs and preparation/SHA256SUMS covers the archived build logs.
+* -text

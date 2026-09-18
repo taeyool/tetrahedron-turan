@@ -1,0 +1,144 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Column
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ExtS1
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ExtS3
+
+/-! # The order-7 family flags, reconstructed from the index tables
+
+The one-root and three-root families exist in the certificate only
+through their index tables and Gram matrices — there are no stored flag
+lists. This file reconstructs them: the canonical mask of index `i` is
+the least mask the table sends to `i`, and the table-specification
+checks say each reachable mask's decoded flag is isomorphic to the flag
+of its index. That is exactly what the weight-to-lookup conversion of
+the SOS assembly needs.
+
+The factor rows come out of their shifted storage through `unshift`;
+the Gram facts pin each stored Gram entry as the row-product sum. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-! ## The one-root family -/
+
+/-- The canonical mask of one-root flag index `i`. -/
+def s1FlagMask (i : ℕ) : ℕ :=
+  ((List.range 16).filter fun M => s1IdxT.getD M 999 = i).getD 0 0
+
+/-- The `i`-th one-root four-vertex flag. -/
+def s1Flag (i : ℕ) : Sym3Flag 1 4 :=
+  ⟨graphOfMask 4 (s1FlagMask i), ![0]⟩
+
+/-- The factor entry of row `r` at flag `i`, one-root family. -/
+def fS1 (r i : ℕ) : ℤ := (unshift f7s1Raw).getD (r * 7 + i) 0
+
+set_option maxRecDepth 8192 in
+lemma s1Flag_wf : ∀ i < 7, (s1Flag i).WellFormed vertexGraph := by decide
+
+set_option maxRecDepth 8192 in
+lemma s1Flag_bits :
+    ∀ i < 7, k4FreeMask (quadIdxList 4) (s1FlagMask i) = true := by decide
+
+lemma s1Flag_mem {i : ℕ} (hi : i < 7) :
+    TetraFree.Mem (s1Flag i).graph.toModel :=
+  k4FreeMask_iff_mem.mp (s1Flag_bits i hi)
+
+set_option maxRecDepth 8192 in
+/-- **The one-root table specification**: every tetrahedron-free
+four-vertex mask is sent to an index below seven whose canonical flag
+is isomorphic to it, roots first. -/
+lemma s1_table_spec : ∀ M < 16, k4FreeMask (quadIdxList 4) M = true →
+    s1IdxT.getD M 999 < 7
+      ∧ (Sym3Flag.mk (graphOfMask 4 M) ![0]).IsIso
+          (s1Flag (s1IdxT.getD M 999)) := by decide
+
+set_option maxRecDepth 8192 in
+/-- The seven canonical one-root flags are pairwise non-isomorphic. -/
+lemma s1Flag_pairwise : ∀ i < 7, ∀ j < 7, i ≠ j →
+    ¬(s1Flag i).IsIso (s1Flag j) := by decide
+
+/-- **The one-root Gram fact**: each stored entry is the factor-row
+product sum. -/
+lemma gram7s1_spec : ∀ i < 7, ∀ j < 7,
+    gram7s1.getD (i * 7 + j) 0
+      = (List.range 6).foldl (fun s r => s + fS1 r i * fS1 r j) 0 := by
+  native_decide
+
+/-! ## The three-root families -/
+
+/-- The canonical mask of nonedge-root flag index `i`. -/
+def s30FlagMask (i : ℕ) : ℕ :=
+  ((List.range 1024).filter fun M => s3Idx0T.getD M 999 = i).getD 0 0
+
+/-- The canonical mask of edge-root flag index `i`. -/
+def s31FlagMask (i : ℕ) : ℕ :=
+  ((List.range 1024).filter fun M => s3Idx1T.getD M 999 = i).getD 0 0
+
+/-- The `i`-th nonedge-root five-vertex flag. -/
+def s30Flag (i : ℕ) : Sym3Flag 3 5 :=
+  ⟨graphOfMask 5 (s30FlagMask i), ![0, 1, 2]⟩
+
+/-- The `i`-th edge-root five-vertex flag. -/
+def s31Flag (i : ℕ) : Sym3Flag 3 5 :=
+  ⟨graphOfMask 5 (s31FlagMask i), ![0, 1, 2]⟩
+
+/-- The factor entries of the three-root families. -/
+def fS30 (r i : ℕ) : ℤ := (unshift f7s30Raw).getD (r * 236 + i) 0
+def fS31 (r i : ℕ) : ℤ := (unshift f7s31Raw).getD (r * 191 + i) 0
+
+/-- Well-formedness of the nonedge-root flags over their type. -/
+lemma s30Flag_wf : ∀ i < 236, (s30Flag i).WellFormed (s3Type 0) := by
+  native_decide
+
+lemma s31Flag_wf : ∀ i < 191, (s31Flag i).WellFormed (s3Type 1) := by
+  native_decide
+
+lemma s30Flag_bits :
+    ∀ i < 236, k4FreeMask (quadIdxList 5) (s30FlagMask i) = true := by
+  native_decide
+
+lemma s31Flag_bits :
+    ∀ i < 191, k4FreeMask (quadIdxList 5) (s31FlagMask i) = true := by
+  native_decide
+
+lemma s30Flag_mem {i : ℕ} (hi : i < 236) :
+    TetraFree.Mem (s30Flag i).graph.toModel :=
+  k4FreeMask_iff_mem.mp (s30Flag_bits i hi)
+
+lemma s31Flag_mem {i : ℕ} (hi : i < 191) :
+    TetraFree.Mem (s31Flag i).graph.toModel :=
+  k4FreeMask_iff_mem.mp (s31Flag_bits i hi)
+
+/-- **The nonedge-root table specification.** -/
+lemma s30_table_spec : ∀ M < 1024,
+    k4FreeMask (quadIdxList 5) M = true → M.testBit 0 = false →
+    s3Idx0T.getD M 999 < 236
+      ∧ (Sym3Flag.mk (graphOfMask 5 M) ![0, 1, 2]).IsIso
+          (s30Flag (s3Idx0T.getD M 999)) := by native_decide
+
+/-- **The edge-root table specification.** -/
+lemma s31_table_spec : ∀ M < 1024,
+    k4FreeMask (quadIdxList 5) M = true → M.testBit 0 = true →
+    s3Idx1T.getD M 999 < 191
+      ∧ (Sym3Flag.mk (graphOfMask 5 M) ![0, 1, 2]).IsIso
+          (s31Flag (s3Idx1T.getD M 999)) := by native_decide
+
+/-- The canonical three-root flags are pairwise non-isomorphic. -/
+lemma s30Flag_pairwise : ∀ i < 236, ∀ j < 236, i ≠ j →
+    ¬(s30Flag i).IsIso (s30Flag j) := by native_decide
+
+lemma s31Flag_pairwise : ∀ i < 191, ∀ j < 191, i ≠ j →
+    ¬(s31Flag i).IsIso (s31Flag j) := by native_decide
+
+/-- **The three-root Gram facts.** -/
+lemma gram7s30_spec : ∀ i < 236, ∀ j < 236,
+    gram7s30.getD (i * 236 + j) 0
+      = (List.range 60).foldl (fun s r => s + fS30 r i * fS30 r j) 0 := by
+  native_decide
+
+lemma gram7s31_spec : ∀ i < 191, ∀ j < 191,
+    gram7s31.getD (i * 191 + j) 0
+      = (List.range 46).foldl (fun s r => s + fS31 r i * fS31 r j) 0 := by
+  native_decide
+
+end FlagAlgebras.Core.Tetrahedron

@@ -1,0 +1,250 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Reduce
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Objective
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Assembly
+
+/-! # The order-6 certificate element, in pieces
+
+The class number of a six-vertex class is, by definition,
+
+  `36·e·D² + 4·blockValue24 + blockValue45 + 12·τ·statNum`
+
+over `720·D²`. Dividing through, the four summands are: the edge
+density `e/20`, the two SOS block families over their denominator, and
+`τ` times `statNum/60`. This file performs that split at the level of
+flag-algebra elements: the order-6 certificate element is the edge
+element plus a named block element plus `τ` times a named stationarity
+element.
+
+Combined with the reduction, the expansion identity `IsCertDecomp` —
+and with it the whole bound — now follows from exactly two statements:
+
+* the block element plus the rooted element is semidefinite
+  (`0 ≤ blockElt6 + rootElt`), which is where the certificate's sums of
+  squares live; and
+* the stationarity element is the degree stationarity element
+  (`statElt6 = degreeStationarity`).
+
+Both are recorded as hypotheses of `positiveHom_edge_le_of_pieces`.
+
+The same proof-engineering constraint as in the reduction applies: no
+tactic may trigger a definitional-equality check across mismatched
+`classNum`-bearing terms. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+open Classical
+
+/-! ## The edge density of a six-vertex class, from its mask -/
+
+set_option maxRecDepth 40000 in
+lemma finTriples6_nodup : (finTriples 6).Nodup := by decide
+
+set_option maxRecDepth 40000 in
+/-- The rank enumerates the six-vertex triples exactly once each. -/
+lemma triIdx6_perm :
+    ((finTriples 6).map fun t => triIdx 6 t.1.val t.2.1.val t.2.2.val).Perm
+      (List.range 20) := by
+  decide
+
+lemma card_edges_graphOfMask6 (m : ℕ) :
+    (graphOfMask 6 m).edges.card
+      = (finTriples 6).countP
+          fun t => m.testBit (triIdx 6 t.1.val t.2.1.val t.2.2.val) := by
+  show (Finset.image _ _).card = _
+  rw [Finset.card_image_of_injOn, List.toFinset_card_of_nodup
+      (finTriples6_nodup.filter _), List.countP_eq_length_filter]
+  intro t₁ h₁ t₂ h₂ heq
+  simp only [Finset.mem_coe, List.mem_toFinset, List.mem_filter] at h₁ h₂
+  obtain ⟨hab₁, hbc₁⟩ := mem_finTriples.mp h₁.1
+  obtain ⟨hab₂, hbc₂⟩ := mem_finTriples.mp h₂.1
+  obtain ⟨e₁, e₂, e₃⟩ := sorted_triple_eq hab₁ hbc₁ hab₂ hbc₂ heq
+  exact Prod.ext e₁ (Prod.ext e₂ e₃)
+
+/-- The certificate's six-vertex edge counter counts the hyperedges of
+the decoded graph. -/
+theorem edgeCount_eq_card_edges (m : ℕ) :
+    edgeCount m = (graphOfMask 6 m).edges.card := by
+  rw [card_edges_graphOfMask6, edgeCount_eq_countP, ← triIdx6_perm.countP_eq,
+    List.countP_map]
+  rfl
+
+/-- The hyperedge density of a six-vertex class is the edge count of any
+realizing mask over `C(6,3) = 20`. -/
+theorem subflagDensity_edge_graphOfMask6 {w : ℕ}
+    (hw : TetraFree.Mem (graphOfMask 6 w).toModel) :
+    subflagDensity (edgeGraph.toFlag edgeGraph_mem)
+        ((graphOfMask 6 w).toFlag hw)
+      = (edgeCount w : ℚ) / 20 := by
+  rw [Sym3Graph.subflagDensity_toFlag, edge_flagCountC_eq_card,
+    edgeCount_eq_card_edges, show Nat.choose 6 3 = 20 from rfl]
+  norm_num
+
+/-! ## The representative of a six-vertex class -/
+
+/-- The listed representative of a six-vertex class: the entry of
+`h6Reps` its class index points at. -/
+noncomputable def repMask (H : FlagWithSize TetraFree emptyType 6) : ℕ :=
+  h6Reps.getD (classIdxTable.getD (classMask H) 9999) 0
+
+lemma classNumOf_def (H : FlagWithSize TetraFree emptyType 6) :
+    classNumOf H = (classNum (repMask H) : ℚ) := rfl
+
+lemma repMask_spec (H : FlagWithSize TetraFree emptyType 6) :
+    classIdxTable.getD (classMask H) 9999 < 964
+      ∧ (graphOfMask 6 (classMask H)).IsIso (graphOfMask 6 (repMask H)) := by
+  obtain ⟨hc, hck, -⟩ := (exists_mask_class H).choose_spec
+  have hc' : classMask H < 2 ^ 20 := hc
+  have hck' : k4FreeMask (quadIdxList 6) (classMask H) = true := hck
+  exact classIdxTable_spec hc' hck'
+
+lemma repMask_mem (H : FlagWithSize TetraFree emptyType 6) :
+    repMask H ∈ h6Reps :=
+  h6Reps_getD_mem (repMask_spec H).1
+
+lemma repMask_k4free (H : FlagWithSize TetraFree emptyType 6) :
+    k4FreeMask (quadIdxList 6) (repMask H) = true := by
+  have h := List.all_eq_true.mp h6Reps_k4free _ (repMask_mem H)
+  simpa using h
+
+lemma repMask_memT (H : FlagWithSize TetraFree emptyType 6) :
+    TetraFree.Mem (graphOfMask 6 (repMask H)).toModel :=
+  k4FreeMask_iff_mem.mp (repMask_k4free H)
+
+/-- The representative realizes the class. -/
+lemma toFlag_repMask (H : FlagWithSize TetraFree emptyType 6)
+    (h : TetraFree.Mem (graphOfMask 6 (repMask H)).toModel) :
+    (graphOfMask 6 (repMask H)).toFlag h = H := by
+  obtain ⟨hc, hck, hcH⟩ := (exists_mask_class H).choose_spec
+  have hck' : k4FreeMask (quadIdxList 6) (classMask H) = true := hck
+  have hiso := (repMask_spec H).2
+  have heq := (Sym3Graph.toFlag_eq_toFlag_iff
+    (k4FreeMask_iff_mem.mp hck') h).mpr hiso
+  rw [← heq]
+  exact hcH _
+
+/-- The edge density of a six-vertex class, read off its listed
+representative. -/
+lemma subflagDensity_edge_class (H : FlagWithSize TetraFree emptyType 6) :
+    subflagDensity (edgeGraph.toFlag edgeGraph_mem) H
+      = (edgeCount (repMask H) : ℚ) / 20 := by
+  conv_lhs => rw [← toFlag_repMask H (repMask_memT H)]
+  exact subflagDensity_edge_graphOfMask6 (repMask_memT H)
+
+/-! ## The pieces of the class number -/
+
+/-- The SOS-block part of a six-vertex class. -/
+noncomputable def blockNumOf (H : FlagWithSize TetraFree emptyType 6) : ℤ :=
+  4 * blockValue24 (repMask H) + blockValue45 (repMask H)
+
+/-- The stationarity count of a six-vertex class. -/
+noncomputable def statNumOf (H : FlagWithSize TetraFree emptyType 6) : ℤ :=
+  statNum (repMask H)
+
+/-- The stationarity multiplier of the certificate, as a rational. -/
+def tau7 : ℚ := (tauNum : ℚ) / 10000000000
+
+/-- The class number splits into edge, blocks, and stationarity. -/
+lemma classNumOf_split (H : FlagWithSize TetraFree emptyType 6) :
+    classNumOf H / 7200000000000
+      = subflagDensity (edgeGraph.toFlag edgeGraph_mem) H
+        + (blockNumOf H : ℚ) / 7200000000000
+        + tau7 * ((statNumOf H : ℚ) / 60) := by
+  rw [classNumOf_def, subflagDensity_edge_class]
+  have hcn : classNum (repMask H)
+      = 36 * (edgeCount (repMask H) : ℤ) * certScale * certScale
+        + 4 * blockValue24 (repMask H) + blockValue45 (repMask H)
+        + 12 * tauNum * statNum (repMask H) := rfl
+  have hbn : blockNumOf H
+      = 4 * blockValue24 (repMask H) + blockValue45 (repMask H) := rfl
+  have hsn : statNumOf H = statNum (repMask H) := rfl
+  have hsc : certScale = (100000 : ℤ) := rfl
+  have ht : tau7 = (tauNum : ℚ) / 10000000000 := rfl
+  rw [hcn, hbn, hsn, hsc, ht]
+  push_cast
+  ring
+
+/-! ## The block and stationarity elements -/
+
+/-- The order-6 SOS blocks, as an element. -/
+noncomputable def blockElt6 : FlagAlgebra TetraFree emptyType :=
+  ∑ H : FlagWithSize TetraFree emptyType 6,
+    ((blockNumOf H / 7200000000000 : ℚ) : ℝ) •
+      ⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧
+
+/-- The certificate's stationarity element at level 6. -/
+noncomputable def statElt6 : FlagAlgebra TetraFree emptyType :=
+  ∑ H : FlagWithSize TetraFree emptyType 6,
+    ((statNumOf H / 60 : ℚ) : ℝ) •
+      ⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧
+
+/-- The edge element, expanded over the six-vertex classes. -/
+lemma edgeElt_expand6 :
+    edgeElt = ∑ H : FlagWithSize TetraFree emptyType 6,
+      ((subflagDensity (edgeGraph.toFlag edgeGraph_mem) H : ℚ) : ℝ) •
+        ⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧ := by
+  have h : edgeElt = ⟦basisVector (⟨3, edgeGraph.toFlag edgeGraph_mem⟩ :
+      FinFlag TetraFree emptyType)⟧ := rfl
+  rw [h]
+  exact basisVector_quot_eq_sum
+    (⟨3, edgeGraph.toFlag edgeGraph_mem⟩ : FinFlag TetraFree emptyType) 6
+    (by norm_num)
+
+/-- **The order-6 certificate element in pieces**: edge, blocks, and
+`τ` times the stationarity element. -/
+theorem certElt6_split :
+    certElt6 = edgeElt + blockElt6 + ((tau7 : ℚ) : ℝ) • statElt6 := by
+  have hcert : certElt6 = ∑ H : FlagWithSize TetraFree emptyType 6,
+      ((classNumOf H / 7200000000000 : ℚ) : ℝ) •
+        (⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧
+          : FlagAlgebra TetraFree emptyType) := rfl
+  have hblock : blockElt6 = ∑ H : FlagWithSize TetraFree emptyType 6,
+      ((blockNumOf H / 7200000000000 : ℚ) : ℝ) •
+        (⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧
+          : FlagAlgebra TetraFree emptyType) := rfl
+  have hstat : statElt6 = ∑ H : FlagWithSize TetraFree emptyType 6,
+      ((statNumOf H / 60 : ℚ) : ℝ) •
+        (⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧
+          : FlagAlgebra TetraFree emptyType) := rfl
+  rw [hcert, hblock, hstat, edgeElt_expand6, Finset.smul_sum,
+    ← Finset.sum_add_distrib, ← Finset.sum_add_distrib]
+  refine Finset.sum_congr rfl fun H _ => ?_
+  have hc : ((classNumOf H / 7200000000000 : ℚ) : ℝ)
+      = ((subflagDensity (edgeGraph.toFlag edgeGraph_mem) H : ℚ) : ℝ)
+        + ((blockNumOf H / 7200000000000 : ℚ) : ℝ)
+        + ((tau7 : ℚ) : ℝ) * ((statNumOf H / 60 : ℚ) : ℝ) := by
+    rw [← Rat.cast_mul, ← Rat.cast_add, ← Rat.cast_add]
+    exact congrArg _ (classNumOf_split H)
+  rw [hc, add_smul, add_smul, smul_smul]
+
+/-! ## The reduction, completed -/
+
+/-- **The expansion identity from its two remaining pieces**: if the
+stationarity element is three times the degree stationarity element —
+the certificate's `statNum` convention carries that factor — the
+certificate decomposes with the blocks and the rooted part as its
+semidefinite slot, at three times the recorded multiplier. -/
+theorem isCertDecomp_pieces
+    (hstat : statElt6 = (3 : ℝ) • degreeStationarity) :
+    IsCertDecomp ((3 * tau7 : ℚ) : ℝ) (blockElt6 + rootElt) := by
+  show ((certBound : ℚ) : ℝ) • (1 : FlagAlgebra TetraFree emptyType)
+    = edgeElt + (blockElt6 + rootElt)
+      + ((3 * tau7 : ℚ) : ℝ) • degreeStationarity + remainder7
+  rw [certBound_one_split, certElt6_split, hstat, smul_smul,
+    show ((tau7 : ℚ) : ℝ) * (3 : ℝ) = ((3 * tau7 : ℚ) : ℝ) from by
+      push_cast; ring]
+  abel
+
+/-- **The bound, from the two remaining identities**: semidefiniteness
+of the blocks-plus-rooted element, and the stationarity identification.
+Everything else — the sweep, coverage, the chain rule, the arithmetic —
+is discharged. -/
+theorem positiveHom_edge_le_of_pieces (φ : PositiveHom TetraFree emptyType)
+    (hφ : IsDegreeStationary φ)
+    (hP : (0 : FlagAlgebra TetraFree emptyType) ≤ blockElt6 + rootElt)
+    (hstat : statElt6 = (3 : ℝ) • degreeStationarity) :
+    φ edgeElt ≤ ((certBound : ℚ) : ℝ) :=
+  positiveHom_edge_le_certBound φ hφ hP (isCertDecomp_pieces hstat)
+
+end FlagAlgebras.Core.Tetrahedron

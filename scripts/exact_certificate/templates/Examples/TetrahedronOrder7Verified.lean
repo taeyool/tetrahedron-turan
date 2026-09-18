@@ -1,0 +1,133 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_00
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_01
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_02
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_03
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_04
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_05
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_06
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_07
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_08
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_09
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_10
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_11
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_12
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_13
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_14
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_15
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_16
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_17
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_18
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_19
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_20
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_21
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_22
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_23
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_24
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_25
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_26
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_27
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_28
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_29
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_30
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_31
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_32
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_33
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_34
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_35
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_36
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_37
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_38
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_39
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_40
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_41
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_42
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_43
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_44
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_45
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_46
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_47
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_48
+
+/-! # The certificate holds on every column
+
+Collecting the sweep blocks: every representative passes, so every
+admissible labeled seven-vertex extension of every representative has
+certificate value at most the bound.
+
+Through the six-vertex classification this covers every tetrahedron-free
+seven-vertex graph, since each is an extension of some representative. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-- Blockwise: past the last block the range is empty. -/
+lemma sweepBlockAll : ∀ n, ∀ x ∈ (h6Reps.drop (20 * n)).take 20,
+    sweepRep x = true
+  | 0 => sweepRep_of_block sweepBlock_00
+  | 1 => sweepRep_of_block sweepBlock_01
+  | 2 => sweepRep_of_block sweepBlock_02
+  | 3 => sweepRep_of_block sweepBlock_03
+  | 4 => sweepRep_of_block sweepBlock_04
+  | 5 => sweepRep_of_block sweepBlock_05
+  | 6 => sweepRep_of_block sweepBlock_06
+  | 7 => sweepRep_of_block sweepBlock_07
+  | 8 => sweepRep_of_block sweepBlock_08
+  | 9 => sweepRep_of_block sweepBlock_09
+  | 10 => sweepRep_of_block sweepBlock_10
+  | 11 => sweepRep_of_block sweepBlock_11
+  | 12 => sweepRep_of_block sweepBlock_12
+  | 13 => sweepRep_of_block sweepBlock_13
+  | 14 => sweepRep_of_block sweepBlock_14
+  | 15 => sweepRep_of_block sweepBlock_15
+  | 16 => sweepRep_of_block sweepBlock_16
+  | 17 => sweepRep_of_block sweepBlock_17
+  | 18 => sweepRep_of_block sweepBlock_18
+  | 19 => sweepRep_of_block sweepBlock_19
+  | 20 => sweepRep_of_block sweepBlock_20
+  | 21 => sweepRep_of_block sweepBlock_21
+  | 22 => sweepRep_of_block sweepBlock_22
+  | 23 => sweepRep_of_block sweepBlock_23
+  | 24 => sweepRep_of_block sweepBlock_24
+  | 25 => sweepRep_of_block sweepBlock_25
+  | 26 => sweepRep_of_block sweepBlock_26
+  | 27 => sweepRep_of_block sweepBlock_27
+  | 28 => sweepRep_of_block sweepBlock_28
+  | 29 => sweepRep_of_block sweepBlock_29
+  | 30 => sweepRep_of_block sweepBlock_30
+  | 31 => sweepRep_of_block sweepBlock_31
+  | 32 => sweepRep_of_block sweepBlock_32
+  | 33 => sweepRep_of_block sweepBlock_33
+  | 34 => sweepRep_of_block sweepBlock_34
+  | 35 => sweepRep_of_block sweepBlock_35
+  | 36 => sweepRep_of_block sweepBlock_36
+  | 37 => sweepRep_of_block sweepBlock_37
+  | 38 => sweepRep_of_block sweepBlock_38
+  | 39 => sweepRep_of_block sweepBlock_39
+  | 40 => sweepRep_of_block sweepBlock_40
+  | 41 => sweepRep_of_block sweepBlock_41
+  | 42 => sweepRep_of_block sweepBlock_42
+  | 43 => sweepRep_of_block sweepBlock_43
+  | 44 => sweepRep_of_block sweepBlock_44
+  | 45 => sweepRep_of_block sweepBlock_45
+  | 46 => sweepRep_of_block sweepBlock_46
+  | 47 => sweepRep_of_block sweepBlock_47
+  | 48 => sweepRep_of_block sweepBlock_48
+  | _ + 49 => fun y hy => by
+      rw [List.drop_eq_nil_of_le (by rw [h6Reps_length]; omega)] at hy
+      simp at hy
+
+/-- **Every representative passes its sweep.** -/
+theorem sweepRep_of_mem {x : ℕ} (hx : x ∈ h6Reps) : sweepRep x = true := by
+  obtain ⟨j, hj⟩ := mem_take_drop_of_mem (n := 20) (by norm_num) hx
+  exact sweepBlockAll j x hj
+
+/-- **The certificate bound holds on every admissible extension of every
+representative.** -/
+theorem columnValue_le_columnBound {h link : ℕ} (hh : h ∈ h6Reps)
+    (hlink : link < 32768)
+    (hadm : k4FreeMask qs7 (extendMask h link) = true) :
+    columnValue (extendMask h link) ≤ columnBound :=
+  columnValue_le_of_sweepRep (sweepRep_of_mem hh) hlink hadm
+
+end FlagAlgebras.Core.Tetrahedron

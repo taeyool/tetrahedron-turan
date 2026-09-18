@@ -1,0 +1,420 @@
+⚠ [1209/1230] Replayed LeanFlagAlgebras.Core.Limit.Profile
+warning: LeanFlagAlgebras/Core/Limit/Profile.lean:58:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_basis`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Limit/Profile.lean:63:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_apply`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2594/2648] Replayed LeanFlagAlgebras.Core.Limit.Sampling
+warning: LeanFlagAlgebras/Core/Limit/Sampling.lean:176:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.le_hostSize`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2669/2705] Replayed LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootBits
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7FiveRootBits.lean:71:53: This simp argument is unused:
+  Bool.and_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [Nat.testBit_mod_two_pow, s5Gather_testBit,̵ ̵B̵o̵o̵l̵.̵a̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [2681/2706] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_03 (2360s)
+✔ [2682/2707] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_11 (2369s)
+✔ [2683/2707] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_06 (2487s)
+✔ [2686/2709] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_10 (2514s)
+✔ [2688/2710] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_09 (2554s)
+✔ [2690/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_01 (2782s)
+✔ [2691/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_04 (2782s)
+✔ [2692/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_05 (2782s)
+✔ [2693/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_07 (2782s)
+✔ [2694/2715] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_08 (2782s)
+⚠ [2695/2716] Replayed LeanFlagAlgebras.Core.Ensemble.DensitySpace
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:40:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagDensitySpace_isCompact`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:50:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.mem_Icc`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:69:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.continuous_eval`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:74:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.measurable_eval`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:79:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.tendsto_iff`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:133:6: unused variable `φ₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:133:9: unused variable `φ₂`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:167:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.isClosed_chainClosed`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:185:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.isClosed_mulClosed`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2696/2716] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_02 (2782s)
+⚠ [2697/2717] Replayed LeanFlagAlgebras.Core.Ensemble.Empirical
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:57:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mem_sigmaLabelings`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:66:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.IsFlagLabeling.isSigmaLabeling`:
+  [S.NullaryFree]
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:74:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mem_flagLabelings_iff_toFlag_eq`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:152:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagCount_unit_out`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:173:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.sum_labelingCount_mul_subflagDensity`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:199:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.labelPoint_apply`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:214:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.empiricalMeasure_univ`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:242:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_empiricalMeasure`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2698/2717] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_00 (3217s)
+✔ [2699/2717] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_15 (2114s)
+⚠ [2700/2718] Replayed LeanFlagAlgebras.Core.Ensemble.Extension
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:51:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FinFlag.qFactor_pos`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:58:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.downward_basisVector_quot`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:100:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagDensity_out_right`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:118:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_eval_hostAt`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:160:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.empiricalSeq_of_nonempty`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:173:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.exists_weakLimit`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:189:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.evalBCF_apply`:
+  [S.NullaryFree]
+  [𝕋.IsType σ]
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] [𝕋.IsType σ] [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:230:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.ae_eq_zero_of_tendsto_integral`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:256:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.chainBCF_apply`:
+  [S.NullaryFree]
+  [𝕋.IsType σ]
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] [𝕋.IsType σ] [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:322:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.unitBCF_labelPoint`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:361:36: unused variable `G`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:367:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mulBCF_apply`:
+  [S.NullaryFree]
+  [𝕋.IsType σ]
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] [𝕋.IsType σ] [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2702/2719] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_14 (2142s)
+⚠ [2703/2720] Replayed LeanFlagAlgebras.Core.Differential.Stationary
+warning: LeanFlagAlgebras/Core/Differential/Stationary.lean:38:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.Model.eq_vertexType_of_mem`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Differential/Stationary.lean:128:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_profileEval_weakLimit`:
+  hvu
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hvu in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2704/2720] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_13 (2265s)
+✔ [2706/2721] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_12 (2368s)
+⚠ [2707/2722] Replayed LeanFlagAlgebras.Core.Differential.Upward
+warning: LeanFlagAlgebras/Core/Differential/Upward.lean:253:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.card_filter_rooted_witness`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2708/2722] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_16 (2193s)
+✔ [2709/2723] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_21 (1995s)
+✔ [2710/2724] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_17 (2153s)
+✔ [2711/2725] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_18 (2185s)
+✔ [2712/2726] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_20 (2231s)
+✔ [2713/2727] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_19 (2232s)
+✔ [2714/2728] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_22 (2279s)
+✔ [2715/2729] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_23 (2202s)
+✔ [2716/2730] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_26 (2150s)
+✔ [2717/2731] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_25 (2193s)
+✔ [2718/2732] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_31 (1876s)
+✔ [2719/2733] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_24 (2234s)
+✔ [2720/2734] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_29 (2094s)
+✔ [2721/2735] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_30 (1937s)
+✔ [2722/2736] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_27 (2148s)
+✔ [2723/2737] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_33 (1869s)
+✔ [2724/2738] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_28 (2197s)
+✔ [2725/2739] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_32 (2032s)
+✔ [2726/2740] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_34 (1989s)
+✔ [2727/2743] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_35 (1972s)
+✔ [2728/2743] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_36 (1895s)
+✔ [2729/2744] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_45 (1641s)
+⚠ [2730/2744] Replayed LeanFlagAlgebras.Core.Compute.Relabel6
+warning: LeanFlagAlgebras/Core/Compute/Relabel6.lean:243:8: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Compute/Relabel6.lean:281:23: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: LeanFlagAlgebras/Core/Compute/Relabel6.lean:283:23: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [2731/2752] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Split (10s)
+✔ [2733/2752] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Edges (10s)
+✔ [2734/2754] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Realize (7.3s)
+⚠ [2744/2774] Replayed LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootPullback
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7FiveRootPullback.lean:123:10: This simp argument is unused:
+  s5Encode
+
+Hint: Omit it from the simp argument list.
+  simp [̵s̵5̵E̵n̵c̵o̵d̵e̵,̵ ̵s̵5̵R̵o̵o̵t̵M̵a̵s̵k̵6̵,̵[̲s̲5̲R̲o̲o̲t̲M̲a̲s̲k̲6̲,̲ s5LinkMask6, s5Gather_testBit, Nat.testBit_lor, Nat.testBit_shiftLeft, hk,
+  ̲  ̲ ̲ ̲ ̲ ̲hs, hn, hsrc.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7FiveRootPullback.lean:124:6: This simp argument is unused:
+  Nat.testBit_lor
+
+Hint: Omit it from the simp argument list.
+  simp [s5Encode, s5RootMask6, s5LinkMask6, s5Gather_testBit, N̵a̵t̵.̵t̵e̵s̵t̵B̵i̵t̵_̵l̵o̵r̵,̵ ̵Nat.testBit_shiftLeft, hk, hs, hn,
+  ̲  ̲ ̲ ̲ ̲ ̲hsrc.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7FiveRootPullback.lean:128:10: This simp argument is unused:
+  s5Encode
+
+Hint: Omit it from the simp argument list.
+  simp [̵s̵5̵E̵n̵c̵o̵d̵e̵,̵ ̵s̵5̵R̵o̵o̵t̵M̵a̵s̵k̵6̵,̵[̲s̲5̲R̲o̲o̲t̲M̲a̲s̲k̲6̲,̲ s5LinkMask6, s5Gather_testBit, Nat.testBit_lor, Nat.testBit_shiftLeft, hk,
+  ̲  ̲ ̲ ̲ ̲ ̲hs, hn, hsub, hsrc.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7FiveRootPullback.lean:129:6: This simp argument is unused:
+  Nat.testBit_lor
+
+Hint: Omit it from the simp argument list.
+  simp [s5Encode, s5RootMask6, s5LinkMask6, s5Gather_testBit, N̵a̵t̵.̵t̵e̵s̵t̵B̵i̵t̵_̵l̵o̵r̵,̵ ̵Nat.testBit_shiftLeft, hk, hs, hn,
+  ̲  ̲ ̲ ̲ ̲ ̲hsub, hsrc.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [2762/2787] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Deck (7.8s)
+✔ [2763/2787] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induced (8.1s)
+✔ [2764/2787] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Chain (6.0s)
+✔ [2765/2789] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassIdx (16s)
+✔ [2766/2789] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Fiber (7.2s)
+✔ [2768/2790] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassNum (7.1s)
+✔ [2771/2798] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FoldSum (7.7s)
+✔ [2772/2798] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_41 (1909s)
+⚠ [2773/2798] Replayed LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ExtS1
+warning: LeanFlagAlgebras/Core/Examples/TetrahedronOrder7ExtS1.lean:73:18: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: LeanFlagAlgebras/Core/Examples/TetrahedronOrder7ExtS1.lean:217:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2774/2804] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_42 (1938s)
+✔ [2775/2823] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_43 (1943s)
+✔ [2777/2825] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Objective (7.5s)
+⚠ [2778/2825] Replayed LeanFlagAlgebras.Core.Compute.Sym3Delete
+warning: LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:83:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+warning: LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:138:12: `Nat.succ_mul_choose_eq` has been deprecated: Use `Nat.add_one_mul_choose_eq` instead
+warning: LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:132:33: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2779/2842] Replayed LeanFlagAlgebras.Core.Compute.Sym3Clone
+warning: LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:32:55: unused variable `huv`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:80:47: unused variable `huv`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:139:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+warning: LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:148:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+⚠ [2851/2909] Replayed LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootMatch
+warning: LeanFlagAlgebras/Core/Examples/TetrahedronOrder7RootMatch.lean:259:33: This simp argument is unused:
+  Bool.false_eq_true
+
+Hint: Omit it from the simp argument list.
+  simp only [s3Cell, if_neg h,̵ ̵B̵o̵o̵l̵.̵f̵a̵l̵s̵e̵_̵e̵q̵_̵t̵r̵u̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2879/2935] Replayed LeanFlagAlgebras.Core.Examples.TetrahedronLimitMul
+warning: LeanFlagAlgebras/Core/Examples/TetrahedronLimitMul.lean:127:36: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [2885/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockFlags (24s)
+✔ [2886/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induce5 (9.4s)
+✔ [2887/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext24 (9.5s)
+✔ [2888/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_37 (2031s)
+✔ [2889/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext45 (11s)
+✔ [2890/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_44 (1922s)
+✔ [2891/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockGamma (7.1s)
+✔ [2892/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_40 (1997s)
+✔ [2893/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_46 (1821s)
+✔ [2894/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_39 (2046s)
+✔ [2895/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_38 (2134s)
+✔ [2896/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockCheck (132s)
+✔ [2897/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockSOS (6.2s)
+✔ [2898/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_47 (1718s)
+✔ [2899/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7GatherPull (349s)
+✔ [2900/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootFlags (389s)
+✔ [2901/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellSem (5.6s)
+✔ [2902/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellWeight (6.8s)
+✔ [2903/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootAcct (6.8s)
+✔ [2904/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootSOS (9.3s)
+✔ [2905/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reindex (9.3s)
+⚠ [2906/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootMatch (6.7s)
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7RootMatch.lean:262:33: This simp argument is unused:
+  Bool.false_eq_true
+
+Hint: Omit it from the simp argument list.
+  simp only [s3Cell, if_neg h,̵ ̵B̵o̵o̵l̵.̵f̵a̵l̵s̵e̵_̵e̵q̵_̵t̵r̵u̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [2907/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_48 (579s)
+✔ [2908/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Verified (5.6s)
+✔ [2909/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Bound (10s)
+✔ [2910/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Covered (10s)
+✔ [2911/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Slack (5.7s)
+✔ [2912/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Assembly (6.4s)
+✔ [2913/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootExpand (6.4s)
+✔ [2914/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reduce (6.5s)
+✔ [2915/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeExpand (6.4s)
+✔ [2916/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootExpand (6.4s)
+✔ [2917/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Pieces (6.5s)
+✔ [2918/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockElt (1020s)
+✔ [2919/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeCheck (1021s)
+✔ [2920/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootElt (5.9s)
+✔ [2921/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootScaled (6.3s)
+✔ [2922/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronMaximizer (5.6s)
+✔ [2923/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealize (10s)
+✔ [2924/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronCompact (6.0s)
+✔ [2925/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitLin (6.3s)
+⚠ [2926/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitMul (6.2s)
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronLimitMul.lean:130:36: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [2927/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitHom (6.1s)
+✔ [2928/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealizedApply (5.0s)
+✔ [2929/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronTuran (6.6s)
+✔ [2930/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronAntitone (58s)
+✔ [2931/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronStatComb (58s)
+✔ [2932/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronExtremal (6.2s)
+✔ [2933/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronBoost (14s)
+✔ [2934/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDifferential (21s)
+✔ [2935/2935] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLongHeadline (7.6s)
+Build completed successfully (2935 jobs).
+
+real	174m45.604s
+user	0m0.000s
+sys	0m0.015s
+exit 0
+Mon Sep 14 14:21:33     2026

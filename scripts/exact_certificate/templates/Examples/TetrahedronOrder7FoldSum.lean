@@ -1,0 +1,216 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Column
+
+/-! # The s1/s3 folds as sums over their tables
+
+The certificate's `s1Value` and `s3Value` walk their gather tables in
+accumulator folds. This file rewrites both as plain list sums of cells
+— one cell per gather pair for the one-root family, one per rooting
+record for the three-root family — so the enumeration identification
+and the per-cell semantics can be handled term by term. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-! ## Folds to sums -/
+
+private lemma foldl_add_eq_sum {α : Type} (f : α → ℤ) :
+    ∀ (l : List α) (acc : ℤ),
+      l.foldl (fun a x => a + f x) acc = acc + (l.map f).sum := by
+  intro l
+  induction l with
+  | nil => intro acc; simp
+  | cons a t ih =>
+    intro acc
+    rw [List.foldl_cons, ih, List.map_cons, List.sum_cons]
+    ring
+
+private lemma map_range_sum (f : ℕ → ℤ) (n : ℕ) :
+    ((List.range n).map f).sum = ∑ r ∈ Finset.range n, f r := by
+  induction n with
+  | zero => simp
+  | succ k ih =>
+    rw [List.range_succ, List.map_append, List.sum_append,
+      List.map_cons, List.map_nil, List.sum_cons, List.sum_nil,
+      ih, Finset.sum_range_succ]
+    ring
+
+private lemma getD_toArray_nat (l : List ℕ) (i d : ℕ) :
+    l.toArray.getD i d = l.getD i d := by
+  simp only [Array.getD, List.getD]
+  by_cases h : i < l.length
+  · rw [dif_pos (by simpa using h), List.getElem?_eq_getElem h]
+    rfl
+  · rw [dif_neg (by simpa using h), List.getElem?_eq_none (by omega)]
+    rfl
+
+private lemma map_range_getD (g : ℕ → ℕ) {k : ℕ} (hk : k < 6) :
+    ((List.range 6).map g).getD k 0 = g k := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_map]
+  simp [List.getElem?_range hk]
+
+/-- The cell of the one-root fold at a gather pair. -/
+def s1Cell (m : ℕ) (p : ℕ × ℕ) : ℤ :=
+  gram7s1.getD ((s1IdxT.getD (gatherBits p.1 4 m) 999) * 7
+    + s1IdxT.getD (gatherBits p.2 4 m) 999) 0
+
+/-- **The one-root fold is the sum of its cells.** -/
+lemma s1Value_eq_sum (m : ℕ) :
+    s1Value m = (s1Gathers.map (s1Cell m)).sum := by
+  have h : s1Value m
+      = s1GathersA.foldl (fun acc p => acc + s1Cell m p) 0 := rfl
+  rw [h, show s1GathersA = s1Gathers.toArray from rfl,
+    List.foldl_toArray, foldl_add_eq_sum, zero_add]
+
+/-- The cell of a three-root record: the six pairings of complementary
+subsets, indexed through the root-parity tables. -/
+def s3Cell (m : ℕ) (bit : ℕ) (gs : List ℕ) : ℤ :=
+  let er := m.testBit bit
+  let idx : ℕ → ℕ := fun k =>
+    let g := gatherBits (gs.getD k 0) 10 m
+    if er then s3Idx1T.getD g 999 else s3Idx0T.getD g 999
+  let d := if er then 191 else 236
+  let q := if er then gram7s31 else gram7s30
+  q.getD (idx 0 * d + idx 5) 0 + q.getD (idx 1 * d + idx 4) 0
+    + q.getD (idx 2 * d + idx 3) 0 + q.getD (idx 3 * d + idx 2) 0
+    + q.getD (idx 4 * d + idx 1) 0 + q.getD (idx 5 * d + idx 0) 0
+
+/-- The certificate's three-root records, reassembled from the flat
+tables. -/
+def certS3 : List (ℕ × List ℕ) :=
+  (List.range 210).map fun r =>
+    (s3RootBits.getD r 0,
+     (List.range 6).map fun i => s3Flat.getD (6 * r + i) 0)
+
+private lemma s3RootValue_eq_cell (m r : ℕ) :
+    s3RootValue m (6 * r) (m.testBit (s3RootBitsA.getD r 0))
+      = s3Cell m (s3RootBits.getD r 0)
+          ((List.range 6).map fun i => s3Flat.getD (6 * r + i) 0) := by
+  have hbit : s3RootBitsA.getD r 0 = s3RootBits.getD r 0 := by
+    rw [show s3RootBitsA = s3RootBits.toArray from rfl, getD_toArray_nat]
+  have hflat : ∀ k, s3FlatA.getD (6 * r + k) 0
+      = s3Flat.getD (6 * r + k) 0 := fun k => by
+    rw [show s3FlatA = s3Flat.toArray from rfl, getD_toArray_nat]
+  simp only [s3RootValue, s3Cell, hbit, hflat,
+    map_range_getD _ (show 0 < 6 by norm_num),
+    map_range_getD _ (show 1 < 6 by norm_num),
+    map_range_getD _ (show 2 < 6 by norm_num),
+    map_range_getD _ (show 3 < 6 by norm_num),
+    map_range_getD _ (show 4 < 6 by norm_num),
+    map_range_getD _ (show 5 < 6 by norm_num)]
+
+private lemma s3ValueAux_eq (m : ℕ) : ∀ (n : ℕ) (acc : ℤ),
+    s3ValueAux m n acc
+      = acc + ∑ r ∈ Finset.range n,
+          s3RootValue m (6 * r) (m.testBit (s3RootBitsA.getD r 0)) := by
+  intro n
+  induction n with
+  | zero => intro acc; simp [s3ValueAux]
+  | succ k ih =>
+    intro acc
+    rw [s3ValueAux, ih, Finset.sum_range_succ]
+    ring
+
+/-- **The three-root fold is the sum of its record cells.** -/
+lemma s3Value_eq_sum (m : ℕ) :
+    s3Value m = (certS3.map fun rec => s3Cell m rec.1 rec.2).sum := by
+  rw [show s3Value m = s3ValueAux m 210 0 from rfl, s3ValueAux_eq,
+    zero_add, certS3, List.map_map]
+  rw [show ((fun rec : ℕ × List ℕ => s3Cell m rec.1 rec.2) ∘ fun r =>
+      (s3RootBits.getD r 0,
+       (List.range 6).map fun i => s3Flat.getD (6 * r + i) 0))
+      = fun r => s3Cell m (s3RootBits.getD r 0)
+          ((List.range 6).map fun i => s3Flat.getD (6 * r + i) 0)
+    from rfl, map_range_sum]
+  exact Finset.sum_congr rfl fun r _ => s3RootValue_eq_cell m r
+
+/-! ## The semantic enumerations -/
+
+/-- Pack the four tri4-triples of a four-vertex tuple as a gather word:
+slot `k` holds the seven-vertex rank of the `k`-th triple's sorted
+image. -/
+def mkGather4 (v0 v1 v2 v3 : ℕ) : ℕ :=
+  let pos := fun a b c =>
+    let s := sort3 a b c
+    triIdx 7 s.1 s.2.1 s.2.2
+  pos v0 v1 v2 ||| (pos v0 v1 v3 <<< 6) ||| (pos v0 v2 v3 <<< 12)
+    ||| (pos v1 v2 v3 <<< 18)
+
+/-- Pack the ten tri5-triples of a five-vertex tuple as a gather word. -/
+def mkGather5 (v0 v1 v2 v3 v4 : ℕ) : ℕ :=
+  let pos := fun a b c =>
+    let s := sort3 a b c
+    triIdx 7 s.1 s.2.1 s.2.2
+  pos v0 v1 v2 ||| (pos v0 v1 v3 <<< 6) ||| (pos v0 v1 v4 <<< 12)
+    ||| (pos v0 v2 v3 <<< 18) ||| (pos v0 v2 v4 <<< 24)
+    ||| (pos v0 v3 v4 <<< 30) ||| (pos v1 v2 v3 <<< 36)
+    ||| (pos v1 v2 v4 <<< 42) ||| (pos v1 v3 v4 <<< 48)
+    ||| (pos v2 v3 v4 <<< 54)
+
+/-- Sorted three-element sublists of a list, lex order. -/
+def sorted3L (l : List ℕ) : List (List ℕ) :=
+  l.flatMap fun a => l.flatMap fun b => l.flatMap fun c =>
+    if a < b ∧ b < c then [[a, b, c]] else []
+
+/-- Sorted two-element sublists of a list, lex order. -/
+def sorted2L (l : List ℕ) : List (List ℕ) :=
+  l.flatMap fun a => l.flatMap fun b =>
+    if a < b then [[a, b]] else []
+
+/-- The semantic one-root enumeration: root first, each sorted
+three-subset of the rest as the first witness, its complement as the
+second. -/
+def myS1 : List (ℕ × ℕ) :=
+  (List.range 7).flatMap fun u =>
+    let rest := (List.range 7).filter (· ≠ u)
+    (sorted3L rest).map fun S =>
+      let T := rest.filter (· ∉ S)
+      (mkGather4 u (S.getD 0 0) (S.getD 1 0) (S.getD 2 0),
+       mkGather4 u (T.getD 0 0) (T.getD 1 0) (T.getD 2 0))
+
+/-- The semantic three-root enumeration: lex ordered distinct triples,
+each carrying the sorted root bit and the six lex two-subset gathers of
+the remaining four, the rooting tuple unsorted. -/
+def myS3 : List (ℕ × List ℕ) :=
+  (List.range 7).flatMap fun a =>
+    (List.range 7).flatMap fun b =>
+      (List.range 7).flatMap fun c =>
+        if a ≠ b ∧ a ≠ c ∧ b ≠ c then
+          let s := sort3 a b c
+          let rest := (List.range 7).filter fun v =>
+            v ≠ a ∧ v ≠ b ∧ v ≠ c
+          [(triIdx 7 s.1 s.2.1 s.2.2,
+            (sorted2L rest).map fun S =>
+              mkGather5 a b c (S.getD 0 0) (S.getD 1 0))]
+        else []
+
+set_option maxRecDepth 65536 in
+/-- **The gather table is the semantic enumeration**, as multisets. -/
+lemma s1Gathers_perm : s1Gathers.Perm myS1 := by native_decide
+
+set_option maxHeartbeats 4000000 in
+/-- **The record table is the semantic enumeration**, as multisets. -/
+lemma certS3_perm : certS3.Perm myS3 := by native_decide
+
+/-- The one-root fold over the semantic enumeration. -/
+lemma s1Value_eq_mySum (m : ℕ) :
+    s1Value m = (myS1.map (s1Cell m)).sum := by
+  rw [s1Value_eq_sum]
+  exact List.Perm.sum_eq (s1Gathers_perm.map (s1Cell m))
+
+/-- The three-root fold over the semantic enumeration. The proof stays
+on the `congrArg`/`rw` rails: matching the permuted sums through the
+unifier evaluates the 210-record tables and diverges. -/
+lemma s3Value_eq_mySum (m : ℕ) :
+    s3Value m = (myS3.map fun rec => s3Cell m rec.1 rec.2).sum := by
+  rw [s3Value_eq_sum]
+  have h0 : ((certS3 : List (ℕ × List ℕ)) : Multiset (ℕ × List ℕ))
+      = (myS3 : Multiset (ℕ × List ℕ)) :=
+    Multiset.coe_eq_coe.mpr certS3_perm
+  have h1 := congrArg (Multiset.map fun rec : ℕ × List ℕ =>
+    s3Cell m rec.1 rec.2) h0
+  have h2 := congrArg Multiset.sum h1
+  rwa [Multiset.map_coe, Multiset.map_coe, Multiset.sum_coe,
+    Multiset.sum_coe] at h2
+
+end FlagAlgebras.Core.Tetrahedron

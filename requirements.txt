@@ -1,0 +1,11 @@
+# Search code and integer verification (Python 3.9-3.12; the recorded runs used 3.12.4).
+numpy==2.0.2
+scipy==1.13.1
+highspy==1.15.1
+# SDP arms of the experiments (SDP-FULL and SDP-CUT).
+scs==3.2.8
+cvxpy==1.6.5
+# Campaign supervisors (process-tree memory accounting); version not recorded by the campaign.
+psutil
+# Figures.
+matplotlib==3.9.4

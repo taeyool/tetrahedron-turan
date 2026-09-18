@@ -1,0 +1,223 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Column
+
+/-! # Splitting a seven-vertex mask into a graph and a link
+
+The sweep enumerates seven-vertex graphs as a listed six-vertex
+representative together with a link. To know that this enumeration
+misses nothing, one first needs that the two halves really do determine
+the whole: reading off the twenty triples avoiding the last vertex and
+the fifteen triples through it, and feeding them back to `extendMask`,
+returns the mask unchanged.
+
+That is proved here bit by bit. `gatherBits` and `spread` get exact
+descriptions of which bits they set, and the roundtrip follows because
+the two position tables partition the thirty-five triple positions of a
+seven-vertex mask between them. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-- A one-bit shift is the indicator of its position. -/
+lemma testBit_one_shiftLeft (i k : ℕ) :
+    ((1 <<< i : ℕ)).testBit k = decide (i = k) := by
+  rw [Nat.one_shiftLeft]
+  rcases eq_or_ne i k with rfl | hne
+  · rw [Nat.testBit_two_pow_self, decide_eq_true rfl]
+  · rw [Nat.testBit_two_pow_of_ne hne, decide_eq_false hne]
+
+/-- Which bits a gather sets: bit `k` comes from the source position
+packed at slot `k`, for `k` below the gather width. -/
+lemma gatherAux_testBit (g m : ℕ) : ∀ i acc k,
+    (gatherAux g m i acc).testBit k
+      = (acc.testBit k
+          || (decide (k < i) && m.testBit ((g >>> (6 * k)) &&& 63))) := by
+  intro i
+  induction i with
+  | zero =>
+    intro acc k
+    simp [gatherAux]
+  | succ i ih =>
+    intro acc k
+    rw [gatherAux, ih]
+    rcases lt_trichotomy k i with hlt | rfl | hgt
+    · have h1 : (decide (k < i)) = true := decide_eq_true hlt
+      have h2 : (decide (k < i + 1)) = true := decide_eq_true (by omega)
+      have hne : ¬ (i = k) := by omega
+      rw [h1, h2]
+      by_cases hb : m.testBit ((g >>> (6 * i)) &&& 63) = true
+      · rw [if_pos hb, Nat.testBit_lor, testBit_one_shiftLeft,
+          decide_eq_false hne]
+        simp
+      · rw [if_neg hb]
+    · have h1 : (decide (k < k)) = false := decide_eq_false (by omega)
+      have h2 : (decide (k < k + 1)) = true := decide_eq_true (by omega)
+      rw [h1, h2]
+      by_cases hb : m.testBit ((g >>> (6 * k)) &&& 63) = true
+      · rw [if_pos hb, Nat.testBit_lor, testBit_one_shiftLeft,
+          decide_eq_true rfl, hb]
+        simp
+      · rw [if_neg hb, Bool.eq_false_iff.mpr hb]
+        simp
+    · have h1 : (decide (k < i)) = false := decide_eq_false (by omega)
+      have h2 : (decide (k < i + 1)) = false := decide_eq_false (by omega)
+      have hne : ¬ (i = k) := by omega
+      rw [h1, h2]
+      by_cases hb : m.testBit ((g >>> (6 * i)) &&& 63) = true
+      · rw [if_pos hb, Nat.testBit_lor, testBit_one_shiftLeft,
+          decide_eq_false hne]
+        simp
+      · rw [if_neg hb]
+
+lemma gatherBits_testBit (g cnt m k : ℕ) :
+    (gatherBits g cnt m).testBit k
+      = (decide (k < cnt) && m.testBit ((g >>> (6 * k)) &&& 63)) := by
+  rw [gatherBits, gatherAux_testBit]
+  simp
+
+/-- Which bits a spread sets: those named as targets by a table entry
+whose source bit is on. -/
+lemma spread_testBit (tbl : List (ℕ × ℕ)) (bits acc k : ℕ) :
+    (spread tbl bits acc).testBit k
+      = (acc.testBit k
+          || tbl.any fun p => decide (bits.testBit p.1 = true) && decide (p.2 = k)) := by
+  unfold spread
+  exact testBit_foldl_or (fun p => bits.testBit p.1 = true) (fun p => p.2) tbl acc k
+
+/-- The bits of an extended mask: a triple avoiding the last vertex comes
+from the six-vertex half, a triple through it from the link. -/
+lemma extendMask_testBit (h link k : ℕ) :
+    (extendMask h link).testBit k
+      = ((remapPairs.any fun p =>
+            decide (h.testBit p.1 = true) && decide (p.2 = k))
+        || (linkPairs.any fun p =>
+            decide (link.testBit p.1 = true) && decide (p.2 = k))) := by
+  rw [extendMask, spread_testBit, spread_testBit]
+  simp [Nat.zero_testBit]
+
+/-! ## Reading the two halves back off a mask -/
+
+/-- Collect the bits of `m` named as targets by a table, indexed by the
+table's sources — the inverse of `spread`. -/
+def gatherFrom (tbl : List (ℕ × ℕ)) (m : ℕ) : ℕ :=
+  tbl.foldl (fun acc p => if m.testBit p.2 then acc ||| (1 <<< p.1) else acc) 0
+
+lemma gatherFrom_testBit (tbl : List (ℕ × ℕ)) (m i : ℕ) :
+    (gatherFrom tbl m).testBit i
+      = tbl.any fun p => decide (m.testBit p.2 = true) && decide (p.1 = i) := by
+  unfold gatherFrom
+  rw [testBit_foldl_or (fun p => m.testBit p.2 = true) (fun p => p.1) tbl 0 i]
+  simp [Nat.zero_testBit]
+
+/-- Selecting by target: the disjunction picks out the bit at `k`, when
+some entry names it. -/
+lemma any_target_testBit (tbl : List (ℕ × ℕ)) (m k : ℕ) :
+    (tbl.any fun p => decide (m.testBit p.2 = true) && decide (p.2 = k))
+      = (decide (∃ p ∈ tbl, p.2 = k) && m.testBit k) := by
+  rcases hex : (decide (∃ p ∈ tbl, p.2 = k)) with _ | _
+  · rw [Bool.false_and]
+    refine Bool.eq_false_iff.mpr fun hany => ?_
+    obtain ⟨p, hp, hcond⟩ := List.any_eq_true.mp hany
+    rw [Bool.and_eq_true] at hcond
+    have hcontra : (∃ p ∈ tbl, p.2 = k) := ⟨p, hp, of_decide_eq_true hcond.2⟩
+    rw [decide_eq_true hcontra] at hex
+    cases hex
+  · rw [Bool.true_and]
+    obtain ⟨p, hp, hpk⟩ := of_decide_eq_true hex
+    cases hm : m.testBit k with
+    | true =>
+      refine List.any_eq_true.mpr ⟨p, hp, ?_⟩
+      rw [Bool.and_eq_true, hpk]
+      exact ⟨decide_eq_true hm, decide_eq_true rfl⟩
+    | false =>
+      refine Bool.eq_false_iff.mpr fun hany => ?_
+      obtain ⟨q, _, hcond⟩ := List.any_eq_true.mp hany
+      rw [Bool.and_eq_true] at hcond
+      rw [of_decide_eq_true hcond.2] at hcond
+      rw [of_decide_eq_true hcond.1] at hm
+      cases hm
+
+/-- Entries of a table are recovered from their sources when the sources
+are distinct. -/
+lemma gatherFrom_testBit_of_mem {tbl : List (ℕ × ℕ)}
+    (hinj : ∀ p ∈ tbl, ∀ q ∈ tbl, p.1 = q.1 → p.2 = q.2) {m : ℕ} {p : ℕ × ℕ}
+    (hp : p ∈ tbl) : (gatherFrom tbl m).testBit p.1 = m.testBit p.2 := by
+  rw [gatherFrom_testBit]
+  cases hm : m.testBit p.2 with
+  | true =>
+    refine List.any_eq_true.mpr ⟨p, hp, ?_⟩
+    rw [Bool.and_eq_true]
+    exact ⟨decide_eq_true hm, decide_eq_true rfl⟩
+  | false =>
+    refine Bool.eq_false_iff.mpr fun hany => ?_
+    obtain ⟨q, hq, hcond⟩ := List.any_eq_true.mp hany
+    rw [Bool.and_eq_true] at hcond
+    have := hinj q hq p hp (of_decide_eq_true hcond.2)
+    rw [this] at hcond
+    rw [of_decide_eq_true hcond.1] at hm
+    cases hm
+
+lemma any_congr_mem {α : Type} (l : List α) (f g : α → Bool)
+    (h : ∀ x ∈ l, f x = g x) : l.any f = l.any g := by
+  induction l with
+  | nil => rfl
+  | cons a as ih =>
+    rw [List.any_cons, List.any_cons, h a (by simp),
+      ih fun x hx => h x (by simp [hx])]
+
+/-! ## The roundtrip -/
+
+/-- The six-vertex graph a seven-vertex mask induces on `0 … 5`. -/
+def deck6 (m : ℕ) : ℕ := gatherFrom remapPairs m
+
+/-- The link of the last vertex: the pairs completed to a hyperedge. -/
+def link6 (m : ℕ) : ℕ := gatherFrom linkPairs m
+
+lemma remapPairs_inj : ∀ p ∈ remapPairs, ∀ q ∈ remapPairs, p.1 = q.1 → p.2 = q.2 := by
+  decide
+
+lemma linkPairs_inj : ∀ p ∈ linkPairs, ∀ q ∈ linkPairs, p.1 = q.1 → p.2 = q.2 := by
+  decide
+
+/-- The two tables between them name every triple position of a
+seven-vertex mask. -/
+lemma targets_cover : ∀ k < 35,
+    (∃ p ∈ remapPairs, p.2 = k) ∨ (∃ p ∈ linkPairs, p.2 = k) := by decide
+
+/-- **A seven-vertex mask is its two halves.** Reading off the triples
+that avoid the last vertex and the triples through it, and extending,
+returns the mask. -/
+private lemma any_deck6 (m k : ℕ) :
+    (remapPairs.any fun p => decide ((deck6 m).testBit p.1 = true) && decide (p.2 = k))
+      = (decide (∃ p ∈ remapPairs, p.2 = k) && m.testBit k) := by
+  rw [any_congr_mem _ _ (fun p => decide (m.testBit p.2 = true) && decide (p.2 = k))
+      fun p hp => by rw [deck6, gatherFrom_testBit_of_mem remapPairs_inj hp],
+    any_target_testBit]
+
+private lemma any_link6 (m k : ℕ) :
+    (linkPairs.any fun p => decide ((link6 m).testBit p.1 = true) && decide (p.2 = k))
+      = (decide (∃ p ∈ linkPairs, p.2 = k) && m.testBit k) := by
+  rw [any_congr_mem _ _ (fun p => decide (m.testBit p.2 = true) && decide (p.2 = k))
+      fun p hp => by rw [link6, gatherFrom_testBit_of_mem linkPairs_inj hp],
+    any_target_testBit]
+
+theorem extendMask_deck6_link6 {m : ℕ} (hm : m < 2 ^ 35) :
+    extendMask (deck6 m) (link6 m) = m := by
+  refine Nat.eq_of_testBit_eq fun k => ?_
+  rw [extendMask_testBit, any_deck6, any_link6]
+  cases hbit : m.testBit k with
+  | false => simp
+  | true =>
+    have hk : k < 35 := by
+      by_contra hge
+      have h35 : (2 : ℕ) ^ 35 ≤ 2 ^ k :=
+        Nat.pow_le_pow_right (by omega) (by omega)
+      rw [Nat.testBit_lt_two_pow (lt_of_lt_of_le hm h35)] at hbit
+      cases hbit
+    rcases targets_cover k hk with hc | hc
+    · rw [decide_eq_true hc]
+      simp
+    · rw [decide_eq_true hc]
+      simp
+
+end FlagAlgebras.Core.Tetrahedron

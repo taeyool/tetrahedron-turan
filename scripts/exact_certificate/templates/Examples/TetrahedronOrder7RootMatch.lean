@@ -1,0 +1,577 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Reindex
+
+/-! # Matching the folds against the rooting sums
+
+The final numeric identification behind `IsRootScaled`: the
+certificate's `s1Value`/`s3Value` folds equal the rooting sums of
+weight products that the fiber coefficients carry.
+
+This file first discharges the two mask-dependent side conditions —
+every witness gather of a tetrahedron-free host is itself
+tetrahedron-free (through the pullback), and the record bit the
+three-root cell dispatches on is the root-rank bit of the host — and
+then assembles the per-family matches. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-! ## The mask-dependent side conditions -/
+
+/-- A four-vertex witness gather of a tetrahedron-free host is
+tetrahedron-free. -/
+lemma k4_gather4 {w : ℕ} (hw : TetraFree.Mem (graphOfMask 7 w).toModel)
+    {u a b c : Fin 7} (hinj : Function.Injective ![u, a, b, c]) :
+    k4FreeMask (quadIdxList 4)
+      (gatherBits (mkGather4 u.val a.val b.val c.val) 4 w) = true := by
+  rw [k4FreeMask_iff_mem]
+  have hg := graphOfMask_gather4 w ![u, a, b, c] hinj
+  rw [show gatherBits (mkGather4 u.val a.val b.val c.val) 4 w
+      = gatherBits (mkGather4
+          ((![u, a, b, c] : Fin 4 → Fin 7) 0).val
+          ((![u, a, b, c] : Fin 4 → Fin 7) 1).val
+          ((![u, a, b, c] : Fin 4 → Fin 7) 2).val
+          ((![u, a, b, c] : Fin 4 → Fin 7) 3).val) 4 w from rfl, hg,
+    Sym3Graph.pullback_toModel _ hinj]
+  exact TetraFree.mem_comap _ hw
+
+/-- A five-vertex witness gather of a tetrahedron-free host is
+tetrahedron-free. -/
+lemma k4_gather5 {w : ℕ} (hw : TetraFree.Mem (graphOfMask 7 w).toModel)
+    {r0 r1 r2 v x : Fin 7}
+    (hinj : Function.Injective ![r0, r1, r2, v, x]) :
+    k4FreeMask (quadIdxList 5)
+      (gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val)
+        10 w) = true := by
+  rw [k4FreeMask_iff_mem]
+  have hg := graphOfMask_gather5 w ![r0, r1, r2, v, x] hinj
+  rw [show gatherBits (mkGather5 r0.val r1.val r2.val v.val x.val) 10 w
+      = gatherBits (mkGather5
+          ((![r0, r1, r2, v, x] : Fin 5 → Fin 7) 0).val
+          ((![r0, r1, r2, v, x] : Fin 5 → Fin 7) 1).val
+          ((![r0, r1, r2, v, x] : Fin 5 → Fin 7) 2).val
+          ((![r0, r1, r2, v, x] : Fin 5 → Fin 7) 3).val
+          ((![r0, r1, r2, v, x] : Fin 5 → Fin 7) 4).val) 10 w from rfl,
+    hg, Sym3Graph.pullback_toModel _ hinj]
+  exact TetraFree.mem_comap _ hw
+
+/-- Slot zero of a five-vertex gather is the root-rank bit: the record
+bit the three-root cell dispatches on is the bit the table
+specifications case on. -/
+lemma gather5_bit0 (w : ℕ) (a b c v x : Fin 7) :
+    (gatherBits (mkGather5 a.val b.val c.val v.val x.val) 10 w).testBit 0
+      = w.testBit (rootRank ![a, b, c]) := by
+  rw [gatherBits_testBit]
+  have hsrc := srcAt7_mkGather5 a b c v x (0, 1, 2, 0)
+    (by decide : ((0 : ℕ), (1 : ℕ), (2 : ℕ), (0 : ℕ)) ∈ tri5)
+  rw [show ((mkGather5 a.val b.val c.val v.val x.val) >>> (6 * 0)) &&& 63
+      = srcAt7 (mkGather5 a.val b.val c.val v.val x.val) 0 from rfl,
+    hsrc]
+  rfl
+
+/-! ## List bookkeeping -/
+
+private lemma castIntSum : ∀ l : List ℤ,
+    ((l.sum : ℤ) : ℚ) = (l.map fun z : ℤ => (z : ℚ)).sum := by
+  intro l
+  induction l with
+  | nil => simp
+  | cons a t ih =>
+    rw [List.sum_cons, List.map_cons, List.sum_cons, Int.cast_add, ih]
+
+private lemma flatSum {α : Type} : ∀ (l : List α) (f : α → List ℚ),
+    (l.flatMap f).sum = (l.map fun a => (f a).sum).sum := by
+  intro l f
+  induction l with
+  | nil => simp
+  | cons a t ih =>
+    rw [List.flatMap_cons, List.sum_append, ih, List.map_cons,
+      List.sum_cons]
+
+private lemma listSwapQ {α : Type} (s : Finset ℕ) :
+    ∀ (l : List α) (g : ℕ → α → ℚ),
+      (l.map fun x => ∑ r ∈ s, g r x).sum
+        = ∑ r ∈ s, (l.map (g r)).sum := by
+  intro l g
+  induction l with
+  | nil => simp
+  | cons a t ih =>
+    rw [List.map_cons, List.sum_cons, ih, ← Finset.sum_add_distrib]
+    refine Finset.sum_congr rfl fun r _ => ?_
+    rw [List.map_cons, List.sum_cons]
+
+private lemma finRangeSum (h : Fin 7 → ℚ) :
+    ((List.finRange 7).map h).sum = ∑ u : Fin 7, h u := rfl
+
+private lemma mask16 (g m : ℕ) : gatherBits g 4 m < 16 := by
+  have := gatherBits_lt g 4 m
+  norm_num at this
+  exact this
+
+private lemma mask1024 (g m : ℕ) : gatherBits g 10 m < 1024 := by
+  have := gatherBits_lt g 10 m
+  norm_num at this
+  exact this
+
+/-! ## The one-root match -/
+
+/-- **The one-root fold is the rooting sum of weight products.** -/
+theorem s1_match {w : ℕ}
+    (hw : TetraFree.Mem (graphOfMask 7 w).toModel) :
+    ((s1Value w : ℤ) : ℚ)
+      = ∑ r ∈ Finset.range 6,
+          ∑ θ ∈ rootingsOf vertexGraph (graphOfMask 7 w),
+            ∑ p ∈ outsideTriples θ,
+              (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+                  * (if (s1Flag i.val).IsIso
+                      (extFlagS1 (graphOfMask 7 w) θ
+                        p.1.1 p.1.2.1 p.1.2.2) then 1 else 0))
+                * (∑ j : Fin 7, ((fS1 r j.val : ℤ) : ℚ)
+                    * (if (s1Flag j.val).IsIso
+                        (extFlagS1 (graphOfMask 7 w) θ
+                          p.2.1 p.2.2.1 p.2.2.2) then 1 else 0)) := by
+  rw [s1Value_eq_mySum, castIntSum, List.map_map, myS1_eq_finForm,
+    List.map_flatMap, flatSum]
+  rw [List.map_congr_left fun u (_ : u ∈ List.finRange 7) => by
+    rw [List.map_map,
+      List.map_congr_left fun S (hS : S ∈ sorted3F (restF u)) => by
+        show ((s1Cell w (mkGather4 u.val ((pairS1 u S).1.1).val
+            ((pairS1 u S).1.2.1).val ((pairS1 u S).1.2.2).val,
+          mkGather4 u.val ((pairS1 u S).2.1).val
+            ((pairS1 u S).2.2.1).val ((pairS1 u S).2.2.2).val) : ℤ) : ℚ)
+          = _
+        rw [cellS1_eq_weights (mask16 _ _) (mask16 _ _)
+          (injS1_tuple u S hS).1 (injS1_tuple u S hS).2
+          (k4_gather4 hw (injS1_tuple u S hS).1)
+          (k4_gather4 hw (injS1_tuple u S hS).2)],
+      listSwapQ]]
+  rw [listSwapQ]
+  refine Finset.sum_congr rfl fun r _ => ?_
+  rw [finRangeSum]
+  have hper : ∀ u : Fin 7,
+      ((sorted3F (restF u)).map fun S =>
+        (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+            * (if (s1Flag i.val).IsIso (extFlagS1 (graphOfMask 7 w) ![u]
+                ((pairS1 u S).1.1) ((pairS1 u S).1.2.1)
+                ((pairS1 u S).1.2.2)) then 1 else 0))
+          * (∑ j : Fin 7, ((fS1 r j.val : ℤ) : ℚ)
+              * (if (s1Flag j.val).IsIso (extFlagS1 (graphOfMask 7 w) ![u]
+                  ((pairS1 u S).2.1) ((pairS1 u S).2.2.1)
+                  ((pairS1 u S).2.2.2)) then 1 else 0))).sum
+      = ∑ p ∈ outsideTriples ![u],
+          (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+              * (if (s1Flag i.val).IsIso (extFlagS1 (graphOfMask 7 w) ![u]
+                  p.1.1 p.1.2.1 p.1.2.2) then 1 else 0))
+            * (∑ j : Fin 7, ((fS1 r j.val : ℤ) : ℚ)
+                * (if (s1Flag j.val).IsIso (extFlagS1 (graphOfMask 7 w)
+                    ![u] p.2.1 p.2.2.1 p.2.2.2) then 1 else 0)) := by
+    intro u
+    have hcomp : (fun S : List (Fin 7) =>
+        (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+            * (if (s1Flag i.val).IsIso (extFlagS1 (graphOfMask 7 w) ![u]
+                ((pairS1 u S).1.1) ((pairS1 u S).1.2.1)
+                ((pairS1 u S).1.2.2)) then 1 else 0))
+          * (∑ j : Fin 7, ((fS1 r j.val : ℤ) : ℚ)
+              * (if (s1Flag j.val).IsIso (extFlagS1 (graphOfMask 7 w) ![u]
+                  ((pairS1 u S).2.1) ((pairS1 u S).2.2.1)
+                  ((pairS1 u S).2.2.2)) then 1 else 0)))
+        = (fun p : (Fin 7 × Fin 7 × Fin 7) × (Fin 7 × Fin 7 × Fin 7) =>
+            (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+                * (if (s1Flag i.val).IsIso (extFlagS1 (graphOfMask 7 w)
+                    ![u] p.1.1 p.1.2.1 p.1.2.2) then 1 else 0))
+              * (∑ j : Fin 7, ((fS1 r j.val : ℤ) : ℚ)
+                  * (if (s1Flag j.val).IsIso (extFlagS1 (graphOfMask 7 w)
+                      ![u] p.2.1 p.2.2.1 p.2.2.2) then 1 else 0)))
+          ∘ pairS1 u := rfl
+    rw [hcomp, ← List.map_map, ← List.sum_toFinset _ (pairS1_nodup u),
+      ← outsideTriples_eq_list u]
+  rw [Finset.sum_congr rfl fun u (_ : u ∈ Finset.univ) => hper u,
+    rootingsOf_vertexGraph]
+  refine (Fintype.sum_equiv (Equiv.funUnique (Fin 1) (Fin 7))
+    (fun θ => ∑ p ∈ outsideTriples θ,
+      (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+          * (if (s1Flag i.val).IsIso (extFlagS1 (graphOfMask 7 w) θ
+              p.1.1 p.1.2.1 p.1.2.2) then 1 else 0))
+        * (∑ j : Fin 7, ((fS1 r j.val : ℤ) : ℚ)
+            * (if (s1Flag j.val).IsIso (extFlagS1 (graphOfMask 7 w) θ
+                p.2.1 p.2.2.1 p.2.2.2) then 1 else 0)))
+    (fun u => ∑ p ∈ outsideTriples ![u],
+      (∑ i : Fin 7, ((fS1 r i.val : ℤ) : ℚ)
+          * (if (s1Flag i.val).IsIso (extFlagS1 (graphOfMask 7 w) ![u]
+              p.1.1 p.1.2.1 p.1.2.2) then 1 else 0))
+        * (∑ j : Fin 7, ((fS1 r j.val : ℤ) : ℚ)
+            * (if (s1Flag j.val).IsIso (extFlagS1 (graphOfMask 7 w) ![u]
+                p.2.1 p.2.2.1 p.2.2.2) then 1 else 0)))
+    (fun θ => ?_)).symm
+  have hθ : θ = ![θ 0] := by
+    funext i
+    fin_cases i
+    rfl
+  conv_lhs => rw [hθ]
+  rfl
+
+/-! ## Three-root bookkeeping -/
+
+private lemma ifSum (c : Prop) [Decidable c] (v : ℚ) :
+    (if c then [v] else []).sum = if c then v else 0 := by
+  by_cases h : c
+  · rw [if_pos h, if_pos h, List.sum_cons, List.sum_nil, add_zero]
+  · rw [if_neg h, if_neg h, List.sum_nil]
+
+private lemma mapGetD {α β : Type} (l : List α) (f : α → β)
+    (k : ℕ) (hk : k < l.length) (d : β) (d₀ : α) :
+    (l.map f).getD k d = f (l.getD k d₀) := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_map,
+    List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hk]
+  rfl
+
+private lemma mapSumGetD {α : Type} (l : List α) (g : α → ℚ) (d₀ : α) :
+    (l.map g).sum = ∑ k ∈ Finset.range l.length, g (l.getD k d₀) := by
+  induction l with
+  | nil => simp
+  | cons a t ih =>
+    rw [List.map_cons, List.sum_cons, ih, List.length_cons,
+      Finset.sum_range_succ', add_comm]
+    rfl
+
+lemma sorted2F_length : ∀ a b c : Fin 7, a ≠ b → a ≠ c → b ≠ c →
+    (sorted2F (restF3 a b c)).length = 6 := by native_decide
+
+/-- The three-root record cell, expanded into its six Gram lookups with
+the lex-complement pairing. -/
+private lemma s3Cell_expand (m bit : ℕ) (gs : List ℕ) :
+    s3Cell m bit gs
+      = ∑ k ∈ Finset.range 6,
+          (if m.testBit bit
+            then gram7s31.getD
+              ((s3Idx1T.getD (gatherBits (gs.getD k 0) 10 m) 999) * 191
+                + s3Idx1T.getD (gatherBits (gs.getD (5 - k) 0) 10 m) 999) 0
+            else gram7s30.getD
+              ((s3Idx0T.getD (gatherBits (gs.getD k 0) 10 m) 999) * 236
+                + s3Idx0T.getD (gatherBits (gs.getD (5 - k) 0) 10 m) 999)
+              0) := by
+  rw [show (6 : ℕ) = 5 + 1 from rfl, Finset.sum_range_succ,
+    Finset.sum_range_succ, Finset.sum_range_succ, Finset.sum_range_succ,
+    Finset.sum_range_succ, Finset.sum_range_succ, Finset.sum_range_zero]
+  by_cases h : m.testBit bit
+  · simp only [s3Cell, if_pos h]
+    ring
+  · simp only [s3Cell, if_neg h, Bool.false_eq_true]
+    ring
+
+/-- Distinct root values make an injective triple, and conversely. -/
+lemma injTriple_iff : ∀ a b c : Fin 7,
+    Function.Injective ![a, b, c] ↔ (a ≠ b ∧ a ≠ c ∧ b ≠ c) := by
+  decide
+
+/-! ## The three-root record cells as witness sums -/
+
+/-- A record cell of the nonedge family is the row-sum of weight
+products over the outside pairs. -/
+private lemma hbody30 {w : ℕ}
+    (hw : TetraFree.Mem (graphOfMask 7 w).toModel) (a b c : Fin 7)
+    (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+    (her : w.testBit (rootRank ![a, b, c]) = false) :
+    ((s3Cell w (rootRank ![a, b, c])
+        ((sorted2F (restF3 a b c)).map fun S =>
+          mkGather5 a.val b.val c.val ((pairS3 a b c S).1.1).val
+            ((pairS3 a b c S).1.2).val) : ℤ) : ℚ)
+      = ∑ r ∈ Finset.range 60,
+          ∑ p ∈ outsidePairsS3 ![a, b, c],
+            (∑ i : Fin 236, ((fS30 r i.val : ℤ) : ℚ)
+                * (if (s30Flag i.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                    ![a, b, c] p.1.1 p.1.2) then 1 else 0))
+              * (∑ j : Fin 236, ((fS30 r j.val : ℤ) : ℚ)
+                  * (if (s30Flag j.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                      ![a, b, c] p.2.1 p.2.2) then 1 else 0)) := by
+  have hlen := sorted2F_length a b c hab hac hbc
+  rw [s3Cell_expand]
+  simp only [her, Bool.false_eq_true, if_false]
+  push_cast
+  rw [Finset.sum_congr rfl fun k hk => by
+    have hk6 : k < 6 := Finset.mem_range.mp hk
+    have hkl : k < (sorted2F (restF3 a b c)).length := by omega
+    have hk5 : 5 - k < (sorted2F (restF3 a b c)).length := by omega
+    have hmemk : (sorted2F (restF3 a b c)).getD k []
+        ∈ sorted2F (restF3 a b c) := by
+      rw [List.getD_eq_getElem _ _ hkl]
+      exact List.getElem_mem _
+    have hmem5 : (sorted2F (restF3 a b c)).getD (5 - k) []
+        ∈ sorted2F (restF3 a b c) := by
+      rw [List.getD_eq_getElem _ _ hk5]
+      exact List.getElem_mem _
+    have hinj₁ := (injS3_tuple a b c hab hac hbc _ hmemk).1
+    have hinj₂ := (injS3_tuple a b c hab hac hbc _ hmem5).1
+    have hb₁ : (gatherBits (mkGather5 a.val b.val c.val
+        ((pairS3 a b c ((sorted2F (restF3 a b c)).getD k [])).1.1).val
+        ((pairS3 a b c ((sorted2F (restF3 a b c)).getD k [])).1.2).val)
+        10 w).testBit 0 = false := by
+      rw [gather5_bit0]
+      exact her
+    have hb₂ : (gatherBits (mkGather5 a.val b.val c.val
+        ((pairS3 a b c ((sorted2F (restF3 a b c)).getD (5 - k) [])).1.1).val
+        ((pairS3 a b c ((sorted2F (restF3 a b c)).getD (5 - k) [])).1.2).val)
+        10 w).testBit 0 = false := by
+      rw [gather5_bit0]
+      exact her
+    rw [mapGetD _ _ k hkl 0 [], mapGetD _ _ (5 - k) hk5 0 [],
+      gramS30_eq_weights (mask1024 _ _) (mask1024 _ _) hinj₁ hinj₂
+        (k4_gather5 hw hinj₁) (k4_gather5 hw hinj₂) hb₁ hb₂,
+      (pairS3_complement a b c hab hac hbc k hk6).1,
+      (pairS3_complement a b c hab hac hbc k hk6).2],
+    Finset.sum_comm]
+  refine Finset.sum_congr rfl fun r _ => ?_
+  conv_rhs => rw [outsidePairsS3_eq_list a b c hab hac hbc,
+    List.sum_toFinset _ (pairS3_nodup a b c), List.map_map,
+    mapSumGetD _ _ ([] : List (Fin 7)), hlen]
+  simp only [Function.comp]
+
+/-- A record cell of the edge family is the row-sum of weight products
+over the outside pairs. -/
+private lemma hbody31 {w : ℕ}
+    (hw : TetraFree.Mem (graphOfMask 7 w).toModel) (a b c : Fin 7)
+    (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+    (her : w.testBit (rootRank ![a, b, c]) = true) :
+    ((s3Cell w (rootRank ![a, b, c])
+        ((sorted2F (restF3 a b c)).map fun S =>
+          mkGather5 a.val b.val c.val ((pairS3 a b c S).1.1).val
+            ((pairS3 a b c S).1.2).val) : ℤ) : ℚ)
+      = ∑ r ∈ Finset.range 46,
+          ∑ p ∈ outsidePairsS3 ![a, b, c],
+            (∑ i : Fin 191, ((fS31 r i.val : ℤ) : ℚ)
+                * (if (s31Flag i.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                    ![a, b, c] p.1.1 p.1.2) then 1 else 0))
+              * (∑ j : Fin 191, ((fS31 r j.val : ℤ) : ℚ)
+                  * (if (s31Flag j.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                      ![a, b, c] p.2.1 p.2.2) then 1 else 0)) := by
+  have hlen := sorted2F_length a b c hab hac hbc
+  rw [s3Cell_expand]
+  simp only [her, if_true]
+  push_cast
+  rw [Finset.sum_congr rfl fun k hk => by
+    have hk6 : k < 6 := Finset.mem_range.mp hk
+    have hkl : k < (sorted2F (restF3 a b c)).length := by omega
+    have hk5 : 5 - k < (sorted2F (restF3 a b c)).length := by omega
+    have hmemk : (sorted2F (restF3 a b c)).getD k []
+        ∈ sorted2F (restF3 a b c) := by
+      rw [List.getD_eq_getElem _ _ hkl]
+      exact List.getElem_mem _
+    have hmem5 : (sorted2F (restF3 a b c)).getD (5 - k) []
+        ∈ sorted2F (restF3 a b c) := by
+      rw [List.getD_eq_getElem _ _ hk5]
+      exact List.getElem_mem _
+    have hinj₁ := (injS3_tuple a b c hab hac hbc _ hmemk).1
+    have hinj₂ := (injS3_tuple a b c hab hac hbc _ hmem5).1
+    have hb₁ : (gatherBits (mkGather5 a.val b.val c.val
+        ((pairS3 a b c ((sorted2F (restF3 a b c)).getD k [])).1.1).val
+        ((pairS3 a b c ((sorted2F (restF3 a b c)).getD k [])).1.2).val)
+        10 w).testBit 0 = true := by
+      rw [gather5_bit0]
+      exact her
+    have hb₂ : (gatherBits (mkGather5 a.val b.val c.val
+        ((pairS3 a b c ((sorted2F (restF3 a b c)).getD (5 - k) [])).1.1).val
+        ((pairS3 a b c ((sorted2F (restF3 a b c)).getD (5 - k) [])).1.2).val)
+        10 w).testBit 0 = true := by
+      rw [gather5_bit0]
+      exact her
+    rw [mapGetD _ _ k hkl 0 [], mapGetD _ _ (5 - k) hk5 0 [],
+      gramS31_eq_weights (mask1024 _ _) (mask1024 _ _) hinj₁ hinj₂
+        (k4_gather5 hw hinj₁) (k4_gather5 hw hinj₂) hb₁ hb₂,
+      (pairS3_complement a b c hab hac hbc k hk6).1,
+      (pairS3_complement a b c hab hac hbc k hk6).2],
+    Finset.sum_comm]
+  refine Finset.sum_congr rfl fun r _ => ?_
+  conv_rhs => rw [outsidePairsS3_eq_list a b c hab hac hbc,
+    List.sum_toFinset _ (pairS3_nodup a b c), List.map_map,
+    mapSumGetD _ _ ([] : List (Fin 7)), hlen]
+  simp only [Function.comp]
+
+/-! ## The triple-sum bridge -/
+
+private def e37 : (Fin 3 → Fin 7) ≃ Fin 7 × Fin 7 × Fin 7 where
+  toFun θ := (θ 0, θ 1, θ 2)
+  invFun t := ![t.1, t.2.1, t.2.2]
+  left_inv θ := by
+    funext i
+    fin_cases i <;> rfl
+  right_inv t := rfl
+
+private lemma tripleSum_bridge (P : (Fin 3 → Fin 7) → Prop)
+    [DecidablePred P] (F : (Fin 3 → Fin 7) → ℚ) :
+    ∑ θ ∈ (Finset.univ.filter fun θ : Fin 3 → Fin 7 =>
+        Function.Injective θ ∧ P θ), F θ
+      = ∑ a : Fin 7, ∑ b : Fin 7, ∑ c : Fin 7,
+          if ((a ≠ b ∧ a ≠ c ∧ b ≠ c) ∧ P ![a, b, c])
+            then F ![a, b, c] else 0 := by
+  rw [Finset.sum_filter,
+    Fintype.sum_equiv e37
+      (fun θ => if (Function.Injective θ ∧ P θ) then F θ else 0)
+      (fun t => if ((t.1 ≠ t.2.1 ∧ t.1 ≠ t.2.2 ∧ t.2.1 ≠ t.2.2)
+          ∧ P ![t.1, t.2.1, t.2.2])
+        then F ![t.1, t.2.1, t.2.2] else 0)
+      (fun θ => by
+        have hθ3 : θ = ![θ 0, θ 1, θ 2] := by
+          funext i
+          fin_cases i <;> rfl
+        show _ = if ((θ 0 ≠ θ 1 ∧ θ 0 ≠ θ 2 ∧ θ 1 ≠ θ 2)
+            ∧ P ![θ 0, θ 1, θ 2]) then F ![θ 0, θ 1, θ 2] else 0
+        refine if_congr ?_ ?_ rfl
+        · rw [← injTriple_iff (θ 0) (θ 1) (θ 2), ← hθ3]
+        · rw [← hθ3]),
+    Fintype.sum_prod_type]
+  refine Finset.sum_congr rfl fun a _ => ?_
+  rw [Fintype.sum_prod_type]
+
+private lemma splitIf (d : Prop) [Decidable d] (bb : Bool) (x y : ℚ) :
+    (if d then (if bb then x else y) else 0)
+      = (if (d ∧ bb = false) then y else 0)
+        + (if (d ∧ bb = true) then x else 0) := by
+  by_cases hd : d
+  · cases bb <;> simp [hd]
+  · simp [hd]
+
+private lemma ifSumPull (c : Prop) [Decidable c] (s : Finset ℕ)
+    (f : ℕ → ℚ) :
+    (if c then ∑ r ∈ s, f r else 0) = ∑ r ∈ s, (if c then f r else 0) := by
+  by_cases hc : c <;> simp [hc]
+
+/-! ## The three-root match -/
+
+/-- **The three-root fold is the pair of rooting sums of weight
+products**, split by the parity of the root triple. -/
+theorem s3_match {w : ℕ}
+    (hw : TetraFree.Mem (graphOfMask 7 w).toModel) :
+    ((s3Value w : ℤ) : ℚ)
+      = (∑ r ∈ Finset.range 60,
+          ∑ θ ∈ rootingsOf (s3Type 0) (graphOfMask 7 w),
+            ∑ p ∈ outsidePairsS3 θ,
+              (∑ i : Fin 236, ((fS30 r i.val : ℤ) : ℚ)
+                  * (if (s30Flag i.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                      θ p.1.1 p.1.2) then 1 else 0))
+                * (∑ j : Fin 236, ((fS30 r j.val : ℤ) : ℚ)
+                    * (if (s30Flag j.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                        θ p.2.1 p.2.2) then 1 else 0)))
+        + ∑ r ∈ Finset.range 46,
+            ∑ θ ∈ rootingsOf (s3Type 1) (graphOfMask 7 w),
+              ∑ p ∈ outsidePairsS3 θ,
+                (∑ i : Fin 191, ((fS31 r i.val : ℤ) : ℚ)
+                    * (if (s31Flag i.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                        θ p.1.1 p.1.2) then 1 else 0))
+                  * (∑ j : Fin 191, ((fS31 r j.val : ℤ) : ℚ)
+                      * (if (s31Flag j.val).IsIso (extFlagS3
+                          (graphOfMask 7 w) θ p.2.1 p.2.2)
+                        then 1 else 0)) := by
+  rw [s3Value_eq_mySum, castIntSum, List.map_map, myS3_eq_finForm,
+    List.map_flatMap, flatSum]
+  rw [List.map_congr_left fun a (_ : a ∈ List.finRange 7) => by
+    rw [List.map_flatMap, flatSum,
+      List.map_congr_left fun b (_ : b ∈ List.finRange 7) => by
+        rw [List.map_flatMap, flatSum,
+          List.map_congr_left fun c (_ : c ∈ List.finRange 7) => by
+            rw [apply_ite (List.map ((fun z : ℤ => (z : ℚ))
+                ∘ fun rec : ℕ × List ℕ => s3Cell w rec.1 rec.2)),
+              List.map_cons, List.map_nil, ifSum]]]]
+  rw [finRangeSum]
+  rw [Finset.sum_congr rfl fun a _ => finRangeSum _]
+  rw [Finset.sum_congr rfl fun a _ =>
+    Finset.sum_congr rfl fun b _ => finRangeSum _]
+  have hpoint : ∀ a b c : Fin 7,
+      (if (a ≠ b ∧ a ≠ c ∧ b ≠ c) then
+          ((fun z : ℤ => (z : ℚ)) ∘ fun rec : ℕ × List ℕ =>
+            s3Cell w rec.1 rec.2)
+          (rootRank ![a, b, c],
+           (sorted2F (restF3 a b c)).map fun S =>
+             mkGather5 a.val b.val c.val ((pairS3 a b c S).1.1).val
+               ((pairS3 a b c S).1.2).val)
+        else 0)
+      = (if ((a ≠ b ∧ a ≠ c ∧ b ≠ c)
+            ∧ w.testBit (rootRank ![a, b, c]) = false) then
+          ∑ r ∈ Finset.range 60,
+            ∑ p ∈ outsidePairsS3 ![a, b, c],
+              (∑ i : Fin 236, ((fS30 r i.val : ℤ) : ℚ)
+                  * (if (s30Flag i.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                      ![a, b, c] p.1.1 p.1.2) then 1 else 0))
+                * (∑ j : Fin 236, ((fS30 r j.val : ℤ) : ℚ)
+                    * (if (s30Flag j.val).IsIso (extFlagS3
+                        (graphOfMask 7 w) ![a, b, c] p.2.1 p.2.2)
+                      then 1 else 0))
+          else 0)
+        + (if ((a ≠ b ∧ a ≠ c ∧ b ≠ c)
+              ∧ w.testBit (rootRank ![a, b, c]) = true) then
+            ∑ r ∈ Finset.range 46,
+              ∑ p ∈ outsidePairsS3 ![a, b, c],
+                (∑ i : Fin 191, ((fS31 r i.val : ℤ) : ℚ)
+                    * (if (s31Flag i.val).IsIso (extFlagS3
+                        (graphOfMask 7 w) ![a, b, c] p.1.1 p.1.2)
+                      then 1 else 0))
+                  * (∑ j : Fin 191, ((fS31 r j.val : ℤ) : ℚ)
+                      * (if (s31Flag j.val).IsIso (extFlagS3
+                          (graphOfMask 7 w) ![a, b, c] p.2.1 p.2.2)
+                        then 1 else 0))
+            else 0) := by
+    intro a b c
+    by_cases hd : a ≠ b ∧ a ≠ c ∧ b ≠ c
+    · rw [if_pos hd]
+      by_cases her : w.testBit (rootRank ![a, b, c]) = true
+      · rw [if_neg (fun h => by
+            rw [her] at h
+            exact absurd h.2 (by decide)),
+          if_pos ⟨hd, her⟩, zero_add]
+        exact hbody31 hw a b c hd.1 hd.2.1 hd.2.2 her
+      · have herf : w.testBit (rootRank ![a, b, c]) = false :=
+          Bool.eq_false_iff.mpr her
+        rw [if_pos ⟨hd, herf⟩,
+          if_neg (fun h => her h.2), add_zero]
+        exact hbody30 hw a b c hd.1 hd.2.1 hd.2.2 herf
+    · rw [if_neg hd, if_neg (fun h => hd h.1), if_neg (fun h => hd h.1),
+        add_zero]
+  rw [Finset.sum_congr rfl fun a _ => Finset.sum_congr rfl fun b _ =>
+    Finset.sum_congr rfl fun c _ => hpoint a b c]
+  rw [Finset.sum_congr rfl fun a _ => Finset.sum_congr rfl fun b _ =>
+      Finset.sum_add_distrib,
+    Finset.sum_congr rfl fun a _ => Finset.sum_add_distrib,
+    Finset.sum_add_distrib]
+  have hpart : ∀ (n : ℕ) (cond : Bool)
+      (V : ℕ → (Fin 3 → Fin 7) →
+        ((Fin 7 × Fin 7) × (Fin 7 × Fin 7)) → ℚ),
+      (∑ a : Fin 7, ∑ b : Fin 7, ∑ c : Fin 7,
+        if ((a ≠ b ∧ a ≠ c ∧ b ≠ c)
+            ∧ w.testBit (rootRank ![a, b, c]) = cond)
+          then ∑ r ∈ Finset.range n,
+            ∑ p ∈ outsidePairsS3 ![a, b, c], V r ![a, b, c] p
+          else 0)
+      = ∑ r ∈ Finset.range n,
+          ∑ θ ∈ injRootings.filter
+            (fun θ => w.testBit (rootRank θ) = cond),
+            ∑ p ∈ outsidePairsS3 θ, V r θ p := by
+    intro n cond V
+    rw [Finset.sum_congr rfl fun a _ => Finset.sum_congr rfl fun b _ =>
+      Finset.sum_congr rfl fun c _ => ifSumPull _ _ _]
+    rw [Finset.sum_congr rfl fun a _ => Finset.sum_congr rfl fun b _ =>
+        Finset.sum_comm,
+      Finset.sum_congr rfl fun a _ => Finset.sum_comm,
+      Finset.sum_comm]
+    refine Finset.sum_congr rfl fun r _ => ?_
+    rw [show injRootings = Finset.univ.filter
+        (fun θ : Fin 3 → Fin 7 => Function.Injective θ) from rfl,
+      Finset.filter_filter]
+    exact (tripleSum_bridge (fun θ => w.testBit (rootRank θ) = cond)
+      (fun θ => ∑ p ∈ outsidePairsS3 θ, V r θ p)).symm
+  refine ((congrArg₂ (· + ·)
+    (hpart 60 false fun r θ p =>
+      (∑ i : Fin 236, ((fS30 r i.val : ℤ) : ℚ)
+          * (if (s30Flag i.val).IsIso (extFlagS3 (graphOfMask 7 w)
+              θ p.1.1 p.1.2) then 1 else 0))
+        * (∑ j : Fin 236, ((fS30 r j.val : ℤ) : ℚ)
+            * (if (s30Flag j.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                θ p.2.1 p.2.2) then 1 else 0)))
+    (hpart 46 true fun r θ p =>
+      (∑ i : Fin 191, ((fS31 r i.val : ℤ) : ℚ)
+          * (if (s31Flag i.val).IsIso (extFlagS3 (graphOfMask 7 w)
+              θ p.1.1 p.1.2) then 1 else 0))
+        * (∑ j : Fin 191, ((fS31 r j.val : ℤ) : ℚ)
+            * (if (s31Flag j.val).IsIso (extFlagS3 (graphOfMask 7 w)
+                θ p.2.1 p.2.2) then 1 else 0)))).trans ?_)
+  rw [← rootingsOf_s3Type_zero, ← rootingsOf_s3Type_one]
+
+end FlagAlgebras.Core.Tetrahedron

@@ -1,0 +1,84 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Slack
+import LeanFlagAlgebras.Core.Examples.TetrahedronStationarity
+
+/-! # The order-7 certificate, assembled
+
+Three of the four inputs to the tetrahedron bound are now theorems:
+
+* the remainder is nonnegative — that is the verified sweep, one
+  inequality per seven-vertex flag class (`remainder7_nonneg`);
+* a nonnegative combination of downward squares is nonnegative, at any
+  rooting type (`downward_sos_nonneg`);
+* the stationarity element has value zero at a degree-stationary
+  homomorphism (`IsDegreeStationary`).
+
+What remains is the coefficient identity: that `certBound • 1` really
+does decompose as the edge plus a semidefinite part plus the
+stationarity multiple plus this remainder. That identity is the level-7
+expansion of the certificate, and it is *not* proved here — it is the
+hypothesis `hrep` below. Everything else the certificate needs is
+discharged, so the theorems in this file state exactly how much is left.
+
+The bound the certificate delivers, `2350694236183 / 4200000000000`, is
+about `0.5596891`, below the published record `1123 / 2000 = 0.5615`. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-- The objective: the hyperedge as an element of the unlabeled flag
+algebra. A positive homomorphism sends it to the edge density. -/
+noncomputable def edgeElt : FlagAlgebra TetraFree emptyType :=
+  ⟦basisVector (⟨3, edgeGraph.toFlag edgeGraph_mem⟩ :
+    FinFlag TetraFree emptyType)⟧
+
+/-- The certificate's decomposition of the unit, as a proposition about
+a semidefinite part `P` and a stationarity multiplier `τ`. This is the
+level-7 expansion identity, and the one input still to be proved. -/
+def IsCertDecomp (τ : ℝ) (P : FlagAlgebra TetraFree emptyType) : Prop :=
+  ((certBound : ℚ) : ℝ) • (1 : FlagAlgebra TetraFree emptyType)
+    = edgeElt + P + τ • degreeStationarity + remainder7
+
+/-- **The order-7 bound, conditional on the expansion identity.** A
+degree-stationary positive homomorphism assigns the hyperedge at most
+the certificate's value.
+
+The semidefinite part enters as an arbitrary nonnegative element, which
+is what lets the certificate mix squares from its four rooting types —
+the two order-6 blocks and the order-7 one-root and three-root
+families. -/
+theorem positiveHom_edge_le_certBound
+    (φ : PositiveHom TetraFree emptyType) (hφ : IsDegreeStationary φ)
+    {τ : ℝ} {P : FlagAlgebra TetraFree emptyType}
+    (hP : (0 : FlagAlgebra TetraFree emptyType) ≤ P)
+    (hrep : IsCertDecomp τ P) :
+    φ edgeElt ≤ ((certBound : ℚ) : ℝ) :=
+  positiveHom_le_of_degree_stationarity_nonneg φ hφ hP remainder7_nonneg hrep
+
+/-- The bound as a real number. -/
+lemma certBound_cast :
+    ((certBound : ℚ) : ℝ) = 2350694236183 / 4200000000000 := by
+  rw [certBound_eq]
+  norm_num
+
+/-- **Below the published record**, on the same hypothesis: the bound is
+`0.5596891...` against the published `0.5615`. -/
+theorem positiveHom_edge_lt_published
+    (φ : PositiveHom TetraFree emptyType) (hφ : IsDegreeStationary φ)
+    {τ : ℝ} {P : FlagAlgebra TetraFree emptyType}
+    (hP : (0 : FlagAlgebra TetraFree emptyType) ≤ P)
+    (hrep : IsCertDecomp τ P) :
+    φ edgeElt < (1123 / 2000 : ℝ) := by
+  refine lt_of_le_of_lt (positiveHom_edge_le_certBound φ hφ hP hrep) ?_
+  rw [certBound_cast]
+  norm_num
+
+/-- The certificate does not undercut the conjectured extremal
+construction: its value stays above `5/9`, the density of the iterated
+blow-up. A bound below `5/9` would have been evidence of an error. -/
+theorem five_ninths_lt_certBound_real :
+    (5 / 9 : ℝ) < ((certBound : ℚ) : ℝ) := by
+  rw [certBound_cast]
+  norm_num
+
+end FlagAlgebras.Core.Tetrahedron

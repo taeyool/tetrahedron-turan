@@ -1,0 +1,187 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Split
+
+/-! # The hyperedges of an extended mask
+
+`extendMask h link` was built bit by bit; this file says what it is as a
+graph. A triple avoiding the last vertex is a hyperedge exactly when it
+is one in the six-vertex half, and a triple through the last vertex
+exactly when its other two vertices form a pair of the link. Nothing
+else is present.
+
+The two position tables are what make this work, and their relevant
+properties are finite: each sorted triple of the seven-vertex range is
+named by exactly one entry of exactly one table, with the source the
+statement predicts. Those facts are checked by `decide`; the rest is the
+selection lemma of the previous file, read in the other direction. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-- Selecting by target, when the target is named: the value is the bit
+at the corresponding source. -/
+lemma any_source_testBit {tbl : List (ℕ × ℕ)}
+    (hinj : ∀ p ∈ tbl, ∀ q ∈ tbl, p.2 = q.2 → p.1 = q.1) {h k s : ℕ}
+    (hmem : (s, k) ∈ tbl) :
+    (tbl.any fun p => decide (h.testBit p.1 = true) && decide (p.2 = k))
+      = h.testBit s := by
+  cases hb : h.testBit s with
+  | true =>
+    refine List.any_eq_true.mpr ⟨(s, k), hmem, ?_⟩
+    rw [Bool.and_eq_true]
+    exact ⟨decide_eq_true hb, decide_eq_true rfl⟩
+  | false =>
+    refine Bool.eq_false_iff.mpr fun hany => ?_
+    obtain ⟨q, hq, hcond⟩ := List.any_eq_true.mp hany
+    rw [Bool.and_eq_true] at hcond
+    have := hinj q hq (s, k) hmem (of_decide_eq_true hcond.2)
+    rw [this] at hcond
+    rw [of_decide_eq_true hcond.1] at hb
+    cases hb
+
+/-- Selecting by a target no entry names is empty. -/
+lemma any_no_target {tbl : List (ℕ × ℕ)} {h k : ℕ}
+    (hno : ∀ p ∈ tbl, p.2 ≠ k) :
+    (tbl.any fun p => decide (h.testBit p.1 = true) && decide (p.2 = k))
+      = false := by
+  refine Bool.eq_false_iff.mpr fun hany => ?_
+  obtain ⟨q, hq, hcond⟩ := List.any_eq_true.mp hany
+  rw [Bool.and_eq_true] at hcond
+  exact hno q hq (of_decide_eq_true hcond.2)
+
+/-! ## What the tables say about each sorted triple -/
+
+lemma remapPairs_target_inj :
+    ∀ p ∈ remapPairs, ∀ q ∈ remapPairs, p.2 = q.2 → p.1 = q.1 := by decide
+
+lemma linkPairs_target_inj :
+    ∀ p ∈ linkPairs, ∀ q ∈ linkPairs, p.2 = q.2 → p.1 = q.1 := by decide
+
+/-- A triple avoiding the last vertex is named by the remap table, at the
+source its six-vertex rank predicts. -/
+lemma mem_remapPairs_of_lt :
+    ∀ a b c : Fin 7, a < b → b < c → c.val < 6 →
+      (triIdx 6 a.val b.val c.val, triIdx 7 a.val b.val c.val) ∈ remapPairs := by
+  decide
+
+/-- No link entry names such a triple. -/
+lemma linkPairs_no_target_of_lt :
+    ∀ a b c : Fin 7, a < b → b < c → c.val < 6 →
+      ∀ p ∈ linkPairs, p.2 ≠ triIdx 7 a.val b.val c.val := by decide
+
+/-- A triple through the last vertex is named by the link table, at the
+source its pair rank predicts. -/
+lemma mem_linkPairs_of_last :
+    ∀ a b : Fin 7, a < b → b.val < 6 →
+      (pairIdx 6 a.val b.val, triIdx 7 a.val b.val 6) ∈ linkPairs := by
+  decide
+
+/-- No remap entry names such a triple. -/
+lemma remapPairs_no_target_of_last :
+    ∀ a b : Fin 7, a < b → b.val < 6 →
+      ∀ p ∈ remapPairs, p.2 ≠ triIdx 7 a.val b.val 6 := by decide
+
+/-! ## The bits of an extended mask, triple by triple -/
+
+/-- A triple avoiding the last vertex: the bit is the six-vertex one. -/
+theorem extendMask_testBit_lt {h link : ℕ} {a b c : Fin 7} (hab : a < b)
+    (hbc : b < c) (hc : c.val < 6) :
+    (extendMask h link).testBit (triIdx 7 a.val b.val c.val)
+      = h.testBit (triIdx 6 a.val b.val c.val) := by
+  rw [extendMask_testBit,
+    any_source_testBit remapPairs_target_inj (mem_remapPairs_of_lt a b c hab hbc hc),
+    any_no_target (linkPairs_no_target_of_lt a b c hab hbc hc)]
+  simp
+
+/-- A triple through the last vertex: the bit is the link's. -/
+theorem extendMask_testBit_last {h link : ℕ} {a b : Fin 7} (hab : a < b)
+    (hb : b.val < 6) :
+    (extendMask h link).testBit (triIdx 7 a.val b.val 6)
+      = link.testBit (pairIdx 6 a.val b.val) := by
+  rw [extendMask_testBit,
+    any_no_target (remapPairs_no_target_of_last a b hab hb),
+    any_source_testBit linkPairs_target_inj (mem_linkPairs_of_last a b hab hb)]
+  simp
+
+/-! ## The hyperedges -/
+
+/-- **What an extended mask is as a graph.** Its hyperedges are the
+hyperedges of the six-vertex half, together with the pairs of the link
+completed by the last vertex. -/
+theorem mem_extendMask_edges {h link : ℕ} {e : Finset (Fin 7)} :
+    e ∈ (graphOfMask 7 (extendMask h link)).edges
+      ↔ (∃ a b c : Fin 7, a < b ∧ b < c ∧ c.val < 6
+            ∧ h.testBit (triIdx 6 a.val b.val c.val) = true ∧ e = {a, b, c})
+        ∨ (∃ a b : Fin 7, a < b ∧ b.val < 6
+            ∧ link.testBit (pairIdx 6 a.val b.val) = true
+            ∧ e = {a, b, (6 : Fin 7)}) := by
+  rw [mem_graphOfMask_edges]
+  constructor
+  · rintro ⟨a, b, c, hab, hbc, hbit, rfl⟩
+    by_cases hc : c.val < 6
+    · rw [extendMask_testBit_lt hab hbc hc] at hbit
+      exact Or.inl ⟨a, b, c, hab, hbc, hc, hbit, rfl⟩
+    · have hc6 : c = (6 : Fin 7) := by
+        have := c.isLt
+        exact Fin.ext (by omega)
+      subst hc6
+      have hb : b.val < 6 := by omega
+      rw [show ((6 : Fin 7) : ℕ) = 6 from rfl,
+        extendMask_testBit_last hab hb] at hbit
+      exact Or.inr ⟨a, b, hab, hb, hbit, rfl⟩
+  · rintro (⟨a, b, c, hab, hbc, hc, hbit, rfl⟩ | ⟨a, b, hab, hb, hbit, rfl⟩)
+    · exact ⟨a, b, c, hab, hbc, by rw [extendMask_testBit_lt hab hbc hc]; exact hbit, rfl⟩
+    · refine ⟨a, b, (6 : Fin 7), hab, ?_, ?_, rfl⟩
+      · exact Fin.lt_def.mpr (by omega)
+      · rw [show ((6 : Fin 7) : ℕ) = 6 from rfl, extendMask_testBit_last hab hb]
+        exact hbit
+
+/-! ## The six-vertex part of a seven-vertex mask
+
+The other half of the picture: what `deck6` reads off. Its bits are the
+mask's own bits at the triples avoiding the last vertex, it stays inside
+the six-vertex range, and it inherits tetrahedron-freeness. -/
+
+lemma remapPairs_source_inj :
+    ∀ p ∈ remapPairs, ∀ q ∈ remapPairs, p.1 = q.1 → p.2 = q.2 := by decide
+
+lemma remapPairs_source_lt : ∀ p ∈ remapPairs, p.1 < 20 := by decide
+
+/-- The six-vertex part stays in the six-vertex range. -/
+lemma deck6_lt (m : ℕ) : deck6 m < 2 ^ 20 := by
+  unfold deck6 gatherFrom
+  exact foldl_or_lt_two_pow (fun p => m.testBit p.2 = true) (fun p => p.1)
+    remapPairs 0 20 (Nat.two_pow_pos 20) remapPairs_source_lt
+
+/-- A triple avoiding the last vertex has the same bit in the six-vertex
+part as in the whole mask. -/
+theorem deck6_testBit {m : ℕ} {a b c : Fin 7} (hab : a < b) (hbc : b < c)
+    (hc : c.val < 6) :
+    (deck6 m).testBit (triIdx 6 a.val b.val c.val)
+      = m.testBit (triIdx 7 a.val b.val c.val) :=
+  gatherFrom_testBit_of_mem (m := m) remapPairs_source_inj
+    (mem_remapPairs_of_lt a b c hab hbc hc)
+
+/-- **Tetrahedron-freeness is inherited by the six-vertex part.** -/
+theorem deck6_k4Free {m : ℕ} (hm : k4FreeMask (quadIdxList 7) m = true) :
+    k4FreeMask (quadIdxList 6) (deck6 m) = true := by
+  rw [k4FreeMask_iff_testBit] at hm ⊢
+  intro a b c d hab hbc hcd hd hbits
+  have ha7 : a < 7 := by omega
+  have hb7 : b < 7 := by omega
+  have hc7 : c < 7 := by omega
+  have hd7 : d < 7 := by omega
+  refine hm a b c d hab hbc hcd (by omega) ?_
+  have key : ∀ x y z : ℕ, x < y → y < z → z < 6 →
+      ∀ (hx : x < 7) (hy : y < 7) (hz : z < 7),
+      (deck6 m).testBit (triIdx 6 x y z) = m.testBit (triIdx 7 x y z) := by
+    intro x y z hxy hyz hz hx hy hzz
+    exact deck6_testBit (a := ⟨x, hx⟩) (b := ⟨y, hy⟩) (c := ⟨z, hzz⟩)
+      (Fin.lt_def.mpr hxy) (Fin.lt_def.mpr hyz) hz
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · rw [← key a b c hab hbc (by omega) ha7 hb7 hc7]; exact hbits.1
+  · rw [← key a b d hab (by omega) hd ha7 hb7 hd7]; exact hbits.2.1
+  · rw [← key a c d (by omega) hcd hd ha7 hc7 hd7]; exact hbits.2.2.1
+  · rw [← key b c d hbc hcd hd hb7 hc7 hd7]; exact hbits.2.2.2
+
+end FlagAlgebras.Core.Tetrahedron

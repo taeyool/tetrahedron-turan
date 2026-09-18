@@ -1,0 +1,162 @@
+{
+  "chain": "FlagAlgebras.Core.Tetrahedron.FullSevenLong",
+  "certificate": "certificate/K4_turan_order7_certificate.json",
+  "certificate_sha256": "c3b0e0b9364f669763bdb8fd1e3914bcd55acdee17fe7a5adbbb2e92da22beb4",
+  "hash_convention": "certificate: raw bytes; outputs and generator: UTF-8 text with CRLF normalized to LF",
+  "generator_sha256": "e8b82c633e2ba268997adbecf44d1896c6fce10a8a8e8d1d2025efe92822fbcb",
+  "common_sha256": "bc179e90bb6585b1d0f8e9d53856e8d830c1b7a1b9ea7de21eaf2d73c2e4c735",
+  "five_root_rows": 360,
+  "five_root_entries": 241586,
+  "types": [
+    {
+      "index": 0,
+      "sigma": 0,
+      "dimension": 1024,
+      "rows": 20,
+      "automorphisms": 120
+    },
+    {
+      "index": 1,
+      "sigma": 1,
+      "dimension": 896,
+      "rows": 27,
+      "automorphisms": 12
+    },
+    {
+      "index": 2,
+      "sigma": 3,
+      "dimension": 800,
+      "rows": 37,
+      "automorphisms": 4
+    },
+    {
+      "index": 3,
+      "sigma": 7,
+      "dimension": 728,
+      "rows": 16,
+      "automorphisms": 12
+    },
+    {
+      "index": 4,
+      "sigma": 11,
+      "dimension": 720,
+      "rows": 23,
+      "automorphisms": 6
+    },
+    {
+      "index": 5,
+      "sigma": 15,
+      "dimension": 652,
+      "rows": 25,
+      "automorphisms": 2
+    },
+    {
+      "index": 6,
+      "sigma": 30,
+      "dimension": 644,
+      "rows": 36,
+      "automorphisms": 8
+    },
+    {
+      "index": 7,
+      "sigma": 31,
+      "dimension": 594,
+      "rows": 39,
+      "automorphisms": 4
+    },
+    {
+      "index": 8,
+      "sigma": 63,
+      "dimension": 545,
+      "rows": 2,
+      "automorphisms": 24
+    },
+    {
+      "index": 9,
+      "sigma": 77,
+      "dimension": 640,
+      "rows": 1,
+      "automorphisms": 2
+    },
+    {
+      "index": 10,
+      "sigma": 87,
+      "dimension": 584,
+      "rows": 6,
+      "automorphisms": 2
+    },
+    {
+      "index": 11,
+      "sigma": 94,
+      "dimension": 578,
+      "rows": 29,
+      "automorphisms": 2
+    },
+    {
+      "index": 12,
+      "sigma": 116,
+      "dimension": 637,
+      "rows": 14,
+      "automorphisms": 12
+    },
+    {
+      "index": 13,
+      "sigma": 117,
+      "dimension": 580,
+      "rows": 18,
+      "automorphisms": 2
+    },
+    {
+      "index": 14,
+      "sigma": 119,
+      "dimension": 532,
+      "rows": 31,
+      "automorphisms": 2
+    },
+    {
+      "index": 15,
+      "sigma": 222,
+      "dimension": 526,
+      "rows": 10,
+      "automorphisms": 12
+    },
+    {
+      "index": 16,
+      "sigma": 237,
+      "dimension": 527,
+      "rows": 18,
+      "automorphisms": 2
+    },
+    {
+      "index": 17,
+      "sigma": 254,
+      "dimension": 483,
+      "rows": 8,
+      "automorphisms": 4
+    }
+  ],
+  "outputs": {
+    "TetrahedronOrder7FiveRootFactors00.lean": "6291048fde10fe488f934d0ca0b28aab8064408502d1502a0f41f47d44e541fa",
+    "TetrahedronOrder7FiveRootFactors01.lean": "73682fad0195f65b04cf8af96e2cd692dc91285fe4c8d4daa8a9779a27077126",
+    "TetrahedronOrder7FiveRootFactors02.lean": "7577848f575fdaee38c89b33e9004a1ca13b8b45ffdbe3ec93cc62d99d369484",
+    "TetrahedronOrder7FiveRootFactors03.lean": "57a2036ec0df1c4e4e33677e0b5b92a8aff7a251a7804beb41ec00ffe490cf81",
+    "TetrahedronOrder7FiveRootFactors04.lean": "fa16130ea0fc72e580b7b71086645267eb8c0005914f279b94f95ab706bc4d7c",
+    "TetrahedronOrder7FiveRootFactors05.lean": "9bef30af5f4641757de79d9d6f40074c632123a8efdffa08dcbd04d1f362a344",
+    "TetrahedronOrder7FiveRootFactors06.lean": "3c058ee6e4307e9d6ffd1b8872f8bd0dfc8d4d58a28fad98e5ffebc7ae81a2af",
+    "TetrahedronOrder7FiveRootFactors07.lean": "47f165c6e569295b309900bbabe1f62e881eac1ccbfb81f811daaaeef1fb350a",
+    "TetrahedronOrder7FiveRootFactors08.lean": "c6d9c64ee1e8f5b41b395902552a4acf0ce1811439e7634bd8e19c086c54dde1",
+    "TetrahedronOrder7FiveRootFactors09.lean": "335fc005a2ab84466ecde6e08f3bd61e1b064151756191f7208551eac97f2c8b",
+    "TetrahedronOrder7FiveRootFactors10.lean": "34ff897129723da350995d3c0a286a05f5b976a15f2ecb32e66581249c041073",
+    "TetrahedronOrder7FiveRootFactors11.lean": "117c0c78d6f40e0535cc9ecef5437be854a1201707db08a0448f4269f19de57b",
+    "TetrahedronOrder7FiveRootFactors12.lean": "0045a6ac25c14ace8edc106bfa43bfac41ed653779c5b4b110bfdcee2fbc4ddd",
+    "TetrahedronOrder7FiveRootFactors13.lean": "d8e811e5ef8f13bcfba956ba73fd9b2d3b96ad10e4b088ee7c6c5d7a7120b031",
+    "TetrahedronOrder7FiveRootFactors14.lean": "b93718822c13cb8a32830952dab91cf3026e2151406b47df7b782a0edada507b",
+    "TetrahedronOrder7FiveRootFactors15.lean": "ba4d7a0da84d6c661011b491f7ebecc78a6d214f8659b8d25bb0bafe0e1b5269",
+    "TetrahedronOrder7FiveRootFactors16.lean": "614d573a7e8d72e58eedf34a52e6e6c7ecfb189bc328ae7dfcb55907709ea32c",
+    "TetrahedronOrder7FiveRootFactors17.lean": "7ce64d3e1842f798106d575eed97dfd78ce89ecf68ea4cda1e5bc93ec96616f9",
+    "TetrahedronOrder7FiveRootData.lean": "1bc11ee4e425439026b9cb4598d6253714e088595b5f8cd3aab4c9d794ba4332",
+    "TetrahedronOrder7FiveRootTables.lean": "07908537cacb1dd8fd3e4a4b5a35aa61810e7a641e8dc07567e9c9a0d12aaf07",
+    "TetrahedronOrder7FiveRootOrderedData.lean": "fbcf2a17d850c0631d43a7e1db65a29da6651891c07af776fabf34a83b97750d"
+  },
+  "factor_shift": 25994163
+}

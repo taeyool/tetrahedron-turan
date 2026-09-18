@@ -1,0 +1,202 @@
+import LeanFlagAlgebras.Core.Compute.Sym3Downward
+import LeanFlagAlgebras.Core.Compute.Sym3Fiber
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Assembly
+
+/-! # Expanding the degree stationarity element
+
+The stationarity element is `(dF↓)² − (dF²)↓` for the rooted-hyperedge
+flag `dF`. This file computes its two halves structurally:
+
+* `dF↓` is exactly the edge element — the labeling factor of the rooted
+  hyperedge over a vertex is `3/3 = 1`, since all three vertices of the
+  hyperedge serve as roots (`downward_degreeFlag`);
+* `(dF↓)² = edge²` expands at level 6 with the edge pair densities;
+* `(dF²)↓` expands at level 5 with the labeling-weighted fiber sums of
+  the rooted pair densities.
+
+What remains for the identification with the certificate's `statElt6`
+is numeric: re-expanding the level-5 part at level 6 and checking, one
+six-vertex class at a time, that the combination equals `statNum/60`. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+open Classical
+
+/-- The rooted hyperedge averages to the plain hyperedge: its labeling
+factor is `3/3 = 1`. -/
+theorem downward_degreeFlag : downward degreeFlag = edgeElt := by
+  have h : degreeFlag = ⟦basisVector ⟨3, degreeSym3Flag.toFlag
+      (𝕋 := TetraFree) degreeSym3Flag_wf degreeSym3Flag_mem⟩⟧ := rfl
+  have hc : ((((degreeSym3Flag.labelingCountC vertexGraph : ℚ))
+      / ((Nat.descFactorial 3 1 : ℚ)) : ℚ) : ℝ) = 1 := by
+    rw [show degreeSym3Flag.labelingCountC vertexGraph = 3 from by decide]
+    norm_num
+  rw [h, Sym3Flag.downward_basisVector degreeSym3Flag_wf degreeSym3Flag_mem,
+    hc, one_smul]
+  rfl
+
+/-- The stationarity element, with its square half computed. -/
+theorem degreeStationarity_eq :
+    degreeStationarity
+      = edgeElt * edgeElt - downward (degreeFlag * degreeFlag) := by
+  have h : degreeStationarity
+      = downward degreeFlag * downward degreeFlag
+        - downward (degreeFlag * degreeFlag) := rfl
+  rw [h, downward_degreeFlag]
+
+/-- The square of the edge element, expanded over the six-vertex
+classes. -/
+theorem edgeElt_sq_expand :
+    edgeElt * edgeElt
+      = ∑ H : FlagWithSize TetraFree emptyType 6,
+          ((subflagPairDensity (edgeGraph.toFlag edgeGraph_mem)
+              (edgeGraph.toFlag edgeGraph_mem) H : ℚ) : ℝ) •
+            ⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧ := by
+  have h : edgeElt = ⟦basisVector (⟨3, edgeGraph.toFlag edgeGraph_mem⟩ :
+      FinFlag TetraFree emptyType)⟧ := rfl
+  rw [h, basisVector_quot_mul_eq_flagMulWithSize_quot
+      (⟨3, edgeGraph.toFlag edgeGraph_mem⟩ : FinFlag TetraFree emptyType)
+      (⟨3, edgeGraph.toFlag edgeGraph_mem⟩ : FinFlag TetraFree emptyType) 6
+      (by simp),
+    show flagMulWithSize
+        (⟨3, edgeGraph.toFlag edgeGraph_mem⟩ : FinFlag TetraFree emptyType)
+        (⟨3, edgeGraph.toFlag edgeGraph_mem⟩ : FinFlag TetraFree emptyType) 6
+        = ∑ H : FlagWithSize TetraFree emptyType 6,
+          ((subflagPairDensity (edgeGraph.toFlag edgeGraph_mem)
+              (edgeGraph.toFlag edgeGraph_mem) H : ℚ) : ℝ) •
+            basisVector ⟨6, H⟩ from rfl,
+    sum_quot]
+  exact Finset.sum_congr rfl fun H _ => smul_quot _ _
+
+/-- The downward square of the degree flag, expanded over the
+five-vertex classes with the labeling-weighted fiber sums. -/
+theorem downward_degree_sq :
+    downward (degreeFlag * degreeFlag)
+      = ∑ H : FlagWithSize TetraFree emptyType 5,
+          (∑ X ∈ Finset.univ.filter
+              (fun X : FlagWithSize TetraFree vertexGraph.toModel 5 =>
+                Flag.unlabel X = H),
+            ((subflagPairDensity
+                (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+                (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+                X : ℚ) : ℝ)
+              * (labelingFactor (Quotient.out X).unlabel
+                  (Quotient.out X) : ℝ))
+            • ⟦basisVector ⟨5, H⟩⟧ := by
+  have h : degreeFlag = ⟦basisVector ⟨3, degreeSym3Flag.toFlag
+      (𝕋 := TetraFree) degreeSym3Flag_wf degreeSym3Flag_mem⟩⟧ := rfl
+  rw [h, downward_basisVector_mul (ℓ := 5) _ _ (by simp)]
+  exact sum_smul_downward_basis_regroup _
+
+/-! ## The level-6 expansion -/
+
+/-- The coefficient of a five-vertex class in the downward degree
+square. -/
+noncomputable def degGamma5 (H : FlagWithSize TetraFree emptyType 5) : ℝ :=
+  ∑ X ∈ Finset.univ.filter
+      (fun X : FlagWithSize TetraFree vertexGraph.toModel 5 =>
+        Flag.unlabel X = H),
+    ((subflagPairDensity
+        (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+        (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+        X : ℚ) : ℝ)
+      * (labelingFactor (Quotient.out X).unlabel (Quotient.out X) : ℝ)
+
+/-- **The degree stationarity element over the six-vertex classes**: the
+edge pair density minus the level-6 average of the five-vertex
+coefficients. -/
+theorem degreeStationarity_expand6 :
+    degreeStationarity
+      = ∑ H : FlagWithSize TetraFree emptyType 6,
+          (((subflagPairDensity (edgeGraph.toFlag edgeGraph_mem)
+                (edgeGraph.toFlag edgeGraph_mem) H : ℚ) : ℝ)
+            - ∑ H₅ : FlagWithSize TetraFree emptyType 5,
+                degGamma5 H₅ * ((subflagDensity H₅ H : ℚ) : ℝ)) •
+            ⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧ := by
+  have hg : downward (degreeFlag * degreeFlag)
+      = ∑ H₅ : FlagWithSize TetraFree emptyType 5,
+          degGamma5 H₅ •
+            (⟦basisVector (⟨5, H₅⟩ : FinFlag TetraFree emptyType)⟧
+              : FlagAlgebra TetraFree emptyType) :=
+    downward_degree_sq
+  have hexp : ∀ H₅ : FlagWithSize TetraFree emptyType 5,
+      degGamma5 H₅ •
+          (⟦basisVector (⟨5, H₅⟩ : FinFlag TetraFree emptyType)⟧
+            : FlagAlgebra TetraFree emptyType)
+        = ∑ H : FlagWithSize TetraFree emptyType 6,
+            (degGamma5 H₅ * ((subflagDensity H₅ H : ℚ) : ℝ)) •
+              ⟦basisVector (⟨6, H⟩ : FinFlag TetraFree emptyType)⟧ := by
+    intro H₅
+    rw [basisVector_quot_eq_sum (⟨5, H₅⟩ : FinFlag TetraFree emptyType) 6
+      (by norm_num), Finset.smul_sum]
+    refine Finset.sum_congr rfl fun H _ => ?_
+    rw [smul_smul]
+  rw [degreeStationarity_eq, edgeElt_sq_expand, hg,
+    Finset.sum_congr rfl fun H₅ _ => hexp H₅, Finset.sum_comm,
+    ← Finset.sum_sub_distrib]
+  refine Finset.sum_congr rfl fun H _ => ?_
+  rw [← Finset.sum_smul, ← sub_smul]
+
+/-! ## Computing the five-vertex coefficient -/
+
+/-- **The five-vertex coefficient as a rooting sum**: the fiber identity
+turns `degGamma5` on a literal host into the plain average of the rooted
+pair densities over the five vertex rootings. -/
+theorem degGamma5_eq_rooting {G : Sym3Graph 5}
+    (hG : TetraFree.Mem G.toModel) :
+    degGamma5 (G.toFlag hG)
+      = (1 / 5 : ℝ) * ∑ θ ∈ (rootingsOf vertexGraph G).attach,
+          ((subflagPairDensity
+              (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+              (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+              ((Sym3Flag.mk G θ.val).toFlag
+                (mem_rootingsOf.mp θ.property) hG) : ℚ) : ℝ) := by
+  have h := fiber_sum_eq_rooting_sum (𝕋 := TetraFree)
+    (σg := vertexGraph) (by norm_num : 1 ≤ 5)
+    (fun X : FlagWithSize TetraFree vertexGraph.toModel 5 =>
+      ((subflagPairDensity
+          (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+          (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+          X : ℚ) : ℝ)) hG
+  rw [show Nat.descFactorial 5 1 = 5 from rfl] at h
+  exact h
+
+/-- The rooted pair density at a rooting, as a computable count over the
+pair normalizer `C(4,2)·C(2,2) = 6`. -/
+theorem degree_pairDensity_toCount {G : Sym3Graph 5}
+    (hG : TetraFree.Mem G.toModel) {θ : Fin 1 → Fin 5}
+    (hwf : (Sym3Flag.mk G θ).WellFormed vertexGraph) :
+    subflagPairDensity
+        (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+        (degreeSym3Flag.toFlag degreeSym3Flag_wf degreeSym3Flag_mem)
+        ((Sym3Flag.mk G θ).toFlag hwf hG)
+      = (degreeSym3Flag.flagPairCountC degreeSym3Flag
+          (Sym3Flag.mk G θ) : ℚ) / 6 := by
+  rw [Sym3Flag.subflagPairDensity_toFlag degreeSym3Flag_wf
+    degreeSym3Flag_wf hwf degreeSym3Flag_mem degreeSym3Flag_mem hG]
+  rfl
+
+/-- **The five-vertex coefficient, fully computable**: the rooting
+average of the typed pair counts. -/
+def gamma5C (G : Sym3Graph 5) : ℚ :=
+  (1 / 5) * ∑ θ ∈ rootingsOf vertexGraph G,
+    (degreeSym3Flag.flagPairCountC degreeSym3Flag (Sym3Flag.mk G θ) : ℚ) / 6
+
+/-- The abstract coefficient is the computable one, on every literal
+host. -/
+theorem degGamma5_eq_gamma5C {G : Sym3Graph 5}
+    (hG : TetraFree.Mem G.toModel) :
+    degGamma5 (G.toFlag hG) = ((gamma5C G : ℚ) : ℝ) := by
+  rw [degGamma5_eq_rooting hG,
+    Finset.sum_congr rfl fun θ (_ : θ ∈ (rootingsOf vertexGraph G).attach) =>
+      by rw [degree_pairDensity_toCount hG (mem_rootingsOf.mp θ.property)]]
+  rw [Finset.sum_attach (rootingsOf vertexGraph G) fun θ =>
+    (((degreeSym3Flag.flagPairCountC degreeSym3Flag
+        (Sym3Flag.mk G θ) : ℚ) / 6 : ℚ) : ℝ)]
+  rw [gamma5C]
+  push_cast
+  ring
+
+end FlagAlgebras.Core.Tetrahedron

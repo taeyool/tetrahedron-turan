@@ -1,0 +1,31 @@
+name: check
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+# The complete Lean verification (49 seven-vertex coefficient sweeps) needs
+# several hours and about 2 GB of memory per concurrent sweep; run it locally
+# with scripts/exact_certificate/verify_full_seven_long.py. This workflow runs
+# the no-build preflight of that verifier and compiles a slice of the library.
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Certificate, manifest and source preflight (no build)
+        run: python scripts/exact_certificate/verify_full_seven_long.py --check-only
+      - name: Install elan
+        run: |
+          curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Get the Mathlib cache
+        run: lake exe cache get
+      - name: Build the flag-algebra library and the six-vertex catalogue data
+        run: |
+          lake build LeanFlagAlgebras.Core.Differential.Stationary \
+                     LeanFlagAlgebras.Core.Compute.RootingReindex \
+                     LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Data

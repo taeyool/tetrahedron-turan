@@ -1,0 +1,117 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Deck
+
+/-! # The deck is the induced subgraph
+
+The certificate reads a seven-vertex column by deleting each vertex and
+looking up the six-vertex class left behind. "Deleting a vertex" is, in
+the certificate, a gather: twenty six-bit source positions read out of
+the thirty-five. This file proves that gather computes what its name
+says — the induced subgraph on the other six vertices.
+
+The whole content is one finite check: for each vertex `v` and each
+sorted triple of the six remaining, the source the gather reads at that
+triple's rank is the rank of its image under the order-preserving
+injection that skips `v`. Everything else is `Sym3Graph.ext` and the
+sorted-triple bookkeeping.
+
+Stated against `subsetTuple` at the end, this is the form the subflag
+count consumes: the six-element subsets of a seven-element vertex set
+are exactly the complements of singletons, and the induced subgraph on
+one of them is a deck. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-- The mask of the deck that deletes vertex `v`. -/
+def deckMask (v : Fin 7) (m : ℕ) : ℕ :=
+  gatherBits (deckGathers.getD v.val 0) 20 m
+
+set_option maxRecDepth 40000 in
+/-- **The gather reads the right positions**: at the rank of a
+six-vertex triple, the deck that drops `v` reads the rank of that
+triple's image under the injection skipping `v`. -/
+lemma srcAt_deck_all : ∀ v : Fin 7, ∀ t ∈ finTriples 6,
+    srcAt (deckGathers.getD v.val 0) (triIdx 6 t.1.val t.2.1.val t.2.2.val)
+      = triIdx 7 (v.succAbove t.1).val (v.succAbove t.2.1).val
+          (v.succAbove t.2.2).val := by decide
+
+lemma srcAt_deck (v : Fin 7) {a b c : Fin 6} (hab : a < b) (hbc : b < c) :
+    srcAt (deckGathers.getD v.val 0) (triIdx 6 a.val b.val c.val)
+      = triIdx 7 (v.succAbove a).val (v.succAbove b).val
+          (v.succAbove c).val :=
+  srcAt_deck_all v (a, b, c) (mem_finTriples.mpr ⟨hab, hbc⟩)
+
+lemma deckMask_testBit (v : Fin 7) (m : ℕ) {a b c : Fin 6}
+    (hab : a < b) (hbc : b < c) :
+    (deckMask v m).testBit (triIdx 6 a.val b.val c.val)
+      = m.testBit (triIdx 7 (v.succAbove a).val (v.succAbove b).val
+          (v.succAbove c).val) := by
+  rw [deckMask, gatherBits_testBit,
+    decide_eq_true (triIdx6_lt a b c hab hbc)]
+  rw [show ((deckGathers.getD v.val 0) >>> (6 * triIdx 6 a.val b.val c.val))
+      &&& 63 = srcAt (deckGathers.getD v.val 0)
+        (triIdx 6 a.val b.val c.val) from rfl, srcAt_deck v hab hbc]
+  simp
+
+/-- **The deck is the induced subgraph**: dropping vertex `v` from a
+seven-vertex mask decodes to the pullback along the injection that skips
+`v`. -/
+theorem graphOfMask_deckMask (v : Fin 7) (m : ℕ) :
+    graphOfMask 6 (deckMask v m) = (graphOfMask 7 m).pullback v.succAbove := by
+  refine Sym3Graph.ext ?_
+  ext e
+  rw [mem_graphOfMask_edges]
+  show _ ↔ e ∈ Finset.univ.filter _
+  rw [Finset.mem_filter]
+  constructor
+  · rintro ⟨a, b, c, hab, hbc, hbit, rfl⟩
+    refine ⟨Finset.mem_univ _, card_triple_sorted hab hbc, ?_⟩
+    rw [Finset.image_insert, Finset.image_insert, Finset.image_singleton]
+    refine mem_graphOfMask_edges.mpr ⟨_, _, _,
+      Fin.succAbove_lt_succAbove_iff.mpr hab,
+      Fin.succAbove_lt_succAbove_iff.mpr hbc, ?_, rfl⟩
+    rw [← deckMask_testBit v m hab hbc]
+    exact hbit
+  · rintro ⟨-, hcard, hmem⟩
+    obtain ⟨a, b, c, hab, hbc, rfl⟩ := exists_sorted_triple hcard
+    refine ⟨a, b, c, hab, hbc, ?_, rfl⟩
+    rw [Finset.image_insert, Finset.image_insert,
+      Finset.image_singleton] at hmem
+    obtain ⟨x, y, z, hxy, hyz, hbit, heq⟩ := mem_graphOfMask_edges.mp hmem
+    obtain ⟨e₁, e₂, e₃⟩ := sorted_triple_eq
+      (Fin.succAbove_lt_succAbove_iff.mpr hab)
+      (Fin.succAbove_lt_succAbove_iff.mpr hbc) hxy hyz heq
+    rw [deckMask_testBit v m hab hbc, e₁, e₂, e₃]
+    exact hbit
+
+/-! ## Against the canonical enumeration
+
+`flagCountC` ranges over six-element subsets and pulls back along
+`subsetTuple`, the increasing enumeration. On the complement of a
+singleton that enumeration is exactly the skipping injection. -/
+
+lemma card_compl_singleton7 (v : Fin 7) :
+    (({v}ᶜ : Finset (Fin 7))).card = 6 := by
+  revert v; decide
+
+set_option maxRecDepth 40000 in
+private lemma subsetTuple_compl_aux : ∀ v : Fin 7,
+    subsetTuple ({v}ᶜ : Finset (Fin 7)) (card_compl_singleton7 v)
+      = v.succAbove := by
+  decide
+
+lemma subsetTuple_compl_singleton (v : Fin 7)
+    (hc : (({v}ᶜ : Finset (Fin 7))).card = 6) :
+    subsetTuple ({v}ᶜ : Finset (Fin 7)) hc = v.succAbove :=
+  subsetTuple_compl_aux v
+
+/-- The induced subgraph on the complement of a vertex, in the shape the
+subflag count uses. -/
+theorem pullback_compl_singleton (v : Fin 7) (m : ℕ)
+    (hc : (({v}ᶜ : Finset (Fin 7))).card = 6) :
+    (graphOfMask 7 m).pullback (subsetTuple ({v}ᶜ : Finset (Fin 7)) hc)
+      = graphOfMask 6 (deckMask v m) := by
+  rw [subsetTuple_compl_singleton, graphOfMask_deckMask]
+
+end FlagAlgebras.Core.Tetrahedron

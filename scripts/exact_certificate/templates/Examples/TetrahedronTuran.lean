@@ -1,0 +1,186 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronRealizedApply
+
+/-! # The finite Turán density, and the consumption theorem
+
+The re-routed endgame. The finite Turán density is the infimum over
+sizes of the maximal edge density of a tetrahedron-free flag of that
+size. Two finite statements — the maximal densities are antitone in
+the size (minimum-degree deletion), and a genuinely negative
+stationarity combination lets cloning beat the edge density at the
+same size (the iterated boost) — imply the bound: realize a sequence
+of maximizers, read the limit homomorphism's stationarity value off
+the finite models, and the certified bound applies. Because the
+sequence consists of exact maximizers, the boost contradiction is
+immediate — no limit bookkeeping.
+
+No sampling direction of realization appears anywhere. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core Filter
+
+/-- The edge flag, sized. -/
+noncomputable def edgeFin : FinFlag TetraFree emptyType :=
+  ⟨3, edgeGraph.toFlag edgeGraph_mem⟩
+
+lemma edgeElt_eq_basis : edgeElt = ⟦basisVector edgeFin⟧ := rfl
+
+/-- The edge density of a finite flag, real-valued. -/
+noncomputable def edgeDens (G : FinFlag TetraFree emptyType) : ℝ :=
+  ((subflagDensity edgeFin.2 G.2 : ℚ) : ℝ)
+
+/-- Flags of every size exist: the empty three-graph is
+tetrahedron-free. -/
+lemma flagWithSize_nonempty (n : ℕ) :
+    Nonempty (FlagWithSize TetraFree emptyType n) := by
+  refine ⟨(Sym3Graph.mk (n := n) ∅ (fun e he => absurd he
+    (Finset.notMem_empty e))).toFlag ?_⟩
+  refine ⟨Sym3Graph.toModel_mem _, ?_⟩
+  rintro ⟨f, hf⟩
+  have h := hf () ![0, 1, 2] (by decide)
+  obtain ⟨-, hmem⟩ := h
+  exact absurd hmem (Finset.notMem_empty _)
+
+/-- The maximal edge density at a size. -/
+noncomputable def maxDens (n : ℕ) : ℝ :=
+  (Finset.univ : Finset (FlagWithSize TetraFree emptyType n)).sup'
+    (Finset.univ_nonempty_iff.mpr (flagWithSize_nonempty n))
+    fun G => edgeDens ⟨n, G⟩
+
+lemma maxDens_nonneg (n : ℕ) : 0 ≤ maxDens n := by
+  obtain ⟨G⟩ := flagWithSize_nonempty n
+  refine le_trans ?_ (Finset.le_sup'
+    (f := fun G : FlagWithSize TetraFree emptyType n => edgeDens ⟨n, G⟩)
+    (Finset.mem_univ G))
+  show (0 : ℝ) ≤ ((subflagDensity edgeFin.2 G : ℚ) : ℝ)
+  exact_mod_cast subflagDensity_nonneg edgeFin.2 G
+
+lemma le_maxDens {n : ℕ} (G : FlagWithSize TetraFree emptyType n) :
+    edgeDens ⟨n, G⟩ ≤ maxDens n :=
+  Finset.le_sup'
+    (f := fun G : FlagWithSize TetraFree emptyType n => edgeDens ⟨n, G⟩)
+    (Finset.mem_univ G)
+
+lemma exists_maxDens (n : ℕ) :
+    ∃ G : FlagWithSize TetraFree emptyType n,
+      edgeDens ⟨n, G⟩ = maxDens n := by
+  obtain ⟨G, -, hG⟩ := Finset.exists_mem_eq_sup'
+    (Finset.univ_nonempty_iff.mpr (flagWithSize_nonempty n))
+    (fun G : FlagWithSize TetraFree emptyType n => edgeDens ⟨n, G⟩)
+  exact ⟨G, hG.symm⟩
+
+/-- **The finite Turán density**: the infimum of the maximal densities,
+sizes three and up. -/
+noncomputable def turanDensity : ℝ := ⨅ n : ℕ, maxDens (n + 3)
+
+lemma bddBelow_maxDens :
+    BddBelow (Set.range fun n : ℕ => maxDens (n + 3)) := by
+  refine ⟨0, ?_⟩
+  rintro x ⟨n, rfl⟩
+  exact maxDens_nonneg (n + 3)
+
+/-! ## The two finite statements -/
+
+/-- The explicit representative of the stationarity element: a third of
+the certificate's six-vertex stationarity expansion. Fully explicit —
+the coefficients are the `statNum` table — which is what lets the boost
+argument compute with it on finite models. -/
+noncomputable def statVec : FlagVector TetraFree emptyType :=
+  (1 / 3 : ℝ) • ∑ H : FlagWithSize TetraFree emptyType 6,
+    ((statNumOf H / 60 : ℚ) : ℝ) • basisVector ⟨6, H⟩
+
+/-- The explicit vector represents the stationarity element. -/
+lemma statVec_quot :
+    (⟦statVec⟧ : FlagAlgebra TetraFree emptyType)
+      = degreeStationarity := by
+  have h1 : (⟦statVec⟧ : FlagAlgebra TetraFree emptyType)
+      = (1 / 3 : ℝ) • statElt6 := by
+    rw [statVec, smul_quot, quot_sum]
+    congr 1
+  rw [h1, statElt6_eq, smul_smul]
+  norm_num
+
+/-- The stationarity combination of a finite flag: the density
+combination of the explicit stationarity vector. -/
+noncomputable def statComb (G : FinFlag TetraFree emptyType) : ℝ :=
+  ∑ F ∈ statVec.support,
+    statVec F * ((subflagDensity F.2 G.2 : ℚ) : ℝ)
+
+/-- **The antitone statement**: the maximal density does not increase
+with the size. Minimum-degree deletion, to be discharged from the
+finite layer. -/
+def MaxDensAntitone : Prop :=
+  ∀ n : ℕ, maxDens (n + 1 + 3) ≤ maxDens (n + 3)
+
+/-- **The clone boost**: a genuinely negative stationarity combination
+lets some same-size tetrahedron-free flag strictly beat the edge
+density. A single clone step suffices — the consumption argument runs
+against exact maximizers, so any strict gain contradicts maximality;
+no uniform margin and no iteration are needed. -/
+def FiniteBoost : Prop :=
+  ∀ ε : ℝ, 0 < ε → ∃ N : ℕ,
+    ∀ G : FinFlag TetraFree emptyType, N ≤ G.1 →
+      statComb G ≤ -ε →
+      ∃ G' : FlagWithSize TetraFree emptyType G.1,
+        edgeDens G < edgeDens ⟨G.1, G'⟩
+
+/-! ## The consumption theorem -/
+
+/-- **The finite Turán density obeys the certified bound**, given the
+two finite statements. -/
+theorem turanDensity_le_certBound (hmono : MaxDensAntitone)
+    (hboost : FiniteBoost) :
+    turanDensity ≤ ((certBound : ℚ) : ℝ) := by
+  have hanti : Antitone fun n : ℕ => maxDens (n + 3) :=
+    antitone_nat_of_succ_le fun n => hmono n
+  have htend : Tendsto (fun n : ℕ => maxDens (n + 3)) atTop
+      (nhds turanDensity) :=
+    tendsto_atTop_ciInf hanti bddBelow_maxDens
+  choose Gmax hGmax using fun n => exists_maxDens (n + 3)
+  set Gs : ℕ → FinFlag TetraFree emptyType :=
+    fun n => ⟨n + 3, Gmax n⟩ with hGs
+  have hsz : Tendsto (fun k => (Gs k).1) atTop atTop := by
+    have h : (fun k => (Gs k).1) = fun k => k + 3 := rfl
+    rw [h]
+    exact tendsto_add_atTop_nat 3
+  obtain ⟨s, hsmono, ψ, hψ⟩ := exists_realized_subseq Gs hsz
+  have hedge : Tendsto (fun k => edgeDens (Gs (s k))) atTop
+      (nhds turanDensity) := by
+    have h1 : ∀ k, edgeDens (Gs (s k)) = maxDens (s k + 3) :=
+      fun k => hGmax (s k)
+    exact Tendsto.congr (fun k => (h1 k).symm)
+      (htend.comp hsmono.tendsto_atTop)
+  have hψedge : ψ edgeElt = turanDensity := by
+    have h2 := hψ.2 edgeFin
+    rw [← edgeElt_eq_basis] at h2
+    exact tendsto_nhds_unique h2 hedge
+  by_cases hstat : IsDegreeStationary ψ
+  · have hb := edge_le_certBound_of_stationary ψ hstat
+    rwa [hψedge] at hb
+  · exfalso
+    have hle := positiveHom_degreeStationarity_nonpos ψ
+    have hlt : ψ degreeStationarity < 0 :=
+      lt_of_le_of_ne hle fun h0 => hstat h0
+    have hsc : Tendsto (fun k => statComb (Gs (s k))) atTop
+        (nhds (ψ degreeStationarity)) := by
+      have h3 := realized_apply hψ statVec
+      rw [statVec_quot] at h3
+      exact h3
+    have hεpos : 0 < -(ψ degreeStationarity) / 2 := by linarith
+    obtain ⟨N, hB⟩ := hboost (-(ψ degreeStationarity) / 2) hεpos
+    have hev : ∀ᶠ k in atTop,
+        statComb (Gs (s k)) ≤ -(-(ψ degreeStationarity) / 2) := by
+      have hlt2 : ψ degreeStationarity
+          < -(-(ψ degreeStationarity) / 2) := by linarith
+      exact (hsc.eventually_lt_const hlt2).mono fun k hk => le_of_lt hk
+    have hszev : ∀ᶠ k in atTop, N ≤ (Gs (s k)).1 :=
+      (hsz.comp hsmono.tendsto_atTop).eventually_ge_atTop N
+    obtain ⟨k, hk1, hk2⟩ := (hszev.and hev).exists
+    obtain ⟨G', hG'⟩ := hB (Gs (s k)) hk1 hk2
+    have hle' := le_maxDens G'
+    have heq : maxDens (Gs (s k)).1 = edgeDens (Gs (s k)) :=
+      (hGmax (s k)).symm
+    rw [heq] at hle'
+    linarith
+
+end FlagAlgebras.Core.Tetrahedron

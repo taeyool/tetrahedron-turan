@@ -1,0 +1,147 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Split
+
+/-! # The deck identity for hyperedges
+
+The certificate reads a seven-vertex column by deleting each vertex in
+turn and looking up the six-vertex class left behind. Recovering the
+edge density of the whole from those seven pieces is the first step of
+the level-6 to level-7 chain rule, and it rests on one counting fact: a
+triple avoids exactly four of the seven vertices, so each hyperedge
+survives in exactly four of the seven decks.
+
+The proof reads the gathers as what they are — a list of 140 source
+positions — and checks that each of the 35 triples appears four times
+among them. That is a finite check; the rest is `countP` bookkeeping,
+with the multiplicity fact passed through a permutation.
+
+Nothing here evaluates a certificate coefficient. The point is the
+combinatorial identity the coefficients will be matched against. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-- The source position of slot `k` in a gather word: gathers pack six
+bits per slot. -/
+def srcAt (g k : ℕ) : ℕ := (g >>> (6 * k)) &&& 63
+
+/-- The 140 source positions the seven decks read, in order. -/
+def deckSources : List ℕ :=
+  deckGathers.flatMap fun g => (List.range 20).map (srcAt g)
+
+/-- Hyperedges of a seven-vertex mask. -/
+def edgeCount7 (m : ℕ) : ℕ := (List.range 35).countP fun i => m.testBit i
+
+/-- Four copies of the seven-vertex triple range. -/
+def quad35 : List ℕ :=
+  List.range 35 ++ List.range 35 ++ List.range 35 ++ List.range 35
+
+/-! ## Counting folds are `countP` -/
+
+lemma foldl_add_ite_eq_countP (p : ℕ → Bool) : ∀ (l : List ℕ) (acc : ℕ),
+    l.foldl (fun a i => if p i then a + 1 else a) acc = acc + l.countP p := by
+  intro l
+  induction l with
+  | nil => intro acc; simp
+  | cons a t ih =>
+    intro acc
+    rw [List.foldl_cons, ih, List.countP_cons]
+    by_cases h : p a
+    · rw [if_pos h, if_pos h]; omega
+    · rw [if_neg h, if_neg h]; omega
+
+lemma edgeCount_eq_countP (h : ℕ) :
+    edgeCount h = (List.range 20).countP fun i => h.testBit i := by
+  rw [edgeCount, foldl_add_ite_eq_countP]
+  exact Nat.zero_add _
+
+/-- A deck's hyperedges are the source positions it reads that carry a
+bit of the original. -/
+lemma edgeCount_gatherBits (g m : ℕ) :
+    edgeCount (gatherBits g 20 m)
+      = ((List.range 20).map (srcAt g)).countP fun s => m.testBit s := by
+  rw [edgeCount_eq_countP, List.countP_map]
+  refine List.countP_congr fun i hi => ?_
+  rw [gatherBits_testBit, decide_eq_true (List.mem_range.mp hi)]
+  simp [srcAt]
+
+/-! ## Each triple is read four times -/
+
+set_option maxRecDepth 40000 in
+lemma deckSources_count : ∀ a ∈ List.range 35, deckSources.count a = 4 := by
+  decide
+
+set_option maxRecDepth 40000 in
+lemma deckSources_lt : ∀ a ∈ deckSources, a < 35 := by decide
+
+lemma deckSources_perm : deckSources.Perm quad35 := by
+  refine List.perm_iff_count.mpr fun a => ?_
+  by_cases ha : a < 35
+  · have hmem : a ∈ List.range 35 := List.mem_range.mpr ha
+    rw [deckSources_count a hmem, quad35, List.count_append, List.count_append,
+      List.count_append, List.count_eq_one_of_mem List.nodup_range hmem]
+  · have h0 : deckSources.count a = 0 :=
+      List.count_eq_zero_of_not_mem fun hm => ha (deckSources_lt a hm)
+    have h1 : (List.range 35).count a = 0 :=
+      List.count_eq_zero_of_not_mem fun hm => ha (List.mem_range.mp hm)
+    rw [h0, quad35, List.count_append, List.count_append, List.count_append, h1]
+
+/-- **The deck identity for hyperedges**: the seven decks of a
+seven-vertex mask carry, between them, four copies of each hyperedge.
+
+Divided through, this says the edge density of a seven-vertex graph is
+the average of the edge densities of its seven six-vertex decks —
+`4 / (7 * 20) = 1 / 35` — which is the edge part of the chain rule the
+certificate's deck sum implements. -/
+theorem sum_edgeCount_deck (m : ℕ) :
+    (deckGathers.map fun g => edgeCount (gatherBits g 20 m)).sum
+      = 4 * edgeCount7 m := by
+  have h1 : (deckGathers.map fun g => edgeCount (gatherBits g 20 m)).sum
+      = deckSources.countP fun s => m.testBit s := by
+    rw [deckSources, List.countP_flatMap]
+    congr 1
+    exact List.map_congr_left fun g _ => edgeCount_gatherBits g m
+  rw [h1, deckSources_perm.countP_eq, quad35, List.countP_append,
+    List.countP_append, List.countP_append, edgeCount7]
+  ring
+
+/-! ## The bit count is the hyperedge count
+
+`edgeCount7` counts set bits; the objective counts hyperedges of the
+decoded graph. They agree, because the rank is a bijection from the
+sorted triples onto `range 35` and distinct sorted triples span distinct
+vertex sets. -/
+
+set_option maxRecDepth 40000 in
+lemma finTriples7_nodup : (finTriples 7).Nodup := by decide
+
+set_option maxRecDepth 40000 in
+/-- The rank enumerates the seven-vertex triples exactly once each. -/
+lemma triIdx7_perm :
+    ((finTriples 7).map fun t => triIdx 7 t.1.val t.2.1.val t.2.2.val).Perm
+      (List.range 35) := by
+  decide
+
+lemma card_edges_graphOfMask7 (m : ℕ) :
+    (graphOfMask 7 m).edges.card
+      = (finTriples 7).countP
+          fun t => m.testBit (triIdx 7 t.1.val t.2.1.val t.2.2.val) := by
+  show (Finset.image _ _).card = _
+  rw [Finset.card_image_of_injOn, List.toFinset_card_of_nodup
+      (finTriples7_nodup.filter _), List.countP_eq_length_filter]
+  intro t₁ h₁ t₂ h₂ heq
+  simp only [Finset.mem_coe, List.mem_toFinset, List.mem_filter] at h₁ h₂
+  obtain ⟨hab₁, hbc₁⟩ := mem_finTriples.mp h₁.1
+  obtain ⟨hab₂, hbc₂⟩ := mem_finTriples.mp h₂.1
+  obtain ⟨e₁, e₂, e₃⟩ := sorted_triple_eq hab₁ hbc₁ hab₂ hbc₂ heq
+  exact Prod.ext e₁ (Prod.ext e₂ e₃)
+
+/-- **The bit count is the hyperedge count**: what the certificate
+counts in a mask is what the objective counts in the graph. -/
+theorem edgeCount7_eq_card_edges (m : ℕ) :
+    edgeCount7 m = (graphOfMask 7 m).edges.card := by
+  rw [card_edges_graphOfMask7, edgeCount7, ← triIdx7_perm.countP_eq,
+    List.countP_map]
+  rfl
+
+end FlagAlgebras.Core.Tetrahedron

@@ -1,0 +1,251 @@
+#!/usr/bin/env python3
+"""Generate the concrete five-root data for the FullSevenLong Lean proof.
+
+The enumeration of flags, links, automorphisms and ordered samples is
+generic; the certificate, the expected shape (18 active types, 360 rows),
+the namespace, the import prefix and the output directory are those of the
+794-factor certificate pinned in full_seven_long_common.py. Only nonempty
+factor families are materialized. The generated Lean specifications, rather
+than this generator, justify the mathematical use of every table.
+"""
+from __future__ import annotations
+import argparse
+import itertools
+import json
+from pathlib import Path
+
+from full_seven_long_common import (ACTIVE_ROWS, ACTIVE_TYPES, CERT, CERT_SHA, FIVE_ROOT_ROWS,
+                                    GENERATED, NS as NAMESPACE, PREFIX as IMPORT, ROOT,
+                                    certificate_bytes, sha_text, text_sha, write_lf)
+
+
+def triples(n):
+    return list(itertools.combinations(range(n), 3))
+
+
+def free(mask, n):
+    ix = {t:i for i,t in enumerate(triples(n))}
+    return all(any(not mask & (1 << ix[t]) for t in itertools.combinations(q,3))
+               for q in itertools.combinations(range(n),4))
+
+
+def pullback(mask, n, vertices):
+    ix = {t:i for i,t in enumerate(triples(n))}
+    return sum(((mask >> ix[tuple(sorted(vertices[i] for i in t))]) & 1) << j
+               for j,t in enumerate(triples(len(vertices))))
+
+
+def link_mask(flag):
+    ix = {t:i for i,t in enumerate(triples(6))}
+    return sum(((flag >> ix[(a,b,5)]) & 1) << j
+               for j,(a,b) in enumerate(itertools.combinations(range(5),2)))
+
+
+def flag_from_link(sigma, link):
+    ix = {t:i for i,t in enumerate(triples(6))}
+    roots = sum(((sigma >> j) & 1) << ix[t] for j,t in enumerate(triples(5)))
+    return roots | sum(((link >> j) & 1) << ix[(a,b,5)]
+                      for j,(a,b) in enumerate(itertools.combinations(range(5),2)))
+
+
+def pack(sources, width=6):
+    return sum(int(v) << (width*k) for k,v in enumerate(sources))
+
+
+def nat_list(values, width=12):
+    values = list(values)
+    return '[\n' + ',\n'.join('  ' + ', '.join(map(str,values[i:i+width]))
+                              for i in range(0,len(values),width)) + ']'
+
+
+def write(output, name, text, manifest):
+    path=output/(name+'.lean')
+    write_lf(path, text)
+    assert text_sha(path) == sha_text(text)
+    manifest['outputs'][path.name]=sha_text(text)
+
+
+def generate(certificate, output):
+    raw=certificate_bytes() if certificate.resolve()==CERT.resolve() else certificate.read_bytes()
+    cert=json.loads(raw)
+    blocks=[b for b in cert['order7_s5_blocks'] if b['factors']]
+    if [b['type_mask'] for b in blocks]!=ACTIVE_TYPES or \
+            [len(b['factors']) for b in blocks]!=ACTIVE_ROWS or \
+            sum(len(b['factors']) for b in blocks)!=FIVE_ROOT_ROWS:
+        raise ValueError('expected the pinned 18-family, 360-row FullSevenLong certificate')
+    output.mkdir(parents=True,exist_ok=True)
+    manifest={'chain':NAMESPACE,
+              'certificate':str(certificate.resolve().relative_to(ROOT)).replace('\\','/'),
+              'certificate_sha256':CERT_SHA,
+              'hash_convention':'certificate: raw bytes; outputs and generator: UTF-8 text with CRLF normalized to LF',
+              'generator_sha256':text_sha(Path(__file__)),
+              'common_sha256':text_sha(Path(__file__).with_name('full_seven_long_common.py')),
+              'five_root_rows':FIVE_ROOT_ROWS,
+              'five_root_entries':sum(len(row) for b in blocks for row in b['factors']),
+              'types':[],'outputs':{}}
+    shift=max(-v for b in blocks for row in b['factors'] for v in row)
+    manifest['factor_shift']=shift
+    perms=list(itertools.permutations(range(5)))
+    for bi,b in enumerate(blocks):
+        sigma=b['type_mask'];flags=b['flags'];dim=b['dimension'];rows=b['factors']
+        expected=sorted(flag_from_link(sigma,e) for e in range(1024)
+                        if free(flag_from_link(sigma,e),6))
+        if flags!=expected or dim!=len(flags) or any(len(r)!=dim for r in rows):
+            raise ValueError('invalid factor/flag metadata')
+        if b['denominator']!=5040 or min(pullback(sigma,5,p) for p in perms)!=sigma:
+            raise ValueError('invalid normalization or noncanonical type')
+        idx={m:i for i,m in enumerate(flags)}
+        links=[link_mask(m) for m in flags]
+        linkidx=[idx.get(flag_from_link(sigma,e),dim) for e in range(1024)]
+        autos=[pi for pi,p in enumerate(perms) if pullback(sigma,5,p)==sigma]
+        action=[idx[pullback(m,6,perms[pi]+(5,))] for pi in autos for m in flags]
+        flat=[v+shift for r in rows for v in r]
+        parts=[]
+        for k in range(0,len(flat),4096):
+            parts.append(f'private def raw{bi:02d}_{k//4096} : List ℕ :=\n{nat_list(flat[k:k+4096])}\n')
+        rawexpr=' ++ '.join(f'raw{bi:02d}_{k}' for k in range(len(parts)))
+        text='import Mathlib.Data.Int.Basic\n\n'
+        text+=f'-- Generated by scripts/exact_certificate/derive_full_seven_long_five_root.py.\n'
+        text+=f'-- Integer certificate SHA-256: {manifest["certificate_sha256"]}\n'
+        text+=f'namespace {NAMESPACE}\nset_option maxRecDepth 100000\nset_option maxHeartbeats 4000000\n\n'
+        text+='\n'.join(parts)
+        text+=f'\ndef s5Factors{bi:02d} : Array ℤ :=\n  (({rawexpr}).map fun (n : ℕ) => (n : ℤ) - {shift}).toArray\n'
+        for label,values in [('Flags',flags),('Links',links),('LinkIndex',linkidx),('Autos',autos),('Action',action)]:
+            chunks=[]
+            for offset in range(0,len(values),4096):
+                name=f'data{label}{bi:02d}_{offset//4096}'
+                text+=f'\nprivate def {name} : List ℕ :=\n  {nat_list(values[offset:offset+4096])}\n'
+                chunks.append(name)
+            text+=f'\ndef s5{label}{bi:02d} : Array ℕ :=\n  ({" ++ ".join(chunks)}).toArray\n'
+        text+=f'\nend {NAMESPACE}\n'
+        write(output,f'TetrahedronOrder7FiveRootFactors{bi:02d}',text,manifest)
+        manifest['types'].append({'index':bi,'sigma':sigma,'dimension':dim,
+                                  'rows':len(rows),'automorphisms':len(autos)})
+    text=''.join(f'import {IMPORT}TetrahedronOrder7FiveRootFactors{bi:02d}\n' for bi in range(18))
+    text+='import LeanFlagAlgebras.Core.Compute.Mask3\n\n'
+    text+='-- Generated by scripts/exact_certificate/derive_full_seven_long_five_root.py.\n'
+    text+=f'namespace {NAMESPACE}\n\nopen FlagAlgebras.Core\n\n'
+    text+='''/-- Integer square-factor data, with every labeled six-vertex flag retained. -/
+structure FiveRootData where
+  sigma : ℕ
+  dimension : ℕ
+  rows : ℕ
+  flags : Array ℕ
+  links : Array ℕ
+  linkIndex : Array ℕ
+  factors : Array ℤ
+  autos : Array ℕ
+  action : Array ℕ
+  deriving Inhabited
+
+def s5Data : Array FiveRootData := #[
+'''
+    text+=',\n'.join(f'  ⟨{b["type_mask"]}, {b["dimension"]}, {len(b["factors"])}, s5Flags{bi:02d}, s5Links{bi:02d}, s5LinkIndex{bi:02d}, s5Factors{bi:02d}, s5Autos{bi:02d}, s5Action{bi:02d}⟩'
+                       for bi,b in enumerate(blocks)) + ']\n\n'
+    text+='''def s5Block (b : Fin 18) : FiveRootData := s5Data.getD b.val default
+def s5Dim (b : Fin 18) : ℕ := (s5Block b).dimension
+def s5Rows (b : Fin 18) : ℕ := (s5Block b).rows
+def s5Type (b : Fin 18) : Sym3Graph 5 := graphOfMask 5 (s5Block b).sigma
+def s5FlagMask (b : Fin 18) (i : ℕ) : ℕ := (s5Block b).flags.getD i 0
+def s5Flag (b : Fin 18) (i : ℕ) : Sym3Flag 5 6 :=
+  ⟨graphOfMask 6 (s5FlagMask b i), ![0, 1, 2, 3, 4]⟩
+def fS5 (b : Fin 18) (r i : ℕ) : ℤ :=
+  (s5Block b).factors.getD (r * s5Dim b + i) 0
+
+'''
+    text+=f'end {NAMESPACE}\n'
+    write(output,'TetrahedronOrder7FiveRootData',text,manifest)
+    # Pullback convention: a permutation tuple lists the old vertex at each
+    # new position. Composition is p[q[i]], so the canonical tuple followed
+    # by a type automorphism enumerates every rooting of that labeled type.
+    t5=triples(5);ix5={t:i for i,t in enumerate(t5)}
+    t6=triples(6);ix6={t:i for i,t in enumerate(t6)}
+    t7=triples(7);ix7={t:i for i,t in enumerate(t7)}
+    pairs=list(itertools.combinations(range(5),2));pix={p:i for i,p in enumerate(pairs)}
+    pidx={p:i for i,p in enumerate(perms)}
+    root_maps=[pack(ix5[tuple(sorted(p[i] for i in t))] for t in t5) for p in perms]
+    link_maps=[pack(pix[tuple(sorted(p[i] for i in t))] for t in pairs) for p in perms]
+    flag_maps=[pack(ix6[tuple(sorted((p+(5,))[i] for i in t))] for t in t6) for p in perms]
+    composition=[pidx[tuple(p[q[i]] for i in range(5))] for p in perms for q in perms]
+    info=[]
+    for m in range(1024):
+        found=(18,0)
+        for bi,b in enumerate(blocks):
+            choices=[pi for pi,p in enumerate(perms) if pullback(m,5,p)==b['type_mask']]
+            if choices:
+                found=(bi,choices[0]);break
+        info.append(found)
+    records=[]
+    ordered=[]
+    for u,v in itertools.combinations(range(7),2):
+        roots=tuple(i for i in range(7) if i not in (u,v))
+        rootg=pack(ix7[tuple(roots[i] for i in t)] for t in t5)
+        links=[pack(ix7[tuple(sorted((roots[a],roots[b],x)))] for a,b in pairs) for x in (u,v)]
+        records.append((pack(roots+(u,v),3),rootg,*links))
+        for p in perms:
+            pr=tuple(roots[p[i]] for i in range(5))
+            ordered.append((pack(pr+(u,v),3),
+                            pack(ix7[tuple(sorted(pr[i] for i in t))] for t in t5),
+                            pack(ix7[tuple(sorted((pr+(u,))[i] for i in t))] for t in t6),
+                            pack(ix7[tuple(sorted((pr+(v,))[i] for i in t))] for t in t6)))
+    root6=[ix6[t] for t in t5];link6=[ix6[(a,b,5)] for a,b in pairs]
+    join=[root6.index(i) if i in root6 else 10+link6.index(i) for i in range(20)]
+    text=f'import {IMPORT}TetrahedronOrder7FiveRootBits\n\n-- Generated by scripts/exact_certificate/derive_full_seven_long_five_root.py.\nnamespace {NAMESPACE}\nset_option maxRecDepth 100000\nset_option maxHeartbeats 4000000\n\n'
+    for name,values in [('s5PermWords',[pack(p,3) for p in perms]),
+                        ('s5PermRootGathers',root_maps),('s5PermLinkGathers',link_maps)]:
+        text+=f'def {name} : Array ℕ :=\n  {nat_list(values)}.toArray\n\n'
+    text+='def s5RootInfo : Array (ℕ × ℕ) := #[\n'+',\n'.join('  '+str(x) for x in info)+']\n\n'
+    text+='''/-- A sorted root tuple followed by its sorted two-vertex complement,
+and the three ten-bit gathers for its root graph and two links. -/
+structure FiveRootSample where
+  vertices : ℕ
+  rootGather : ℕ
+  leftGather : ℕ
+  rightGather : ℕ
+  deriving Inhabited
+
+def s5Samples : Array FiveRootSample := #[
+'''+',\n'.join('  ⟨'+', '.join(map(str,r))+'⟩' for r in records)+']\n\n'
+    text+=f'def s5RootGather6 : ℕ := {pack(root6)}\n'
+    text+=f'def s5LinkGather6 : ℕ := {pack(link6)}\n'
+    text+=f'def s5JoinGather : ℕ := {pack(join)}\n'
+    text+='''def s5RootMask6 (m : ℕ) : ℕ := s5Gather s5RootGather6 10 m
+def s5LinkMask6 (m : ℕ) : ℕ := s5Gather s5LinkGather6 10 m
+def s5Encode (sigma link : ℕ) : ℕ :=
+  s5Gather s5JoinGather 20 (sigma ||| (link <<< 10))
+def s5PermuteRoot (p m : ℕ) : ℕ :=
+  s5Gather (s5PermRootGathers.getD p 0) 10 m
+def s5PermuteLink (p m : ℕ) : ℕ :=
+  s5Gather (s5PermLinkGathers.getD p 0) 10 m
+
+'''
+    text+=f'end {NAMESPACE}\n'
+    write(output,'TetrahedronOrder7FiveRootTables',text,manifest)
+    text=f'import {IMPORT}TetrahedronOrder7FiveRootTables\n\n-- Generated by scripts/exact_certificate/derive_full_seven_long_five_root.py.\nnamespace {NAMESPACE}\nset_option maxRecDepth 100000\nset_option maxHeartbeats 4000000\n\n'
+    text+=f'def s5PermFlagGathers : Array ℕ :=\n  {nat_list(flag_maps)}.toArray\n\n'
+    comp_names=[]
+    for offset in range(0,len(composition),4096):
+        name=f's5PermCompositionPart{offset//4096}'
+        text+=f'private def {name} : List ℕ :=\n  {nat_list(composition[offset:offset+4096])}\n\n'
+        comp_names.append(name)
+    text+='def s5PermComposition : Array ℕ :=\n  ('+' ++ '.join(comp_names)+').toArray\n\n'
+    for i in range(21):
+        text+=f'private def s5OrderedSamples{i:02d} : Array FiveRootSample := #[\n'+',\n'.join(
+            '  ⟨'+', '.join(map(str,r))+'⟩' for r in ordered[i*120:(i+1)*120])+']\n\n'
+    text+='def s5OrderedSamples : Array FiveRootSample :=\n  '+ ' ++ '.join(f's5OrderedSamples{i:02d}' for i in range(21))+'\n\n'
+    text+=f'end {NAMESPACE}\n'
+    write(output,'TetrahedronOrder7FiveRootOrderedData',text,manifest)
+    write_lf(output/'five_root_manifest.json', json.dumps(manifest,indent=2)+'\n')
+    return manifest
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--certificate',type=Path,default=CERT,
+                        help='must be the pinned FullSevenLong certificate (hash-checked)')
+    parser.add_argument('--output-dir',type=Path,default=GENERATED)
+    args=parser.parse_args()
+    if args.certificate.resolve()!=CERT.resolve():
+        parser.error('FullSevenLong generation is pinned to ' + str(CERT))
+    m=generate(args.certificate.resolve(),args.output_dir.resolve())
+    print(json.dumps({k:m[k] for k in ['certificate_sha256','five_root_rows','five_root_entries','factor_shift','types']},indent=2))

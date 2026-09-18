@@ -1,0 +1,5 @@
+/.lake
+/.research-repro/
+/.export-marker
+__pycache__/
+*.pyc

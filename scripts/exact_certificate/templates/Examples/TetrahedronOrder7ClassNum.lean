@@ -1,0 +1,113 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Fiber
+
+/-! # The class number as a function of the flag class
+
+The certificate's class number is computed from a mask. It is really a
+function of the isomorphism class, and this file says so: the class
+index is an isomorphism invariant, because the index names a
+representative isomorphic to the mask and distinct representatives are
+non-isomorphic.
+
+With `classNumOf` defined on classes, the deck sum becomes exactly what
+a flag-algebra expansion looks like — the density-weighted sum of an
+order-6 quantity over the six-vertex classes, times seven. That closes
+the deck side of the level-6 to level-7 chain rule; what the order-6
+quantity *is* (the blocks, the stationarity count) is the next
+question, not this one. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+open Classical
+
+/-! ## The listing is duplicate-free -/
+
+lemma h6Reps_nodup : h6Reps.Nodup :=
+  h6Reps_chain.pairwise.imp fun h => Nat.ne_of_lt h
+
+lemma h6Reps_getD_mem {i : ℕ} (hi : i < 964) : h6Reps.getD i 0 ∈ h6Reps := by
+  have hi' : i < h6Reps.length := by rw [h6Reps_length]; exact hi
+  rw [List.getD_eq_getElem _ _ hi']
+  exact List.getElem_mem hi'
+
+lemma h6Reps_getD_inj {i j : ℕ} (hi : i < 964) (hj : j < 964)
+    (h : h6Reps.getD i 0 = h6Reps.getD j 0) : i = j := by
+  have hi' : i < h6Reps.length := by rw [h6Reps_length]; exact hi
+  have hj' : j < h6Reps.length := by rw [h6Reps_length]; exact hj
+  rw [List.getD_eq_getElem _ _ hi', List.getD_eq_getElem _ _ hj'] at h
+  exact (List.Nodup.getElem_inj_iff h6Reps_nodup).mp h
+
+/-! ## The index is an invariant -/
+
+/-- **The class index is an isomorphism invariant**: isomorphic
+tetrahedron-free six-vertex masks are sent to the same representative. -/
+theorem classIdx_congr {a b : ℕ} (ha : a < 2 ^ 20) (hb : b < 2 ^ 20)
+    (hka : k4FreeMask (quadIdxList 6) a = true)
+    (hkb : k4FreeMask (quadIdxList 6) b = true)
+    (hiso : (graphOfMask 6 a).IsIso (graphOfMask 6 b)) :
+    classIdxTable.getD a 9999 = classIdxTable.getD b 9999 := by
+  obtain ⟨hia, hisoa⟩ := classIdxTable_spec ha hka
+  obtain ⟨hib, hisob⟩ := classIdxTable_spec hb hkb
+  by_contra hne
+  refine h6Reps_not_isIso (h6Reps_getD_mem hia) (h6Reps_getD_mem hib)
+    (fun heq => hne (h6Reps_getD_inj hia hib heq)) ?_
+  exact ((isIso_symm hisoa).trans hiso).trans hisob
+
+/-- Every six-vertex class is realized by a tetrahedron-free mask. -/
+lemma exists_mask_class (H : FlagWithSize TetraFree emptyType 6) :
+    ∃ a : ℕ, a < 2 ^ 20 ∧ k4FreeMask (quadIdxList 6) a = true ∧
+      ∀ h, (graphOfMask 6 a).toFlag h = H := by
+  obtain ⟨G, hG, rfl⟩ :=
+    exists_sym3Graph_toFlag (fun M (hM : TetraFree.Mem M) => hM.1) H
+  obtain ⟨a, ha, rfl⟩ :=
+    exists_mask_graphOfMask (k := 20) finTriples6_rank_inj finTriples6_rank_lt G
+  exact ⟨a, ha, k4FreeMask_iff_mem.mpr hG, fun _ => rfl⟩
+
+/-! ## The class number -/
+
+/-- A mask realizing a six-vertex class. -/
+noncomputable def classMask (H : FlagWithSize TetraFree emptyType 6) : ℕ :=
+  (exists_mask_class H).choose
+
+/-- **The class number of a six-vertex flag class**, read off any mask
+representative. -/
+noncomputable def classNumOf (H : FlagWithSize TetraFree emptyType 6) : ℚ :=
+  (classNum (h6Reps.getD (classIdxTable.getD (classMask H) 9999) 0) : ℚ)
+
+/-- Any realizing mask computes it: the choice above was immaterial. -/
+lemma classNumOf_eq {a : ℕ} (ha : a < 2 ^ 20)
+    (hka : k4FreeMask (quadIdxList 6) a = true)
+    {H : FlagWithSize TetraFree emptyType 6}
+    (hH : ∀ h, (graphOfMask 6 a).toFlag h = H) :
+    classNumOf H
+      = (classNum (h6Reps.getD (classIdxTable.getD a 9999) 0) : ℚ) := by
+  obtain ⟨hc, hck, hcH⟩ := (exists_mask_class H).choose_spec
+  have hiso : (graphOfMask 6 (classMask H)).IsIso (graphOfMask 6 a) := by
+    refine (Sym3Graph.toFlag_eq_toFlag_iff (k4FreeMask_iff_mem.mp hck)
+      (k4FreeMask_iff_mem.mp hka)).mp ?_
+    rw [hcH, hH]
+  have hc' : classMask H < 2 ^ 20 := hc
+  have hck' : k4FreeMask (quadIdxList 6) (classMask H) = true := hck
+  rw [classNumOf, classIdx_congr hc' ha hck' hka hiso]
+
+/-- **The deck sum is the level-7 expansion of an order-6 quantity**:
+the certificate's deck fold is seven times the density-weighted sum of
+the class numbers over the six-vertex classes.
+
+That is the deck side of the chain rule in final form. Dividing by the
+column denominator `5040 * scale ^ 2` turns the seven into the `720 *
+scale ^ 2` each class number is taken over. -/
+theorem deckValue_eq_expansion {m : ℕ}
+    (hk4 : k4FreeMask (quadIdxList 7) m = true)
+    (hm : TetraFree.Mem (graphOfMask 7 m).toModel) :
+    (deckValue m : ℚ)
+      = 7 * ∑ H : FlagWithSize TetraFree emptyType 6,
+          classNumOf H * subflagDensity H ((graphOfMask 7 m).toFlag hm) := by
+  rw [← sum_deckClass classNumOf hk4 hm, deckValue_eq_sum_classNum hk4]
+  push_cast
+  refine Finset.sum_congr rfl fun v _ => ?_
+  exact (classNumOf_eq (deckMask_lt v m) (deckMask_k4Free v hk4)
+    fun _ => rfl).symm
+
+end FlagAlgebras.Core.Tetrahedron

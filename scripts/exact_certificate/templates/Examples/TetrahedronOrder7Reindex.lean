@@ -1,0 +1,160 @@
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7CellWeight
+import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootAcct
+
+/-! # Re-indexing the certificate enumerations
+
+The fold sums walk the certificate's tables; the fiber coefficients sum
+over rootings and outside witnesses. This file supplies the bridge
+data: a `Fin`-valued form of the semantic enumerations, the finite
+facts identifying each witness `Finset` with the mapped enumeration
+list, and the mask-range and injectivity side conditions the cell
+theorems consume.
+
+The witness identifications are per-rooting finite statements, so they
+are decided rather than argued — the complement-forcing that pins the
+second triple of a witness pair is absorbed into the checks. -/
+
+namespace FlagAlgebras.Core.Tetrahedron
+
+open FlagAlgebras.Core
+
+/-! ## Gather words are in range -/
+
+private lemma gatherAux_lt (g m cnt : ℕ) : ∀ i acc : ℕ,
+    acc < 2 ^ cnt → i ≤ cnt → gatherAux g m i acc < 2 ^ cnt := by
+  intro i
+  induction i with
+  | zero => intro acc hacc _; exact hacc
+  | succ k ih =>
+    intro acc hacc hik
+    rw [gatherAux]
+    by_cases hb : m.testBit ((g >>> (6 * k)) &&& 63)
+    · rw [if_pos hb]
+      refine ih _ (Nat.or_lt_two_pow hacc ?_) (by omega)
+      rw [Nat.one_shiftLeft]
+      exact Nat.pow_lt_pow_right (by norm_num) (by omega)
+    · rw [if_neg hb]
+      exact ih _ hacc (by omega)
+
+/-- A gather of `cnt` bits is below `2 ^ cnt`. -/
+lemma gatherBits_lt (g cnt m : ℕ) : gatherBits g cnt m < 2 ^ cnt :=
+  gatherAux_lt g m cnt cnt 0 (Nat.two_pow_pos cnt) (le_refl _)
+
+/-! ## The `Fin`-valued enumerations -/
+
+/-- The six vertices outside a root. -/
+def restF (u : Fin 7) : List (Fin 7) :=
+  (List.finRange 7).filter (· ≠ u)
+
+/-- The four vertices outside a root triple. -/
+def restF3 (a b c : Fin 7) : List (Fin 7) :=
+  (List.finRange 7).filter fun v => v ≠ a ∧ v ≠ b ∧ v ≠ c
+
+/-- Sorted three-element sublists, `Fin`-valued. -/
+def sorted3F (l : List (Fin 7)) : List (List (Fin 7)) :=
+  l.flatMap fun a => l.flatMap fun b => l.flatMap fun c =>
+    if a < b ∧ b < c then [[a, b, c]] else []
+
+/-- Sorted two-element sublists, `Fin`-valued. -/
+def sorted2F (l : List (Fin 7)) : List (List (Fin 7)) :=
+  l.flatMap fun a => l.flatMap fun b =>
+    if a < b then [[a, b]] else []
+
+/-- The witness pair of a one-root choice: the sorted subset and its
+complement, as index tuples. -/
+def pairS1 (u : Fin 7) (S : List (Fin 7)) :
+    (Fin 7 × Fin 7 × Fin 7) × (Fin 7 × Fin 7 × Fin 7) :=
+  let T := (restF u).filter (· ∉ S)
+  ((S.getD 0 0, S.getD 1 0, S.getD 2 0),
+   (T.getD 0 0, T.getD 1 0, T.getD 2 0))
+
+/-- The witness pair of a three-root choice. -/
+def pairS3 (a b c : Fin 7) (S : List (Fin 7)) :
+    (Fin 7 × Fin 7) × (Fin 7 × Fin 7) :=
+  let T := (restF3 a b c).filter (· ∉ S)
+  ((S.getD 0 0, S.getD 1 0), (T.getD 0 0, T.getD 1 0))
+
+/-! ## The enumerations in `Fin` form -/
+
+set_option maxRecDepth 8192 in
+/-- The one-root semantic enumeration, re-expressed through the
+`Fin`-valued choices. -/
+lemma myS1_eq_finForm : myS1
+    = (List.finRange 7).flatMap fun u =>
+        (sorted3F (restF u)).map fun S =>
+          (mkGather4 u.val ((pairS1 u S).1.1).val ((pairS1 u S).1.2.1).val
+            ((pairS1 u S).1.2.2).val,
+           mkGather4 u.val ((pairS1 u S).2.1).val ((pairS1 u S).2.2.1).val
+            ((pairS1 u S).2.2.2).val) := by
+  decide
+
+/-- The three-root semantic enumeration, re-expressed through the
+`Fin`-valued choices. -/
+lemma myS3_eq_finForm : myS3
+    = (List.finRange 7).flatMap fun a =>
+        (List.finRange 7).flatMap fun b =>
+          (List.finRange 7).flatMap fun c =>
+            if a ≠ b ∧ a ≠ c ∧ b ≠ c then
+              [(rootRank ![a, b, c],
+                (sorted2F (restF3 a b c)).map fun S =>
+                  mkGather5 a.val b.val c.val
+                    ((pairS3 a b c S).1.1).val
+                    ((pairS3 a b c S).1.2).val)]
+            else [] := by
+  native_decide
+
+/-! ## The witness `Finset`s are the mapped enumerations -/
+
+/-- The one-root outside triples are exactly the mapped sorted
+choices. -/
+lemma outsideTriples_eq_list : ∀ u : Fin 7,
+    outsideTriples ![u]
+      = ((sorted3F (restF u)).map (pairS1 u)).toFinset := by
+  native_decide
+
+lemma pairS1_nodup : ∀ u : Fin 7,
+    ((sorted3F (restF u)).map (pairS1 u)).Nodup := by
+  native_decide
+
+/-- The three-root outside pairs are exactly the mapped sorted
+choices. -/
+lemma outsidePairsS3_eq_list : ∀ a b c : Fin 7,
+    a ≠ b → a ≠ c → b ≠ c →
+    outsidePairsS3 ![a, b, c]
+      = ((sorted2F (restF3 a b c)).map (pairS3 a b c)).toFinset := by
+  native_decide
+
+lemma pairS3_nodup : ∀ a b c : Fin 7,
+    ((sorted2F (restF3 a b c)).map (pairS3 a b c)).Nodup := by
+  native_decide
+
+/-! ## Injectivity side conditions -/
+
+/-- Every one-root witness tuple is injective. -/
+lemma injS1_tuple : ∀ u : Fin 7, ∀ S ∈ sorted3F (restF u),
+    Function.Injective
+      ![u, (pairS1 u S).1.1, (pairS1 u S).1.2.1, (pairS1 u S).1.2.2]
+    ∧ Function.Injective
+      ![u, (pairS1 u S).2.1, (pairS1 u S).2.2.1, (pairS1 u S).2.2.2] := by
+  native_decide
+
+/-- Every three-root witness tuple is injective. -/
+lemma injS3_tuple : ∀ a b c : Fin 7, a ≠ b → a ≠ c → b ≠ c →
+    ∀ S ∈ sorted2F (restF3 a b c),
+    Function.Injective
+      ![a, b, c, (pairS3 a b c S).1.1, (pairS3 a b c S).1.2]
+    ∧ Function.Injective
+      ![a, b, c, (pairS3 a b c S).2.1, (pairS3 a b c S).2.2] := by
+  native_decide
+
+/-- The complement of the `k`-th sorted pair choice is the
+`(5-k)`-th: the certificate pairs its six gathers accordingly. -/
+lemma pairS3_complement : ∀ a b c : Fin 7, a ≠ b → a ≠ c → b ≠ c →
+    ∀ k < 6,
+    (pairS3 a b c ((sorted2F (restF3 a b c)).getD (5 - k) [])).1.1
+        = (pairS3 a b c ((sorted2F (restF3 a b c)).getD k [])).2.1
+      ∧ (pairS3 a b c ((sorted2F (restF3 a b c)).getD (5 - k) [])).1.2
+        = (pairS3 a b c ((sorted2F (restF3 a b c)).getD k [])).2.2 := by
+  native_decide
+
+end FlagAlgebras.Core.Tetrahedron
