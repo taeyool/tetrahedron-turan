@@ -15,9 +15,11 @@ The experiments reported in the paper ran on Windows 11 with an Intel Core
 i7-14700K, 63.72 GiB of RAM and a 40 GiB process-memory cap, using Python
 3.12.4, NumPy 2.0.2, SciPy 1.13.1, HiGHS (highspy) 1.15.1, SCS 3.2.8, CVXPY
 1.6.5 and OpenBLAS 0.3.27; the C++ routines were compiled with MinGW GCC
-13.2.0. The search code and the verifiers also run on Linux and on ARM or x86
-macOS with Clang; they use portable bit extraction and standard C++ threads and
-need neither OpenMP nor BMI2.
+13.2.0. The C++ coefficient kernels use portable bit extraction and standard
+threads, with neither OpenMP nor BMI2. Individual LP workers and integer
+verifiers are intended to be portable; this release was checked on Windows.
+The supervised campaign and the recorded full-M7 SCS adapter require Windows.
+Installing the Python SCS package alone does not build that adapter.
 
 You need Python 3.9 to 3.12 (3.12 recommended), a C++17 compiler available as
 `c++` with `std::thread` and `__int128`, and the pinned packages:
@@ -38,7 +40,7 @@ thread count.
 ## Verify the certificate in integer arithmetic
 
 ```sh
-python search/exactify_five_root.py \
+python -X utf8 experiments/runtime.py search/exactify_five_root.py \
   --certificate certificate/K4_turan_order7_certificate.json \
   --cross-check-pricing --threads 2 \
   --cache .research-repro/integer-check --output .research-repro/integer-check.json
@@ -72,32 +74,39 @@ multiples of `1/2000000`, and a complete exact re-evaluation.
 | `analyze_certificate.py` | builds the six-vertex coefficient cache (`components.npz`) from the flag bases; run once per cache directory |
 | `reconstruct_optimization.py` | the twelve-block seven-vertex model (blocks with at most four roots): the restricted dual LP in HiGHS, eigenvector cuts, complete column pricing, checkpoints |
 | `five_root_oracle.py`, `five_root_oracle.cpp`, `five_root_exact_oracle.hpp` | the five-root blocks: six-vertex flags of each type, the full automorphism action on Gram matrices, the fast coefficient evaluator and its exact counterpart |
-| `expand_seven_optimization.py` | the search over all 35 blocks (`--types` selects the five-root types); the driver used for `M7-all5` |
+| `expand_seven_optimization.py` | the earlier general search driver; the final paper search uses the instrumented runner below |
 | `optimization_oracle.cpp`, `optimization_oracle_tail.inc`, `optimization_order8.inc` | the compiled pricing kernel over all raw seven-vertex extensions (the last file is an unused eight-vertex extension that the kernel is compiled with) |
-| `exactify_five_root.py` | exact conversion and independent verification, above |
+| `exactify_five_root.py`, `exactify_reconstructed_dual.py` | exact conversion and independent verification for the all-five-root and no-five-root/lifted models |
 
 Build the cache, then run a fresh search over all 23 five-root types with the
 settings of Appendix B.1:
 
 ```sh
-python search/analyze_certificate.py --cache .research-repro/cache \
+python -X utf8 experiments/runtime.py search/analyze_certificate.py --cache .research-repro/cache \
   --output .research-repro/certificate_diagnostics.json
-python search/expand_seven_optimization.py \
-  --types 0,1,3,7,11,12,13,15,30,31,63,76,77,86,87,94,116,117,119,222,236,237,254 \
-  --cache .research-repro/cache --deps .research-repro/empty-deps \
-  --mode with --seed-turan --price-first --price-top 8 --threads 2 \
-  --max-cuts 80 --keep-cuts 1800 --psd-tolerance 1e-7 --price-tolerance 1e-7 \
-  --seconds 3600 --max-iter 100000 --checkpoint \
-  --output-dir .research-repro/search/M7-all5
+python -X utf8 experiments/runtime.py experiments/run_seven_method.py \
+  --model M7-all5 --method LP-CUT-CG --phase long --seconds 21600 --rep 1 \
+  --cache .research-repro/cache --output .research-repro/search/M7-all5
 ```
 
-`--mode with` imposes the stationarity equality; `--seed-turan` initializes
-the constraint set `W` with the seven-vertex subgraphs of the balanced cyclic
-three-part construction; the empty `--deps` directory makes the optimizer use
-the `highspy` of the active environment. The run directory receives the
-iteration history, the best globally evaluated dual (`*_best_dual.npz`), the
-last primal and a resumable checkpoint. Convert the best dual with
-`exactify_five_root.py` as above.
+This runner imposes the stationarity equality and initializes `W` with the
+seven-vertex subgraphs of the balanced cyclic three-part construction. It
+uses the recorded top-eight selection, two pricing threads, 80 eigenvectors
+per update, 3,000 retained eigenvector cuts, and the duplicate-candidate
+fallback used by the final six-hour search in Appendix B.1. The earlier
+general driver does not implement that fallback.
+
+The run directory receives `run.json`, `history.jsonl`, `best_dual.npz`,
+the last primal and a checkpoint. A worker by itself does not perform exact
+conversion or apply a process-memory cap. Convert its best dual as follows,
+or use the supervised entry point below to do both automatically:
+
+```sh
+python -X utf8 experiments/runtime.py search/exactify_five_root.py \
+  .research-repro/search/M7-all5/best_dual.npz --factorization svd \
+  --scale 2000000 --svd-relative-tolerance 1e-7 --cross-check-pricing --threads 2 \
+  --cache .research-repro/search-exact --output .research-repro/search-exact.json
+```
 
 Fresh searches are not bit-for-bit reproducible across machines: BLAS
 implementations, eigenvectors in repeated eigenspaces, LP degeneracy and
@@ -113,15 +122,10 @@ and memory limits, and the records of the completed campaign. See
 [`experiments/README.md`](../experiments/README.md) for the file inventory and
 for how the paper's tables map to `results.csv`.
 
-A single one-hour trial of one configuration, after building the cache above
-and validating the models:
+From a fresh checkout, inspect the complete 43-trial plan (no execution):
 
 ```sh
-python experiments/validate_selected.py --cache .research-repro/cache \
-  --output .research-repro/validation
-python experiments/run_seven_method.py --model M7-all5 --method LP-CUT-CG \
-  --cache .research-repro/cache --output .research-repro/runs/M7-all5-LP-CUT-CG-1 \
-  --seconds 3600 --rep 1
+python experiments/reproduce.py
 ```
 
 `run_seven_method.py` implements `SDP-FULL`, `LP-CG` (named `LP-CUT` in the
@@ -129,14 +133,45 @@ code and records), `SDP-CUT` (named `SDP-CG`) and `LP-CUT-CG` on `M7-no5` and
 `M7-all5`; `run_remaining_method.py` implements the same methods on `M6` and
 `LP-CUT-CG` on `M7-lift6`; `run_long_reference.py` is the six-hour `M6`
 `SDP-FULL` reference with the larger SCS iteration cap; `--phase long
---seconds 21600` gives the six-hour LP searches. Each run directory contains
-`run.json` (settings, timings, residuals), `history.jsonl` (every candidate
-with its global coefficient maximum and eligibility), `best_dual.npz`, and the
-exact conversions under `exact/`. The full campaign, with pilots, validation
-gates, repetitions, memory caps and repair handling, is the durable queue
-`run_complete_campaign.py --campaign DIR`; `summarize_complete.py` audits a
-finished campaign directory and `report_complete.py` renders the report and
-the figures.
+--seconds 21600` gives the six-hour LP searches.
+
+On Windows, execute a selected trial, or all 43 trials:
+
+```sh
+python experiments/reproduce.py --run --select M6-LP-CUT-CG-rep-01 --output .research-repro/one-trial
+python experiments/reproduce.py --run --output .research-repro/new-campaign
+```
+
+The complete plan has 58 hours of search budgets, plus cache preparation,
+model validation and exact verification. The entry point builds the needed
+coefficient data, seven-vertex catalogue, full feature matrices and native
+packed matrices. It applies the 40 GiB Windows process-tree cap and records
+every command. It verifies final SVD and uncompressed candidates and available
+checkpoints after each trial. Add `--prepare-only` to prepare without searching,
+or select exactly one task and add `--smoke-seconds 5` for a short pilot that
+must not be reported as a paper benchmark.
+
+Completed trials are skipped on rerun; failed attempts are preserved and a
+new attempt is used. Incomplete cache preparation requires a fresh output
+directory. A controller lock prevents concurrent use of one output directory;
+after an abrupt interruption, inspect the recorded PID before removing a stale
+lock. The original campaign supervisors are historical tools tied to their
+old state files; do not use them to initialize a fresh checkout.
+
+The full-M7 `SDP-FULL` arms require the [bundled SCS build recipe](../experiments/native_scs/README.md).
+`reproduce.py` runs it and its numerical validation automatically. To test it
+separately:
+
+```sh
+python experiments/build_native_scs.py --cache .research-repro/native-test
+python -X utf8 experiments/runtime.py experiments/validate_owned_scs.py --cache .research-repro/native-test --output .research-repro/native-validation
+```
+
+For the published results, use the [evidence bundle](../experiments/evidence/README.md).
+It includes actual historical source versions, exact certificates and
+per-run records. The current runner incorporates the final repairs; a new
+campaign does not reconstruct every earlier source version or reproduce
+historical timing-dependent trajectories bit for bit.
 
 ## Figures
 
@@ -144,7 +179,7 @@ the figures.
 python figures/generate_plots.py
 ```
 
-renders the four figures of the paper from `figures/plot-data.json`, a
+renders the three experimental figures of the paper from `figures/plot-data.json`, a
 portable extraction of the per-run trajectories and exact checkpoint bounds
 of the 43 recorded runs. It needs Matplotlib and pdfLaTeX with the Latin
 Modern fonts; see [`figures/README.md`](../figures/README.md).

@@ -67,7 +67,10 @@ def write_json(path, value):
 
 def sources():
     paths = sorted(set(RESEARCH.glob('*.py')) | set(RESEARCH.glob('*.cpp')) |
-                   set(RESEARCH.glob('*.inc')) | set(HERE.glob('*.py')) |
+                   set(RESEARCH.glob('*.inc')) | set(RESEARCH.glob('*.hpp')) |
+                   set(HERE.glob('*.py')) | set(HERE.glob('*.cpp')) |
+                   set((HERE / 'native_scs').glob('*.c')) |
+                   set((HERE / 'native_scs').glob('*.json')) |
                    set((ROOT / 'certificate').glob('*.py')) |
                    set((ROOT / 'certificate').glob('*.cpp')))
     return {str(p.relative_to(ROOT)): digest(p) for p in paths}

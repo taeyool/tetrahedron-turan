@@ -34,11 +34,22 @@ The records were written on the machine that ran the campaign. Before
 publication, the personal directory prefix of every recorded path was replaced
 by `<repo>`, the certificate was moved to `certificate/`, and the hashes of the
 files in this directory were recomputed; `publication-manifest.json` documents
-this. The campaign's scratch directory (per-iteration archives, coefficient
-caches, solver binaries and the two earlier partial reports that the merged
-report was assembled from) is not distributed, so `summarize_complete.py` and
-`report_complete.py` cannot be re-run on it; the merged records here are the
-authoritative outputs.
+this. The [evidence bundle](evidence/README.md) supplies the exact certificates,
+checkpoint certificates, per-run settings, histories, verification records and
+executed versions of the released source modules. Original and distributed
+hashes are separate. Large numerical arrays, coefficient caches, solver binaries
+and superseded private reports are omitted. The historical report generators
+expect that original private layout; use the portable bundle checker to audit
+the published records and `figures/generate_plots.py` to regenerate the figures.
+
+## Starting a new campaign
+
+Use `python experiments/reproduce.py` to inspect all 43 tasks, then add `--run`
+to execute them on Windows under the recorded 40 GiB cap. `--select TASK_ID`
+selects one task. This entry point builds missing caches and validates models;
+it needs no historical `status.json`. See the [reproduction guide](../docs/reproduction.md).
+The old supervisors below preserve the historical campaign workflow and require
+its state; they are not the fresh-checkout entry point.
 
 ## Runners
 
@@ -57,11 +68,8 @@ authoritative outputs.
 | `validate_*.py`, `test_runtime.py` | the validation gates run before production trials |
 | `summarize_complete.py`, `report_complete.py`, `summarize_selected.py`, `summarize_remaining.py`, `report_remaining.py` | the audit and report generators of the campaign stages |
 
-Each trial writes `run.json`, `history.jsonl`, `best_dual.npz` and its exact
-conversions under `exact/`; the supervisors add `supervisor.json` and sampled
+Each worker writes `run.json`, `history.jsonl` and `best_dual.npz`;
+`reproduce.py` additionally verifies the final SVD and uncompressed candidates
+and all available checkpoints under `exact/`. The supervisors add `supervisor.json` and sampled
 process-tree memory. Runs are not bit-for-bit reproducible across machines;
 their exact certificates are verified from scratch after each search.
-
-The campaign code also knows a fourth seven-vertex model, `M7-three5`, with
-three of the five-root types. It was excluded from the campaign and is not
-reported in the paper; the campaign manifest records the exclusion.

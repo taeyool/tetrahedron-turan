@@ -23,7 +23,7 @@ def run(cache,matrix,metadata,b,c,output,budget,reserve,max_iters=20000000,varia
     np.asarray(b,dtype='<f8').tofile(output/'b.f64')
     np.asarray(c,dtype='<f8').tofile(output/'c.f64')
     env=os.environ.copy()
-    env['PATH']=str(blas.parent)+os.pathsep+'C:/Strawberry/c/bin'+os.pathsep+env.get('PATH','')
+    env['PATH']=str(blas.parent)+os.pathsep+manifest.get('compiler_directory', 'C:/Strawberry/c/bin')+os.pathsep+env.get('PATH','')
     env['OPENBLAS_NUM_THREADS']='1';env['OMP_NUM_THREADS']='1';env['MKL_NUM_THREADS']='1'
     with (output/'solver.log').open('w',encoding='utf-8') as stream:
         result=subprocess.run([str(exe),str(Path(matrix).resolve()),str(output.resolve())],

@@ -48,7 +48,12 @@ needs about 2 GB of memory; reduce `--threads` and `--sweep-batch-size` on a
 smaller machine. See [docs/lean-proof.md](docs/lean-proof.md) for the
 statement, the proof architecture, the trust boundary and the measured build
 cost, and [certificate/verification/](certificate/verification/README.md) for
-the tracked verification record.
+the historical verification record and its checked mapping to the release.
+No fresh full Lean build is claimed for the release packaging.
+
+The [experiment evidence bundle](experiments/evidence/README.md) includes
+certificates and execution records for all 43 reported trials. A fresh
+experiment plan is available with `python experiments/reproduce.py`.
 
 ## Verify the certificate without Lean
 
@@ -59,7 +64,7 @@ optimization that produced it. With Python 3.12, the pinned packages of
 
 ```sh
 python -m pip install -r requirements.txt
-python search/exactify_five_root.py \
+python -X utf8 experiments/runtime.py search/exactify_five_root.py \
   --certificate certificate/K4_turan_order7_certificate.json \
   --cross-check-pricing --threads 2 \
   --cache .research-repro/integer-check --output .research-repro/integer-check.json

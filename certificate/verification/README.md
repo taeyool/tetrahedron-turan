@@ -1,7 +1,9 @@
 # Lean verification record
 
-This directory records complete runs of the verification driver
-`scripts/exact_certificate/verify_full_seven_long.py` on the certificate
+This directory preserves the completed verification run of September 14,
+2026. The historical `formalization.json` and logs are unchanged; their PASS
+status is the result of that run, not a new full build of this release.
+The release certificate is
 [`../K4_turan_order7_certificate.json`](../K4_turan_order7_certificate.json).
 The numerical search is not part of the Lean proof; only the integer factor
 rows of that file are consumed.
@@ -29,6 +31,25 @@ rows of that file are consumed.
 
 Every file here is stored with `-text`, so the bytes hashed in
 `formalization.json` are the bytes checked out.
+
+`release-source-map.json` explains the move from the original repository:
+only the certificate's recorded source path changed; its mathematical data
+did not. The old raw certificate hash is intentionally retained in the
+historical record. The historical build hashed 344 modules, including
+auxiliary targets; the release headline closure has 241. The exact historical
+module texts are in `historical-sources.json.gz`. The 241 released modules
+have the same code tokens after removing comments and whitespace.
+
+Check the old record, logs, axiom list, source hashes and release mapping
+without running Lean:
+
+```sh
+python scripts/check_release_evidence.py
+python scripts/exact_certificate/verify_full_seven_long.py --check-only
+```
+
+These checks establish archive integrity and source correspondence. They do
+not replace a fresh Lean compilation.
 
 To produce a fresh record, run from the repository root:
 

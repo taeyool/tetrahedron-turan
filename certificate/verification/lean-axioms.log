@@ -1,0 +1,83 @@
+FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity_le_certValue :
+  FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity ≤ 312372062889819 / 560000000000000
+FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity_le_longCertValue :
+  FlagAlgebras.Core.Tetrahedron.tetraTuranDensity ≤ 312372062889819 / 560000000000000
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity_le_certValue' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.maxDens_eq_exTetra' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.tendsto_tetraTuranDensity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.edge_le_certBound_of_stationary' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.columnValue_le_columnBound' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.finiteBoost' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity_le_certValue_finite' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.turanDensity_le_of_stationary_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.isDegreeStationary_of_maximizer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.maximizerIsStationary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.fiveRootSOS_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.fiveRootElt_eq_scaled' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.s5ColumnNum_eq_ordered' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.s5ColumnNum_eq_ordered_sum' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.exTetra_eq_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity_eq_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity_le_longCertValue' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity_le_longCertValue_finite' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'FlagAlgebras.Core.isStationary_of_maximizer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FlagAlgebras.Core.Tetrahedron.gamma56_eq_rooting5040' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FlagAlgebras.Core.sum_injective_filter_eq_rootSubset_perm' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -3,3 +3,5 @@
 *.py text eol=lf
 *.md text eol=lf
 *.pdf binary
+*.gz binary
+*.gzpart binary

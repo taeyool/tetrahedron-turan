@@ -43,7 +43,7 @@ Independent integer verification, without Lean (Python 3.12, the pinned
 `requirements.txt`, a C++17 compiler):
 
 ```sh
-python search/exactify_five_root.py \
+python -X utf8 experiments/runtime.py search/exactify_five_root.py \
   --certificate certificate/K4_turan_order7_certificate.json \
   --cross-check-pricing --threads 2 \
   --cache .research-repro/integer-check --output .research-repro/integer-check.json

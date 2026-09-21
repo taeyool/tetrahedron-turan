@@ -1,6 +1,6 @@
 # Manuscript figures
 
-Regenerate the four experimental figures with:
+Regenerate the three experimental figures with:
 
 ```sh
 python figures/generate_plots.py
@@ -21,7 +21,10 @@ three six-hour runs, and one independent one-hour M6 reference. It stores
 all budget-eligible best-so-far numerical observations and exact rational
 checkpoint bounds, together with source paths and SHA-256 hashes.
 
-With the original `.research-repro` archive available, refresh this snapshot:
+The checked-in snapshot is sufficient to render all three figures. The archived
+histories and certificates are now in [the evidence bundle](../experiments/evidence/README.md).
+`--refresh-data` remains a historical import operation and expects the original
+private campaign layout, not the portable evidence bundle:
 
 ```sh
 python figures/generate_plots.py --refresh-data

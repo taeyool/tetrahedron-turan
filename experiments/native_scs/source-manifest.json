@@ -1,0 +1,37 @@
+{
+  "version": "3.2.8",
+  "source_archive": {
+    "url": "https://files.pythonhosted.org/packages/96/67/e08ec377efb4468bdc986b5334ad7dcc8dbd309fc1221c8589bdd690d303/scs-3.2.8.tar.gz",
+    "filename": "scs-3.2.8.tar.gz",
+    "digests": {
+      "blake2b_256": "9667e08ec377efb4468bdc986b5334ad7dcc8dbd309fc1221c8589bdd690d303",
+      "md5": "428938871c0471cf2504c720510058c9",
+      "sha256": "388ba6e6d77ac3ded38eb782eafece3df7b56ace2929135760a4bd7b251b6a08"
+    },
+    "size": 1690384
+  },
+  "sha256": {
+    "LICENSE-SCS.txt": "971225e60de450908b7d98dbef667b2ba5ef89a6cf01c9080a5c9ae813fed018",
+    "private_diagnostic.c": "46fde3d10b1aa23efd693a6074418e1ef5175fe673afcb033250d68b3e8bff7b",
+    "scs-3.2.8.tar.gz": "388ba6e6d77ac3ded38eb782eafece3df7b56ace2929135760a4bd7b251b6a08",
+    "scs_owned_main.c": "e2299bd9932b21c4f831a0beff6d4319889c595541606989c288812c36208b38",
+    "scs_timed.c": "26b71f2f841c315218ba6ac4af075d9d5301b248e20e721d7d508124d154b3a6",
+    "util_owned.c": "08324f8cdfe54cbad35269f8a54318965cd97fc52b3e8febf5c405a1e4c1488c"
+  },
+  "compiler_flags": [
+    "-O2",
+    "-fno-fast-math",
+    "-std=c99",
+    "-DDLONG=1",
+    "-DINDIRECT=1",
+    "-DUSE_LAPACK=1",
+    "-DCTRLC=1"
+  ],
+  "historical_compiler": "gcc.exe (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0",
+  "historical_blas_sha256": "b2d49d518a79c6ab6a81a0e5be0c1c941b4f0f69d8f43ad2deedf733e4ea7315",
+  "rho_x": 100.0,
+  "scope": [
+    "transfer malloc-owned input A buffers; no numerical operation changed",
+    "check deadline admission after each complete projection using 1.15 times observed iteration cost plus one second; stock convergence schedule retained"
+  ]
+}

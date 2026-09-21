@@ -1,6 +1,6 @@
 // Complete seven-vertex catalogue: canonical deletion plus six-vertex automorphisms.
 // This changes representation only; every raw admissible extension is covered.
-#include "../../optimization_oracle.cpp"
+#include "../search/optimization_oracle.cpp"
 #include <unordered_set>
 #include <chrono>
 #include <string>

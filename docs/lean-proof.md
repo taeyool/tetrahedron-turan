@@ -105,7 +105,12 @@ The chain imports three certificate-independent parts of the repository:
   for one-, three- and five-vertex rootings of a seven-vertex host;
 - Mathlib at the revision pinned in `lake-manifest.json`.
 
-The import closure of the two headline theorems has 241 modules.
+The released import closure of the headline theorems has 241 modules.
+The retained historical verification record also hashed auxiliary targets and
+therefore lists 344 modules. Their archived sources and the mapping of the
+241 released modules are checked by `python scripts/check_release_evidence.py`;
+the code tokens agree after removing comments and whitespace. This packaging
+check is separate from rerunning Lean.
 
 ## Generation and hashing
 

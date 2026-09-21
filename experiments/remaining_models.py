@@ -14,7 +14,7 @@ DIMS = [2, 2, 11, 8, 7, 64, 56, 50, 45]
 
 
 def source_data(cache):
-    cert = rt.json.loads((CERT / 'K4_turan_order7_exact_certificate.json').read_text())
+    cert = rt.json.loads((CERT / 'legacy/K4_turan_order7_exact_certificate.json').read_text())
     with np.load(cache / 'components.npz') as z:
         blocks = [z[f'block{i}'].copy() for i in range(9)]
         objective = z['edge'] / (720 * cert['scale']**2)

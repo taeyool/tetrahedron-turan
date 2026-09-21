@@ -1,4 +1,4 @@
-"""Render the manuscript's four experimental figures from saved observations.
+"""Render the manuscript's three experimental figures from saved observations.
 
 Run normally from the portable plot-data.json, or use --refresh-data to rebuild
 that snapshot from the local experiment archive. No solver or verifier is run.
@@ -267,18 +267,6 @@ def render(runs, preview_dir):
 
     render_sdp_comparison(production, preview_dir)
 
-    fig, axes = panels(gap=.33)
-    selected = [r for r in production if r["model"] in ("M7-no5", "M7-all5")
-                and r["method"] == "LP-CUT-CG"]
-    for ax, title, limits in zip(axes, ("Full trajectory", "Final-bound detail"),
-                                ((.555, .673), (.5584, .5648))):
-        curves(ax, selected, distinguish_models=True)
-        axis(ax, logx=False, xlim=(0, 3690), ylim=limits, ticks=[0, 900, 1800, 2700, 3600])
-        ax.set_title(title)
-    axes[0].set_ylabel(BOUND_LABEL)
-    common_legend(fig, model_handles(["M7-no5", "M7-all5"]), columns=2)
-    export(fig, "convergence", preview_dir)
-
     fig, axes = panels(3, height=3.35, sharey=True, gap=.16)
     long_runs = [r for r in runs if r["phase"] == "long"]
     for ax, model in zip(axes, ("M7-no5", "M7-all5", "M6")):
@@ -308,7 +296,7 @@ def main():
     data = json.loads(DATA.read_text(encoding="utf-8"))
     style(args.font_dir)
     render(data["runs"], args.preview_dir)
-    print("Rendered four PDF/SVG figures at manuscript width.")
+    print("Rendered three PDF/SVG figures at manuscript width.")
 
 
 if __name__ == "__main__":
