@@ -1,0 +1,15 @@
+⚠ [1242/1411] Replayed LeanFlagAlgebras.Core.Limit.Profile
+warning: LeanFlagAlgebras/Core/Limit/Profile.lean:58:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_basis`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Limit/Profile.lean:63:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_apply`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [1648/1648] Built LeanFlagAlgebras.Core.Limit.Compact (10s)
+Build completed successfully (1648 jobs).

@@ -1,0 +1,18 @@
+⚠ [1272/1294] Replayed LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootBits
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7FiveRootBits.lean:68:53: This simp argument is unused:
+  Bool.and_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [Nat.testBit_mod_two_pow, s5Gather_testBit,̵ ̵B̵o̵o̵l̵.̵a̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [1288/1294] Replayed LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ExtS1
+warning: LeanFlagAlgebras/Core/Examples/TetrahedronOrder7ExtS1.lean:73:18: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: LeanFlagAlgebras/Core/Examples/TetrahedronOrder7ExtS1.lean:217:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [1293/1294] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellWeight (6.1s)
+✔ [1294/1294] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootAcct (6.7s)
+Build completed successfully (1294 jobs).

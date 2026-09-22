@@ -1,0 +1,11 @@
+⚠ [978/978] Built LeanFlagAlgebras.Core.Compute.Relabel6 (7.2s)
+warning: LeanFlagAlgebras/Core/Compute/Relabel6.lean:243:8: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Compute/Relabel6.lean:281:23: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: LeanFlagAlgebras/Core/Compute/Relabel6.lean:283:23: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Build completed successfully (978 jobs).

@@ -1,0 +1,22 @@
+⚠ [1294/1301] Replayed LeanFlagAlgebras.Core.Limit.Profile
+warning: LeanFlagAlgebras/Core/Limit/Profile.lean:58:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_basis`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Limit/Profile.lean:63:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_apply`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [1702/1703] Built LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Pairwise (5.9s)
+⚠ [1703/1703] Built LeanFlagAlgebras.Core.Limit.Sampling (7.2s)
+warning: LeanFlagAlgebras/Core/Limit/Sampling.lean:176:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.le_hostSize`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Build completed successfully (1703 jobs).

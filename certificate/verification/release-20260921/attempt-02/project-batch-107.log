@@ -1,0 +1,216 @@
+⚠ [1209/1409] Replayed LeanFlagAlgebras.Core.Limit.Profile
+warning: LeanFlagAlgebras/Core/Limit/Profile.lean:58:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_basis`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Limit/Profile.lean:63:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_apply`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2606/2621] Replayed LeanFlagAlgebras.Core.Ensemble.DensitySpace
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:40:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagDensitySpace_isCompact`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:50:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.mem_Icc`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:69:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.continuous_eval`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:74:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.measurable_eval`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:79:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.tendsto_iff`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:133:6: unused variable `φ₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:133:9: unused variable `φ₂`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:167:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.isClosed_chainClosed`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:185:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.isClosed_mulClosed`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2607/2621] Replayed LeanFlagAlgebras.Core.Ensemble.Empirical
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:57:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mem_sigmaLabelings`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:66:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.IsFlagLabeling.isSigmaLabeling`:
+  [S.NullaryFree]
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:74:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mem_flagLabelings_iff_toFlag_eq`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:152:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagCount_unit_out`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:173:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.sum_labelingCount_mul_subflagDensity`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:199:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.labelPoint_apply`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:214:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.empiricalMeasure_univ`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Empirical.lean:242:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_empiricalMeasure`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2608/2621] Replayed LeanFlagAlgebras.Core.Ensemble.Extension
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:51:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FinFlag.qFactor_pos`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:58:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.downward_basisVector_quot`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:100:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagDensity_out_right`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:118:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_eval_hostAt`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:160:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.empiricalSeq_of_nonempty`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:173:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.exists_weakLimit`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:189:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.evalBCF_apply`:
+  [S.NullaryFree]
+  [𝕋.IsType σ]
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] [𝕋.IsType σ] [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:230:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.ae_eq_zero_of_tendsto_integral`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:256:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.chainBCF_apply`:
+  [S.NullaryFree]
+  [𝕋.IsType σ]
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] [𝕋.IsType σ] [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:322:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.unitBCF_labelPoint`:
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:361:36: unused variable `G`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Ensemble/Extension.lean:367:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mulBCF_apply`:
+  [S.NullaryFree]
+  [𝕋.IsType σ]
+  [𝕋.IsType (emptyType S)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] [𝕋.IsType σ] [𝕋.IsType (emptyType S)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2612/2621] Replayed LeanFlagAlgebras.Core.Limit.Sampling
+warning: LeanFlagAlgebras/Core/Limit/Sampling.lean:176:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.le_hostSize`:
+  [𝕋.IsType σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [𝕋.IsType σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2613/2621] Replayed LeanFlagAlgebras.Core.Differential.Stationary
+warning: LeanFlagAlgebras/Core/Differential/Stationary.lean:38:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.Model.eq_vertexType_of_mem`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: LeanFlagAlgebras/Core/Differential/Stationary.lean:128:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_profileEval_weakLimit`:
+  hvu
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hvu in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2621/2621] Built LeanFlagAlgebras.Core.Differential.Upward (8.1s)
+warning: LeanFlagAlgebras/Core/Differential/Upward.lean:253:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.card_filter_rooted_witness`:
+  [S.NullaryFree]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [S.NullaryFree] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Build completed successfully (2621 jobs).

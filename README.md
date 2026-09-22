@@ -42,14 +42,18 @@ The driver checks the certificate hash and the generation manifests, builds the
 modules, runs the axiom audit `AxiomCheckFullSevenLong.lean`, type-checks the
 literal fraction against both theorems, and writes `formalization.json` with
 status `PASS` only when every step succeeds. A plain `lake build` builds the
-same modules without writing a record. The complete build takes about three
-hours on a 20-core desktop with twelve parallel jobs, and each sweep process
-needs about 2 GB of memory; reduce `--threads` and `--sweep-batch-size` on a
-smaller machine. See [docs/lean-proof.md](docs/lean-proof.md) for the
-statement, the proof architecture, the trust boundary and the measured build
-cost, and [certificate/verification/](certificate/verification/README.md) for
-the historical verification record and its checked mapping to the release.
-No fresh full Lean build is claimed for the release packaging.
+entire project library without writing a verification record. The
+[fresh release build](certificate/verification/release-20260921/README.md)
+of commit `8bf9d8d` passed all 246 project modules and the complete verifier
+on September 21–22, 2026. It took 10 hours 37 minutes, including recovery
+from a memory failure by building project modules in dependency order with
+at most two targets per invocation. Older supporting sweeps require more
+memory than the roughly 2 GB used by each new coefficient sweep;
+`--sweep-batch-size` limits only the latter. See
+[docs/lean-proof.md](docs/lean-proof.md) for the statement, proof architecture,
+trust boundary and measured build costs, and
+[certificate/verification/](certificate/verification/README.md) for both
+the historical and release verification records.
 
 The [experiment evidence bundle](experiments/evidence/README.md) includes
 certificates and execution records for all 43 reported trials. A fresh

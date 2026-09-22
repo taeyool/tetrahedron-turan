@@ -1,0 +1,16 @@
+⚠ [979/980] Replayed LeanFlagAlgebras.Core.Compute.Sym3Delete
+warning: LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:83:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+warning: LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:138:12: `Nat.succ_mul_choose_eq` has been deprecated: Use `Nat.add_one_mul_choose_eq` instead
+warning: LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:132:33: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [980/980] Replayed LeanFlagAlgebras.Core.Compute.Sym3Clone
+warning: LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:32:55: unused variable `huv`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:80:47: unused variable `huv`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:139:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+warning: LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:148:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+Build completed successfully (980 jobs).

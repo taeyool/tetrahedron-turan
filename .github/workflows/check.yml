@@ -18,7 +18,7 @@ jobs:
           python-version: "3.12"
       - name: Certificate, manifest and source preflight (no build)
         run: python scripts/exact_certificate/verify_full_seven_long.py --check-only
-      - name: Historical verification record and source correspondence (no build)
+      - name: Historical and release verification records (no build)
         run: python scripts/check_release_evidence.py
       - name: Archived experiment integrity and published-result links
         run: python experiments/evidence.py --check

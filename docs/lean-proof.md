@@ -160,6 +160,17 @@ the 964 six-vertex representatives.
 
 ## Measured build cost
 
+The [fresh release build of commit `8bf9d8d`](../certificate/verification/release-20260921/README.md)
+started without a project build cache and completed all 246 project modules
+and the official verifier in 10 hours 37 minutes on September 21–22, 2026.
+This includes a memory failure during concurrent compilation of older
+supporting sweeps and recovery in dependency order with at most two project
+targets per invocation. The successful recovery used four Lean threads and
+peaked at 33.04 GiB of job commit memory under a 40 GiB cap. No proof sources
+changed. These figures include more prerequisites and recovery work than
+the earlier staged timings below; the final verifier reused the newly built
+artifacts.
+
 The chain was first built on an Intel Core i7-14700K (28 threads, 64 GB,
 Windows 11) in three bounded Lake invocations, archived with per-module
 timings under

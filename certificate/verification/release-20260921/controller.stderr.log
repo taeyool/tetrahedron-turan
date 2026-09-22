@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<repo>\.research-repro\lean-release-build-20260921\run_build.py", line 81, in main
+    execute('verification',[sys.executable,'-X','utf8','scripts/exact_certificate/verify_full_seven_long.py',
+  File "<repo>\.research-repro\lean-release-build-20260921\run_build.py", line 75, in execute
+    if p.returncode:raise RuntimeError(f'{name} exited with status {p.returncode}; see {name}.log')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: verification exited with status 1; see verification.log
+Traceback (most recent call last):
+  File "<repo>\.research-repro\lean-release-build-20260921\run_build.py", line 99, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "<repo>\.research-repro\lean-release-build-20260921\run_build.py", line 81, in main
+    execute('verification',[sys.executable,'-X','utf8','scripts/exact_certificate/verify_full_seven_long.py',
+  File "<repo>\.research-repro\lean-release-build-20260921\run_build.py", line 75, in execute
+    if p.returncode:raise RuntimeError(f'{name} exited with status {p.returncode}; see {name}.log')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: verification exited with status 1; see verification.log

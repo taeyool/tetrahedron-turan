@@ -1,4 +1,4 @@
-"""Check the historical Lean evidence and its mapping to the release, without Lean."""
+"""Check historical and fresh release build evidence without invoking Lean."""
 import gzip
 import hashlib
 import json
@@ -37,6 +37,63 @@ def lean_tokens(text):
     if depth:raise ValueError("Unterminated Lean comment")
     return re.findall(r'"(?:\\.|[^"\\])*"|\w+|[^\w\s]+',"".join(result))
 
+def check_release_build(current):
+    folder=ROOT/"certificate/verification/release-20260921"
+    for line in (folder/"SHA256SUMS").read_text(encoding="utf-8").splitlines():
+        expected,name=line.split("  ",1)
+        assert sha((folder/name).read_bytes())==expected,name
+    attempt=folder/"attempt-02"
+    state=json.loads((attempt/"status.json").read_text(encoding="utf-8"))
+    verification=attempt/"verification"
+    record=json.loads((verification/"formalization.json").read_text(encoding="utf-8"))
+    assert state["status"]==record["status"]=="PASS"
+    assert state["release_commit"]==record["source_base_commit"]=="8bf9d8d286bb409ae922393a261b08648b2b6d79"
+    assert sha((verification/"formalization.json").read_bytes())==state["formalization_sha256"]
+    assert state["all_project_modules_built"] and state["source_files_unchanged"]
+    assert state["original_project_started_without_build_cache"]
+    assert sha((folder/"status.json").read_bytes())==state["original_attempt_status_sha256"]
+    snapshot=folder/"initial-source-hashes.json"
+    assert sha(snapshot.read_bytes())==state["original_source_hashes_sha256"]
+    sources=json.loads(snapshot.read_text(encoding="utf-8"))
+    paths=list((ROOT/"LeanFlagAlgebras").rglob("*.lean"))+[ROOT/"LeanFlagAlgebras.lean"]
+    assert set(sources)=={p.relative_to(ROOT).as_posix() for p in paths}
+    assert len(sources)==state["project_module_count"]==246
+    for name,h in sources.items():
+        assert sha((ROOT/name).read_bytes())==h,name
+    assert record["repository_source_sha256"]==current
+    for name,h in record["verification_inputs_sha256"].items():
+        path=ROOT/name
+        data=path.read_bytes() if name==record["certificate"] else path.read_text(encoding="utf-8").encode()
+        assert sha(data)==h,name
+    for stage in state["stages"]:
+        assert stage["status"]=="passed" and stage["returncode"]==0,stage["name"]
+        assert sha((attempt/(stage["name"]+".log")).read_bytes())==stage["log_sha256"]
+    full=next(stage for stage in state["stages"] if stage["name"]=="full-library")
+    assert full["command"][-1]=="build"
+    assert "Build completed successfully" in (attempt/"full-library.log").read_text(encoding="utf-8")
+    for name,h in record["verification_logs_sha256"].items():
+        assert sha((verification/name).read_bytes())==h,name
+    sweeps=record["sweep_verification"]
+    assert sweeps["status"]=="SWEEPS_PASS" and sweeps["scope"]==[0,49]
+    covered=[]
+    for batch in sweeps["batches"]:
+        log=verification/"sweeps"/batch["log"]
+        assert sha(log.read_bytes())==batch["log_sha256"]
+        assert "Build completed successfully" in log.read_text(encoding="utf-8")
+        covered.extend(target for target in batch["targets"] if "Sweep7_" in target)
+    assert len(set(covered))==len(covered)==49
+    assert sorted(covered)==sorted(record["sweep_targets"])
+    actual={k:sorted(v) for k,v in parse_axioms((verification/"lean-axioms.log").read_text(encoding="utf-8")).items()}
+    assert actual==record["axioms"] and len(actual)==17
+    assert all("sorryAx" not in axioms for axioms in actual.values())
+    assert sha((verification/"PinnedHeadline.lean").read_text(encoding="utf-8").encode())==record["pinned_statement_source_sha256"]
+    certificate=ROOT/record["certificate"]
+    assert sha(certificate.read_bytes())==record["certificate_sha256"]
+    assert json.loads(certificate.read_text(encoding="utf-8"))["bound_fraction"]==record["bound_fraction"]
+    print(json.dumps(dict(status="release_build_evidence_matches",verified_commit=record["source_base_commit"],
+        project_modules=len(sources),coefficient_sweeps=len(covered),completed_utc=state["completed_utc"],
+        lean_invoked_by_this_check=False)))
+
 def check():
     if not __debug__:raise SystemExit("Do not run evidence checks with Python optimization enabled.")
     folder=ROOT/"certificate/verification"
@@ -71,5 +128,6 @@ def check():
     print(json.dumps(dict(status="historical_evidence_matches",release_modules=len(current),
         historical_modules=len(sources),historical_completed_utc=record["completed_utc"],
         fresh_lean_build=False)))
+    check_release_build(current)
 
 if __name__=="__main__":check()

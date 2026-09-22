@@ -1,0 +1,84 @@
+{
+  "status": "failed",
+  "pid": 20172,
+  "process_created": 1789967191.367468,
+  "started_utc": "2026-09-21T05:06:32.844295+00:00",
+  "release_commit": "8bf9d8d286bb409ae922393a261b08648b2b6d79",
+  "repository": "<repo>\\.research-repro\\lv",
+  "project_started_without_build_cache": true,
+  "project_module_count": 246,
+  "lean_threads": 12,
+  "sweep_batch_size": 12,
+  "memory_cap_bytes": 42949672960,
+  "stages": [
+    {
+      "name": "preflight",
+      "command": [
+        "<home>\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/exact_certificate/verify_full_seven_long.py",
+        "--check-only"
+      ],
+      "started_utc": "2026-09-21T05:06:32.844295+00:00",
+      "status": "passed",
+      "pid": 10656,
+      "elapsed_seconds": 10.0,
+      "processes": 2,
+      "rss_bytes": 8171520,
+      "peak_job_commit_bytes": 43892736,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T05:06:42.859864+00:00",
+      "log_sha256": "275672d312b7f719a3f2baf05e249b127f603de56faa1b36aa5b3370edf82a08"
+    },
+    {
+      "name": "dependencies",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "exe",
+        "cache",
+        "get"
+      ],
+      "started_utc": "2026-09-21T05:06:42.864928+00:00",
+      "status": "passed",
+      "pid": 9516,
+      "elapsed_seconds": 340.8,
+      "processes": 4,
+      "rss_bytes": 814534656,
+      "peak_job_commit_bytes": 1015033856,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T05:12:23.704106+00:00",
+      "log_sha256": "403510594e3693ddd410bf029eda93a386ec35c15364235828f32d341c5b2c39"
+    },
+    {
+      "name": "verification",
+      "command": [
+        "<home>\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/exact_certificate/verify_full_seven_long.py",
+        "--lake",
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "--threads",
+        "12",
+        "--sweep-batch-size",
+        "12",
+        "--output-dir",
+        "<repo>\\.research-repro\\lean-release-build-20260921\\verification"
+      ],
+      "started_utc": "2026-09-21T05:12:23.714899+00:00",
+      "status": "failed",
+      "pid": 29404,
+      "elapsed_seconds": 14846.5,
+      "processes": 4,
+      "rss_bytes": 702562304,
+      "peak_job_commit_bytes": 42983227392,
+      "returncode": 1,
+      "completed_utc": "2026-09-21T09:19:50.505045+00:00"
+    }
+  ],
+  "stage": "verification",
+  "updated_utc": "2026-09-21T09:19:40.502484+00:00",
+  "error": "RuntimeError('verification exited with status 1; see verification.log')",
+  "completed_utc": "2026-09-21T09:19:50.513323+00:00"
+}

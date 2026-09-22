@@ -1,12 +1,13 @@
 # Release-material validation
 
-Checked on Windows on September 21, 2026. The release materials were completed
+Checked on Windows on September 21–22, 2026. The release materials were completed
 against the manuscript and the original experiment archives. This document
 records the checks performed while repairing the distribution.
 
 | Check | Result |
 | --- | --- |
-| Lean input and generation-manifest preflight | Passed: 241 modules in the released headline closure, 125 frozen inputs; no Lean build |
+| Lean input and generation-manifest preflight | Passed: 241 modules in the released headline closure, 125 frozen inputs |
+| Full release Lean build | Commit `8bf9d8d`: all 246 project modules, all 49 coefficient sweeps, both final theorems, literal-bound witnesses and the 17-declaration axiom audit passed; see the [new record](../certificate/verification/release-20260921/README.md) |
 | Historical Lean record | The original September 14 PASS record, sweep logs and axiom audit were restored unchanged. All 344 historical module hashes match their archived texts; the 241 released modules have identical code tokens after removing comments and whitespace |
 | Main certificate integer check | Two exhaustive implementations agree over all 13,051,375 extensions on the bound 312372062889819/560000000000000 |
 | Experiment archive | All compressed-object and distributed-file hashes pass; original hashes agree with the publication manifest wherever recorded |
@@ -23,14 +24,16 @@ records the checks performed while repairing the distribution.
 | Existing report | All 14 report-file hashes and both reporting-source hashes remain unchanged |
 | Documentation and source | Python/JSON syntax, local Markdown links and whitespace checks passed. The obsolete convergence plot was removed; the three manuscript figures were preserved |
 
-No fresh full Lean compilation was performed. The historical PASS record
-must not be read as a new build of the release checkout. The 58-hour
-experimental campaign and its large full-model coefficient caches were not
-regenerated during this packaging check. Numerical checks were performed on
-Windows, not Linux or macOS.
+A fresh full Lean compilation of commit `8bf9d8d` completed in 10 hours
+37 minutes, including recovery from a memory failure by reducing build
+concurrency. No proof source changes were needed; style and unused-variable
+warnings remain. The September 14 historical PASS record is preserved
+separately. The 58-hour experimental campaign and its large full-model
+coefficient caches were not regenerated during this packaging check.
+Numerical checks were performed on Windows, not Linux or macOS.
 
 The [reproduction guide](reproduction.md) gives the supported fresh-checkout
 workflow. The [experiment evidence guide](../experiments/evidence/README.md)
 explains how to extract and independently check a published certificate.
 The [Lean record guide](../certificate/verification/README.md) separates the
-historical proof run from the release source-correspondence check.
+historical proof run, release source-correspondence check, and new full build.

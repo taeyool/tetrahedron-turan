@@ -1,8 +1,10 @@
 # Lean verification record
 
-This directory preserves the completed verification run of September 14,
-2026. The historical `formalization.json` and logs are unchanged; their PASS
-status is the result of that run, not a new full build of this release.
+The files directly in this directory preserve the completed verification
+run of September 14, 2026. The historical `formalization.json` and logs are
+unchanged. A separate [release build record](release-20260921/README.md)
+records the successful full compilation of public commit `8bf9d8d` on
+September 21–22, including all 246 project modules and the complete verifier.
 The release certificate is
 [`../K4_turan_order7_certificate.json`](../K4_turan_order7_certificate.json).
 The numerical search is not part of the Lean proof; only the integer factor
@@ -40,8 +42,8 @@ auxiliary targets; the release headline closure has 241. The exact historical
 module texts are in `historical-sources.json.gz`. The 241 released modules
 have the same code tokens after removing comments and whitespace.
 
-Check the old record, logs, axiom list, source hashes and release mapping
-without running Lean:
+Check both records, their logs and axiom lists, source hashes, and the
+historical release mapping without running Lean:
 
 ```sh
 python scripts/check_release_evidence.py

@@ -1,0 +1,2548 @@
+{
+  "status": "PASS",
+  "stage": "verification",
+  "pid": 23848,
+  "process_created": 1789981575.3414233,
+  "started_utc": "2026-09-21T09:06:15.470954+00:00",
+  "release_commit": "8bf9d8d286bb409ae922393a261b08648b2b6d79",
+  "repository": "<repo>\\.research-repro\\lv",
+  "previous_attempt": "<repo>\\.research-repro\\lean-release-build-20260921\\status.json",
+  "memory_cap_bytes": 42949672960,
+  "lean_threads": 4,
+  "project_targets_per_batch": 2,
+  "stages": [
+    {
+      "name": "preflight",
+      "command": [
+        "<home>\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/exact_certificate/verify_full_seven_long.py",
+        "--check-only"
+      ],
+      "started_utc": "2026-09-21T09:19:57.637479+00:00",
+      "status": "passed",
+      "pid": 27360,
+      "elapsed_seconds": 1.0,
+      "processes": 2,
+      "rss_bytes": 5980160,
+      "peak_job_commit_bytes": 43761664,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:19:58.670513+00:00",
+      "log_sha256": "275672d312b7f719a3f2baf05e249b127f603de56faa1b36aa5b3370edf82a08"
+    },
+    {
+      "name": "project-batch-000",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Compute.RootingReindex",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors00"
+      ],
+      "started_utc": "2026-09-21T09:19:58.675085+00:00",
+      "status": "passed",
+      "pid": 17156,
+      "elapsed_seconds": 2.0,
+      "processes": 1,
+      "rss_bytes": 2043904,
+      "peak_job_commit_bytes": 236113920,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:00.709942+00:00",
+      "log_sha256": "bc700e0ed0a707e933f224084023f82436a802e299b55c92510848e2c2f083a5"
+    },
+    {
+      "name": "project-batch-001",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors01",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors02"
+      ],
+      "started_utc": "2026-09-21T09:20:00.728321+00:00",
+      "status": "passed",
+      "pid": 19480,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9428992,
+      "peak_job_commit_bytes": 225091584,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:02.749432+00:00",
+      "log_sha256": "1c2a5e5da5c589a73afb806f198d6400bcee6dc794a4554f998c74f06286ad3e"
+    },
+    {
+      "name": "project-batch-002",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors03",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors04"
+      ],
+      "started_utc": "2026-09-21T09:20:02.762834+00:00",
+      "status": "passed",
+      "pid": 28544,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6873088,
+      "peak_job_commit_bytes": 225697792,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:04.780247+00:00",
+      "log_sha256": "1c2a5e5da5c589a73afb806f198d6400bcee6dc794a4554f998c74f06286ad3e"
+    },
+    {
+      "name": "project-batch-003",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors05",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors06"
+      ],
+      "started_utc": "2026-09-21T09:20:04.792155+00:00",
+      "status": "passed",
+      "pid": 15684,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9134080,
+      "peak_job_commit_bytes": 226353152,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:06.811462+00:00",
+      "log_sha256": "1c2a5e5da5c589a73afb806f198d6400bcee6dc794a4554f998c74f06286ad3e"
+    },
+    {
+      "name": "project-batch-004",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors07",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors08"
+      ],
+      "started_utc": "2026-09-21T09:20:06.830715+00:00",
+      "status": "passed",
+      "pid": 15268,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8159232,
+      "peak_job_commit_bytes": 224657408,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:08.856756+00:00",
+      "log_sha256": "1c2a5e5da5c589a73afb806f198d6400bcee6dc794a4554f998c74f06286ad3e"
+    },
+    {
+      "name": "project-batch-005",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors09",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors10"
+      ],
+      "started_utc": "2026-09-21T09:20:08.861048+00:00",
+      "status": "passed",
+      "pid": 26044,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9486336,
+      "peak_job_commit_bytes": 224612352,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:10.885802+00:00",
+      "log_sha256": "1c2a5e5da5c589a73afb806f198d6400bcee6dc794a4554f998c74f06286ad3e"
+    },
+    {
+      "name": "project-batch-006",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors11",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors12"
+      ],
+      "started_utc": "2026-09-21T09:20:10.893701+00:00",
+      "status": "passed",
+      "pid": 8824,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8122368,
+      "peak_job_commit_bytes": 227004416,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:12.923465+00:00",
+      "log_sha256": "1c2a5e5da5c589a73afb806f198d6400bcee6dc794a4554f998c74f06286ad3e"
+    },
+    {
+      "name": "project-batch-007",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors13",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors14"
+      ],
+      "started_utc": "2026-09-21T09:20:12.935656+00:00",
+      "status": "passed",
+      "pid": 19424,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9777152,
+      "peak_job_commit_bytes": 224903168,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:14.964595+00:00",
+      "log_sha256": "1c2a5e5da5c589a73afb806f198d6400bcee6dc794a4554f998c74f06286ad3e"
+    },
+    {
+      "name": "project-batch-008",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors15",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors16"
+      ],
+      "started_utc": "2026-09-21T09:20:14.979628+00:00",
+      "status": "passed",
+      "pid": 11716,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 5844992,
+      "peak_job_commit_bytes": 226037760,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:16.997360+00:00",
+      "log_sha256": "1c2a5e5da5c589a73afb806f198d6400bcee6dc794a4554f998c74f06286ad3e"
+    },
+    {
+      "name": "project-batch-009",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors17",
+        "LeanFlagAlgebras.Core.Signature"
+      ],
+      "started_utc": "2026-09-21T09:20:17.010101+00:00",
+      "status": "passed",
+      "pid": 19304,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 7258112,
+      "peak_job_commit_bytes": 233795584,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:19.028583+00:00",
+      "log_sha256": "7d372b94114ddab5bef472b8d1558f07232f1f589737b1997d009b25c6296125"
+    },
+    {
+      "name": "project-batch-010",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Theory",
+        "LeanFlagAlgebras.Utils.LinExtension"
+      ],
+      "started_utc": "2026-09-21T09:20:19.039983+00:00",
+      "status": "passed",
+      "pid": 22644,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9158656,
+      "peak_job_commit_bytes": 236503040,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:21.070659+00:00",
+      "log_sha256": "deca1ea6d9e783928141c1ce86acf605b152f4eb60981844783ce3f4d5b0bcb6"
+    },
+    {
+      "name": "project-batch-011",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Flag",
+        "LeanFlagAlgebras.Core.Forbid"
+      ],
+      "started_utc": "2026-09-21T09:20:21.083059+00:00",
+      "status": "passed",
+      "pid": 16392,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9428992,
+      "peak_job_commit_bytes": 234418176,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:23.108188+00:00",
+      "log_sha256": "16dc10bf1031cbc55db16d289ee0e0251ef96a1928168ac5779154b667950eed"
+    },
+    {
+      "name": "project-batch-012",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Density",
+        "LeanFlagAlgebras.Core.Instances.Graph"
+      ],
+      "started_utc": "2026-09-21T09:20:23.128139+00:00",
+      "status": "passed",
+      "pid": 21044,
+      "elapsed_seconds": 9.0,
+      "processes": 3,
+      "rss_bytes": 1441591296,
+      "peak_job_commit_bytes": 590917632,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:32.167619+00:00",
+      "log_sha256": "adc523233fcd51d03b6fc155ea669c27a61bc78f4a1d50c30e3bf19c55241fdf"
+    },
+    {
+      "name": "project-batch-013",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Instances.Hypergraph3",
+        "LeanFlagAlgebras.Core.JointDensity"
+      ],
+      "started_utc": "2026-09-21T09:20:32.185353+00:00",
+      "status": "passed",
+      "pid": 10144,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9588736,
+      "peak_job_commit_bytes": 235196416,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:34.208537+00:00",
+      "log_sha256": "24035697105532fc1b928edf1834ad5f1e9437135d957ad90238c5afb70b2f57"
+    },
+    {
+      "name": "project-batch-014",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Algebra",
+        "LeanFlagAlgebras.Core.Compute.Sym3"
+      ],
+      "started_utc": "2026-09-21T09:20:34.218865+00:00",
+      "status": "passed",
+      "pid": 25980,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8081408,
+      "peak_job_commit_bytes": 239099904,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:36.236122+00:00",
+      "log_sha256": "f2a0feed8e20749065364d3ea7acd3b584e777c0344a0fdb79d1d2ebe3b903d1"
+    },
+    {
+      "name": "project-batch-015",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Compute.Mask3",
+        "LeanFlagAlgebras.Core.Compute.Sym3Delete"
+      ],
+      "started_utc": "2026-09-21T09:20:36.252722+00:00",
+      "status": "passed",
+      "pid": 1740,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9629696,
+      "peak_job_commit_bytes": 235839488,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:38.273467+00:00",
+      "log_sha256": "e6e93e1e2e17c6589ced4a1c4af7cbffdc2181d9ce97eaef1d51707dfa8cd32f"
+    },
+    {
+      "name": "project-batch-016",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Compute.MaskInj",
+        "LeanFlagAlgebras.Core.Compute.Relabel6"
+      ],
+      "started_utc": "2026-09-21T09:20:38.292585+00:00",
+      "status": "passed",
+      "pid": 26024,
+      "elapsed_seconds": 10.0,
+      "processes": 3,
+      "rss_bytes": 1519407104,
+      "peak_job_commit_bytes": 746119168,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:48.331522+00:00",
+      "log_sha256": "dec5b56f4ef9a2d7b4993e5adaf78c780dd436129b00f5b325e5ba4ad2e43759"
+    },
+    {
+      "name": "project-batch-017",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Compute.Mask6Inj",
+        "LeanFlagAlgebras.Core.Compute.Sym3Clone"
+      ],
+      "started_utc": "2026-09-21T09:20:48.342567+00:00",
+      "status": "passed",
+      "pid": 6492,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9539584,
+      "peak_job_commit_bytes": 236003328,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:50.374903+00:00",
+      "log_sha256": "30b8bc3817e4c0ffea557762cab3be42cd478708685b430ddf11807c04272734"
+    },
+    {
+      "name": "project-batch-018",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Compute.Sym3FlagIso",
+        "LeanFlagAlgebras.Core.Compute.Sym3Var"
+      ],
+      "started_utc": "2026-09-21T09:20:50.380590+00:00",
+      "status": "passed",
+      "pid": 10728,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8663040,
+      "peak_job_commit_bytes": 234852352,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:52.407667+00:00",
+      "log_sha256": "5de1a7cd872bca2136e9e932d59cb4ac6fa051f901fd6121a7d926a2e84bace3"
+    },
+    {
+      "name": "project-batch-019",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Downward",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS1"
+      ],
+      "started_utc": "2026-09-21T09:20:52.420556+00:00",
+      "status": "passed",
+      "pid": 9848,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9392128,
+      "peak_job_commit_bytes": 240377856,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:54.446923+00:00",
+      "log_sha256": "180fd7bca82cf073ba8d68d4208a2a1862206fd9422912c5f1841af7a2fd47c0"
+    },
+    {
+      "name": "project-batch-020",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Compute.Sym3Downward",
+        "LeanFlagAlgebras.Core.Differential.Eval"
+      ],
+      "started_utc": "2026-09-21T09:20:54.458312+00:00",
+      "status": "passed",
+      "pid": 11080,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9641984,
+      "peak_job_commit_bytes": 236998656,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:56.493441+00:00",
+      "log_sha256": "a8a8cba64a3e447da8c406d8432f7492934126ec5c6396eeb27368957cded200"
+    },
+    {
+      "name": "project-batch-021",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Compute.Sym3Fiber",
+        "LeanFlagAlgebras.Core.Differential.Stability"
+      ],
+      "started_utc": "2026-09-21T09:20:56.497675+00:00",
+      "status": "passed",
+      "pid": 26256,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 10100736,
+      "peak_job_commit_bytes": 238915584,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:20:58.527018+00:00",
+      "log_sha256": "bc0e2170edffdccb943c9803c809b09a8c9b97f290852e2605a19cc1ff5adb8d"
+    },
+    {
+      "name": "project-batch-022",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Compute.Sym3RootingReindex",
+        "LeanFlagAlgebras.Core.Differential.Vertex"
+      ],
+      "started_utc": "2026-09-21T09:20:58.533827+00:00",
+      "status": "passed",
+      "pid": 11184,
+      "elapsed_seconds": 12.1,
+      "processes": 3,
+      "rss_bytes": 1682984960,
+      "peak_job_commit_bytes": 592625664,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:10.594263+00:00",
+      "log_sha256": "fc5859c720b0af39049f10023e5511774c063dcbb7567e226c4b785d222c4fc8"
+    },
+    {
+      "name": "project-batch-023",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Differential.Deletion",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS30"
+      ],
+      "started_utc": "2026-09-21T09:21:10.604568+00:00",
+      "status": "passed",
+      "pid": 11156,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9510912,
+      "peak_job_commit_bytes": 238366720,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:12.627302+00:00",
+      "log_sha256": "039503956256536abd7614208f3dbb338abe2ff444b61ee622b1903834c79839"
+    },
+    {
+      "name": "project-batch-024",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS31",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootBits"
+      ],
+      "started_utc": "2026-09-21T09:21:12.642960+00:00",
+      "status": "passed",
+      "pid": 8808,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9211904,
+      "peak_job_commit_bytes": 236261376,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:14.667172+00:00",
+      "log_sha256": "cf92f24c4156cedf1138a86ec79c4f9a75fbc997241ac12b3a9b224b5cfe9d4d"
+    },
+    {
+      "name": "project-batch-025",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootData",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootTables"
+      ],
+      "started_utc": "2026-09-21T09:21:14.680357+00:00",
+      "status": "passed",
+      "pid": 27560,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9441280,
+      "peak_job_commit_bytes": 228397056,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:16.697269+00:00",
+      "log_sha256": "465a5ff23b12cc6137f10c5accbcbe7e9c5d64c62668726332840407b29165c8"
+    },
+    {
+      "name": "project-batch-026",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootColumn",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedData"
+      ],
+      "started_utc": "2026-09-21T09:21:16.699885+00:00",
+      "status": "passed",
+      "pid": 15292,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6922240,
+      "peak_job_commit_bytes": 235663360,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:18.725348+00:00",
+      "log_sha256": "c9926d5023b7ae5cdaa0ea3d0a2394cd7351ec3f6c5a24233eefaf8a4c56597a"
+    },
+    {
+      "name": "project-batch-027",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedColumn",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootPullback"
+      ],
+      "started_utc": "2026-09-21T09:21:18.741248+00:00",
+      "status": "passed",
+      "pid": 29552,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 5910528,
+      "peak_job_commit_bytes": 235126784,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:20.782984+00:00",
+      "log_sha256": "2e735156984c87e5604235f18c5050d7006b12278e748e1375d8ac60bc491ec5"
+    },
+    {
+      "name": "project-batch-028",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Data",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Witness"
+      ],
+      "started_utc": "2026-09-21T09:21:20.798739+00:00",
+      "status": "passed",
+      "pid": 29040,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9371648,
+      "peak_job_commit_bytes": 242909184,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:22.825699+00:00",
+      "log_sha256": "5da18682ffb28b6c6f7cc0979f7596c61ca25c3e395d632ddf52b374700445c6"
+    },
+    {
+      "name": "project-batch-029",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Expand",
+        "LeanFlagAlgebras.Core.PositiveHom"
+      ],
+      "started_utc": "2026-09-21T09:21:22.841795+00:00",
+      "status": "passed",
+      "pid": 28192,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8593408,
+      "peak_job_commit_bytes": 239800320,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:24.859413+00:00",
+      "log_sha256": "cfc2929c4016314c0b022b059c3a5b1c5a4638d3f68216efeb40fa1abc60d2bc"
+    },
+    {
+      "name": "project-batch-030",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Limit.Profile",
+        "LeanFlagAlgebras.Core.SquarePositivity"
+      ],
+      "started_utc": "2026-09-21T09:21:24.869956+00:00",
+      "status": "passed",
+      "pid": 25580,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9142272,
+      "peak_job_commit_bytes": 237080576,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:26.896862+00:00",
+      "log_sha256": "8c20eac931cfbbf2ac8fd734bc7877a1c9fa73df7ffbd9319f069f7cc3e5416d"
+    },
+    {
+      "name": "project-batch-031",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.Tetrahedron",
+        "LeanFlagAlgebras.Core.Limit.Compact"
+      ],
+      "started_utc": "2026-09-21T09:21:26.904777+00:00",
+      "status": "passed",
+      "pid": 11172,
+      "elapsed_seconds": 13.0,
+      "processes": 3,
+      "rss_bytes": 1770676224,
+      "peak_job_commit_bytes": 652996608,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:39.954884+00:00",
+      "log_sha256": "cd6f3fc21fb06574b3668f04fb093e8b1e66f58ec0342fbdf5f00018fba20e75"
+    },
+    {
+      "name": "project-batch-032",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronClone",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronMask"
+      ],
+      "started_utc": "2026-09-21T09:21:39.972648+00:00",
+      "status": "passed",
+      "pid": 28960,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9424896,
+      "peak_job_commit_bytes": 238088192,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:41.991818+00:00",
+      "log_sha256": "d2dcdfb53a06e042a4b42e90a0f9b7c02458d9c0726e2dcdcc18ad75a2688d55"
+    },
+    {
+      "name": "project-batch-033",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Extension",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFlags"
+      ],
+      "started_utc": "2026-09-21T09:21:42.011929+00:00",
+      "status": "passed",
+      "pid": 23992,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9400320,
+      "peak_job_commit_bytes": 241278976,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:44.031973+00:00",
+      "log_sha256": "848f7903ea16ae9c207f671bf12760d2c9a9f43ff7735f6d0e548274e77cca38"
+    },
+    {
+      "name": "project-batch-034",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Blocks",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootTableFacts"
+      ],
+      "started_utc": "2026-09-21T09:21:44.046692+00:00",
+      "status": "passed",
+      "pid": 8240,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6733824,
+      "peak_job_commit_bytes": 240979968,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:46.066574+00:00",
+      "log_sha256": "5336f578e44f43f3401e6b3dad2d2bff344538c725c30d14f4a6ce734c26f53e"
+    },
+    {
+      "name": "project-batch-035",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockFlags",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootGramSem"
+      ],
+      "started_utc": "2026-09-21T09:21:46.077716+00:00",
+      "status": "passed",
+      "pid": 12912,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8650752,
+      "peak_job_commit_bytes": 240308224,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:48.104266+00:00",
+      "log_sha256": "952448d9aba90d3f872e1df79d4a6aec4a2053d04e2fcacc1cb551962580ac5f"
+    },
+    {
+      "name": "project-batch-036",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext24",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induce5"
+      ],
+      "started_utc": "2026-09-21T09:21:48.118844+00:00",
+      "status": "passed",
+      "pid": 25956,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 7020544,
+      "peak_job_commit_bytes": 238227456,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:50.139576+00:00",
+      "log_sha256": "659f3da3cbc34f83321e213711bd939fdd6a682706316bf7a010c20cff7a5330"
+    },
+    {
+      "name": "project-batch-037",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext45",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder5"
+      ],
+      "started_utc": "2026-09-21T09:21:50.147293+00:00",
+      "status": "passed",
+      "pid": 29688,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8577024,
+      "peak_job_commit_bytes": 239284224,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:52.178403+00:00",
+      "log_sha256": "9f375a543140d09e396491bf7a88312d22d130185ce7efdd0ae823bf3765c4cc"
+    },
+    {
+      "name": "project-batch-038",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockGamma",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Checker"
+      ],
+      "started_utc": "2026-09-21T09:21:52.201461+00:00",
+      "status": "passed",
+      "pid": 27548,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9637888,
+      "peak_job_commit_bytes": 244707328,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:54.224345+00:00",
+      "log_sha256": "61ec9941fbc41220009a26aabd9ee3f69521b38929ec3e7b84aaf990de2889fb"
+    },
+    {
+      "name": "project-batch-039",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockCheck",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Column"
+      ],
+      "started_utc": "2026-09-21T09:21:54.244073+00:00",
+      "status": "passed",
+      "pid": 16660,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8015872,
+      "peak_job_commit_bytes": 245760000,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:56.264511+00:00",
+      "log_sha256": "7801261608fc72820e27dd50a7fcf331163cf65c442c699d4c4e1580689e6836"
+    },
+    {
+      "name": "project-batch-040",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockSOS",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Check"
+      ],
+      "started_utc": "2026-09-21T09:21:56.274720+00:00",
+      "status": "passed",
+      "pid": 26928,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 7241728,
+      "peak_job_commit_bytes": 249556992,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:21:58.297176+00:00",
+      "log_sha256": "fd03adde27c65395e477a58996b4a4076e24a98c2bf86f97f76766fc0e817933"
+    },
+    {
+      "name": "project-batch-041",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FoldSum",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Split"
+      ],
+      "started_utc": "2026-09-21T09:21:58.304515+00:00",
+      "status": "passed",
+      "pid": 11228,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9404416,
+      "peak_job_commit_bytes": 245133312,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:22:00.339196+00:00",
+      "log_sha256": "9d03a16a736d31f4c6d2a7ccf254050b9eb790d8e1606f68b4addaecba9c6297"
+    },
+    {
+      "name": "project-batch-042",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Deck",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Edges"
+      ],
+      "started_utc": "2026-09-21T09:22:00.346992+00:00",
+      "status": "passed",
+      "pid": 7260,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9408512,
+      "peak_job_commit_bytes": 242245632,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:22:02.392505+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-043",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7GatherPull",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induced"
+      ],
+      "started_utc": "2026-09-21T09:22:02.405753+00:00",
+      "status": "passed",
+      "pid": 14304,
+      "elapsed_seconds": 547.1,
+      "processes": 3,
+      "rss_bytes": 12175970304,
+      "peak_job_commit_bytes": 35471405056,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:09.486810+00:00",
+      "log_sha256": "40a2727e098f6c6cad3f283b6472d822902cf84d760cba7b160e1f94b45d3b6c"
+    },
+    {
+      "name": "project-batch-044",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Chain",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Objective"
+      ],
+      "started_utc": "2026-09-21T09:31:09.499414+00:00",
+      "status": "passed",
+      "pid": 25976,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 10289152,
+      "peak_job_commit_bytes": 243335168,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:11.537294+00:00",
+      "log_sha256": "387472306a691682a23fdeddfbb9c8e2ecb321de11a954f09823251b3054c9f4"
+    },
+    {
+      "name": "project-batch-045",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_00",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_01"
+      ],
+      "started_utc": "2026-09-21T09:31:11.552325+00:00",
+      "status": "passed",
+      "pid": 2772,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8204288,
+      "peak_job_commit_bytes": 243113984,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:13.573130+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-046",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_02",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_03"
+      ],
+      "started_utc": "2026-09-21T09:31:13.576835+00:00",
+      "status": "passed",
+      "pid": 13728,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 5902336,
+      "peak_job_commit_bytes": 246738944,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:15.598065+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-047",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_04",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_05"
+      ],
+      "started_utc": "2026-09-21T09:31:15.609473+00:00",
+      "status": "passed",
+      "pid": 8908,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9175040,
+      "peak_job_commit_bytes": 227786752,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:17.635834+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-048",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_06",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_07"
+      ],
+      "started_utc": "2026-09-21T09:31:17.648975+00:00",
+      "status": "passed",
+      "pid": 11080,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9248768,
+      "peak_job_commit_bytes": 235847680,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:19.670899+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-049",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_08",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_09"
+      ],
+      "started_utc": "2026-09-21T09:31:19.691546+00:00",
+      "status": "passed",
+      "pid": 3020,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 7135232,
+      "peak_job_commit_bytes": 246030336,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:21.711765+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-050",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_10",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_11"
+      ],
+      "started_utc": "2026-09-21T09:31:21.724514+00:00",
+      "status": "passed",
+      "pid": 4704,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9445376,
+      "peak_job_commit_bytes": 247971840,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:23.745196+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-051",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_12",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_13"
+      ],
+      "started_utc": "2026-09-21T09:31:23.751841+00:00",
+      "status": "passed",
+      "pid": 29652,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9646080,
+      "peak_job_commit_bytes": 246407168,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:25.784836+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-052",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_14",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_15"
+      ],
+      "started_utc": "2026-09-21T09:31:25.792824+00:00",
+      "status": "passed",
+      "pid": 27188,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6717440,
+      "peak_job_commit_bytes": 246067200,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:27.814390+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-053",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_16",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_17"
+      ],
+      "started_utc": "2026-09-21T09:31:27.832702+00:00",
+      "status": "passed",
+      "pid": 15720,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9940992,
+      "peak_job_commit_bytes": 246317056,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:29.853655+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-054",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_18",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_19"
+      ],
+      "started_utc": "2026-09-21T09:31:29.865373+00:00",
+      "status": "passed",
+      "pid": 29212,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9228288,
+      "peak_job_commit_bytes": 246939648,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:31.895061+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-055",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_20",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_21"
+      ],
+      "started_utc": "2026-09-21T09:31:31.910855+00:00",
+      "status": "passed",
+      "pid": 27296,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6709248,
+      "peak_job_commit_bytes": 243392512,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:33.932258+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-056",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_22",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_23"
+      ],
+      "started_utc": "2026-09-21T09:31:33.937169+00:00",
+      "status": "passed",
+      "pid": 14288,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 5885952,
+      "peak_job_commit_bytes": 245788672,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:35.966890+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-057",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_24",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_25"
+      ],
+      "started_utc": "2026-09-21T09:31:35.980849+00:00",
+      "status": "passed",
+      "pid": 11560,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 10280960,
+      "peak_job_commit_bytes": 242212864,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:38.003674+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-058",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_26",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_27"
+      ],
+      "started_utc": "2026-09-21T09:31:38.005677+00:00",
+      "status": "passed",
+      "pid": 29292,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 8925184,
+      "peak_job_commit_bytes": 245293056,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:40.031855+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-059",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_28",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_29"
+      ],
+      "started_utc": "2026-09-21T09:31:40.032880+00:00",
+      "status": "passed",
+      "pid": 23964,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6574080,
+      "peak_job_commit_bytes": 244416512,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:42.065647+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-060",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_30",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_31"
+      ],
+      "started_utc": "2026-09-21T09:31:42.065647+00:00",
+      "status": "passed",
+      "pid": 19420,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9486336,
+      "peak_job_commit_bytes": 244584448,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:44.098284+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-061",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_32",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_33"
+      ],
+      "started_utc": "2026-09-21T09:31:44.117365+00:00",
+      "status": "passed",
+      "pid": 28960,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6959104,
+      "peak_job_commit_bytes": 246222848,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:46.141637+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-062",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_34",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_35"
+      ],
+      "started_utc": "2026-09-21T09:31:46.148451+00:00",
+      "status": "passed",
+      "pid": 28944,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6963200,
+      "peak_job_commit_bytes": 246435840,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:48.178628+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-063",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_36",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_37"
+      ],
+      "started_utc": "2026-09-21T09:31:48.190770+00:00",
+      "status": "passed",
+      "pid": 29560,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9375744,
+      "peak_job_commit_bytes": 244912128,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:50.216672+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-064",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_38",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_39"
+      ],
+      "started_utc": "2026-09-21T09:31:50.223827+00:00",
+      "status": "passed",
+      "pid": 25956,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9404416,
+      "peak_job_commit_bytes": 244678656,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:52.254042+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-065",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_40",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_41"
+      ],
+      "started_utc": "2026-09-21T09:31:52.263795+00:00",
+      "status": "passed",
+      "pid": 26660,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9601024,
+      "peak_job_commit_bytes": 241868800,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:54.291356+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-066",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_42",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_43"
+      ],
+      "started_utc": "2026-09-21T09:31:54.297658+00:00",
+      "status": "passed",
+      "pid": 24664,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9396224,
+      "peak_job_commit_bytes": 246218752,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:56.325730+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-067",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_44",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_45"
+      ],
+      "started_utc": "2026-09-21T09:31:56.339275+00:00",
+      "status": "passed",
+      "pid": 22200,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6778880,
+      "peak_job_commit_bytes": 246411264,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:31:58.355332+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-068",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_46",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_47"
+      ],
+      "started_utc": "2026-09-21T09:31:58.359599+00:00",
+      "status": "passed",
+      "pid": 14780,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6885376,
+      "peak_job_commit_bytes": 244826112,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:32:00.378593+00:00",
+      "log_sha256": "100240ec6efc2cb39dd543484eca5f91333bb953944edf116d20e68e68259a67"
+    },
+    {
+      "name": "project-batch-069",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_48",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Ext56"
+      ],
+      "started_utc": "2026-09-21T09:32:00.393323+00:00",
+      "status": "passed",
+      "pid": 10568,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9646080,
+      "peak_job_commit_bytes": 242458624,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:32:02.420322+00:00",
+      "log_sha256": "9238f62a03e0082aaeee74f8c1a7b984080fc67c2cb322db7f1eda106d9f498f"
+    },
+    {
+      "name": "project-batch-070",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSOS",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSamples"
+      ],
+      "started_utc": "2026-09-21T09:32:02.421330+00:00",
+      "status": "passed",
+      "pid": 10748,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9408512,
+      "peak_job_commit_bytes": 239296512,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:32:04.456499+00:00",
+      "log_sha256": "5b27451e65460bd49b86a7ca8019691a9dc299d9e426323ba6097eaf98ecebd8"
+    },
+    {
+      "name": "project-batch-071",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootColumnSum",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedSem"
+      ],
+      "started_utc": "2026-09-21T09:32:04.467295+00:00",
+      "status": "passed",
+      "pid": 24180,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 9601024,
+      "peak_job_commit_bytes": 239542272,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:32:06.493238+00:00",
+      "log_sha256": "afbc0eadc560c3e2efa592e9902ac21cc962451c5f0e57f285145063fdb688bd"
+    },
+    {
+      "name": "project-batch-072",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSem",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ExtS3"
+      ],
+      "started_utc": "2026-09-21T09:32:06.501723+00:00",
+      "status": "passed",
+      "pid": 28424,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 5906432,
+      "peak_job_commit_bytes": 238473216,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:32:08.531166+00:00",
+      "log_sha256": "6b8be3e9baa3f804e9493636c0198bf8fbaa51ba38fde445889060e56759a6a1"
+    },
+    {
+      "name": "project-batch-073",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Parity",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep00"
+      ],
+      "started_utc": "2026-09-21T09:32:08.544338+00:00",
+      "status": "passed",
+      "pid": 17884,
+      "elapsed_seconds": 1049.2,
+      "processes": 3,
+      "rss_bytes": 9820246016,
+      "peak_job_commit_bytes": 9312784384,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T09:49:37.796952+00:00",
+      "log_sha256": "5c722b60be1366e3bdfe82b0c37b29ccd7537d462a2016ea2530667a0833761f"
+    },
+    {
+      "name": "project-batch-074",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep01",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep02"
+      ],
+      "started_utc": "2026-09-21T09:49:37.807109+00:00",
+      "status": "passed",
+      "pid": 9908,
+      "elapsed_seconds": 1228.6,
+      "processes": 3,
+      "rss_bytes": 7248687104,
+      "peak_job_commit_bytes": 17675919360,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T10:10:06.436404+00:00",
+      "log_sha256": "bfc21f98f671f30e880eff5f590821d0c69330e7401a54c197161ec3084b591b"
+    },
+    {
+      "name": "project-batch-075",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep03",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep04"
+      ],
+      "started_utc": "2026-09-21T10:10:06.443951+00:00",
+      "status": "passed",
+      "pid": 5184,
+      "elapsed_seconds": 1407.2,
+      "processes": 3,
+      "rss_bytes": 3378851840,
+      "peak_job_commit_bytes": 18831978496,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T10:33:33.665872+00:00",
+      "log_sha256": "99f455d5886e719bc540ac028542c644a0619c364d2a4ae82cd4c5dd6993a2da"
+    },
+    {
+      "name": "project-batch-076",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep05",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep06"
+      ],
+      "started_utc": "2026-09-21T10:33:33.674104+00:00",
+      "status": "passed",
+      "pid": 29588,
+      "elapsed_seconds": 1407.4,
+      "processes": 3,
+      "rss_bytes": 3369336832,
+      "peak_job_commit_bytes": 18964779008,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T10:57:01.130964+00:00",
+      "log_sha256": "b3d402def3f052be3574f07a93287cd230af837be9bf3ace66309d2c27fcd52a"
+    },
+    {
+      "name": "project-batch-077",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep07",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep08"
+      ],
+      "started_utc": "2026-09-21T10:57:01.154975+00:00",
+      "status": "passed",
+      "pid": 26640,
+      "elapsed_seconds": 1491.8,
+      "processes": 3,
+      "rss_bytes": 3709747200,
+      "peak_job_commit_bytes": 18801790976,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T11:21:52.943191+00:00",
+      "log_sha256": "e75d096cec91870b5fee62014545bb52da5429afbf2cf0538828b3a243bc8b9a"
+    },
+    {
+      "name": "project-batch-078",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep09",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep10"
+      ],
+      "started_utc": "2026-09-21T11:21:52.951322+00:00",
+      "status": "passed",
+      "pid": 11180,
+      "elapsed_seconds": 1339.2,
+      "processes": 3,
+      "rss_bytes": 9458913280,
+      "peak_job_commit_bytes": 19051962368,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T11:44:12.194921+00:00",
+      "log_sha256": "aecef74385eea5fb89f9121b9ea7535fb5d14777f49b3501078588aafaf217b3"
+    },
+    {
+      "name": "project-batch-079",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep11",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep12"
+      ],
+      "started_utc": "2026-09-21T11:44:12.215317+00:00",
+      "status": "passed",
+      "pid": 11800,
+      "elapsed_seconds": 1339.2,
+      "processes": 3,
+      "rss_bytes": 8075620352,
+      "peak_job_commit_bytes": 18436284416,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T12:06:31.440900+00:00",
+      "log_sha256": "b535af61df4c930cea5ba0502f78b7bea3a51711554779a25f86a6ca30b5efd3"
+    },
+    {
+      "name": "project-batch-080",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep13",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep14"
+      ],
+      "started_utc": "2026-09-21T12:06:31.451403+00:00",
+      "status": "passed",
+      "pid": 26232,
+      "elapsed_seconds": 1210.6,
+      "processes": 3,
+      "rss_bytes": 3337084928,
+      "peak_job_commit_bytes": 18464288768,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T12:26:42.095959+00:00",
+      "log_sha256": "1ad66302a8c7a493dda93b50933021c9c107d5b0a5cae4f01036d17df84a020a"
+    },
+    {
+      "name": "project-batch-081",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep15",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep16"
+      ],
+      "started_utc": "2026-09-21T12:26:42.103997+00:00",
+      "status": "passed",
+      "pid": 6528,
+      "elapsed_seconds": 1487.0,
+      "processes": 2,
+      "rss_bytes": 501723136,
+      "peak_job_commit_bytes": 18801799168,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T12:51:29.126645+00:00",
+      "log_sha256": "3dc91c27618a2cd95f6efcfb665f6987fc21f1a221e069cbaa22b45a40a310de"
+    },
+    {
+      "name": "project-batch-082",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep17",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep18"
+      ],
+      "started_utc": "2026-09-21T12:51:29.138073+00:00",
+      "status": "passed",
+      "pid": 27340,
+      "elapsed_seconds": 1343.2,
+      "processes": 3,
+      "rss_bytes": 3472494592,
+      "peak_job_commit_bytes": 18680971264,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T13:13:52.349911+00:00",
+      "log_sha256": "a11873517601de3229dd3b31da942fb7def0ece98f3e0784bb42168f6b6e2c31"
+    },
+    {
+      "name": "project-batch-083",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep19",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep20"
+      ],
+      "started_utc": "2026-09-21T13:13:52.378025+00:00",
+      "status": "passed",
+      "pid": 9364,
+      "elapsed_seconds": 1341.2,
+      "processes": 3,
+      "rss_bytes": 3485315072,
+      "peak_job_commit_bytes": 18542022656,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T13:36:13.627381+00:00",
+      "log_sha256": "79d43b5251606c11a48d5a412265b0d0fce586f6ed29526a610bf74d6e39e17a"
+    },
+    {
+      "name": "project-batch-084",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep21",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep22"
+      ],
+      "started_utc": "2026-09-21T13:36:13.641043+00:00",
+      "status": "passed",
+      "pid": 16560,
+      "elapsed_seconds": 1209.7,
+      "processes": 3,
+      "rss_bytes": 10207244288,
+      "peak_job_commit_bytes": 18166616064,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T13:56:23.326238+00:00",
+      "log_sha256": "1e4428e05e4222b8184ee529c5fb3d5f6676af3f147365295493d280d453545d"
+    },
+    {
+      "name": "project-batch-085",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep23",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep24"
+      ],
+      "started_utc": "2026-09-21T13:56:23.345293+00:00",
+      "status": "passed",
+      "pid": 27356,
+      "elapsed_seconds": 1026.2,
+      "processes": 3,
+      "rss_bytes": 10268106752,
+      "peak_job_commit_bytes": 18806976512,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:13:29.555730+00:00",
+      "log_sha256": "ebad5681ecc416dfb01fedecb5a1bbe0df6eb024370796ac3d7ec1907d5d77c0"
+    },
+    {
+      "name": "project-batch-086",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep25",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep26"
+      ],
+      "started_utc": "2026-09-21T14:13:29.559803+00:00",
+      "status": "passed",
+      "pid": 26112,
+      "elapsed_seconds": 842.5,
+      "processes": 3,
+      "rss_bytes": 3451715584,
+      "peak_job_commit_bytes": 19190579200,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:27:32.129493+00:00",
+      "log_sha256": "c18a8f48e70cb9c9830b54f0587d9b577c37a0e047501b9b2c5c0a6dd3d035aa"
+    },
+    {
+      "name": "project-batch-087",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep27",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep28"
+      ],
+      "started_utc": "2026-09-21T14:27:32.138496+00:00",
+      "status": "passed",
+      "pid": 29124,
+      "elapsed_seconds": 845.7,
+      "processes": 3,
+      "rss_bytes": 10224730112,
+      "peak_job_commit_bytes": 18023788544,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:41:37.817076+00:00",
+      "log_sha256": "fbd495b99399d75253cedf89e50d1d52c1f89bf7f862e94c1ad0f8e6280ab8e7"
+    },
+    {
+      "name": "project-batch-088",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep29",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep30"
+      ],
+      "started_utc": "2026-09-21T14:41:37.833230+00:00",
+      "status": "passed",
+      "pid": 6372,
+      "elapsed_seconds": 27.1,
+      "processes": 2,
+      "rss_bytes": 496939008,
+      "peak_job_commit_bytes": 232083456,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:42:04.899189+00:00",
+      "log_sha256": "ac5f224b223f5d32bf013e87f921688fe8f34af2be424c470c4b321f3d3f9aff"
+    },
+    {
+      "name": "project-batch-089",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep31",
+        "LeanFlagAlgebras.Core.Limit.Realize"
+      ],
+      "started_utc": "2026-09-21T14:42:04.909213+00:00",
+      "status": "passed",
+      "pid": 5920,
+      "elapsed_seconds": 79.2,
+      "processes": 3,
+      "rss_bytes": 4771540992,
+      "peak_job_commit_bytes": 4104790016,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:43:24.081299+00:00",
+      "log_sha256": "b29c5a563297f5642a3844f1967224ad3d2f6e756471fc3b5202ea837f11f23b"
+    },
+    {
+      "name": "project-batch-090",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Differential.Telescope",
+        "LeanFlagAlgebras.Core.Ensemble.DensitySpace"
+      ],
+      "started_utc": "2026-09-21T14:43:24.099324+00:00",
+      "status": "passed",
+      "pid": 11400,
+      "elapsed_seconds": 29.1,
+      "processes": 3,
+      "rss_bytes": 2109480960,
+      "peak_job_commit_bytes": 854605824,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:43:53.155932+00:00",
+      "log_sha256": "5841ceb6ae3acc980d7dafb834a6f51533582e8a37b571d0b675f2e4a22d0458"
+    },
+    {
+      "name": "project-batch-091",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Ensemble.Empirical",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Complete"
+      ],
+      "started_utc": "2026-09-21T14:43:53.178973+00:00",
+      "status": "passed",
+      "pid": 22628,
+      "elapsed_seconds": 11.0,
+      "processes": 1,
+      "rss_bytes": 56336384,
+      "peak_job_commit_bytes": 952057856,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:44:04.210849+00:00",
+      "log_sha256": "c7445c5bf030232ec02c7fada480d5bb22a79e455aebdb8dcf83f987d6ae459e"
+    },
+    {
+      "name": "project-batch-092",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Ensemble.Extension",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Distinct"
+      ],
+      "started_utc": "2026-09-21T14:44:04.229056+00:00",
+      "status": "passed",
+      "pid": 13324,
+      "elapsed_seconds": 102.2,
+      "processes": 3,
+      "rss_bytes": 17532252160,
+      "peak_job_commit_bytes": 22529646592,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:45:46.422961+00:00",
+      "log_sha256": "41a1879b5514fee9bb9e1966c1cdf6e88ad5759ee263532bc054976fc025dc4d"
+    },
+    {
+      "name": "project-batch-093",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Differential.Maximizer",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassIdx"
+      ],
+      "started_utc": "2026-09-21T14:45:46.436186+00:00",
+      "status": "passed",
+      "pid": 18000,
+      "elapsed_seconds": 21.0,
+      "processes": 3,
+      "rss_bytes": 1909186560,
+      "peak_job_commit_bytes": 1603883008,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:46:07.482966+00:00",
+      "log_sha256": "bf86dd4518875c680fdf5ca8691c286885c58145801d665f75fdaacd06aefc97"
+    },
+    {
+      "name": "project-batch-094",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Fiber",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Realize"
+      ],
+      "started_utc": "2026-09-21T14:46:07.502399+00:00",
+      "status": "passed",
+      "pid": 29580,
+      "elapsed_seconds": 8.0,
+      "processes": 4,
+      "rss_bytes": 2581868544,
+      "peak_job_commit_bytes": 1175998464,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:46:15.525541+00:00",
+      "log_sha256": "e89d6b338d56a6af84c4f62d22752d470bbcacbcc2ee7ba7f20b52ab6fbef743"
+    },
+    {
+      "name": "project-batch-095",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Verified",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit00"
+      ],
+      "started_utc": "2026-09-21T14:46:15.542322+00:00",
+      "status": "passed",
+      "pid": 19524,
+      "elapsed_seconds": 313.6,
+      "processes": 3,
+      "rss_bytes": 5337702400,
+      "peak_job_commit_bytes": 4269592576,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:51:29.123572+00:00",
+      "log_sha256": "375d0af99ed3531bed745deb84a852f48dbd8c48051e2cd695922bda290b0b2e"
+    },
+    {
+      "name": "project-batch-096",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Bound",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Covered"
+      ],
+      "started_utc": "2026-09-21T14:51:29.141307+00:00",
+      "status": "passed",
+      "pid": 7040,
+      "elapsed_seconds": 13.0,
+      "processes": 3,
+      "rss_bytes": 2309562368,
+      "peak_job_commit_bytes": 1555963904,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:51:42.174099+00:00",
+      "log_sha256": "94eb225dc031e1fc61806d9b2b662100d7046a9f0fdc3e96636acbea74279201"
+    },
+    {
+      "name": "project-batch-097",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Slack",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit01"
+      ],
+      "started_utc": "2026-09-21T14:51:42.191348+00:00",
+      "status": "passed",
+      "pid": 7456,
+      "elapsed_seconds": 328.6,
+      "processes": 3,
+      "rss_bytes": 5456195584,
+      "peak_job_commit_bytes": 4415930368,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T14:57:10.806092+00:00",
+      "log_sha256": "42c501696c5f7eb93941a368c6970781bb78b07e54e6db00ffd4ad71df64e1a6"
+    },
+    {
+      "name": "project-batch-098",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit02",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit03"
+      ],
+      "started_utc": "2026-09-21T14:57:10.822585+00:00",
+      "status": "passed",
+      "pid": 27496,
+      "elapsed_seconds": 345.6,
+      "processes": 4,
+      "rss_bytes": 10503725056,
+      "peak_job_commit_bytes": 8701034496,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:02:56.453275+00:00",
+      "log_sha256": "80b4312dc863bcb0278613a70146d3e0119a25f01983e44344c106b88a05e636"
+    },
+    {
+      "name": "project-batch-099",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit04",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit05"
+      ],
+      "started_utc": "2026-09-21T15:02:56.473871+00:00",
+      "status": "passed",
+      "pid": 27476,
+      "elapsed_seconds": 347.7,
+      "processes": 3,
+      "rss_bytes": 5403721728,
+      "peak_job_commit_bytes": 8353169408,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:08:44.153731+00:00",
+      "log_sha256": "e111217bcc91d6a74ef90df817d50dd8c9b7d5ac4a856f44b6916b797a591fec"
+    },
+    {
+      "name": "project-batch-100",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit06",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit07"
+      ],
+      "started_utc": "2026-09-21T15:08:44.165696+00:00",
+      "status": "passed",
+      "pid": 27876,
+      "elapsed_seconds": 351.7,
+      "processes": 3,
+      "rss_bytes": 1553850368,
+      "peak_job_commit_bytes": 8533049344,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:14:35.868124+00:00",
+      "log_sha256": "b026dacd32b71e8750c9ff5926f513910e49c16e46cdd32f5264b45d0b530460"
+    },
+    {
+      "name": "project-batch-101",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit08",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit09"
+      ],
+      "started_utc": "2026-09-21T15:14:35.877031+00:00",
+      "status": "passed",
+      "pid": 17728,
+      "elapsed_seconds": 333.6,
+      "processes": 3,
+      "rss_bytes": 5635084288,
+      "peak_job_commit_bytes": 7948685312,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:20:09.521478+00:00",
+      "log_sha256": "79f4adc33f3eb9112207abe3e4561b8f88a341af1fedc9fddf78f692b3ead263"
+    },
+    {
+      "name": "project-batch-102",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Pairwise",
+        "LeanFlagAlgebras.Core.Limit.Sampling"
+      ],
+      "started_utc": "2026-09-21T15:20:09.522487+00:00",
+      "status": "passed",
+      "pid": 10112,
+      "elapsed_seconds": 10.0,
+      "processes": 4,
+      "rss_bytes": 2573668352,
+      "peak_job_commit_bytes": 966197248,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:20:19.561626+00:00",
+      "log_sha256": "e51a87302dc8858e81af39faff4b14ebb77956098cf028a8605aa6120010fd58"
+    },
+    {
+      "name": "project-batch-103",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Differential.Smooth",
+        "LeanFlagAlgebras.Core.Ensemble.RandomHom"
+      ],
+      "started_utc": "2026-09-21T15:20:19.579267+00:00",
+      "status": "passed",
+      "pid": 28800,
+      "elapsed_seconds": 20.0,
+      "processes": 3,
+      "rss_bytes": 2408136704,
+      "peak_job_commit_bytes": 1153249280,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:20:39.626360+00:00",
+      "log_sha256": "94932f45fc2a2501e8626f19d7416b7754e073036c94f35dbb2cbaf06dbe9e98"
+    },
+    {
+      "name": "project-batch-104",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassNum",
+        "LeanFlagAlgebras.Core.Stationarity"
+      ],
+      "started_utc": "2026-09-21T15:20:39.648839+00:00",
+      "status": "passed",
+      "pid": 22532,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1689292800,
+      "peak_job_commit_bytes": 786837504,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:20:47.674786+00:00",
+      "log_sha256": "31e842f7ee3f5db4d2a52744e8c3a9a33d107255d9030a85a8c1b4eae682c02e"
+    },
+    {
+      "name": "project-batch-105",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Differential.Stationary",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reduce"
+      ],
+      "started_utc": "2026-09-21T15:20:47.685049+00:00",
+      "status": "passed",
+      "pid": 29220,
+      "elapsed_seconds": 11.0,
+      "processes": 2,
+      "rss_bytes": 534441984,
+      "peak_job_commit_bytes": 1104224256,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:20:58.726076+00:00",
+      "log_sha256": "77302b4202ff0ebf783b5843c6de4e55ca1f7d65e2f1d74cc320d67d46fe309b"
+    },
+    {
+      "name": "project-batch-106",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Differential.Descent",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootExpand"
+      ],
+      "started_utc": "2026-09-21T15:20:58.742003+00:00",
+      "status": "passed",
+      "pid": 10352,
+      "elapsed_seconds": 10.0,
+      "processes": 4,
+      "rss_bytes": 2985185280,
+      "peak_job_commit_bytes": 1022480384,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:21:08.768094+00:00",
+      "log_sha256": "c06eda8c57b5bbf075898cedb872aff20c358cc752b88efbdec0bccd0779b693"
+    },
+    {
+      "name": "project-batch-107",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Differential.Upward",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronStationarity"
+      ],
+      "started_utc": "2026-09-21T15:21:08.786398+00:00",
+      "status": "passed",
+      "pid": 27736,
+      "elapsed_seconds": 11.0,
+      "processes": 3,
+      "rss_bytes": 2060791808,
+      "peak_job_commit_bytes": 1102163968,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:21:19.818721+00:00",
+      "log_sha256": "bcf5d8bd29c86c0b8d69c49d752ce457e2e0cf06db5221f291603d31e609c611"
+    },
+    {
+      "name": "project-batch-108",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Assembly",
+        "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ExtS1"
+      ],
+      "started_utc": "2026-09-21T15:21:19.837206+00:00",
+      "status": "passed",
+      "pid": 10648,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1677783040,
+      "peak_job_commit_bytes": 712007680,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:21:27.860412+00:00",
+      "log_sha256": "d6546dd9c823f26426ea3ed3acf76d789cdd726ec5a82cc9f1e87c08f7b086ca"
+    },
+    {
+      "name": "project-batch-109",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeExpand",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Pieces"
+      ],
+      "started_utc": "2026-09-21T15:21:27.880558+00:00",
+      "status": "passed",
+      "pid": 7156,
+      "elapsed_seconds": 9.0,
+      "processes": 4,
+      "rss_bytes": 2586566656,
+      "peak_job_commit_bytes": 1369636864,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:21:36.911788+00:00",
+      "log_sha256": "c87ccce0c1a526ba78405a1ecb0b9cd592d68b872af4623c6b59e12b2189b642"
+    },
+    {
+      "name": "project-batch-110",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeCheck",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockElt"
+      ],
+      "started_utc": "2026-09-21T15:21:36.929802+00:00",
+      "status": "passed",
+      "pid": 17976,
+      "elapsed_seconds": 1024.9,
+      "processes": 3,
+      "rss_bytes": 1827999744,
+      "peak_job_commit_bytes": 1134772224,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:38:41.857373+00:00",
+      "log_sha256": "b085f0b2f923e051df4cf404be94ba5a5ab473d0034ccedd961041861846adfb"
+    },
+    {
+      "name": "project-batch-111",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootFlags"
+      ],
+      "started_utc": "2026-09-21T15:38:41.871784+00:00",
+      "status": "passed",
+      "pid": 24632,
+      "elapsed_seconds": 2.0,
+      "processes": 2,
+      "rss_bytes": 6152192,
+      "peak_job_commit_bytes": 229679104,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:38:43.889997+00:00",
+      "log_sha256": "83e73f90c35cd71b58782384ee9291f1d10529a2aa51bb6c226498becb028417"
+    },
+    {
+      "name": "project-batch-112",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellSem"
+      ],
+      "started_utc": "2026-09-21T15:38:43.889997+00:00",
+      "status": "passed",
+      "pid": 24820,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1600995328,
+      "peak_job_commit_bytes": 650940416,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:38:51.922510+00:00",
+      "log_sha256": "566e97d92d02a760478ce9c47e0a6d92b9d1405ff0f9e93b09ff4e486a6d924e"
+    },
+    {
+      "name": "project-batch-113",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellWeight",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootAcct"
+      ],
+      "started_utc": "2026-09-21T15:38:51.934532+00:00",
+      "status": "passed",
+      "pid": 28684,
+      "elapsed_seconds": 9.0,
+      "processes": 4,
+      "rss_bytes": 2572357632,
+      "peak_job_commit_bytes": 1201627136,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:39:00.965298+00:00",
+      "log_sha256": "b845b7cc215ff23d0e84f737086e4af59b1008aa73729295c98b98f61c560468"
+    },
+    {
+      "name": "project-batch-114",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reindex",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootSOS"
+      ],
+      "started_utc": "2026-09-21T15:39:00.984969+00:00",
+      "status": "passed",
+      "pid": 11740,
+      "elapsed_seconds": 11.0,
+      "processes": 3,
+      "rss_bytes": 2285293568,
+      "peak_job_commit_bytes": 1284055040,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:39:12.019394+00:00",
+      "log_sha256": "54ead2606a06e08f6fed10330d4c8c89f0d82f6501f0eedbb20448e5f581e647"
+    },
+    {
+      "name": "project-batch-115",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootElt",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootExpand"
+      ],
+      "started_utc": "2026-09-21T15:39:12.042514+00:00",
+      "status": "passed",
+      "pid": 12368,
+      "elapsed_seconds": 9.0,
+      "processes": 4,
+      "rss_bytes": 2584596480,
+      "peak_job_commit_bytes": 1118740480,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:39:21.066286+00:00",
+      "log_sha256": "386a2b0ea3d2dedbb24d09092383840122f868010045b4e425c1ac9cba89d8e1"
+    },
+    {
+      "name": "project-batch-116",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootMatch"
+      ],
+      "started_utc": "2026-09-21T15:39:21.080950+00:00",
+      "status": "passed",
+      "pid": 10736,
+      "elapsed_seconds": 9.0,
+      "processes": 3,
+      "rss_bytes": 1681309696,
+      "peak_job_commit_bytes": 950505472,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:39:30.109826+00:00",
+      "log_sha256": "94f3240b4485b2b9a8020794612db4a838d1c4547833fc3bea29ae1ffbe46868"
+    },
+    {
+      "name": "project-batch-117",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootScaled"
+      ],
+      "started_utc": "2026-09-21T15:39:30.127680+00:00",
+      "status": "passed",
+      "pid": 29180,
+      "elapsed_seconds": 9.0,
+      "processes": 3,
+      "rss_bytes": 1642008576,
+      "peak_job_commit_bytes": 706273280,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:39:39.151944+00:00",
+      "log_sha256": "626ecabc953d02aa9343f3538e3f36cfda8c871a8142f7ed772e7e25619a21ab"
+    },
+    {
+      "name": "project-batch-118",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronMaximizer"
+      ],
+      "started_utc": "2026-09-21T15:39:39.171744+00:00",
+      "status": "passed",
+      "pid": 28284,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1644687360,
+      "peak_job_commit_bytes": 683110400,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:39:47.199012+00:00",
+      "log_sha256": "5e6c3e609a5564c3d05333b9d29be34226b028527ff0d0fd230f198eca78748d"
+    },
+    {
+      "name": "project-batch-119",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealize"
+      ],
+      "started_utc": "2026-09-21T15:39:47.216245+00:00",
+      "status": "passed",
+      "pid": 4436,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1676099584,
+      "peak_job_commit_bytes": 709775360,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:39:55.246435+00:00",
+      "log_sha256": "1ec7cd9b5994de7d37195937ca0ce15f8b3b5d3900c07a754362d7173dd993ef"
+    },
+    {
+      "name": "project-batch-120",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronCompact"
+      ],
+      "started_utc": "2026-09-21T15:39:55.248950+00:00",
+      "status": "passed",
+      "pid": 11912,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1672568832,
+      "peak_job_commit_bytes": 731148288,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:40:03.284853+00:00",
+      "log_sha256": "ef0bd8a305a657cfab518067298ff01ad81068b45fb081c4b75fe6066a5578bc"
+    },
+    {
+      "name": "project-batch-121",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitLin"
+      ],
+      "started_utc": "2026-09-21T15:40:03.300719+00:00",
+      "status": "passed",
+      "pid": 22620,
+      "elapsed_seconds": 9.0,
+      "processes": 3,
+      "rss_bytes": 1677791232,
+      "peak_job_commit_bytes": 729382912,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:40:12.326646+00:00",
+      "log_sha256": "4182afbedec8f364557dbbe2d7b43e43d5f88d4322049797b97a27fdcd5219c8"
+    },
+    {
+      "name": "project-batch-122",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitMul"
+      ],
+      "started_utc": "2026-09-21T15:40:12.335785+00:00",
+      "status": "passed",
+      "pid": 19032,
+      "elapsed_seconds": 9.0,
+      "processes": 3,
+      "rss_bytes": 1677422592,
+      "peak_job_commit_bytes": 710533120,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:40:21.360929+00:00",
+      "log_sha256": "931ba7149704536e16f93d5dafbe41b3e04685e14e6887af76df1e04fb90f6d1"
+    },
+    {
+      "name": "project-batch-123",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitHom"
+      ],
+      "started_utc": "2026-09-21T15:40:21.376348+00:00",
+      "status": "passed",
+      "pid": 26620,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1677852672,
+      "peak_job_commit_bytes": 732577792,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:40:29.400804+00:00",
+      "log_sha256": "0b434bfcabb7626d1e67961beb42418133a13345984454e74afaaadc99b7d211"
+    },
+    {
+      "name": "project-batch-124",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealizedApply"
+      ],
+      "started_utc": "2026-09-21T15:40:29.419723+00:00",
+      "status": "passed",
+      "pid": 23780,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1682067456,
+      "peak_job_commit_bytes": 702914560,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:40:37.448909+00:00",
+      "log_sha256": "c1d277d302bd11e7baea851db4388a1e9852a622f658f6c91bc923012c723aca"
+    },
+    {
+      "name": "project-batch-125",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronTuran"
+      ],
+      "started_utc": "2026-09-21T15:40:37.452898+00:00",
+      "status": "passed",
+      "pid": 11556,
+      "elapsed_seconds": 9.0,
+      "processes": 3,
+      "rss_bytes": 1676234752,
+      "peak_job_commit_bytes": 807145472,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:40:46.485845+00:00",
+      "log_sha256": "229e2a6fe035598ca780f7993a858b59fafde1786d5be44ef87df72977a74e8a"
+    },
+    {
+      "name": "project-batch-126",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronAntitone",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronStatComb"
+      ],
+      "started_utc": "2026-09-21T15:40:46.499692+00:00",
+      "status": "passed",
+      "pid": 16220,
+      "elapsed_seconds": 61.2,
+      "processes": 3,
+      "rss_bytes": 536195072,
+      "peak_job_commit_bytes": 1291001856,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:41:47.645890+00:00",
+      "log_sha256": "8b2c371edef8798387294568599ab9876bbad22f96006503df344b1348b30543"
+    },
+    {
+      "name": "project-batch-127",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronExtremal"
+      ],
+      "started_utc": "2026-09-21T15:41:47.656053+00:00",
+      "status": "passed",
+      "pid": 16124,
+      "elapsed_seconds": 8.0,
+      "processes": 3,
+      "rss_bytes": 1678106624,
+      "peak_job_commit_bytes": 771850240,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:41:55.688964+00:00",
+      "log_sha256": "bf4a550eac42e820349d5dab3b85c245370b18ebfdc1e1e8462a26f85e0bbd50"
+    },
+    {
+      "name": "project-batch-128",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronBoost",
+        "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDifferential"
+      ],
+      "started_utc": "2026-09-21T15:41:55.705286+00:00",
+      "status": "passed",
+      "pid": 29324,
+      "elapsed_seconds": 17.0,
+      "processes": 3,
+      "rss_bytes": 2074226688,
+      "peak_job_commit_bytes": 1547976704,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:42:12.746658+00:00",
+      "log_sha256": "796f88eae7ee3f937217adec2492b6232cf3c2a72d89b211cafca7b6721671c9"
+    },
+    {
+      "name": "project-batch-129",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build",
+        "LeanFlagAlgebras"
+      ],
+      "started_utc": "2026-09-21T15:42:12.768477+00:00",
+      "status": "passed",
+      "pid": 26260,
+      "elapsed_seconds": 10.0,
+      "processes": 3,
+      "rss_bytes": 1931567104,
+      "peak_job_commit_bytes": 690028544,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:42:22.796382+00:00",
+      "log_sha256": "6a165de2753a34ae3f9737699d1a9746c4f325a1f02f44f7656abee3297f8484"
+    },
+    {
+      "name": "full-library",
+      "command": [
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "build"
+      ],
+      "started_utc": "2026-09-21T15:42:22.814145+00:00",
+      "status": "passed",
+      "pid": 4036,
+      "elapsed_seconds": 3.0,
+      "processes": 2,
+      "rss_bytes": 6225920,
+      "peak_job_commit_bytes": 249040896,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:42:25.830754+00:00",
+      "log_sha256": "f12365803ac3f4ed6e1461b7d85807d2cf01f31595322463ffc3fec093b8780a"
+    },
+    {
+      "name": "verification",
+      "command": [
+        "<home>\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/exact_certificate/verify_full_seven_long.py",
+        "--lake",
+        "<home>\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lake.exe",
+        "--threads",
+        "4",
+        "--sweep-batch-size",
+        "2",
+        "--output-dir",
+        "<repo>\\.research-repro\\lean-release-build-20260921\\attempt-02\\verification"
+      ],
+      "started_utc": "2026-09-21T15:42:25.844938+00:00",
+      "status": "passed",
+      "pid": 10692,
+      "elapsed_seconds": 82.2,
+      "processes": 4,
+      "rss_bytes": 60194816,
+      "peak_job_commit_bytes": 626761728,
+      "returncode": 0,
+      "completed_utc": "2026-09-21T15:43:47.995746+00:00",
+      "log_sha256": "2388648c1f184c430f3cd410d8eed35b7d8adebb6cf2001aca0c0ee70952f15f"
+    }
+  ],
+  "updated_utc": "2026-09-21T15:43:45.992566+00:00",
+  "original_started_utc": "2026-09-21T05:06:32.844295+00:00",
+  "original_attempt_status_sha256": "21664680f16b30a9e659be6f1289023e3ad98d5032bc5d39d3b05c696d46ac07",
+  "original_source_hashes_sha256": "4b53f83db2719013edda2e522743ea4d8816b2c38b3c0ec0bcf5aeec92e4c098",
+  "project_module_count": 246,
+  "source_files_unchanged": true,
+  "resumed_from_same_checkout": true,
+  "original_project_started_without_build_cache": true,
+  "total_project_batches": 130,
+  "completed_project_batches": 130,
+  "completed_utc": "2026-09-21T15:43:48.106005+00:00",
+  "all_project_modules_built": true,
+  "formalization_sha256": "662a6b9f5f8f6e1e70827f9c53ff0d9037a989c84f7915832738d8cd39565d2a"
+}

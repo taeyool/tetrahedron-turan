@@ -1,0 +1,21 @@
+⚠ [1270/1291] Replayed LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootBits
+warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7FiveRootBits.lean:68:53: This simp argument is unused:
+  Bool.and_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [Nat.testBit_mod_two_pow, s5Gather_testBit,̵ ̵B̵o̵o̵l̵.̵a̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [1280/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_24 (2457s)
+✔ [1281/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_25 (2457s)
+✔ [1282/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_26 (2457s)
+✔ [1283/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_27 (2457s)
+✔ [1284/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_28 (2457s)
+✔ [1285/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_29 (2457s)
+✔ [1286/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_31 (2457s)
+✔ [1287/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_32 (2457s)
+✔ [1288/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_33 (2457s)
+✔ [1289/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_34 (2457s)
+✔ [1290/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_35 (2457s)
+✔ [1291/1291] Built LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_30 (2457s)
+Build completed successfully (1291 jobs).
