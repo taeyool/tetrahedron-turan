@@ -19,7 +19,8 @@ certificate.
 This repository accompanies the paper
 
 > Gyeongwon Jeong, Seonghun Park, Seonghyuk Im, Joonkyung Lee and Hongseok Yang,
-> *A New Upper Bound for the Turán Density of the Tetrahedron*, 2026.
+> *A New Upper Bound for the Turán Density of the Tetrahedron*,
+> [arXiv:2609.27495](https://arxiv.org/abs/2609.27495), 2026.
 
 It contains the Lean formalization, the exact certificate and its verification
 record, the independent integer verifiers, the search code, and the records of
@@ -137,6 +138,22 @@ no user-declared axioms.
 The namespace and directory name `FullSevenLong` records the search that
 produced the certificate: the full seven-vertex model, with all 23 five-root
 types, run with the longer six-hour budget.
+
+## Citation
+
+```bibtex
+@misc{JeongParkImLeeYang2026,
+  author = {Jeong, Gyeongwon and Park, Seonghun and Im, Seonghyuk and Lee, Joonkyung and Yang, Hongseok},
+  title = {A New Upper Bound for the {Tur{\'a}n} Density of the Tetrahedron},
+  year = {2026},
+  eprint = {2609.27495},
+  archivePrefix = {arXiv},
+  primaryClass = {math.CO},
+  url = {https://arxiv.org/abs/2609.27495}
+}
+```
+
+`CITATION.cff` carries the same reference for GitHub's "Cite this repository" button.
 
 ## License
 

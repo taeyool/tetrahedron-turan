@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the accompanying paper."
+title: "tetrahedron-turan: a machine-checked upper bound for the Turán density of the tetrahedron"
+type: software
+authors:
+  - family-names: Jeong
+    given-names: Gyeongwon
+  - family-names: Park
+    given-names: Seonghun
+  - family-names: Im
+    given-names: Seonghyuk
+  - family-names: Lee
+    given-names: Joonkyung
+  - family-names: Yang
+    given-names: Hongseok
+repository-code: "https://github.com/taeyool/tetrahedron-turan"
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "A New Upper Bound for the Turán Density of the Tetrahedron"
+  authors:
+    - family-names: Jeong
+      given-names: Gyeongwon
+    - family-names: Park
+      given-names: Seonghun
+    - family-names: Im
+      given-names: Seonghyuk
+    - family-names: Lee
+      given-names: Joonkyung
+    - family-names: Yang
+      given-names: Hongseok
+  year: 2026
+  journal: "arXiv preprint"
+  identifiers:
+    - type: other
+      value: "arXiv:2609.27495"
+  url: "https://arxiv.org/abs/2609.27495"
+  doi: 10.48550/arXiv.2609.27495
