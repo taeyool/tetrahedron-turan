@@ -10,7 +10,7 @@ degree-stationary").
 Everything is sorry-free and uses only the standard axioms (`propext`,
 `Classical.choice`, `Quot.sound`); the tetrahedron bounds proved through
 it add only the certificate's `native_decide` axioms (see
-`AxiomCheckFullSevenLong.lean` at the repository root).
+`AxiomCheckFullSevenConverged.lean` at the repository root).
 
 ## Files, in dependency order
 
@@ -28,7 +28,7 @@ it add only the certificate's `native_decide` axioms (see
 | `Smooth.lean` | **Theorem 4.3 for a `C¹` objective** `φ ↦ F(φ(f₁), …, φ(f_k))`: the linearization `linearize` (`∑ᵢ ∂ᵢF(x₀) • fᵢ`), the first-order condition at a maximizer `exists_radius_fderiv_le` and at large finite hosts `exists_size_fderiv_le`, `ae_fderiv_partialVertexVec_eq_zero` (`∑ᵢ ∂ᵢF(x₀) φ¹(∂₁fᵢ) = 0` a.s.; differentiability of `F` at `x₀` suffices), its `C¹` form `ae_fderiv_partialVertexVec_eq_zero_of_contDiff`, and the realization-free `exists_weakLimit_ae_fderiv_eq_zero` | Thm 4.3 |
 
 Instantiation at the tetrahedron-free theory:
-`Core/Examples/FullSevenLong/TetrahedronDifferential.lean` (vertex uniformity, the
+`Core/Examples/FullSevenConverged/TetrahedronDifferential.lean` (vertex uniformity, the
 hyperedge's single rooting, every homomorphism below the finite Turán
 density, `isDegreeStationary_of_maximizer`, `turanDensity_le_of_stationary_bound`,
 the headline `tetraTuranDensity_le_certValue`, the paper's (Dgrad) identity

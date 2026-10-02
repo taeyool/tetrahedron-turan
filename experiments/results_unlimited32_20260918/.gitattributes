@@ -1,0 +1,2 @@
+# Preserve the exact published bytes used by the SHA-256 manifest.
+* -text whitespace=cr-at-eol

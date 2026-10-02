@@ -1,0 +1,16 @@
+{
+  "fraction": "14993367693127837/26880000000000000",
+  "decimal": 0.557788976678863,
+  "source": "final-polish-svd-tol1e-7-M8000000",
+  "certificate": "<repo>\\.research-repro\\unlimited32-20260918-022937\\exact\\certificate-final-polish-svd-tol1e-7-M8000000.json",
+  "certificate_sha256": "7c6f5e76c820e61097dfa3488718e0e53d922b79dae6136b29aa5be34c473f2a",
+  "candidate_folder": "<repo>\\.research-repro\\unlimited32-20260918-022937\\candidates\\final-polish-svd-tol1e-7-M8000000",
+  "native_sha256": "99543b7fa36e3538666e4b614fa8770a84f14cdf2335c884880e08f9a880eb85",
+  "integer_square_factors": 780,
+  "scale": 8000000,
+  "factorization": "svd",
+  "improves_on_baseline": true,
+  "baseline_minus_bound": "19653023339/1075200000000000",
+  "baseline_minus_bound_decimal": 1.8278481528087796e-05,
+  "verified_epoch": 1789698135.957685
+}

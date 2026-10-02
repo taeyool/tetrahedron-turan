@@ -6,7 +6,7 @@ on:
 
 # The complete Lean verification (49 seven-vertex coefficient sweeps) needs
 # several hours and about 2 GB of memory per concurrent sweep; run it locally
-# with scripts/exact_certificate/verify_full_seven_long.py. This workflow runs
+# with scripts/exact_certificate/verify_full_seven_converged.py. This workflow runs
 # the no-build preflight of that verifier and compiles a slice of the library.
 jobs:
   preflight:
@@ -17,8 +17,8 @@ jobs:
         with:
           python-version: "3.12"
       - name: Certificate, manifest and source preflight (no build)
-        run: python scripts/exact_certificate/verify_full_seven_long.py --check-only
-      - name: Historical and release verification records (no build)
+        run: python scripts/exact_certificate/verify_full_seven_converged.py --check-only
+      - name: Original and release verification records (no build)
         run: python scripts/check_release_evidence.py
       - name: Archived experiment integrity and published-result links
         run: python experiments/evidence.py --check

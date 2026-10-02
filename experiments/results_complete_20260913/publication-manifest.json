@@ -1,5 +1,5 @@
 {
-  "note": "Published copy. input_sha256 records the campaign scratch files (not distributed) as hashed when the report was generated; the personal directory prefix of every path was replaced by <repo>. report_sha256 and reporting_source_sha256 were recomputed for the distributed files after that replacement and after moving the certificate to certificate/. The certificate's reconstruction.source_dual path received the same replacement, so the distributed certificate hashes to c3b0e0b9364f669763bdb8fd1e3914bcd55acdee17fe7a5adbbb2e92da22beb4; the campaign records list the hash of the campaign's copy, 54b6247947032819811a5d1fc04cfe1fabd509da04cfc17f5b1eb201ed38fd13, which differs only in that path string.",
+  "note": "Published copy. input_sha256 records the campaign scratch files (not distributed) as hashed when the report was generated; the personal directory prefix of every path was replaced by <repo>. report_sha256 and reporting_source_sha256 were recomputed for the distributed files after that replacement and after moving the certificate to certificate/ (to certificate/legacy/K4_turan_order7_six_hour_certificate.json since the continuation of results_unlimited32_20260918 superseded it; REPORT.md and report_complete.py were updated to name that location). The certificate's reconstruction.source_dual path received the same replacement, so the distributed certificate hashes to c3b0e0b9364f669763bdb8fd1e3914bcd55acdee17fe7a5adbbb2e92da22beb4; the campaign records list the hash of the campaign's copy, 54b6247947032819811a5d1fc04cfe1fabd509da04cfc17f5b1eb201ed38fd13, which differs only in that path string.",
   "input_sha256": {
     ".research-repro\\section6-complete-20260911-01\\status.json": "8c25460420b968818fa8ffa280a585b6da02df10480e55fbc7e8d2a5906df1b2",
     ".research-repro\\section6-complete-20260911-01\\protocol\\manifest.json": "83f271feef6b8cedd1d505288721a648ceee1f9ea4ecb2ca1f4280c3887209f6",
@@ -694,12 +694,12 @@
   "report_sha256": {
     "attempt-provenance.json": "eae54f7ba2169ddc83feb5390106a9dea2a42ab42a5edd185f8c233be424fae9",
     "attempts.csv": "b80033961b80e1f13a9e1f3c66e39540ab73818393bffc0012532835a6343d58",
-    "../../certificate/K4_turan_order7_certificate.json": "c3b0e0b9364f669763bdb8fd1e3914bcd55acdee17fe7a5adbbb2e92da22beb4",
+    "../../certificate/legacy/K4_turan_order7_six_hour_certificate.json": "c3b0e0b9364f669763bdb8fd1e3914bcd55acdee17fe7a5adbbb2e92da22beb4",
     "checkpoints.csv": "802e92727cb5e075ca506d0f15ca6f2e00b765e12f5d13f15c72a28d20d5eddb",
     "long-runs.csv": "6d32bf34cca4c5d723b5461ab32bcfc14bb11199e8a0be144b4ffff51aa0ecd5",
     "long-runs.pdf": "6236efc02c7c083c3c238283dc76f12428bb3a25cb4e61e90c19ca4543ffd0ba",
     "long-runs.svg": "27bda34bfe4d2f31ecfcbe7e31bb53098181e9966d9260543c05094233296a10",
-    "REPORT.md": "4087d7874e088d574a2eb7fd49e8abea507c4ac4f69a183cb55f375ed14e99d4",
+    "REPORT.md": "b79705bd65d796cf2119e8385198e58de3afdd3e96474868fe10242040ab9e99",
     "results.csv": "1c310ae0ed70adf640763f9591a94bf441023bb29508f11e63b05a6074f31d99",
     "results.json": "754b38d7e32ba04632848ff7da5f39ec2341ef3e31fc87b467261b0696883e66",
     "seven-methods.pdf": "cbde08dd94ada47475a16acac9a2397a352bdec54515fba27c9f9a0f632e34d1",
@@ -709,6 +709,6 @@
   },
   "reporting_source_sha256": {
     "experiments/summarize_complete.py": "837f3c639b9607519c036712028e2e78ba43f32829ea24feecf1158c0778e230",
-    "experiments/report_complete.py": "179625769e849b806c9642b10d3b7cbd328716efd0977cc2a0f50720668398e8"
+    "experiments/report_complete.py": "376161724f98b7ffde25825c133b5d253063d6ce29a611b4c15f6b176a0dba13"
   }
 }

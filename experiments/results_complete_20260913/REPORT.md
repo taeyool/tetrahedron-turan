@@ -87,7 +87,7 @@ M7-no5 improves from 0.559209644128 to 0.558917128212. The repaired M7-all5 long
 
 The M6 six-hour native run exposes only its final candidate, not intermediate iterates. An independent fresh one-hour run under the same extended native iteration ceiling gives 404395939151293/720000000000000 = 0.5616610265990181 (84 factors); the six-hour result is 16849596538693/30000000000000 = 0.5616532179564333 (80 factors). They are two independent executions, not points of a single exposed native trajectory. Neither supplies an exact primal/dual enclosure.
 
-The best new research certificate is **312372062889819/560000000000000 = 0.5578072551603911**, with 794 integer-square factors. It is the certificate of the paper's main theorem. It is distributed as [`certificate/K4_turan_order7_certificate.json`](../../certificate/K4_turan_order7_certificate.json), and its Lean formalization is recorded under [`certificate/verification/`](../../certificate/verification/README.md).
+The best new research certificate is **312372062889819/560000000000000 = 0.5578072551603911**, with 794 integer-square factors. It was the certificate of the main theorem in the first version of the paper. It is distributed as [`certificate/legacy/K4_turan_order7_six_hour_certificate.json`](../../certificate/legacy/K4_turan_order7_six_hour_certificate.json). The continuation of this search to convergence, recorded in [`results_unlimited32_20260918/`](../results_unlimited32_20260918/README.md), supersedes it.
 
 ## Settings, validation and repaired attempts
 

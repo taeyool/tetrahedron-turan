@@ -1,0 +1,96 @@
+{
+  "note": "Published copy of the records of the continued M7-all5-32 search of 2026-09-18. The personal directory prefix of every recorded path was replaced by <repo> (the original private repository) or <home>, and the names of unrelated untracked files were removed from the worktree status quoted in REPORT.md, and REPORT.md and PREFLIGHT.md were abridged. original_sha256 is the hash of the original file, sha256 the hash of the distributed bytes. Paths in the records refer to the original layout.",
+  "files": {
+    "REPORT.md": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/REPORT.md",
+      "original_sha256": "bfb828df168390ba8597d5cada6148e05e691a629d1faab39dfe3a62b0ac84ba",
+      "sha256": "a9d90a5e132628281b6de18317e5674255c12a1dcd6b3249df9f77ed7c3f0f33",
+      "changed": true
+    },
+    "final_audit.json": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/final_audit.json",
+      "original_sha256": "eb732ab3dbe8abf82721e6e9a004e8adcb4d85bf0d71228716f39ab05fe16956",
+      "sha256": "eb732ab3dbe8abf82721e6e9a004e8adcb4d85bf0d71228716f39ab05fe16956",
+      "changed": false
+    },
+    "verifications.jsonl": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/verifications.jsonl",
+      "original_sha256": "8a5637f3ffd229032c958eb5d04608a12356d5aa7571729395ebc17e3ecab9be",
+      "sha256": "8a5637f3ffd229032c958eb5d04608a12356d5aa7571729395ebc17e3ecab9be",
+      "changed": false
+    },
+    "best_verified.json": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/best_verified.json",
+      "original_sha256": "cbc59eefc09618513d4513a1a16eb245c9b70d83d18a3371f2d35cebe765eea8",
+      "sha256": "49180d788cac52a582245c97b73c4873bc2693b3de664f5593c8e3a85491f496",
+      "changed": true
+    },
+    "model_manifest.json": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/model_manifest.json",
+      "original_sha256": "138dd3939f49e0c2dc7bcd183ee2071ddc9c2d774d7f78bf7b8a2df25121629c",
+      "sha256": "138dd3939f49e0c2dc7bcd183ee2071ddc9c2d774d7f78bf7b8a2df25121629c",
+      "changed": false
+    },
+    "PREFLIGHT.md": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/PREFLIGHT.md",
+      "original_sha256": "c5667d0b32ef221575e9a0c43fdb2d34cc3fe1734354d34c5515f9aa315a110c",
+      "sha256": "66ab7e7cc1db9f1a428db9a38cbe015f1560ffbba5ea5999f1a8bd93309a8f2c",
+      "changed": true
+    },
+    "preflight-validation.json": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/preflight-validation.json",
+      "original_sha256": "ec6d53e910f23cc0134fb3537da678e64c79a56bd0169ae475f3412fe296d772",
+      "sha256": "ec6d53e910f23cc0134fb3537da678e64c79a56bd0169ae475f3412fe296d772",
+      "changed": false
+    },
+    "config.json": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/config.json",
+      "original_sha256": "e774ebd95d5f08e92603f36a7739eecbde29cb2c7bf715a07d28a31d69743317",
+      "sha256": "06c21aea8b0c87e02e505bba7d803ef87a6150bbcfdcea4befe779ddc2e6e19f",
+      "changed": true
+    },
+    "history.jsonl": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/history.jsonl",
+      "original_sha256": "c0917facd42d10224d6f1afb7677b65bf41cac6c036bed8bb86b0cfbac727a36",
+      "sha256": "c0917facd42d10224d6f1afb7677b65bf41cac6c036bed8bb86b0cfbac727a36",
+      "changed": false
+    },
+    "unlimited32-certificate-M2000000.json": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/unlimited32-certificate-M2000000.json",
+      "original_sha256": "a102d02f1ca2a5a50a5b9cc846d28d9f6b85dd3b75b98a6088c902e2dbe3c40f",
+      "sha256": "33868add8d3c4ed154739722fb69d1d7a5d3ffdbbfc9ddb8f050bd765eb229bb",
+      "changed": true
+    },
+    "unlimited32-certificate-M2000000.summary.json": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/unlimited32-certificate-M2000000.summary.json",
+      "original_sha256": "04c18b89b85da3fbcb5ee90c77f8886fc25ee1b27e88e0c6210f53429e711f1e",
+      "sha256": "04c18b89b85da3fbcb5ee90c77f8886fc25ee1b27e88e0c6210f53429e711f1e",
+      "changed": false
+    },
+    "unlimited32-certificate-M8000000.summary.json": {
+      "original": "paper/research/experiments/section6/results_unlimited32_20260918/unlimited32-certificate-M8000000.summary.json",
+      "original_sha256": "4c4b40947989b5bdc59f2b963efff4d24e5de6d27a1e5fc84922ce35e2aa6399",
+      "sha256": "4c4b40947989b5bdc59f2b963efff4d24e5de6d27a1e5fc84922ce35e2aa6399",
+      "changed": false
+    },
+    "final_converged.npz": {
+      "original": ".research-repro/unlimited32-20260918-022937/incumbent/final_converged.npz",
+      "original_sha256": "99543b7fa36e3538666e4b614fa8770a84f14cdf2335c884880e08f9a880eb85",
+      "sha256": "99543b7fa36e3538666e4b614fa8770a84f14cdf2335c884880e08f9a880eb85",
+      "changed": false
+    },
+    "final_primal.npz": {
+      "original": ".research-repro/unlimited32-20260918-022937/incumbent/final_primal.npz",
+      "original_sha256": "6b883882b533b438d2348313415f8b9fa1075fcba134d94f078e98eafcb4266d",
+      "sha256": "6b883882b533b438d2348313415f8b9fa1075fcba134d94f078e98eafcb4266d",
+      "changed": false
+    }
+  },
+  "main_certificate": {
+    "path": "certificate/K4_turan_order7_certificate.json",
+    "sha256": "36f31cb3e30fa353c83a4a23b20cfed5846594d9983cd4f881ec7cf4cdc18625",
+    "original": "paper/research/experiments/section6/results_unlimited32_20260918/unlimited32-certificate-M8000000.json",
+    "original_sha256": "7c6f5e76c820e61097dfa3488718e0e53d922b79dae6136b29aa5be34c473f2a",
+    "change": "only reconstruction.source_dual was sanitized"
+  }
+}

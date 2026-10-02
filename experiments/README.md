@@ -2,9 +2,11 @@
 
 This directory contains the instrumented runners of the computational
 experiments of the paper (Section 5 and Appendix C), the supervisors that
-ran them, and the records of the completed campaign. The search code they
-drive is in `search/`; see [`docs/reproduction.md`](../docs/reproduction.md)
-for the environment and the commands.
+ran them, the records of the completed campaign, and the tooling and records
+of the continued search that produced the certificate of the main theorem
+(Appendix C.3). The search code they drive is in `search/`; see
+[`docs/reproduction.md`](../docs/reproduction.md) for the environment and the
+commands.
 
 ## Records: `results_complete_20260913/`
 
@@ -27,20 +29,57 @@ The paper's method names differ from the code's: `LP-CG` in the paper is
 The paper's method-comparison tables on `M6` and on the seven-vertex SDPs, its
 SDP-comparison table and its computational-cost table are medians of
 `results.csv` by configuration; its six-hour table is `long-runs.csv`. The
-six-hour `M7-all5` trial produced the certificate of the main theorem,
-distributed as `certificate/K4_turan_order7_certificate.json`.
+certificate of the six-hour `M7-all5` trial is distributed as
+`certificate/legacy/K4_turan_order7_six_hour_certificate.json`. It was the
+certificate of the main theorem in the first arXiv version of the paper; the
+continuation below supersedes it.
 
 The records were written on the machine that ran the campaign. Before
 publication, the personal directory prefix of every recorded path was replaced
-by `<repo>`, the certificate was moved to `certificate/`, and the hashes of the
-files in this directory were recomputed; `publication-manifest.json` documents
-this. The [evidence bundle](evidence/README.md) supplies the exact certificates,
+by `<repo>`, the certificate was moved to `certificate/` (now
+`certificate/legacy/`), and the hashes of the files in this directory were
+recomputed; `publication-manifest.json` documents this. The [evidence bundle](evidence/README.md) supplies the exact certificates,
 checkpoint certificates, per-run settings, histories, verification records and
 executed versions of the released source modules. Original and distributed
 hashes are separate. Large numerical arrays, coefficient caches, solver binaries
 and superseded private reports are omitted. The historical report generators
 expect that original private layout; use the portable bundle checker to audit
 the published records and `figures/generate_plots.py` to regenerate the figures.
+
+## Continuation to convergence
+
+The six-hour `M7-all5` search was stopped by its time limit. The certificate
+of the main theorem comes from continuing it without a time limit until the
+convergence tests were met (Appendix C.3). Two settings differ from the
+six-hour run: the three blocks with `2ℓ − s = 5`, zero in the six-hour
+certificate, are excluded, and the HiGHS option `small_matrix_value` is `1e-12`
+instead of the default `1e-9`. The continuation therefore has its own model
+code, the native 32-block model `M7-all5-32`:
+
+| Script | Role |
+| --- | --- |
+| `model32.py` | the 32 active blocks (six evaluated through six-vertex tables, 26 through seven-vertex products) and the restricted LP over them; every start and resume asserts that no block with `2ℓ − s = 5` is loaded |
+| `run_unlimited32.py` | the worker: `LP-CUT-CG` without a time or iteration limit. It starts from a six-hour checkpoint and best dual (`--init legacy-checkpoint`, migrated to the 32-block model), from the six-hour certificate (`--init baseline-certificate`), or from its own newest checkpoint (`--init resume`), and ends as converged only after a final audit that rebuilds the LP and repeats every test |
+| `supervise_unlimited32.py` | `prepare`, `launch`, `supervise`, `stop`: a durable supervisor with a memory ceiling, stage-hang and disk guards, automatic resume, periodic and terminal exact verification, `status.json` and `PROGRESS.md` (Windows) |
+| `export_legacy35.py` | writes a 32-block dual in the 35-slot layout read by `search/exactify_five_root.py`; the three excluded slots are empty |
+| `verify_candidate32.py` | snapshot, export, exact conversion with both complete integer scans, and exact comparison with the six-hour bound and with the best earlier candidate of the run |
+| `validate_model32.py` | preflight: comparison of the 32-block model with the 35-slot implementation, round trip of the six-hour certificate, rejection of corrupted inputs |
+| `report_unlimited32.py` | writes `REPORT.md` in a run directory |
+
+Every native file stores the model identity (the 32 dimensions, the block
+indices, the five-root type masks and the hashes of the ordered flag bases)
+and is rejected on a mismatch. Checkpoints keep the retained graphs, the
+directions, the counters and the LP basis; three generations are kept, each
+with a SHA-256 sidecar.
+
+The records of the run of September 18, 2026 are in
+[`results_unlimited32_20260918/`](results_unlimited32_20260918/README.md): the
+report, the final audit, the per-iteration history, every exact verification,
+the final floating-point dual, and its certificate at the experiments' scale
+`M = 2000000`. The certificate at `M = 8000000` is the main certificate,
+`certificate/K4_turan_order7_certificate.json`. See the
+[reproduction guide](../docs/reproduction.md#continuation-to-convergence) for
+the commands.
 
 ## Starting a new campaign
 

@@ -1,0 +1,40 @@
+{
+  "model": "M7-all5-32",
+  "method": "LP-CUT-CG",
+  "mode": "until_converged",
+  "time_limit_seconds": null,
+  "iteration_limit": null,
+  "supervisor_deadline": null,
+  "python": "<repo>\\.research-repro\\section6-campaign-20260909-01\\venv\\Scripts\\python.exe",
+  "repository_root": "<repo>",
+  "cache": "<repo>\\.research-repro\\unlimited32-20260918-022937\\cache",
+  "init": "legacy-checkpoint",
+  "legacy_checkpoint": "<repo>\\.research-repro\\section6-complete-20260911-01\\jobs\\long-M7-all5-LP-CUT-CG\\attempt-02\\master_checkpoint.npz",
+  "legacy_best_dual": "<repo>\\.research-repro\\section6-complete-20260911-01\\jobs\\long-M7-all5-LP-CUT-CG\\attempt-02\\best_dual.npz",
+  "worker_options": {
+    "scan_threads": 2,
+    "price_top": 8,
+    "max_cuts": 80,
+    "keep_cuts": 3000,
+    "lp_tolerance": 1e-09,
+    "lp_solver": "choose",
+    "checkpoint_every": 5
+  },
+  "memory_ceiling_bytes": 42949672960,
+  "minimum_free_disk_bytes": 21474836480,
+  "stage_hang_seconds": 21600,
+  "verification": {
+    "first_after_seconds": 1800,
+    "interval_seconds": 10800,
+    "factorization": "svd",
+    "svd_relative_tolerance": 1e-07,
+    "scale": 2000000,
+    "threads": 2
+  },
+  "restart_policy": "Resume from the newest valid checkpoint after a failed attempt that completed at least one iteration; two consecutive attempts without a completed iteration block the run for diagnosis.",
+  "path_prepend": [
+    "C:\\Strawberry\\c\\bin"
+  ],
+  "created_epoch": 1789669712.1568215,
+  "note": "Edits to worker_options and verification take effect at the next attempt/verification and are logged."
+}

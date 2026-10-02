@@ -2,8 +2,9 @@
 
 This guide covers the numerical side of the paper: verifying the certificate
 in integer arithmetic, running the cutting-plane and column-generation search
-of Section 4, and repeating the computational experiments of Section 5 and
-Appendix C. The Lean proof is covered in [lean-proof.md](lean-proof.md).
+of Section 4, continuing it to convergence as in Appendix C.3, and repeating
+the computational experiments of Section 5 and Appendix C. The Lean proof is
+covered in [lean-proof.md](lean-proof.md).
 
 Nothing here is a premise of the theorem. The formal proof re-verifies the
 certificate from its integer rows; the tools below check the same certificate
@@ -56,14 +57,15 @@ sets, and, with `--cross-check-pricing`, the search's own coefficient
 evaluator in exact mode. Python separately enumerates every ordered root
 labeling and flag pair at the maximizing and at selected six-vertex
 representatives. The output records the exact maximum
-`11245394264033484 / 20160000000000000`, the reduced bound, the maximizing
+`179920412317534044 / 322560000000000000`, the reduced bound, the maximizing
 extension, the raw count and the hashes of the inputs.
 
 The same script converts a saved floating-point dual of the search into an
 exact certificate (`python search/exactify_five_root.py DUAL.npz --types ...
 --factorization svd --scale 2000000 ...`), following Appendix B.3: SVD
 compression of the factor vectors at relative tolerance `1e-7`, rounding to
-multiples of `1/2000000`, and a complete exact re-evaluation.
+multiples of `1/2000000`, and a complete exact re-evaluation. The certificates
+of the experiments use this scale; the main certificate uses `--scale 8000000`.
 
 ## The search
 
@@ -113,6 +115,57 @@ implementations, eigenvectors in repeated eigenspaces, LP degeneracy and
 time limits change the trajectory. Verify any new candidate with the exact
 conversion; the exact fractions of the archived candidates are recorded in
 `experiments/results_complete_20260913/`.
+
+## Continuation to convergence
+
+The certificate of the main theorem comes from continuing the six-hour
+`M7-all5` search without a time limit until the convergence tests of
+Appendix C.1 were met (Appendix C.3). The continuation runs on the native
+32-block model `M7-all5-32`, which omits the three blocks with `2ℓ − s = 5`
+(zero in the six-hour certificate), and sets the HiGHS option
+`small_matrix_value` to `1e-12`. Its tooling is described in
+[`experiments/README.md`](../experiments/README.md#continuation-to-convergence),
+and the records of the run of September 18, 2026 are in
+[`experiments/results_unlimited32_20260918/`](../experiments/results_unlimited32_20260918/README.md).
+
+To rebuild the main certificate from the final dual of that run:
+
+```sh
+python -X utf8 experiments/runtime.py search/analyze_certificate.py --cache .research-repro/cache \
+  --output .research-repro/certificate_diagnostics.json
+python -X utf8 experiments/runtime.py experiments/verify_candidate32.py \
+  --run-dir .research-repro/converged --cache .research-repro/cache \
+  --native experiments/results_unlimited32_20260918/final_converged.npz \
+  --scale 8000000 --threads 2 --label final-M8000000
+```
+
+This exports the 32-block dual to the certificate layout, rounds it with
+`M = 8000000`, runs both complete integer scans, and writes
+`.research-repro/converged/candidates/final-M8000000/certificate.json`. Its
+integer data and bound are those of
+`certificate/K4_turan_order7_certificate.json`; only provenance fields (paths,
+timings, script hashes) differ. With the default `--scale 2000000` it gives
+`139447364189/250000000000`, the certificate of the same dual at the scale
+used in the experiments.
+
+To continue a six-hour search of your own, pass its checkpoint and best dual
+to the supervisor (Windows), or start from the six-hour certificate with
+`--init baseline-certificate`:
+
+```sh
+python -X utf8 experiments/supervise_unlimited32.py prepare --run-dir .research-repro/continued \
+  --cache .research-repro/cache --init legacy-checkpoint \
+  --legacy-checkpoint .research-repro/search/M7-all5/master_checkpoint.npz \
+  --legacy-best-dual .research-repro/search/M7-all5/best_dual.npz
+python -X utf8 experiments/supervise_unlimited32.py launch --run-dir .research-repro/continued
+```
+
+The run has no time or iteration limit; it ends as converged only after a
+final audit that rebuilds the LP and repeats every test. The recorded run
+needed 493 iterations and 7.7 hours. `COMMANDS.md` in the run directory lists
+the commands for monitoring, stopping and resuming. The checkpoint of the
+recorded six-hour run is a large numerical array and is not distributed, so a
+new continuation follows its own trajectory.
 
 ## The experiments
 
