@@ -58,7 +58,7 @@ lemma rootElt_split : rootElt = oldRootElt + fiveRootElt := by
         text = text.replace("/-- The rooted element: the order-7 one-root and three-root forms. -/",
                             "/-- The rooted element: all active one-, three-, and five-root forms. -/")
     if name == "TetrahedronOrder7RootSOS":
-        text = "import LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSOS\n" + text
+        text = "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootSOS\n" + text
         text = re.sub(r"\brootSOS\b", "oldRootSOS", text)
         text = text.replace("theorem rootSOS_nonneg", "theorem oldRootSOS_nonneg")
         pos = text.index("end FlagAlgebras.Core.Tetrahedron")
@@ -77,7 +77,7 @@ theorem rootSOS_nonneg : (0 : FlagAlgebra TetraFree emptyType) ≤ rootSOS := by
 
 ''' + text[pos:]
     if name == "TetrahedronOrder7RootScaled":
-        text = "import LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootExpand\n" + text
+        text = "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootExpand\n" + text
         start = text.index("theorem isRootScaled")
         end = text.index("/-! ## The unconditional consequences", start)
         old = text[start:end]

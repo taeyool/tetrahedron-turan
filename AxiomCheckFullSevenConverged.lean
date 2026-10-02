@@ -1,0 +1,27 @@
+import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronDifferential
+import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronBoost
+
+example : FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tetraTuranDensity ≤ (14993367693127837 / 26880000000000000 : ℝ) :=
+  FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tetraTuranDensity_le_certValue
+
+example : FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tetraTuranDensity ≤ (14993367693127837 / 26880000000000000 : ℝ) :=
+  FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tetraTuranDensity_le_certValue_finite
+
+#check FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tetraTuranDensity_le_certValue
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tetraTuranDensity_le_certValue
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.maxDens_eq_exTetra
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tendsto_tetraTuranDensity
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.edge_le_certBound_of_stationary
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.columnValue_le_columnBound
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.finiteBoost
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tetraTuranDensity_le_certValue_finite
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.turanDensity_le_of_stationary_bound
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.isDegreeStationary_of_maximizer
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.maximizerIsStationary
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.fiveRootSOS_nonneg
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.fiveRootElt_eq_scaled
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.s5ColumnNum_eq_ordered
+#print axioms FlagAlgebras.Core.Tetrahedron.FullSevenConverged.s5ColumnNum_eq_ordered_sum
+#print axioms FlagAlgebras.Core.isStationary_of_maximizer
+#print axioms FlagAlgebras.Core.Tetrahedron.gamma56_eq_rooting5040
+#print axioms FlagAlgebras.Core.sum_injective_filter_eq_rootSubset_perm

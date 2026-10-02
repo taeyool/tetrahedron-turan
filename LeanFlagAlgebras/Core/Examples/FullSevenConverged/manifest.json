@@ -1,0 +1,3019 @@
+{
+  "chain": "FlagAlgebras.Core.Tetrahedron.FullSevenConverged",
+  "certificate": "certificate/K4_turan_order7_certificate.json",
+  "certificate_sha256": "36f31cb3e30fa353c83a4a23b20cfed5846594d9983cd4f881ec7cf4cdc18625",
+  "bound": "14993367693127837/26880000000000000",
+  "hash_convention": "certificate: raw bytes; Lean, Python and JSON sources: UTF-8 text with CRLF normalized to LF",
+  "scale": 8000000,
+  "column_numerator": 179920412317534044,
+  "column_denominator": 322560000000000000,
+  "stationarity_tau_numerator": 710104654129914,
+  "example_maximizing_raw_mask": 1629596093,
+  "gap_below_published": "99752306872163/26880000000000000",
+  "factor_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    0,
+    7,
+    236,
+    185
+  ],
+  "five_root_factor_counts": {
+    "0": 21,
+    "1": 30,
+    "3": 35,
+    "7": 12,
+    "11": 23,
+    "12": 0,
+    "13": 0,
+    "15": 23,
+    "30": 34,
+    "31": 37,
+    "63": 2,
+    "76": 0,
+    "77": 1,
+    "86": 0,
+    "87": 6,
+    "94": 28,
+    "116": 14,
+    "117": 17,
+    "119": 31,
+    "222": 10,
+    "236": 0,
+    "237": 17,
+    "254": 8
+  },
+  "total_integer_square_factors": 780,
+  "total_integer_entries": 326557,
+  "factor_shift": 45056477,
+  "class_number_count": 964,
+  "templates": {
+    "TetrahedronAntitone": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronAntitone.lean",
+      "template_sha256": "66d3985154810a87d5a12cf7ce1d07e4c0440438ff17dd6adbaac13b4c162d98",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronTuran\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronTuran\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronBoost": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronBoost.lean",
+      "template_sha256": "1780b6fe639126411354651b86457401ed4cf16cef4aa0661f436730f2cd4c8c",
+      "replacements": [
+        {
+          "site": "2350694236183/4200000000000 -> fraction",
+          "count": 2
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronExtremal\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronExtremal\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronAntitone\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronAntitone\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronStatComb\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronStatComb\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronCompact": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronCompact.lean",
+      "template_sha256": "486143508ae034fe9ae51e5a62cccb1036ec86309dfccea4c63524b5e08d875f",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronRealize\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronRealize\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronDegreeCheck": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronDegreeCheck.lean",
+      "template_sha256": "ad2818bdb64dbafeb00788a6ec69b7c0ae1bb50a975666074db0dddb4dcedb71",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Pieces\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Pieces\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronDegreeExpand\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronDegreeExpand\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronDegreeExpand": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronDegreeExpand.lean",
+      "template_sha256": "da218e0bce7d5b416fe8adeed0d5ab02f4762c15462d275dfb0de2a6da039d17",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Assembly\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Assembly\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronDifferential": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronDifferential.lean",
+      "template_sha256": "898d8bddba26bdaa0ac30c057ad21cbe539c1b4fbf8e2d42209198808c4b689a",
+      "replacements": [
+        {
+          "site": "2350694236183/4200000000000 -> fraction",
+          "count": 2
+        },
+        {
+          "old": "0.5596891",
+          "new": "0.5577889767",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronExtremal\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronExtremal\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronAntitone\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronAntitone\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronDegreeExpand\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronDegreeExpand\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronTuran\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronTuran\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronExtremal": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronExtremal.lean",
+      "template_sha256": "8b19647be000db3a1e4fa87615ff6c6fc760de260f3ebb62e9f7c695311cbcfb",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronAntitone\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronAntitone\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronLimitHom": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronLimitHom.lean",
+      "template_sha256": "c5a3ac341c57c2cad2c07cc7afe48e13b4260b701c6b7b7c500a626681b8e6e6",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronLimitMul\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronLimitMul\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronLimitLin": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronLimitLin.lean",
+      "template_sha256": "b583d302e3f1941f18dfe7547fd31486e040956cb00429e3942b8917663555d0",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronCompact\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronCompact\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronLimitMul": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronLimitMul.lean",
+      "template_sha256": "a989daa3bae73254aaed1caeb337ba15915479d19529b2d1c89b6d1bcc05dd97",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronLimitLin\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronLimitLin\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronMaximizer": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronMaximizer.lean",
+      "template_sha256": "aa25f8c63a35fa17d325ab2ad3f9e603bcdf0244f281ae368ffd0e0b9451ea09",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootScaled\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootScaled\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Assembly": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Assembly.lean",
+      "template_sha256": "283417afbd8c490ff408edbd23220128fae735b8aea9afa16b67f3f3eacf5012",
+      "replacements": [
+        {
+          "site": "2350694236183/4200000000000 -> fraction",
+          "count": 2
+        },
+        {
+          "old": "0.5596891",
+          "new": "0.5577889767",
+          "count": 2
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Slack\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Slack\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7BlockCheck": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7BlockCheck.lean",
+      "template_sha256": "5bee5af9ab105f59c9e0eb847defe30a81432f2cd05aeddefef1047b5b8b66b5",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ClassNum\n",
+          "new": "",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7BlockGamma\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockGamma\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7BlockElt": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7BlockElt.lean",
+      "template_sha256": "f96373b66ea6a06de1ee431b39a0e50950a8c741e46032ea51364850e6593bdf",
+      "replacements": [
+        {
+          "site": "10000000000 -> 64000000000000",
+          "count": 5
+        },
+        {
+          "site": "7200000000000 -> 46080000000000000",
+          "count": 3
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7BlockSOS\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockSOS\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Pieces\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Pieces\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7BlockFlags": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7BlockFlags.lean",
+      "template_sha256": "cc43708a7cf93725a25f571fdaca2391343f2d9267d219a3e43f70cac3cebe71",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Blocks\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Blocks\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7BlockGamma": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7BlockGamma.lean",
+      "template_sha256": "c2197a85362542c63bf90d1081fb44c5ee7f2003c82e70b9e0955441bd637551",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Ext24\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Ext24\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Ext45\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Ext45\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7BlockSOS": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7BlockSOS.lean",
+      "template_sha256": "edcc43051d8bb4043153246cc68ea4b02fc596972f97b5f563539d4b0684be66",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7BlockCheck\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockCheck\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Blocks": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Blocks.lean",
+      "template_sha256": "d1169bf942f081e39f72c2535cb1825d3cc4cbe0b93fbec1bd33ea3d81810c4b",
+      "replacements": [
+        {
+          "site": "list facs24L",
+          "count": 1
+        },
+        {
+          "site": "list facs45_0L",
+          "count": 1
+        },
+        {
+          "site": "list facs45_1L",
+          "count": 1
+        },
+        {
+          "site": "list facs45_3L",
+          "count": 1
+        },
+        {
+          "site": "list facs45_7L",
+          "count": 1
+        },
+        {
+          "site": "list classNumsRef",
+          "count": 1
+        },
+        {
+          "site": "1219077971869 -> 710104654129914",
+          "count": 1
+        },
+        {
+          "old": "certScale : \u2124 := 100000",
+          "new": "certScale : \u2124 := 8000000",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Extension\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Extension\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Bound": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Bound.lean",
+      "template_sha256": "44e8190c533ee59b529e6abc4c2188d40fd00e3602bc0bf9c2a6a5bbee65d634",
+      "replacements": [
+        {
+          "site": "50400000000000 -> 322560000000000000",
+          "count": 2
+        },
+        {
+          "site": "28208330834196 -> 179920412317534044",
+          "count": 1
+        },
+        {
+          "site": "2350694236183/4200000000000 -> fraction",
+          "count": 2
+        },
+        {
+          "site": "7605763817/4200000000000 -> fraction",
+          "count": 1
+        },
+        {
+          "old": "0.5596891",
+          "new": "0.5577889767",
+          "count": 1
+        },
+        {
+          "old": "0.0018108",
+          "new": "0.0037110233",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Verified\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Verified\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7CellSem": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7CellSem.lean",
+      "template_sha256": "7deaaa4977158d1db49314a5897ba9fcf1ec6444209d94a6bc643442f0562978",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7GatherPull\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7GatherPull\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootFlags\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootFlags\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7CellWeight": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7CellWeight.lean",
+      "template_sha256": "a55bbf5c4ed4b6790aa86a409fc1f9c8abd03b056333c8cf1b3400ae67f11811",
+      "replacements": [
+        {
+          "site": "range 60|46 -> row count",
+          "count": 6
+        },
+        {
+          "old": "(fun r => fS30 r i * fS30 r j) 60]",
+          "new": "(fun r => fS30 r i * fS30 r j) 236]",
+          "count": 1
+        },
+        {
+          "old": "(fun r => fS31 r i * fS31 r j) 46]",
+          "new": "(fun r => fS31 r i * fS31 r j) 185]",
+          "count": 1
+        },
+        {
+          "old": "(fun r => fS1 r i * fS1 r j) 6]",
+          "new": "(fun r => fS1 r i * fS1 r j) 7]",
+          "count": 1
+        },
+        {
+          "site": "range 6 -> one-root row count",
+          "count": 3
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7FoldSum\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FoldSum\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7CellSem\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7CellSem\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Chain": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Chain.lean",
+      "template_sha256": "23832c6be212626fdb1a8ee5c5cf0541f830c3dd133f51b8ed1e74fa306b285f",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Induced\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Induced\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Check": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Check.lean",
+      "template_sha256": "657759b758fb970d220149d400b5692077b3f7f27adb456f145b08d9e145309a",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Column\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Column\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7ClassIdx": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7ClassIdx.lean",
+      "template_sha256": "81cb3d9b0ac2e0ac3bdc848769cebb1de5ae135c1e958e4e393865fb86663bac",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Chain\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Chain\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7ClassNum": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7ClassNum.lean",
+      "template_sha256": "f6179d74f5e3226800bdf1cda8ba86a5e298a5a46a00299ca526c2aa37c164d6",
+      "replacements": [
+        {
+          "site": "prepend import Pairwise",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Fiber\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Fiber\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Column": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Column.lean",
+      "template_sha256": "4978f732de9702a297bcfdfbec5e4dc1af7237c284a2c47f6cce7c099f85db7d",
+      "replacements": [
+        {
+          "site": "prepend import FiveRootColumn",
+          "count": 1
+        },
+        {
+          "old": "  deckValue m + 36 * s1Value m + 4 * s3Value m",
+          "new": "  deckValue m + 36 * s1Value m + 4 * s3Value m + s5ColumnNum m",
+          "count": 1
+        },
+        {
+          "site": "prepend import Checker",
+          "count": 1
+        },
+        {
+          "site": "remove inline factor tables",
+          "count": 1
+        },
+        {
+          "old": "gramFromFlat 7 6 (unshift f7s1Raw)",
+          "new": "gramFromFlat 7 7 (unshift f7s1Raw)",
+          "count": 1
+        },
+        {
+          "old": "gramFromFlat 236 60 (unshift f7s30Raw)",
+          "new": "gramFromFlat 236 236 (unshift f7s30Raw)",
+          "count": 1
+        },
+        {
+          "old": "gramFromFlat 191 46 (unshift f7s31Raw)",
+          "new": "gramFromFlat 191 185 (unshift f7s31Raw)",
+          "count": 1
+        },
+        {
+          "old": "def factorShift : \u2124 := 4000000",
+          "new": "def factorShift : \u2124 := 45056477",
+          "count": 1
+        },
+        {
+          "old": "def exampleColumn : \u2115 := 14657251566",
+          "new": "def exampleColumn : \u2115 := 1629596093",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Blocks\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Blocks\nimport LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS1\nimport LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS30\nimport LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS31\n",
+          "count": 1
+        },
+        {
+          "site": "28208330834196 -> 179920412317534044",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Blocks\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Blocks\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Covered": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Covered.lean",
+      "template_sha256": "b5c83810f675c66bd5c3a4b47eb2fc971abf73ea67fcfe79224979d3652f8b9d",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Verified\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Verified\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Realize\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Realize\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Deck": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Deck.lean",
+      "template_sha256": "145e66d7cc2d7dc1ce149dae3dee658a6255a1dd8477e5bad29bb1b60760b0e6",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Split\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Split\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Edges": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Edges.lean",
+      "template_sha256": "eade82803e05232ee609f06348f87eaf013c4ab2adb666374ea3f97caeca4a14",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Split\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Split\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Ext24": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Ext24.lean",
+      "template_sha256": "24a0d738b4c1c25759d632de18afb098fb03f273d917845b48d88700be382bfa",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7BlockFlags\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockFlags\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Ext45": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Ext45.lean",
+      "template_sha256": "1bcd861a500db4e63c110bf5186658573ee1ad48d737745b5bb3a27d0495f5be",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7BlockFlags\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockFlags\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Induce5\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Induce5\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Extension": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Extension.lean",
+      "template_sha256": "cd1f9b8b572d27e3300255208939e674c73c4aa1d277270a945f0b711d061835",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Pairwise\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Data\nimport LeanFlagAlgebras.Core.Examples.TetrahedronMask\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Fiber": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Fiber.lean",
+      "template_sha256": "d578a07d88ae38e07567abbbcdc2ed549fc8e2069f39675184884edcfbf838fa",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ClassIdx\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7ClassIdx\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7FoldSum": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7FoldSum.lean",
+      "template_sha256": "9ff8a874600de030b3467e8fa36fe3c467022a212e1eb72391735f375d69db68",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Column\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Column\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7GatherPull": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7GatherPull.lean",
+      "template_sha256": "d79bf704f337f2d2fb426300d01f426b3ba7f4144b0e5c4aeb543f0d07a7fd21",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7FoldSum\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FoldSum\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Split\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Split\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Induce5": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Induce5.lean",
+      "template_sha256": "608db26d053ac034002d75ed21efac93aa2b8a9ec8c14ec84743b734c4ce2a42",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7BlockFlags\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockFlags\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Induced": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Induced.lean",
+      "template_sha256": "4d396493fc3bfa388a72f8df89ba987d06df44c8aa179881d8bee83af93ff3ec",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Deck\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Deck\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Objective": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Objective.lean",
+      "template_sha256": "58521e7803834caa1a97a5f77b1809f5de6baefcf2054e7b770bdccc761fb1d0",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Deck\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Deck\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Pieces": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Pieces.lean",
+      "template_sha256": "453956ab6a4e0b29ab6adf0300b51cbeaacc8a3e11a02a37de069a8d06b22592",
+      "replacements": [
+        {
+          "site": "10000000000 -> 64000000000000",
+          "count": 2
+        },
+        {
+          "site": "7200000000000 -> 46080000000000000",
+          "count": 7
+        },
+        {
+          "old": "certScale = (100000 : \u2124)",
+          "new": "certScale = (8000000 : \u2124)",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Objective\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Objective\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Reduce\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Reduce\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Assembly\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Assembly\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Realize": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Realize.lean",
+      "template_sha256": "a097494058ca02a50f095ecb5a8330132b1b299964c6cc33377c5525b5de217d",
+      "replacements": [
+        {
+          "site": "prepend import Distinct",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Edges\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Edges\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Reduce": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Reduce.lean",
+      "template_sha256": "be3e1cd12e97b8620654a877102cf719dade00c0ccfe947b6cdc5fe6f4636236",
+      "replacements": [
+        {
+          "site": "7200000000000 -> 46080000000000000",
+          "count": 7
+        },
+        {
+          "site": "50400000000000 -> 322560000000000000",
+          "count": 2
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Slack\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Slack\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ClassNum\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7ClassNum\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Reindex": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Reindex.lean",
+      "template_sha256": "0af4f424277b4f4a11482d6afc4781b730d55cbfa80ec8392910ee64e2430596",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7CellWeight\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7CellWeight\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootAcct\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootAcct\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7RootAcct": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7RootAcct.lean",
+      "template_sha256": "1e1571a159c44d0d03b2a4710b4a80b58e2b0d0caf695c8b1e085f2c5656087e",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7CellSem\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7CellSem\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7RootElt": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7RootElt.lean",
+      "template_sha256": "230eb50494436675a7bea20d325b6670aa158b4942c68e8492aaad64b5a3504b",
+      "replacements": [
+        {
+          "site": "10000000000 -> 64000000000000",
+          "count": 2
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronDegreeCheck\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronDegreeCheck\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Reduce\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Reduce\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7BlockElt\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockElt\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootSOS\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootSOS\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7RootExpand": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7RootExpand.lean",
+      "template_sha256": "56459945c54404588ec602fb62ee95391032b738d6a538fe83fbcf96647aeeeb",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Slack\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Slack\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootSOS\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootSOS\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7RootFlags": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7RootFlags.lean",
+      "template_sha256": "6014291c9198d14ebd661d0b4502c1bf2223fb9cd3b9c266a9dd25ad2440d5c2",
+      "replacements": [
+        {
+          "site": "range 60|46 -> row count",
+          "count": 2
+        },
+        {
+          "site": "range 6 -> one-root row count",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Column\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Column\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7RootMatch": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7RootMatch.lean",
+      "template_sha256": "652d1ebb2a1ae1ce0b9c0f5f7c7d775aa480376509060fdd932ef410aefb2673",
+      "replacements": [
+        {
+          "site": "range 60|46 -> row count",
+          "count": 6
+        },
+        {
+          "old": "(hpart 60 false",
+          "new": "(hpart 236 false",
+          "count": 1
+        },
+        {
+          "old": "(hpart 46 true",
+          "new": "(hpart 185 true",
+          "count": 1
+        },
+        {
+          "old": "\u2211 r \u2208 Finset.range 6,",
+          "new": "\u2211 r \u2208 Finset.range 7,",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Reindex\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Reindex\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7RootSOS": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7RootSOS.lean",
+      "template_sha256": "0c9230d8cf8e2ebb2eef492226f35279140b3a9c9aafaa0a8ab10c38e525a393",
+      "replacements": [
+        {
+          "site": "range 60|46 -> row count",
+          "count": 4
+        },
+        {
+          "site": "range 6 -> one-root row count",
+          "count": 2
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7FoldSum\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FoldSum\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootAcct\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootAcct\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7RootScaled": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7RootScaled.lean",
+      "template_sha256": "67bfba9762e684861c0bb65974bcb5af17dded034c59d73189714ef25c2c0508",
+      "replacements": [
+        {
+          "site": "range 60|46 -> row count",
+          "count": 8
+        },
+        {
+          "site": "range 6 -> one-root row count",
+          "count": 4
+        },
+        {
+          "site": "10000000000 -> 64000000000000",
+          "count": 4
+        },
+        {
+          "site": "50400000000000 -> 322560000000000000",
+          "count": 1
+        },
+        {
+          "old": "0.5596891",
+          "new": "0.5577889767",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootElt\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootElt\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootExpand\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootExpand\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7RootMatch\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootMatch\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Slack": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Slack.lean",
+      "template_sha256": "110ab5745e32ef90133ad289a1b44385d687cc00e3b6c1716fc95e50ae0dc288",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Covered\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Covered\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Bound\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Bound\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Split": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Split.lean",
+      "template_sha256": "b431dda6620547ff8253ab9ff569023ae04e9f08d828654a5b4c715689813eda",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Column\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Column\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_00": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_00.lean",
+      "template_sha256": "790eacc215b333682b00c112a325adf31cad05a4602ea84c3e048fcb862c408b",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_01": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_01.lean",
+      "template_sha256": "5f6ec301252800026b17590888301d9762187b6a2b80eb02024a19bc3d77c528",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_02": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_02.lean",
+      "template_sha256": "6cc44ed49f459a92fdfcd3719cfb658b4191a5d2378c5f364d199da9891f48ca",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_03": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_03.lean",
+      "template_sha256": "c92bb19ef810ff0a3685cd9f338ec322d15db29e184a3d50e8b95ae503b353e3",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_04": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_04.lean",
+      "template_sha256": "75b30e0516c57e4805cd3c6cc6f239a97fb4ea067f5bb97ba55248a7f04b1c04",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_05": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_05.lean",
+      "template_sha256": "7d408a3f9cd206a5c695075681aa00b389a6ab6447e0741bb5efea96c6954363",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_06": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_06.lean",
+      "template_sha256": "f083001d6d4f94f21d1dc2cef169314e5524800d3bcdd641f444721b7e116aff",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_07": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_07.lean",
+      "template_sha256": "e999d02751da3d194a62c53b46a65a65f17b25deeee56c03866958a6d145481d",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_08": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_08.lean",
+      "template_sha256": "a5f75f3bee427bea78438a89631f70a6c4d9c8581a60a509c32d98ea8f3eb5c1",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_09": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_09.lean",
+      "template_sha256": "efd8c9daefaa8f83be9be892032b9bec11ccb544e72a4af14ab708810fbd8afc",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_10": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_10.lean",
+      "template_sha256": "8a110dbaad026851054985538144aed7dca41eaaf3c03c8fd2bca23e25b067e0",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_11": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_11.lean",
+      "template_sha256": "e854252ca1cddc1438df354392d06bd106f9db0de27e3f7a18bd2fccbe47313e",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_12": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_12.lean",
+      "template_sha256": "4839b8e5bff7482824a27074e7ed22f6cb8be93a9961ebc764dc2c31b0eaff47",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_13": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_13.lean",
+      "template_sha256": "0a5b1d7337e208180da85ceaa36474aab6880a1727f877cf9b85891df9e0a9bd",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_14": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_14.lean",
+      "template_sha256": "0142ecc1b60ddc1fd5a398633ac46408ccdc3b40c7810b25e049b7744a3456d6",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_15": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_15.lean",
+      "template_sha256": "df57b78adb5bf58fc19e27ea5925ee02ae569ce9159c14a212ebcdca792aef66",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_16": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_16.lean",
+      "template_sha256": "87a9dccd0c50efe499144fef95c569dc3af8fcc97bbac4925d546f67c505963f",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_17": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_17.lean",
+      "template_sha256": "4a1f6498af51bfe926c93c6e38f1322804597df71aaa407b2884084a3ae6b95b",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_18": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_18.lean",
+      "template_sha256": "01b24c7f0045848dbee7ccf4b0b8a5b32c33921ccfcd274ecce11c724003b09c",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_19": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_19.lean",
+      "template_sha256": "160b2a3e9ef4e32d82d77db918ff141758837747b12cceeb1eb453b181b4b710",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_20": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_20.lean",
+      "template_sha256": "054b1a475ae5c14f65a6b2247aadf7890f4794eef4d8fa0e7e7de321620d64f6",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_21": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_21.lean",
+      "template_sha256": "c987f99c410c3155d35a26a814fb461713bb0169617db697b493371788761530",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_22": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_22.lean",
+      "template_sha256": "916ac0302735932e730933090bac12c571d14bfd12f9eca3752fe7793884dd78",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_23": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_23.lean",
+      "template_sha256": "303292d72c3872b5d5f2e3630ad643a0a8f32f68f29f97e87e117289eb838e7d",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_24": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_24.lean",
+      "template_sha256": "8401e76b42dc63927578be5d45c8b9608eac5dff1752594884339948a81f311e",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_25": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_25.lean",
+      "template_sha256": "e24a38d4c29761210c080ecc64884d9f157e8249560ecc4088871f84511b245e",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_26": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_26.lean",
+      "template_sha256": "53b295e26b0a16b378bfb1fe4e10b50c2bc80b8f114e9b802d1e33dbcab16c44",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_27": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_27.lean",
+      "template_sha256": "1fe7ff2d48095c7ba194e3c618f85a347efb25f99d78ae176625a5288e582245",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_28": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_28.lean",
+      "template_sha256": "216a4d6a4b1098f1cf633ee9a118d8535b21038fa93c219e466c38553d78e9e3",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_29": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_29.lean",
+      "template_sha256": "1e882fc61910be473ec17f9665b740b307d35cea2d8a790e1fa23bec5bfba883",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_30": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_30.lean",
+      "template_sha256": "ccfffebb859e44e2cd1167e0620864277d4a8a67674840867f473343b3c711e9",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_31": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_31.lean",
+      "template_sha256": "0594e687acd07a46a864296a6b26284926db07a37f1071966814065a2ff1417e",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_32": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_32.lean",
+      "template_sha256": "3fbddeecea2a4f6e1fb1b3a99f3463df8c670763e6b8f5091c45ca1bfc2232d3",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_33": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_33.lean",
+      "template_sha256": "dfdf2c55963e3d8f82f3c1360f12349d92086105e05a1a7a1e744466915b9d6f",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_34": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_34.lean",
+      "template_sha256": "6fd9419222a45a5dff12afd2cd2bfbd7ed35408abf446a5d23fbdb3b26fc5128",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_35": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_35.lean",
+      "template_sha256": "8801e5919e9157db25db6b6fc960bcb6304207e4479fd469e21d468a8f2c79a5",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_36": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_36.lean",
+      "template_sha256": "5f1c2254e5b6bb63af580569533699320d4d92b50ed13927814f83fbd55f99a2",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_37": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_37.lean",
+      "template_sha256": "21737e004ce9a32946f823f0b02c31c8c7b0f2e22330afe6c9818d6017a6988b",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_38": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_38.lean",
+      "template_sha256": "f6ff2e0ab7c90cc2e25fa3fbcaa2cdf005c9908336fe4817343eece9321e86a7",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_39": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_39.lean",
+      "template_sha256": "fb8a1059341ed786341db82648f213f053d4f631e20a9dabedb2d30dede1fdc9",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_40": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_40.lean",
+      "template_sha256": "3b2d4ca81e0d3e26efc2f1c43c970af1a4d03f44335fa456baba165e936b4b3e",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_41": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_41.lean",
+      "template_sha256": "c5e77da325f5eeddf798a123872296968302bc903bd4e35f0c4f7e92e93957b7",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_42": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_42.lean",
+      "template_sha256": "80305e1332e412a146cc2db3f2addb1059f91b8b1d7e85c8474132984bcd94fc",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_43": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_43.lean",
+      "template_sha256": "7a456c2e61cc7ea1147755bc5a4f0d06ca6fbb794de647e827bd5e263198f5fd",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_44": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_44.lean",
+      "template_sha256": "9f9856537959b36f4de0ea4eff478830a823801cbc061c7ab88915f86f3db6a6",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_45": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_45.lean",
+      "template_sha256": "c557f9ccc1540c13501ae117aa3a64023f6a359ed8e95e84ae8d1b9176374f81",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_46": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_46.lean",
+      "template_sha256": "68c53424dca339660726383c969caa0e49ef33f3289901d5c72c464b3e1deaa7",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_47": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_47.lean",
+      "template_sha256": "c1afc3b5651e4e960fc1a80f338b10df49213f5393867c23229f04ec162f87b6",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Sweep7_48": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Sweep7_48.lean",
+      "template_sha256": "a03b626f82f1a84032e78127fba78736f23153b111e52935d99aedb2005dfb98",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Check\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronOrder7Verified": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronOrder7Verified.lean",
+      "template_sha256": "4c89376e88fff3125482d2583f87e2aeecde7f9f04b9560eb20825f7a371c7fa",
+      "replacements": [
+        {
+          "site": "prepend import Distinct",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_03\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_03\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_19\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_19\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_48\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_48\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_14\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_14\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_33\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_33\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_47\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_47\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_38\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_38\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_05\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_05\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_18\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_18\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_08\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_08\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_01\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_01\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_29\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_29\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_09\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_09\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_22\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_22\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_15\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_15\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_11\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_11\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_44\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_44\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_16\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_16\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_04\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_04\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_02\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_02\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_07\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_07\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_23\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_23\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_12\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_12\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_06\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_06\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_20\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_20\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_36\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_36\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_21\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_21\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_30\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_30\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_46\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_46\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_43\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_43\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_28\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_28\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_27\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_27\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_34\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_34\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_10\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_10\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_32\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_32\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_17\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_17\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_40\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_40\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_24\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_24\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_26\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_26\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_13\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_13\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_42\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_42\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_45\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_45\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_31\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_31\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_00\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_00\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_25\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_25\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_37\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_37\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_35\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_35\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_39\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_39\n",
+          "count": 1
+        },
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep7_41\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_41\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronRealize": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronRealize.lean",
+      "template_sha256": "780bea5307cd5b0e10bae50f693bca020582baba3ac5b509e7f08489a7ef60ca",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronMaximizer\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronMaximizer\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronRealizedApply": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronRealizedApply.lean",
+      "template_sha256": "f408a2d39b8a13f1cdd12da08a1f413d9325d679d2948b2bee6c71d14984220a",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronLimitHom\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronLimitHom\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronStatComb": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronStatComb.lean",
+      "template_sha256": "f939bc55f58e13cf7c6172cda9b6f9dfcf2795082107f73d1d1b4aac77c88825",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronTuran\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronTuran\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    },
+    "TetrahedronTuran": {
+      "template": "scripts/exact_certificate/templates/Examples/TetrahedronTuran.lean",
+      "template_sha256": "45567ef8061a2eaa1b91b7f4c801d47968103b4dc93b397f8e794e7955a904e1",
+      "replacements": [
+        {
+          "old": "import LeanFlagAlgebras.Core.Examples.TetrahedronRealizedApply\n",
+          "new": "import LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronRealizedApply\n",
+          "count": 1
+        },
+        {
+          "old": "namespace FlagAlgebras.Core.Tetrahedron\n",
+          "new": "namespace FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        },
+        {
+          "old": "end FlagAlgebras.Core.Tetrahedron\n",
+          "new": "end FlagAlgebras.Core.Tetrahedron.FullSevenConverged\n",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "handwritten_modules": {
+    "TetrahedronOrder7FiveRootBits.lean": "04ac9f7d9d185c1a722a7e2148504516c1b9061a83c3a35ae4973825a47b5ae9",
+    "TetrahedronOrder7FiveRootColumn.lean": "353ffe24fa80f34111848222c1fdf1b5c8fa98013a6166b3c2d0c4b231fb8c84",
+    "TetrahedronOrder7FiveRootColumnSum.lean": "3444413ca3bbafbd4466dda457e58383fbf3139acb80b08b76e2539bc8e77cef",
+    "TetrahedronOrder7FiveRootExpand.lean": "b1255d16f9fb8323bc9ee388f5ae094881c1578070243a23e8409f0ba8ba1eaa",
+    "TetrahedronOrder7FiveRootFlags.lean": "15d445515573a81aa9df3b41193b3395e8da3603f560840e3483ecd3acdb25d1",
+    "TetrahedronOrder7FiveRootGramSem.lean": "8e5794a777db8923838662c0724b430412e156ba9dfffaf01ae2474beb2e45ce",
+    "TetrahedronOrder7FiveRootOrderedColumn.lean": "fc0e57860e19581150a05a2440572efcdcf0a431494110b2f181ef9b522b34b8",
+    "TetrahedronOrder7FiveRootOrderedSem.lean": "84ed222b8c049758259ac7a311be51b768afc690e2f7a0b4523f15543f6ba685",
+    "TetrahedronOrder7FiveRootPullback.lean": "6a01a830e0146ddba7fa2acb617cb8fda3a9878972ab4a0d06858dc63671b07c",
+    "TetrahedronOrder7FiveRootSOS.lean": "5d118db0d9346b625710452eb719355e6eb13d2dad680fe775ac4de57c1b2d7e",
+    "TetrahedronOrder7FiveRootSamples.lean": "c9b66a5548636e720408dcaf65701a1320f4c0092117c1a74d417757b05db284",
+    "TetrahedronOrder7FiveRootSem.lean": "b38d35d4c110f6fd77ba0061eee878fc400af61ba6a8e6b3943cbcb9cc39f10c",
+    "TetrahedronOrder7FiveRootTableFacts.lean": "a7190df0f6328d29f3e8187b7af1374bb3f1f9094ab7fab6235e6a60ab8d22ab"
+  },
+  "generated_sha256": {
+    "TetrahedronAntitone.lean": "db0d4236c808777027d7cc855300720d9a543e2d28e11940955444edf995bfaa",
+    "TetrahedronBoost.lean": "dcedefa32baf764d6685409f7a5806b51974c1947b73884d5987d299973ca498",
+    "TetrahedronCompact.lean": "261db87f65edcf71fcfb429bff693f0544b809faea54c58a453e9d31def08848",
+    "TetrahedronDegreeCheck.lean": "f83283eb5795f0c84cfa0eaa1f3aa4879db641f366fb2b62537290a1cf92cb54",
+    "TetrahedronDegreeExpand.lean": "f1e220250323053c6ec71dc96561eacceb29fcc6437d41f16ef470f156a206df",
+    "TetrahedronDifferential.lean": "717afc8f1d3f938915d7d203ad521caa445e247876a5379bbdce4284da1e1519",
+    "TetrahedronExtremal.lean": "18bee87c0d9a3819b660ae013110212bb6cf46eeda6d01c0e741d5b418a51e0e",
+    "TetrahedronLimitHom.lean": "bf7bac5e0259580fb83f7c1608c2ddf1fbcfb32ef66540ae815af325d1042781",
+    "TetrahedronLimitLin.lean": "210403ad883fb576788502617a1e671bdc9870379c98869956a32c562675239f",
+    "TetrahedronLimitMul.lean": "9a4e90434a4b3fb9b984d7b4fa8f517f103aac34620d94cb2f63abe5dee72609",
+    "TetrahedronMaximizer.lean": "f6de53d13cbe914ba34d4d59f50680186456d46be2974ee2f7694c14d5d80353",
+    "TetrahedronOrder7Assembly.lean": "003567328bc99ca9f513027b06029eede4b56c034233d8b5740c3621fa98f53c",
+    "TetrahedronOrder7BlockCheck.lean": "0cf55a91205d014bd6de5a503e07b69e6bd596e99f847ec210e6224476c31fb5",
+    "TetrahedronOrder7BlockElt.lean": "5206ae30be001a5569fee4d1bc071de31e7eb65bd0cbd2620173c40989732fc5",
+    "TetrahedronOrder7BlockFlags.lean": "276988d1620bf6d28eb8c6deb54c9c3b7b853cb5594c2219ae5721f0aafe3938",
+    "TetrahedronOrder7BlockGamma.lean": "32a70ba3efe56d2e6f48344419b09d0ee387e715c128af33bece52a404f21838",
+    "TetrahedronOrder7BlockSOS.lean": "32d51d0a7b91797951263fa132e6e134b8096466551f46f789763007a7ce7900",
+    "TetrahedronOrder7Blocks.lean": "c5f6404eb64fde1ead4d9bde4e4a52ed4d1b33cf27a4333af906cbf115a5eb6b",
+    "TetrahedronOrder7Bound.lean": "bf1f26234568c9cfb93625dc80f60ec2c4e5cf334f1a5b0854c43f9602708b4f",
+    "TetrahedronOrder7CellSem.lean": "0d50ffeb0c621e5b41c874ae68743ce78fda61a700fb2aa35a7da700065c79de",
+    "TetrahedronOrder7CellWeight.lean": "82d49cec9bf79202455743d4a15f487083c07dbf1733583bfda8e1b84e9373c4",
+    "TetrahedronOrder7Chain.lean": "a6679bf98daabb8d384da4af858754e391a40bca080748c728deb59925cf22a8",
+    "TetrahedronOrder7Check.lean": "afb5f80c3a93b58a7d5dc6f7a8795bd50b54110191c82f6d4553e6285fb3d901",
+    "TetrahedronOrder7ClassIdx.lean": "aabbf097604c9adc58440de328cf8b1d3762fa957f60f3e6c0229b3328a9b949",
+    "TetrahedronOrder7ClassNum.lean": "a9f89003ea5cac18d0a1be6e4e301b9b07dd1959b24b143aae100f891c0b0ceb",
+    "TetrahedronOrder7Column.lean": "617f61cd1f7d39546749db63c2bc5f6c5bf974ab26cfca74021f0993f10b74ee",
+    "TetrahedronOrder7Covered.lean": "54ca28b371b6ad2911c0954129415c3146123f797e007f16762181b63cd38490",
+    "TetrahedronOrder7Deck.lean": "353dfb61d51a5663c0e4a0b68b8cdb19b2ce71621f3e1db94eaa2900baa0c26f",
+    "TetrahedronOrder7Edges.lean": "2c73c04e6c7b6a396f719c137d9a4b3846fc7baa0fc6a4cfef9866a1e025ad9d",
+    "TetrahedronOrder7Ext24.lean": "610023398871262273b2250dbb7c32021be071b5f49b00805232ca8d9107b6e5",
+    "TetrahedronOrder7Ext45.lean": "a98d8fc8f91d8451a95f49e1013b320e9cd6d9404c584dff837d265544ce99e8",
+    "TetrahedronOrder7Extension.lean": "69a564f7a8500ab0f311cd5b19ae41f0c36a6c959a71419eec802295bae9da2c",
+    "TetrahedronOrder7Fiber.lean": "293845593352861e86c03904a56a01f43d27c38fb45d6f1f2c64bf73f8251d43",
+    "TetrahedronOrder7FoldSum.lean": "bb2b47792fe1b34fce8207b21b3f5fc6f145e16bd790b5e774b3ee6d1a3fee74",
+    "TetrahedronOrder7GatherPull.lean": "3a1890890c108474ce8cfcc40c2c4f2821e611ac243d1d7aa7928218ce9e86ba",
+    "TetrahedronOrder7Induce5.lean": "77e7e02dda30769b173e779b09aacb8de51afea669b254a0fc44fc51cc2cde4a",
+    "TetrahedronOrder7Induced.lean": "22c1bbddf5dbc91c380395fed417d8d4cb0056484d5b7f30c8f2ea845a8ebf4c",
+    "TetrahedronOrder7Objective.lean": "c1daed7258b9a79bcd3c784b3c4ea43fd2a1e8eda739269dd42ef53df9708bc6",
+    "TetrahedronOrder7Pieces.lean": "63814fe2bc4b70fc374ec8e621c27518e640d49aecd352e7b50595a768e36748",
+    "TetrahedronOrder7Realize.lean": "cb8452ee60a3cc07e8a9536b5c42152612136d5dedd584eee98d93913f4d719f",
+    "TetrahedronOrder7Reduce.lean": "4b06025e47045fa77b37751ebdd0289a63bf9b78e9339230bb8157dcd2b124ba",
+    "TetrahedronOrder7Reindex.lean": "846d59bcf617cf155628a423ed6cb462d208d6ff86be50f15f4dc7ed20ba81c9",
+    "TetrahedronOrder7RootAcct.lean": "f7684c4ad523189eedc689253ef7c0f66edf86e6c4f0e3b8a6196773f8e25fd0",
+    "TetrahedronOrder7RootElt.lean": "c8fc00739324372bb14bbcff5a9116df2a3aa91d29e1aa1ab516cb2adffc4b44",
+    "TetrahedronOrder7RootExpand.lean": "7d6a8cd268d2f4ea2b906b9ad76f7d1129311abcb4c69167054804acd93eff46",
+    "TetrahedronOrder7RootFlags.lean": "b822d8e8e9eac33c2619a8075a1ea14727a1a108006aa62b905957096d1ad613",
+    "TetrahedronOrder7RootMatch.lean": "f56ff7b1d4ba9234fc134e27704174b9374b826fd092a268f2cce2ec67e5bc64",
+    "TetrahedronOrder7RootSOS.lean": "1b84cbf56003b26594e1448ee75a7d37d5bb6292595169bc2f960763925cab73",
+    "TetrahedronOrder7RootScaled.lean": "d0381a0e8b259a4d083c4234edb3f7c0107926fa2d46e681e9e77dccf11776f4",
+    "TetrahedronOrder7Slack.lean": "b7f988f942e17ca8f5825b6111f584961bbdb28ab0059f885945f0d6afa2d3a9",
+    "TetrahedronOrder7Split.lean": "b8c1782d20799eb68f7b0facb22457c2813de3c1baf87001327f2c192c7a038f",
+    "TetrahedronOrder7Sweep7_00.lean": "184e51d42247fc4ce10443469fa1d7a411b73f0eb2e05841e8c03e78b89e07c3",
+    "TetrahedronOrder7Sweep7_01.lean": "8a034c3c6af0e03c55bc3afc95b16bbd394ea66bbbe73f927dcd55681713c8fa",
+    "TetrahedronOrder7Sweep7_02.lean": "6f15c7c9b1f11c29340122781d2c62873da4559e3cdc184afef8dedbcc3d1fb7",
+    "TetrahedronOrder7Sweep7_03.lean": "c450fd76420acebc5b22dc37d85cb17c35f6aef29679c9251f08c4839b65076d",
+    "TetrahedronOrder7Sweep7_04.lean": "2b0f83d3905e9872be492ea1034671d066d550928a2a674e5f24bd2b67e54424",
+    "TetrahedronOrder7Sweep7_05.lean": "c147714fa79cead22ec47a23aab4804b552f47fbde97b185c2474e3106de26e8",
+    "TetrahedronOrder7Sweep7_06.lean": "789f1be98514ef27fba5b0f9a5001ad9db53a0fd459884aa86f49f39ad2f190f",
+    "TetrahedronOrder7Sweep7_07.lean": "7953f343396b809b8b3ce000b515bb76f9752da035c9ca805a6be423f90ed453",
+    "TetrahedronOrder7Sweep7_08.lean": "e6d7e37fc83c263906b831db5a269a3344b4b58819d8220099b255853cd64ffa",
+    "TetrahedronOrder7Sweep7_09.lean": "611f6f7f3c8a74f6cf9ea4f75e62110ac6c79032af7bc5e0216f29efc16e34d1",
+    "TetrahedronOrder7Sweep7_10.lean": "4bee612fc228d7cf89a062d98d98a643783dc2fd0f1a22d8b6ef5bdcb5a71993",
+    "TetrahedronOrder7Sweep7_11.lean": "aa51d9b9a3976ef245830b43ed7ea1108f03ea2e53af09b36a1a6256125961f6",
+    "TetrahedronOrder7Sweep7_12.lean": "7fd2ae747dd8906ef80b163da643f2871a53e1cad179ae17cf797f8efada2fb7",
+    "TetrahedronOrder7Sweep7_13.lean": "4a71cfb7d7fae075d0ab30bf2ac26ed90d827422da31a12af522cc30f0f9b262",
+    "TetrahedronOrder7Sweep7_14.lean": "030c8e6c18cf0ff90cfcd775c4de108f13ff69bbae2df103a426a80f96d5248c",
+    "TetrahedronOrder7Sweep7_15.lean": "d714119cef3b605f5287f039f98989d5cfc9f03cfb1afb88c97d914708451e50",
+    "TetrahedronOrder7Sweep7_16.lean": "16599c5aa34e48da46fbada84088963db27ef6096acadb086309c2365dd5f385",
+    "TetrahedronOrder7Sweep7_17.lean": "d0d231761a034aa29c72b65d74734cc0cb09bd87581dd746d9395a386a80d09e",
+    "TetrahedronOrder7Sweep7_18.lean": "0e9e98f73d8af7643322191de0d502ee18c1c1c58b880f9e5d7cb98720152aa8",
+    "TetrahedronOrder7Sweep7_19.lean": "e2d8ef1e91703075fb89f8ef4e240e7a27b722ab9d3a1778f25f29ea5ee886cb",
+    "TetrahedronOrder7Sweep7_20.lean": "788e0b9e4f9b1a123239d778c2474ca866e9d7d2e6b7284984498e276dc55c75",
+    "TetrahedronOrder7Sweep7_21.lean": "360aa940ee286f16ebfad7a03318a3c36817895ea42cd80ac43a8fed278071c4",
+    "TetrahedronOrder7Sweep7_22.lean": "74647361f3856d9ed9158f05c51183107e702c947068036f88da7e049f9414b6",
+    "TetrahedronOrder7Sweep7_23.lean": "5c5cbc83e6d89e253bea9ac070dca70ea2627f2e0d8221afefe3df014a1547e1",
+    "TetrahedronOrder7Sweep7_24.lean": "fad1a39856a920527c52ddd2e6f6535240fc5a42d2e7e7feab379695c62c76e9",
+    "TetrahedronOrder7Sweep7_25.lean": "4dd7c6c13ec786060bdf6674d43acfca14a691c8a42e67564d0e43319a33c9ec",
+    "TetrahedronOrder7Sweep7_26.lean": "3264e1bebe54a13bd909b3ccc8fe3da7c898a843413f699917fd51138de9921d",
+    "TetrahedronOrder7Sweep7_27.lean": "98bba6c2bc6690874d35a630dca0e6879a83c65c53389d7c57c273a4ceab86e8",
+    "TetrahedronOrder7Sweep7_28.lean": "0fabef690d25ba5ff8158c52b8dbab941dfc02d7f4ce6d44db5b0b87b74f2703",
+    "TetrahedronOrder7Sweep7_29.lean": "893a14473cbbf5c9f725be342a28949faa2fcd4a9ea0f6a8c5cf2a7495734d28",
+    "TetrahedronOrder7Sweep7_30.lean": "07287ae862e4bec98bb1c6ced99de66201c19a9334c04ee925a2b72ebd078056",
+    "TetrahedronOrder7Sweep7_31.lean": "4712801dd7859627db9b00d9605cf67941b775b23cef16e1fd76afae04fe8d0d",
+    "TetrahedronOrder7Sweep7_32.lean": "219db57d7f8ddd6f89720c2c5855cb97303249a7a76da046e99e6723743e5f14",
+    "TetrahedronOrder7Sweep7_33.lean": "0477491a57d65c85cd2c82058316e9e640006236e6f4f8e4a55eb49ce1120153",
+    "TetrahedronOrder7Sweep7_34.lean": "955271bcd25b30c8c47d811e4aca7670471405031814affa99e43a034e6d6544",
+    "TetrahedronOrder7Sweep7_35.lean": "c01d6e448f5ebb017d5b87ce670b53cd877abe3e5033d580892a50294fedada4",
+    "TetrahedronOrder7Sweep7_36.lean": "8aa605cb22e19b8f0ba4538459af43ffdad0f6911ad3fc8518d5f4ee00cc37c1",
+    "TetrahedronOrder7Sweep7_37.lean": "b40f045fd255217ead4dedf4c65dc958f684a068f59eb97128a28f92b46b922d",
+    "TetrahedronOrder7Sweep7_38.lean": "cb07da65a215b7b08b5a667eb53f7b0de80b591ef48c4d626e5726eda9b8d05b",
+    "TetrahedronOrder7Sweep7_39.lean": "7962d9e65fc903548d177aff39e50dfdfec1436e067e26b36fd05503c11a8009",
+    "TetrahedronOrder7Sweep7_40.lean": "b50fca34ce16402be5a5dcf12e757bc69536a7528b2f332985414970bda17455",
+    "TetrahedronOrder7Sweep7_41.lean": "28d2212a10a56335c581469cca035bb02c8165ed471366523ce1a7c9afd28406",
+    "TetrahedronOrder7Sweep7_42.lean": "1b0b2c40fca37d24b7abc63a0467d08823fb10abf1af8515ea18f96676c46ab4",
+    "TetrahedronOrder7Sweep7_43.lean": "23f185a915c26afbe830d859a071efa7470680a044c59e18345bf3789904baaa",
+    "TetrahedronOrder7Sweep7_44.lean": "53db67574307c2c329c219a0e3b2a421f318fb51de9fa288c3160abcebe86701",
+    "TetrahedronOrder7Sweep7_45.lean": "dcae8232c04030f80168e64d46ddf01dff6ede79e1409a37bd55012508039a60",
+    "TetrahedronOrder7Sweep7_46.lean": "dcad6df23c25d1913e69f28a24ba07a2f29b7895bdc364e287009f02ff07e124",
+    "TetrahedronOrder7Sweep7_47.lean": "8b61bb16e35a0cd91a16a234449eabf9224368a081788b97728ad6504c312da6",
+    "TetrahedronOrder7Sweep7_48.lean": "1a1b2c3a0753d35a4b8d1ecd25408d949f8589da761da16eee05a65bf2e27ecd",
+    "TetrahedronOrder7Verified.lean": "d08d59e7f65160fd675548fd229ada6a32f9acc3dc0420626cbe98e2028f27f7",
+    "TetrahedronRealize.lean": "2adcabf3d02562ab30c08469d95d80762914422130cd72a2739889d3178d1306",
+    "TetrahedronRealizedApply.lean": "c528a540e8e6b12e89219aada7b951705c4a9391f5e156fd940e8be884a66582",
+    "TetrahedronStatComb.lean": "fdd98893b521e591abb5248de7388d8e21186d9c0be6bddcb4f1d009aa0d942f",
+    "TetrahedronTuran.lean": "661e7860c186324026e0cdc59cd1476f1c8fc99e79343e44c53c5e1e14ce1b23",
+    "TetrahedronOrder7FactorsS1.lean": "7a42dccd2fb9a3da96c1067bf6a801c0d06c7d5116f0147df65bc9bf8aed23fb",
+    "TetrahedronOrder7FactorsS30.lean": "b44815c3d6ecbbd9c871f75c7aa26b572660d4bc8d2d3e61760c9c27bd2f1ac7",
+    "TetrahedronOrder7FactorsS31.lean": "2d8f1e6252fd5a27e9ccf4cbecf51498a2be247a89fe83d65d701e89f32caf8c"
+  },
+  "generator_sha256": "34b847f02e3523ed31cf4f6c79833676036eef839e53c17cc71773b172cbde97",
+  "assembly_transform_sha256": "fb81520adb6a14560c5cc22e4aef5e16a6e852a3bea51a6fe8ccd1b64b204b37",
+  "common_sha256": "bf6ce40ae9e67ef1339861a5198fecd1e2c34ad14de3a172cdfcb7c2bc589620",
+  "axiom_audit": "AxiomCheckFullSevenConverged.lean",
+  "axiom_audit_sha256": "67dd849edec098828f2694a0fba9450c31af2d3ddaf7af39ef53f3eb8c333da9"
+}
