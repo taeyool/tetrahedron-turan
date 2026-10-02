@@ -1,5 +1,5 @@
-⚠ [1270/1280] Replayed LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootBits
-warning: LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronOrder7FiveRootBits.lean:71:53: This simp argument is unused:
+⚠ [1270/1280] Replayed LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootBits
+warning: LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronOrder7FiveRootBits.lean:71:53: This simp argument is unused:
   Bool.and_assoc
 
 Hint: Omit it from the simp argument list.

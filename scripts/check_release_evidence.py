@@ -1,4 +1,4 @@
-"""Check historical and fresh release build evidence without invoking Lean."""
+"""Check the original verification record and the release build record without invoking Lean."""
 import gzip
 import hashlib
 import json
@@ -8,7 +8,10 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts/exact_certificate"))
-from verify_full_seven_long import source_hashes, TARGETS, parse_axioms
+from verify_full_seven_converged import source_hashes, TARGETS, parse_axioms
+
+RELEASE_BUILD = "release-20261002"
+RELEASE_COMMIT = "857fe4bc4e9fd63d268a9e1764d1c5ee79c1ab52"
 
 def sha(data): return hashlib.sha256(data).hexdigest()
 
@@ -38,7 +41,7 @@ def lean_tokens(text):
     return re.findall(r'"(?:\\.|[^"\\])*"|\w+|[^\w\s]+',"".join(result))
 
 def check_release_build(current):
-    folder=ROOT/"certificate/verification/release-20260921"
+    folder=ROOT/"certificate/verification"/RELEASE_BUILD
     for line in (folder/"SHA256SUMS").read_text(encoding="utf-8").splitlines():
         expected,name=line.split("  ",1)
         assert sha((folder/name).read_bytes())==expected,name
@@ -47,7 +50,7 @@ def check_release_build(current):
     verification=attempt/"verification"
     record=json.loads((verification/"formalization.json").read_text(encoding="utf-8"))
     assert state["status"]==record["status"]=="PASS"
-    assert state["release_commit"]==record["source_base_commit"]=="8bf9d8d286bb409ae922393a261b08648b2b6d79"
+    assert state["release_commit"]==record["source_base_commit"]==RELEASE_COMMIT
     assert sha((verification/"formalization.json").read_bytes())==state["formalization_sha256"]
     assert state["all_project_modules_built"] and state["source_files_unchanged"]
     assert state["original_project_started_without_build_cache"]
@@ -66,9 +69,12 @@ def check_release_build(current):
         data=path.read_bytes() if name==record["certificate"] else path.read_text(encoding="utf-8").encode()
         assert sha(data)==h,name
     for stage in state["stages"]:
-        assert stage["status"]=="passed" and stage["returncode"]==0,stage["name"]
         assert sha((attempt/(stage["name"]+".log")).read_bytes())==stage["log_sha256"]
-    full=next(stage for stage in state["stages"] if stage["name"]=="full-library")
+        # Only a two-target batch may fail: its targets are then rebuilt one at a time, and the
+        # later full library build must pass.
+        assert (stage["status"]=="passed" and stage["returncode"]==0) or re.fullmatch(r"project-batch-\d+",stage["name"]),stage["name"]
+    assert [stage["name"] for stage in state["stages"][-2:]]==["full-library","verification"]
+    full=state["stages"][-2]
     assert full["command"][-1]=="build"
     assert "Build completed successfully" in (attempt/"full-library.log").read_text(encoding="utf-8")
     for name,h in record["verification_logs_sha256"].items():
@@ -122,12 +128,32 @@ def check():
     assert actual=={k:sorted(v) for k,v in record["axioms"].items()}
     cert=json.loads((ROOT/"certificate/K4_turan_order7_certificate.json").read_text(encoding="utf-8"))
     assert cert["bound_fraction"]==record["bound_fraction"]
+    assert record["certificate_sha256"]==mapping["historical_certificate_sha256"]
     assert sha((ROOT/"certificate/K4_turan_order7_certificate.json").read_bytes())==mapping["release_certificate_sha256"]
     for name,h in mapping["build_configuration_sha256"].items():
         assert sha((ROOT/name).read_text(encoding="utf-8").encode())==h
-    print(json.dumps(dict(status="historical_evidence_matches",release_modules=len(current),
-        historical_modules=len(sources),historical_completed_utc=record["completed_utc"],
+    print(json.dumps(dict(status="original_record_matches",release_modules=len(current),
+        original_modules=len(sources),original_completed_utc=record["completed_utc"],
         fresh_lean_build=False)))
     check_release_build(current)
+    check_search_records(record)
+
+def check_search_records(record):
+    """The published records of the continued search that produced the certificate."""
+    folder=ROOT/"experiments/results_unlimited32_20260918"
+    manifest=json.loads((folder/"publication-manifest.json").read_text(encoding="utf-8"))
+    for name,row in manifest["files"].items():
+        assert sha((folder/name).read_bytes())==row["sha256"],name
+        assert row["changed"]==(row["sha256"]!=row["original_sha256"]),name
+    main=manifest["main_certificate"]
+    assert main["original_sha256"]==record["certificate_sha256"]
+    assert sha((ROOT/main["path"]).read_bytes())==main["sha256"]
+    best=json.loads((folder/"best_verified.json").read_text(encoding="utf-8"))
+    assert best["fraction"]==record["bound_fraction"] and best["certificate_sha256"]==record["certificate_sha256"]
+    assert best["native_sha256"]==manifest["files"]["final_converged.npz"]["sha256"]
+    audit=json.loads((folder/"final_audit.json").read_text(encoding="utf-8"))
+    assert audit["converged"] and all(audit["convergence_tests"].values())
+    print(json.dumps(dict(status="search_records_match",files=len(manifest["files"]),
+        bound_fraction=best["fraction"],search_rerun_by_this_check=False)))
 
 if __name__=="__main__":check()

@@ -1,0 +1,9 @@
+✖ [1259/1260] Building LeanFlagAlgebras.Core.Examples.TetrahedronOrder5 (1064s)
+trace: .> LEAN_PATH=<repo>\.research-repro\lv\.lake\packages\Cli\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\packages\batteries\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\packages\Qq\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\packages\aesop\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\packages\proofwidgets\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\packages\importGraph\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\packages\LeanSearchClient\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\packages\plausible\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\packages\mathlib\.lake\build\lib\lean;<repo>\.research-repro\lv\.lake\build\lib\lean <home>\.elan\toolchains\leanprover--lean4---v4.27.0\bin\lean.exe <repo>\.research-repro\lv\LeanFlagAlgebras\Core\Examples\TetrahedronOrder5.lean -o <repo>\.research-repro\lv\.lake\build\lib\lean\LeanFlagAlgebras\Core\Examples\TetrahedronOrder5.olean -i <repo>\.research-repro\lv\.lake\build\lib\lean\LeanFlagAlgebras\Core\Examples\TetrahedronOrder5.ilean -c <repo>\.research-repro\lv\.lake\build\ir\LeanFlagAlgebras\Core\Examples\TetrahedronOrder5.c --setup <repo>\.research-repro\lv\.lake\build\ir\LeanFlagAlgebras\Core\Examples\TetrahedronOrder5.setup.json --json
+info: stderr:
+libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
+error: Lean exited with code 3221226505
+✔ [1260/1260] Built LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep00 (1064s)
+Some required targets logged failures:
+- LeanFlagAlgebras.Core.Examples.TetrahedronOrder5
+error: build failed

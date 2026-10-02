@@ -4,13 +4,13 @@ A machine-checked upper bound for the Turán density of the tetrahedron
 `K₄⁽³⁾`, the complete 3-uniform hypergraph on four vertices, in Lean 4:
 
 ```lean
-theorem FlagAlgebras.Core.Tetrahedron.FullSevenLong.tetraTuranDensity_le_certValue :
-    tetraTuranDensity ≤ 312372062889819 / 560000000000000
+theorem FlagAlgebras.Core.Tetrahedron.FullSevenConverged.tetraTuranDensity_le_certValue :
+    tetraTuranDensity ≤ 14993367693127837 / 26880000000000000
 ```
 
-The constant is `0.5578072551603910714…`, below the previously published bound
+The constant is `0.5577889766788629836…`, below the previously published bound
 `0.5615` and above the conjectured value `5/9 = 0.5555…`. The proof uses an
-exact seven-vertex flag-algebra certificate, 794 integer factor vectors in 23
+exact seven-vertex flag-algebra certificate, 780 integer factor vectors in 23
 blocks, together with the degree-stationarity identity of Razborov's
 differential method. An independent finite-cloning route
 (`tetraTuranDensity_le_certValue_finite`) proves the same bound from the same
@@ -26,6 +26,17 @@ It contains the Lean formalization, the exact certificate and its verification
 record, the independent integer verifiers, the search code, and the records of
 the paper's computational experiments.
 
+The first arXiv version of the paper states the weaker bound
+`312372062889819/560000000000000 = 0.557807…`. Its certificate came from a
+six-hour search that was stopped by its time limit. Continuing that search
+until its convergence tests were met produced the certificate used here. Its
+bound is the one stated in the revised version of the paper, whose
+Appendix C.3 describes the continuation. The six-hour certificate is kept as
+[`certificate/legacy/K4_turan_order7_six_hour_certificate.json`](certificate/legacy/K4_turan_order7_six_hour_certificate.json).
+The repository state that accompanied the first version, with its Lean chain
+`FullSevenLong`, is tagged
+[`arxiv-v1`](https://github.com/taeyool/tetrahedron-turan/tree/arxiv-v1).
+
 ## Verify the bound in Lean
 
 Requirements: [elan](https://github.com/leanprover/elan) (the toolchain is pinned
@@ -34,31 +45,34 @@ extra package.
 
 ```sh
 lake exe cache get
-python scripts/exact_certificate/verify_full_seven_long.py \
+python scripts/exact_certificate/verify_full_seven_converged.py \
   --threads 4 --sweep-batch-size 2 --output-dir .research-repro/lean-verification
 ```
 
 The driver checks the certificate hash and the generation manifests, builds the
 49 seven-vertex coefficient sweeps in bounded batches, builds both headline
-modules, runs the axiom audit `AxiomCheckFullSevenLong.lean`, type-checks the
+modules, runs the axiom audit `AxiomCheckFullSevenConverged.lean`, type-checks the
 literal fraction against both theorems, and writes `formalization.json` with
 status `PASS` only when every step succeeds. A plain `lake build` builds the
 entire project library without writing a verification record. The
-[fresh release build](certificate/verification/release-20260921/README.md)
-of commit `8bf9d8d` passed all 246 project modules and the complete verifier
-on September 21–22, 2026. It took 10 hours 37 minutes, including recovery
-from a memory failure by building project modules in dependency order with
-at most two targets per invocation. Older supporting sweeps require more
-memory than the roughly 2 GB used by each new coefficient sweep;
-`--sweep-batch-size` limits only the latter. See
+[fresh release build](certificate/verification/release-20261002/README.md)
+of commit `857fe4b` passed all 246 project modules and the complete verifier
+on October 2, 2026. It took 12 hours 35 minutes, including recovery from a
+memory failure by building the certificate-independent modules with at most
+two targets per invocation. Older supporting sweeps require more memory than
+the roughly 2 GB used by each new coefficient sweep; `--sweep-batch-size`
+limits only the latter. The certificate-independent module
+`TetrahedronOrder5` needed 36.7 GiB of committed memory by itself. See
 [docs/lean-proof.md](docs/lean-proof.md) for the statement, proof architecture,
 trust boundary and measured build costs, and
 [certificate/verification/](certificate/verification/README.md) for both
-the historical and release verification records.
+the original and release verification records.
 
 The [experiment evidence bundle](experiments/evidence/README.md) includes
 certificates and execution records for all 43 reported trials. A fresh
-experiment plan is available with `python experiments/reproduce.py`.
+experiment plan is available with `python experiments/reproduce.py`. The
+records of the continued search that produced the certificate are in
+[`experiments/results_unlimited32_20260918/`](experiments/results_unlimited32_20260918/README.md).
 
 ## Verify the certificate without Lean
 
@@ -78,14 +92,14 @@ python -X utf8 experiments/runtime.py search/exactify_five_root.py \
 This rebuilds every Gram matrix from the integer factor vectors, evaluates the
 coefficient of all 13,051,375 tetrahedron-free one-vertex extensions of the 964
 six-vertex representatives with two independent implementations, and checks
-the recorded maximum `11245394264033484 / 20160000000000000`, which reduces to
+the recorded maximum `179920412317534044 / 322560000000000000`, which reduces to
 the bound. See [certificate/README.md](certificate/README.md).
 
 ## What is proved
 
 The statement mentions only finite sets, binomial coefficients and a limit.
 The definitions are in
-[`LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronExtremal.lean`](LeanFlagAlgebras/Core/Examples/FullSevenLong/TetrahedronExtremal.lean):
+[`LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronExtremal.lean`](LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronExtremal.lean):
 
 - `Sym3Graph n`: a set of three-element subsets of `Fin n`;
 - `HasTetraSet G`: some four vertices span all four triples;
@@ -105,7 +119,7 @@ no stationarity hypothesis.
 
 ## Axioms
 
-`lake env lean AxiomCheckFullSevenLong.lean` prints the footprint of every
+`lake env lean AxiomCheckFullSevenConverged.lean` prints the footprint of every
 theorem below.
 
 | Theorems | Axioms |
@@ -126,18 +140,18 @@ no user-declared axioms.
 | `LeanFlagAlgebras/Core/` | Flag algebras over finite relational signatures: densities, the flag algebra, positive homomorphisms, the downward operator, limits and sampling |
 | `LeanFlagAlgebras/Core/Differential/` | Razborov's vertex differential and the stationarity of maximizers, theory-generically ([README](LeanFlagAlgebras/Core/Differential/README.md)) |
 | `LeanFlagAlgebras/Core/Compute/` | Computable 3-graphs on bitmasks, enumeration, deletion, cloning and counting |
-| `LeanFlagAlgebras/Core/Examples/` | The tetrahedron-free theory, the kernel-checked catalogue of the 964 six-vertex classes, and the certificate chain `FullSevenLong/` |
-| `AxiomCheckFullSevenLong.lean` | The axiom audit of the headline theorems |
+| `LeanFlagAlgebras/Core/Examples/` | The tetrahedron-free theory, the kernel-checked catalogue of the 964 six-vertex classes, and the certificate chain `FullSevenConverged/` |
+| `AxiomCheckFullSevenConverged.lean` | The axiom audit of the headline theorems |
 | `certificate/` | The exact certificate, its Lean verification record, and the integer verifiers ([README](certificate/README.md)) |
 | `scripts/exact_certificate/` | Generation of the certificate-dependent Lean modules from the certificate, and the verification driver ([README](scripts/exact_certificate/README.md)) |
 | `search/` | The cutting-plane and column-generation search and the exact conversion of its output (paper, Section 4 and Appendix B) |
-| `experiments/` | The runners and records of the computational experiments (paper, Section 5 and Appendix C) ([README](experiments/README.md)) |
+| `experiments/` | The runners and records of the computational experiments and of the continued search that produced the certificate (paper, Section 5 and Appendix C) ([README](experiments/README.md)) |
 | `figures/` | The experimental figures of the paper and the data they are drawn from |
 | `docs/` | [The Lean proof](docs/lean-proof.md) and [reproduction of the search and experiments](docs/reproduction.md) |
 
-The namespace and directory name `FullSevenLong` records the search that
+The namespace and directory name `FullSevenConverged` records the search that
 produced the certificate: the full seven-vertex model, with all 23 five-root
-types, run with the longer six-hour budget.
+types, continued until its convergence tests were met.
 
 ## Citation
 

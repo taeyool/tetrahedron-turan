@@ -1,0 +1,57 @@
+LeanFlagAlgebras/Core/Compute/Relabel6.lean:243:8: unused variable `q`
+LeanFlagAlgebras/Core/Compute/Relabel6.lean:281:23: try 'simp' instead of 'simpa'
+LeanFlagAlgebras/Core/Compute/Relabel6.lean:283:23: try 'simp' instead of 'simpa'
+LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:32:55: unused variable `huv`
+LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:80:47: unused variable `huv`
+LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:139:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+LeanFlagAlgebras/Core/Compute/Sym3Clone.lean:148:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:83:12: `Finset.filter_card_add_filter_neg_card_eq_card` has been deprecated: Use `Finset.card_filter_add_card_filter_not` instead
+LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:132:33: unused variable `hn`
+LeanFlagAlgebras/Core/Compute/Sym3Delete.lean:138:12: `Nat.succ_mul_choose_eq` has been deprecated: Use `Nat.add_one_mul_choose_eq` instead
+LeanFlagAlgebras/Core/Differential/Stationary.lean:38:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.Model.eq_vertexType_of_mem`:
+LeanFlagAlgebras/Core/Differential/Stationary.lean:128:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_profileEval_weakLimit`:
+LeanFlagAlgebras/Core/Differential/Upward.lean:253:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.card_filter_rooted_witness`:
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:40:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagDensitySpace_isCompact`:
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:50:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.mem_Icc`:
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:69:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.continuous_eval`:
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:74:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.measurable_eval`:
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:79:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FlagDensitySpace.tendsto_iff`:
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:133:6: unused variable `φ₁`
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:133:9: unused variable `φ₂`
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:167:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.isClosed_chainClosed`:
+LeanFlagAlgebras/Core/Ensemble/DensitySpace.lean:185:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.isClosed_mulClosed`:
+LeanFlagAlgebras/Core/Ensemble/Empirical.lean:57:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mem_sigmaLabelings`:
+LeanFlagAlgebras/Core/Ensemble/Empirical.lean:66:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.IsFlagLabeling.isSigmaLabeling`:
+LeanFlagAlgebras/Core/Ensemble/Empirical.lean:74:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mem_flagLabelings_iff_toFlag_eq`:
+LeanFlagAlgebras/Core/Ensemble/Empirical.lean:152:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagCount_unit_out`:
+LeanFlagAlgebras/Core/Ensemble/Empirical.lean:173:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.sum_labelingCount_mul_subflagDensity`:
+LeanFlagAlgebras/Core/Ensemble/Empirical.lean:199:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.labelPoint_apply`:
+LeanFlagAlgebras/Core/Ensemble/Empirical.lean:214:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.empiricalMeasure_univ`:
+LeanFlagAlgebras/Core/Ensemble/Empirical.lean:242:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_empiricalMeasure`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:51:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.FinFlag.qFactor_pos`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:58:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.downward_basisVector_quot`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:100:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.flagDensity_out_right`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:118:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integral_eval_hostAt`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:160:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.empiricalSeq_of_nonempty`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:173:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.exists_weakLimit`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:189:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.evalBCF_apply`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:230:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.ae_eq_zero_of_tendsto_integral`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:256:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.chainBCF_apply`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:322:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.unitBCF_labelPoint`:
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:361:36: unused variable `G`
+LeanFlagAlgebras/Core/Ensemble/Extension.lean:367:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.mulBCF_apply`:
+LeanFlagAlgebras/Core/Ensemble/RandomHom.lean:31:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.prob_positiveHomSpace_eq_one`:
+LeanFlagAlgebras/Core/Ensemble/RandomHom.lean:80:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.evalHomBCF_apply`:
+LeanFlagAlgebras/Core/Ensemble/RandomHom.lean:84:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.integrable_toPosHom_apply`:
+LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronLimitMul.lean:130:36: try 'simp' instead of 'simpa'
+LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronOrder7FiveRootBits.lean:68:53: This simp argument is unused:
+LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronOrder7FiveRootPullback.lean:120:10: This simp argument is unused:
+LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronOrder7FiveRootPullback.lean:121:6: This simp argument is unused:
+LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronOrder7FiveRootPullback.lean:125:10: This simp argument is unused:
+LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronOrder7FiveRootPullback.lean:126:6: This simp argument is unused:
+LeanFlagAlgebras/Core/Examples/FullSevenConverged/TetrahedronOrder7RootMatch.lean:262:33: This simp argument is unused:
+LeanFlagAlgebras/Core/Examples/TetrahedronOrder7ExtS1.lean:73:18: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+LeanFlagAlgebras/Core/Examples/TetrahedronOrder7ExtS1.lean:217:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+LeanFlagAlgebras/Core/Limit/Profile.lean:58:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_basis`:
+LeanFlagAlgebras/Core/Limit/Profile.lean:63:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.limitLin_apply`:
+LeanFlagAlgebras/Core/Limit/Sampling.lean:176:0: automatically included section variable(s) unused in theorem `FlagAlgebras.Core.le_hostSize`:

@@ -1,13 +1,14 @@
 {
-  "note": "Historical PASS record retained unchanged. Released headline closure agrees token-for-token after removing comments and whitespace; this comparison is not a fresh Lean build. The historical record additionally audited auxiliary modules, so its module count is larger.",
-  "historical_record_sha256": "be5869d6551371b44419bfa3078dee0b37ca665e60501886f606af1a953e8aa5",
-  "historical_sources_sha256": "2342d2d6bcff11e9810833da00f69248bdad3022104df1db427c3cd904850348",
-  "release_certificate_sha256": "c3b0e0b9364f669763bdb8fd1e3914bcd55acdee17fe7a5adbbb2e92da22beb4",
+  "note": "Original PASS record retained unchanged. Released headline closure agrees token-for-token after removing comments and whitespace; this comparison is not a fresh Lean build. The original record additionally audited auxiliary modules, so its module count is larger.",
+  "historical_record_sha256": "326561cc346671326cd7894b983c9965708793034098cd47af762ea40fd01f97",
+  "historical_sources_sha256": "3effdc445732ac1e3c100590f0ef69e0ac82c8040dd1940985a367681ad0d92b",
+  "historical_certificate_sha256": "7c6f5e76c820e61097dfa3488718e0e53d922b79dae6136b29aa5be34c473f2a",
+  "release_certificate_sha256": "36f31cb3e30fa353c83a4a23b20cfed5846594d9983cd4f881ec7cf4cdc18625",
   "certificate_change": "Only reconstruction.source_dual was sanitized; mathematical certificate data are unchanged.",
   "release_modules": {
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDifferential": {
-      "historical_sha256": "34dc06475290eb5891113cdacc45b3e95f497d59cf04b361686dca9bb07060ac",
-      "release_sha256": "14ec7e84df1e603b105def21cb08eb0d6d6feae7a0e25b26941d051cbfafaf51"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronDifferential": {
+      "historical_sha256": "da38edfd13a1dd9e3b43c06a731575f84e18050094aae609335320bffa406c34",
+      "release_sha256": "717afc8f1d3f938915d7d203ad521caa445e247876a5379bbdce4284da1e1519"
     },
     "LeanFlagAlgebras.Core.Differential.Stationary": {
       "historical_sha256": "0eca347d38d2ee9f55bf354f8d20c8548b551a4843b77059e24dad6c4191078a",
@@ -117,9 +118,9 @@
       "historical_sha256": "a183328f26b87f16b0f42320420d61a7a3186471b744ac63be457cc164305851",
       "release_sha256": "a183328f26b87f16b0f42320420d61a7a3186471b744ac63be457cc164305851"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeExpand": {
-      "historical_sha256": "3bec2eba4d8022895656f16215efbe038e736df65846f97fdebb9279431f75be",
-      "release_sha256": "34a34482e04161587efd7e9ea0d4ddef8dfe37ef063d846a8eefb9776f24db4b"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronDegreeExpand": {
+      "historical_sha256": "0d8e48d98973edf2041150d23aef75657a4dbe217b198b67a5c57058fd736fa4",
+      "release_sha256": "f1e220250323053c6ec71dc96561eacceb29fcc6437d41f16ef470f156a206df"
     },
     "LeanFlagAlgebras.Core.Compute.Sym3Downward": {
       "historical_sha256": "dda1747cd09e881f1b3ea6b01b4e7872c044bf45bd9e0e8ce129925ab4d01730",
@@ -137,21 +138,21 @@
       "historical_sha256": "f448502373724e89e3c8fabd8e69c120b412d0c3acc02ff484e0bb7ab097e36a",
       "release_sha256": "f448502373724e89e3c8fabd8e69c120b412d0c3acc02ff484e0bb7ab097e36a"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Assembly": {
-      "historical_sha256": "f4f3a9b7352b216f54399308feda0b9d12a90d79d52a4d81c63d46ff2022fd41",
-      "release_sha256": "19d6e9ed0198681619b002a676f0fe9b3f02f5acec4d3e861c3b3eb4b4a23125"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Assembly": {
+      "historical_sha256": "3e8591eb77dd0ff5442159f4e4ee63a90133db4653202b49755be33399d1ef5a",
+      "release_sha256": "003567328bc99ca9f513027b06029eede4b56c034233d8b5740c3621fa98f53c"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Slack": {
-      "historical_sha256": "ed30815b941253d2f2ba7dac64e3b64aca8b2fe26e270da28a12f1cae1a6ad23",
-      "release_sha256": "22eb6629a7063ecb4c0845761cfcb77d6f0024ac3e27242ebc790a871ae5ea8f"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Slack": {
+      "historical_sha256": "84eb361abc184a618bf9c2e186b69a39e3b56ba2df146e26d8f8220e61e9c7d8",
+      "release_sha256": "b7f988f942e17ca8f5825b6111f584961bbdb28ab0059f885945f0d6afa2d3a9"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Bound": {
-      "historical_sha256": "20e1eea0512642509bf3a1e2fa25501cffffd6c09286ac1396732dc3f1de75d4",
-      "release_sha256": "9e26dfa9d6f0b689382ffdf7ec71b8f85ad8afda91e5bc87a1997e2f09d2a0ae"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Bound": {
+      "historical_sha256": "595ae0c4b0fadacf2da90a7da571127ebca9633036945a3698825090e7391b4c",
+      "release_sha256": "bf1f26234568c9cfb93625dc80f60ec2c4e5cf334f1a5b0854c43f9602708b4f"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Verified": {
-      "historical_sha256": "ad2365e250adab742929f7ed56ebdb7dcf9f088bdbba98d9fd71504a966eaafe",
-      "release_sha256": "c4b8bc8c201c7d505a320514b77f59d0bf4c7a1125adbf6e6e5ac3c4d5938a3d"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Verified": {
+      "historical_sha256": "b06392de54a0ea10497a9c44a7628ddcf49a4c51c0aa7759e77c717d2e95e1ed",
+      "release_sha256": "d08d59e7f65160fd675548fd229ada6a32f9acc3dc0420626cbe98e2028f27f7"
     },
     "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Distinct": {
       "historical_sha256": "1efb90e09549425fa1d16c6e38dc81a7d04d892b762a658a72d06048c5e7d12a",
@@ -317,385 +318,385 @@
       "historical_sha256": "413b21a23b970b2f376aa07afe455d7bfc6711fa627d984bcec335a0a978c11d",
       "release_sha256": "413b21a23b970b2f376aa07afe455d7bfc6711fa627d984bcec335a0a978c11d"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_00": {
-      "historical_sha256": "e880c8b172a81d944670d859a7a5888427427e1b204da121a9654e5a9980634e",
-      "release_sha256": "48395dc0caf18ca4b0fb90a8c20795726116b4b40b69cc938a3ac0cc35448255"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Check": {
-      "historical_sha256": "dcf8164c4fa5e4c02cde2a5ec06eadc42675b213725a5a2de7792659403476c3",
-      "release_sha256": "e87fd44b86dffb6aa86bb933cdc69cc7269e0b229953ea0709f0d0013e7c1385"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Column": {
-      "historical_sha256": "857713b79b2be56c6de32f71a2450fa62855c145df81f407a40d974d32f5c45b",
-      "release_sha256": "ef4fcb6307a14e43c67b74c45de5b0433001b61500fae654556b5c0dc760193d"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootColumn": {
-      "historical_sha256": "1aed99e3871df1a23cca35bf5c128cd2ea5e591ce0b5331639e79d45717b0873",
-      "release_sha256": "d73979dbd8782b14c6ea65f66d23c8569586d7d24a930b3a7c958e98dbe8e71f"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootData": {
-      "historical_sha256": "1bc11ee4e425439026b9cb4598d6253714e088595b5f8cd3aab4c9d794ba4332",
-      "release_sha256": "1bc11ee4e425439026b9cb4598d6253714e088595b5f8cd3aab4c9d794ba4332"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors00": {
-      "historical_sha256": "b53476e5062e7d0f121f2370c6950f1e7028855f3be5838c9d0be600b63a15fc",
-      "release_sha256": "6291048fde10fe488f934d0ca0b28aab8064408502d1502a0f41f47d44e541fa"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors01": {
-      "historical_sha256": "be7ab588d420cfc44f5ef547215b3a7286641e91dc4bc3c8d7e1a58eea25df32",
-      "release_sha256": "73682fad0195f65b04cf8af96e2cd692dc91285fe4c8d4daa8a9779a27077126"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors02": {
-      "historical_sha256": "c0c42b0b01b881fa6327baeccf5776710bfb74e1f9bb55c99767c9617422d82a",
-      "release_sha256": "7577848f575fdaee38c89b33e9004a1ca13b8b45ffdbe3ec93cc62d99d369484"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors03": {
-      "historical_sha256": "b48f837eb45bad9768345a1623821008a9c8c05d532390c20ebc703c62b26aa2",
-      "release_sha256": "57a2036ec0df1c4e4e33677e0b5b92a8aff7a251a7804beb41ec00ffe490cf81"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors04": {
-      "historical_sha256": "c08430300fe0c63488c281eab707a30f1188fbd487e6d2e2c6d5dcbb36b9382f",
-      "release_sha256": "fa16130ea0fc72e580b7b71086645267eb8c0005914f279b94f95ab706bc4d7c"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors05": {
-      "historical_sha256": "54720ccb2a49e62ad214255106bfea966dd1a2edd6d7b1d0b26300bd91bffda0",
-      "release_sha256": "9bef30af5f4641757de79d9d6f40074c632123a8efdffa08dcbd04d1f362a344"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors06": {
-      "historical_sha256": "0b3daf3efbfb02f4c177c9d060c0b88035dd90e6bd42a864e7b3ca3f1a229878",
-      "release_sha256": "3c058ee6e4307e9d6ffd1b8872f8bd0dfc8d4d58a28fad98e5ffebc7ae81a2af"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors07": {
-      "historical_sha256": "36942f61e5151a77e53ee449793d4f3981a0ad0edb6ff947b756b243548ad205",
-      "release_sha256": "47f165c6e569295b309900bbabe1f62e881eac1ccbfb81f811daaaeef1fb350a"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors08": {
-      "historical_sha256": "1774b16d46175818d3540f6a7c0551c3088e7f4cbea2add497240eff95b46de2",
-      "release_sha256": "c6d9c64ee1e8f5b41b395902552a4acf0ce1811439e7634bd8e19c086c54dde1"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors09": {
-      "historical_sha256": "a48ba9d3118a05f7e6066f333d2e2d45877eebf4421b9cf1d7b52d9eb706c912",
-      "release_sha256": "335fc005a2ab84466ecde6e08f3bd61e1b064151756191f7208551eac97f2c8b"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors10": {
-      "historical_sha256": "59df8d0911c49f3dec61bf009604adca247f9935fd262e1b139237a414baf49b",
-      "release_sha256": "34ff897129723da350995d3c0a286a05f5b976a15f2ecb32e66581249c041073"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors11": {
-      "historical_sha256": "93ef8c5f58ba09f81f9a62914ea63be2cdf2b4b21f52b0bed90116e3601af375",
-      "release_sha256": "117c0c78d6f40e0535cc9ecef5437be854a1201707db08a0448f4269f19de57b"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors12": {
-      "historical_sha256": "478229afc3e1ce9077eeff2a2102bec3ecf155cacc15afd61617b8ff145f8a01",
-      "release_sha256": "0045a6ac25c14ace8edc106bfa43bfac41ed653779c5b4b110bfdcee2fbc4ddd"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors13": {
-      "historical_sha256": "1ef671aeb58067de52a7f79ecd9f75a841054b84c484a715b449169069411c5d",
-      "release_sha256": "d8e811e5ef8f13bcfba956ba73fd9b2d3b96ad10e4b088ee7c6c5d7a7120b031"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors14": {
-      "historical_sha256": "8e3ec7dd86376244de00801cf5f123434bdde85472052619f9d04ff82600f19b",
-      "release_sha256": "b93718822c13cb8a32830952dab91cf3026e2151406b47df7b782a0edada507b"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors15": {
-      "historical_sha256": "04880e5779aff257f6d69143ee8bdb7777b48f4779a6de2540ac742cbbb4603e",
-      "release_sha256": "ba4d7a0da84d6c661011b491f7ebecc78a6d214f8659b8d25bb0bafe0e1b5269"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors16": {
-      "historical_sha256": "730207c04a1f867ad3ac76cc1e96f190394851a18b7eb47895b55f1983ad0e68",
-      "release_sha256": "614d573a7e8d72e58eedf34a52e6e6c7ecfb189bc328ae7dfcb55907709ea32c"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFactors17": {
-      "historical_sha256": "f5d7744d308e4b9219b0dd2add5badc7fd894611dbe3a65b1a55dbea5a601eec",
-      "release_sha256": "7ce64d3e1842f798106d575eed97dfd78ce89ecf68ea4cda1e5bc93ec96616f9"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootTables": {
-      "historical_sha256": "07908537cacb1dd8fd3e4a4b5a35aa61810e7a641e8dc07567e9c9a0d12aaf07",
-      "release_sha256": "07908537cacb1dd8fd3e4a4b5a35aa61810e7a641e8dc07567e9c9a0d12aaf07"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootBits": {
-      "historical_sha256": "211cd313de4a2a9ba0a5a0044b7e0da3e95c1b2db9d3e9f70d154a1a0dd28529",
-      "release_sha256": "4578e982318d2f0a99ca9d88a3522de5c99901d4fedf6ee566bdcd2660372272"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Blocks": {
-      "historical_sha256": "8c98500e71735a4b4eb824b44870b2189911e7dde134683fc6ab9618d710795e",
-      "release_sha256": "206f8597b6dc70dbab32dc86dbe8e33f1d6e836a893bc5d4b14c0d0b8ff58172"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Extension": {
-      "historical_sha256": "9ef51643c9a511e93a3c4ca5df6de3c05dcf286641ca0a8244e6b7de20413f14",
-      "release_sha256": "02312120755543dbda7249a03de7d8fb38197581b71986aa94812f8664e7316c"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS1": {
-      "historical_sha256": "bae6dd3e3fe87af2e0a75938de2441c4b8ddd6fcad4a0157b6d105a3bdced57f",
-      "release_sha256": "a9bcb879f230d2f2f4f7e27934d748b349762f570f2bc8b18a760a5416552e46"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS30": {
-      "historical_sha256": "0605693a2bb9dd2b1598ed4cd9b7b31793aa57a6a5ee679028a2da18047ae646",
-      "release_sha256": "0b114594e0c6de49fd5a2bc0c62663706e9f06e8a3810b8565dee4db224832c5"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FactorsS31": {
-      "historical_sha256": "5062f435a47197454552bb18ad27ea91d0746a1c6c7df3f1a961f6cc5419d39a",
-      "release_sha256": "6880e92531cf9ffefe25b47541c88dec8ae2992ded7d0a81276fe48f4e9f05de"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_01": {
-      "historical_sha256": "d9e10054f1a1060419747b2ba4b8199a24dc9c318ea87cdfa3455b1a1262e3d3",
-      "release_sha256": "78cc4c2513ec142d300a35d02f73a9e6e6519c44bc65b790a41a1d2ac5e236ce"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_02": {
-      "historical_sha256": "328582410462c21ef2c3a4fc23b9912ea1f305ce2209ae89c6a15bfbaa178f51",
-      "release_sha256": "46f81ca3f37ee26a06e69c99bdca112ddef3db53d17ec960c6d6c62b81e22575"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_03": {
-      "historical_sha256": "bc685a5c998a8ab366704726a39ab1287ff7f70d197728586a6a7b76b55d2192",
-      "release_sha256": "1081f450cb0c56369f6539df56b38622594798c30dcccc2573ba6561dfb356b1"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_04": {
-      "historical_sha256": "7be59ce2a637f01470aef37b940bbdc9edfafebe85468e06a192adcbcabcedd8",
-      "release_sha256": "9fda7730d99ae57005b363e05aed7af1678ebdbb064db31e2f2bf3371941b393"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_05": {
-      "historical_sha256": "e6969ba5c142fb920ffcdf7f7163deeb4a5ba633868647ea358aa2e3fdd5e501",
-      "release_sha256": "28d123ced856bfee31d083e624a71fa063cc1fd2e94625e7bb49131a9e738276"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_06": {
-      "historical_sha256": "4ce1c196a84a17251141825b0dd390bc33e5a75a1dcbe4e2580846ba0654611c",
-      "release_sha256": "0d4140501173f852127db3b8a4baa2a1f475d5e612c59a8780227250f3eed64e"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_07": {
-      "historical_sha256": "a3536a256f20cb974c793b779bf12beb41ed8d2af02805385fa247c4c7e88a0f",
-      "release_sha256": "d3dca5847ece6bd9afc922b0bcd0ad582acea8be924c965d12763ee2ee1e40cb"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_08": {
-      "historical_sha256": "77356d60091c860909e221ee3bd878ff72b8fc1b7581213b31d7b9e707a8ff2b",
-      "release_sha256": "607019ae17b0aabc956f77e58c6543d9fa83aeb2458b456cb8931ed6d60af2a5"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_09": {
-      "historical_sha256": "bd33ec096423b643bf91c39651af12ce2847a89dea910223ee19292cae29d49d",
-      "release_sha256": "05a1fb976a6af32bf9f34983c0cc68641d4cd7e2b6366292d6c92f8ac3380d38"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_10": {
-      "historical_sha256": "0915b412f53c2530f53a75f63de963a49a597ea394f0b8746b7020b4e6e68a93",
-      "release_sha256": "880830793cb86bc3425a6c706831430a9869613a4a02bbf7a9e284b9205973bf"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_11": {
-      "historical_sha256": "30418cb7bc0d0a4cba3f87a17c76316a1a0d0e100ea616cdd7c905a2ae06d695",
-      "release_sha256": "75d77fbf63fbcea7cf5f6ca9912cb987a8c46d37a64e945538a107925c0556e8"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_12": {
-      "historical_sha256": "33a965376ffd29e424d445d4b43958650ad6eb211c9e9ee67a0049967161b3b4",
-      "release_sha256": "ef37667d99a37cb701a7ab6402d04832431fbba232a60f538f97607e2f8464ac"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_13": {
-      "historical_sha256": "48e1725d4abb758294f841a55f8fb7afebb4ebd33b24406b1cd4df8e290b7826",
-      "release_sha256": "f8120bda994682e19e2bcf56edd2bc88d9e8bfe68c7602b223b4b02d37724894"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_14": {
-      "historical_sha256": "e1521e29ac0f4ab57e1b17885ff55969c628bb220839dd620559858513509e63",
-      "release_sha256": "03961eea4ae80b0a62aff61307a7250fa4f07569b2069db599771b88ac13a99c"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_15": {
-      "historical_sha256": "78a92301e1ac9fc508e547f3ad9b056dfd098d78e4928a3a4d762ea1c70db387",
-      "release_sha256": "26ae759be58fec823196090b472ea0a3535bf96674c98efb24007b5baa4d8fff"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_16": {
-      "historical_sha256": "ff90a936239b312da56e024352dfaabd0053fd81b4d3ab3f1b02b7115e8c08e5",
-      "release_sha256": "0b985b2206d99bb3bc888825f9ab8c1da91657e354bbf79c57dac15c5bc2d22e"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_17": {
-      "historical_sha256": "581d2bcc51dbc031ebf0cac6a4efbdbae8ec54ebd3700e18082582349e8273a1",
-      "release_sha256": "be78e390f85d4d3e9cea7cab0483c2da76ef935fa57daf99b4480463f644adf1"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_18": {
-      "historical_sha256": "d09f87485b2dc0277969f673a390f10e2ddbe69c8d4b555c1d1cdf9255f4d608",
-      "release_sha256": "ad66a72f7205c3e4651e658f34cd7c0797e140ec69a6d3012cdf1d99582a87a6"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_19": {
-      "historical_sha256": "7ffe2a297c87f525ecc368639fbcf671c505e89083e9f2c5ed3b7eed2d6ebec1",
-      "release_sha256": "bcb22e9b9be94b766ac77bba26f2e5a7452c663bcbf26c57ffcd40615acd4463"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_20": {
-      "historical_sha256": "8e0ed5098da6f16b956770e32d84b6dbc875d52b93cddc8c689bf7cec399b3e9",
-      "release_sha256": "78ecc442b46f42cbcd1002e888a9ed82153b549e923d4efc5b1f2418b2618863"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_21": {
-      "historical_sha256": "12501f3ecb350be69023ae70b7088219c7833d8ecba11b4ddbf02bb6062fd043",
-      "release_sha256": "e5911919dc100a1fb23c3247355008610d54338e66f8cd1e05cb4884892cdc7a"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_22": {
-      "historical_sha256": "2dcab0c3b924f741985d815127ad58bb0caf9c40cf988af872a3ce6ac95a12a0",
-      "release_sha256": "188594d830041d973ea3ca718441acd2f1eced0949bcd7a6e5269f2c3c2dd700"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_23": {
-      "historical_sha256": "aea56059dd66ff62b05a38f1906d538a5eddc05f48ac196c7b533f8f071456ed",
-      "release_sha256": "27df740bc1f5f0f55e1f50fa44f637140581b2778b26887fc3f0dba8955f991a"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_24": {
-      "historical_sha256": "45d7f50195106fdf5500b69d366efc1e66d6510e0bbb3a77180c6d245d58a451",
-      "release_sha256": "e70254f569f0308a9011b66293e5edbed847e651f4144035ed48b0a20d30c7e4"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_25": {
-      "historical_sha256": "263122bf0ce54afb4bc067c33ce2aaffddf6ec9cbb2f892d6f32a85ab5478b19",
-      "release_sha256": "df37811a88bd171cab306df513be8989f5a7ad198ba04294680f360d4b532157"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_26": {
-      "historical_sha256": "44e94e99d3080335f1c472a9946fd79a0e1012481744f3c1a1b833a79d245a97",
-      "release_sha256": "b114bc263ae1bfaa384dbbe661a731b8425487cbe366f610da57442433495d80"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_27": {
-      "historical_sha256": "db44d1480ddef86e392274882058731befc5db3ff2ca8acb723ff117d252ea3e",
-      "release_sha256": "ba0ab383192b5ca9492fbefd713236ad90a0749fe7d863adc3da4337c9317424"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_28": {
-      "historical_sha256": "27dc5c6a87a7cc9cb98ef1745f7cfbf916ee907ae0fb37aefa136ef457fe1c0b",
-      "release_sha256": "2f220087d2070af3119bb233265eea3ce5a66f426313fb666a6ea6f5860b2346"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_29": {
-      "historical_sha256": "014a31c071b15d3326b4bbac755a5d67dc31e076b594c085c28eaf4f89194ce9",
-      "release_sha256": "7e3163ee73d834213b24c4169f09a159f6980cd915e0059e4ec96cd6f11d94bf"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_30": {
-      "historical_sha256": "7d8bd88a631cc79c2a451cc9a97011ea25a2a44c1edd5a89d7907d7d0901c859",
-      "release_sha256": "15b15f2a9277f7d8a52b444a0f06c3e8cc54dc6a7eb691a6ecc172afeae72b3b"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_31": {
-      "historical_sha256": "975388547af6abecf4dd5168ceaabc06922caa27ecc9aa39b0be34b7bb7b162c",
-      "release_sha256": "5cbab4043a7851dc646cd1ebda55564b8b9694aa30c7a2b3a69e4edbcbbe2e48"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_32": {
-      "historical_sha256": "be658af691f6fa4e70a7dcec1dd91fd16b19b33f025f6e4f9a1604db4ead293d",
-      "release_sha256": "45531738b773be57306856a8e71c5fea6188b927dbbfe84aae26e6aac18d5604"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_33": {
-      "historical_sha256": "338eabc0ba7fbfd8f12f363e0988d6edc8833404577ed1acccec079b647b5d6a",
-      "release_sha256": "23b65871730d4ea8048fc40de7835d1c1b59b095cb530aff59f6393b7210196d"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_34": {
-      "historical_sha256": "5cc4b32a7cb4ff9790cd16d5ec0720d0d804b9c20b64550c690da07a121df355",
-      "release_sha256": "9b5145280da47c6158a0ad6d13aabefdb07006910a5dd93f1b91b4cb42593c3f"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_35": {
-      "historical_sha256": "f7010c6b39d904d780d40288b4223bea49b615571df688b685a8c23fbd6125ab",
-      "release_sha256": "d34ba5e466d3185e47e29274b3157ab59bc49fb2d56f4b09fa38ac745c4a19e5"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_36": {
-      "historical_sha256": "088317b506305fd28f10ee60e5871f0424b4be550944880c55992d81edd9e26e",
-      "release_sha256": "6c909afb74c5f65f933745a881b9fb862a6804f2df449f7be0875f45214bb48f"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_37": {
-      "historical_sha256": "56ac2ceca602f13d5a683bc09f456c60a91c53fe73effe7622af73a92dcd4474",
-      "release_sha256": "9988ccc9be009c6fa1e1769fe5a3dce133a7c8052c2c6a582d316621505fc347"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_38": {
-      "historical_sha256": "62796ee6134abafa5820c2a212abb64956102720534640646c5ade224344a3e3",
-      "release_sha256": "dd334e6ccededbd8f7727c665652238ad66550729ce6d47f18e06b2ffbf22be3"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_39": {
-      "historical_sha256": "975a44bed560d9fbe0e769f7d9844fb4761c2f5ddd28681590d2bcc577f568b3",
-      "release_sha256": "cab42cf827f36d04c91df49d59e321e59b61bf2c6256b6ad8ddca7b333d9ce65"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_40": {
-      "historical_sha256": "899bcacc1f4a8fedcabf4dac42ca5aa22386c42e3264b2f1360697aef02cb8e9",
-      "release_sha256": "8392f8eb992ab797ca01cc47a1c584b687cf3edce362c1f6a675012730e32713"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_41": {
-      "historical_sha256": "8f66ade2fbb44d33247ffb9ec12c5e7f2ccf5ee80333db0490c170cc1a174fc4",
-      "release_sha256": "3de1dfdc446f1e0efbdef9018bd09c5b23a3a1e6b9c4c62ca6060aab1913eabe"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_42": {
-      "historical_sha256": "f901e2cc446bf5c4c9dad0cb0d1c86aeafcebd1c22aff3112f03887c10eac71b",
-      "release_sha256": "968dd8f2abf6a1d4af74cfd31aa2c74ca19973470e82a22ddfaf42099a82fb27"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_43": {
-      "historical_sha256": "b770e2bd03ee499d5e40fa661e33b6ef678ecf664cea8dd4d36f95506339a54e",
-      "release_sha256": "4c80da278880a784c761c813041f8601cef9ceec85332b6a1d319f7dcf2af890"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_44": {
-      "historical_sha256": "5bd8833759628d015bb8ca13c3a4b9a4964d422a9567a6abb7589d49fd7c5fa7",
-      "release_sha256": "3998249feca5e700fc1f04b12f4fc088367b6bc23b9aeb789552c200af5c791a"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_45": {
-      "historical_sha256": "0b7ff0091c4e986fe6387928cf51727edc38b4ab7bda1d1f87f39ad1b5e0c060",
-      "release_sha256": "dfd50d8adca11deea57f24ab8461697497c186fe1e4f2577f2d75c32cdf92053"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_46": {
-      "historical_sha256": "0afd814c421a12a1e0aa318d3393bcf454ace04fdc266b8737f97cea446a5de8",
-      "release_sha256": "b9f57b7fe5a5ef715189917185b2fa42fe1a08e8182acefbad7e02ba46c8d85a"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_47": {
-      "historical_sha256": "1eb610aa05baa4e47c9a058de96eb1155ef57f38a35ccbd5e7a6085a283b7666",
-      "release_sha256": "4e42b02c05587a6a8c13cad7825fd0e9746b64131451f8f5e474c07c231ad41d"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Sweep7_48": {
-      "historical_sha256": "d1c606c52c685b1a2aa43658098d604b449c61cf964ba5fe4bff35d1472144a4",
-      "release_sha256": "d44512cc992e2b045c60ce90ebf966acc0c972713a2d152b57b86e6e970bb1de"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Covered": {
-      "historical_sha256": "13d8f2cd2a79e2f3812728eae9181c6b4affe92f2dd01e61285e826bb333ed6b",
-      "release_sha256": "42c53eb03bde701035b082cf4766eddfd0f48c9579f6e279f397ad301fe14e05"
-    },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Realize": {
-      "historical_sha256": "0e9c413a425ddbedda8b911d843dc39924ddbfde86393bda7cab98fc933921e0",
-      "release_sha256": "2f222e4d726fa612dd3fd54b918c3bc5a25173a588c707703c2c385b8aedb1ee"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_00": {
+      "historical_sha256": "2c544415afb6260907f1f0ecd55302dacbd92c1ddab2fc62aa487d4d88e4f9ce",
+      "release_sha256": "184e51d42247fc4ce10443469fa1d7a411b73f0eb2e05841e8c03e78b89e07c3"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check": {
+      "historical_sha256": "defbc826f588f7b22b6196ea57202fa516e88ac8d2848ff36ea2c7d37b73a603",
+      "release_sha256": "afb5f80c3a93b58a7d5dc6f7a8795bd50b54110191c82f6d4553e6285fb3d901"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Column": {
+      "historical_sha256": "cba868640a20ae65627be388734979b2a1673a77e5a172a9c82b3b3257df5507",
+      "release_sha256": "617f61cd1f7d39546749db63c2bc5f6c5bf974ab26cfca74021f0993f10b74ee"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootColumn": {
+      "historical_sha256": "3cbc79cbfdecdef764ae1e960dc92e8a7c9f8f1a92c4d5de4372c7c838c4afd0",
+      "release_sha256": "353ffe24fa80f34111848222c1fdf1b5c8fa98013a6166b3c2d0c4b231fb8c84"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootData": {
+      "historical_sha256": "a4abe20226f73baf22ebf5c7b03671b60bcff288f18a571c93e1b00f46611188",
+      "release_sha256": "a4abe20226f73baf22ebf5c7b03671b60bcff288f18a571c93e1b00f46611188"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors00": {
+      "historical_sha256": "5dd59726512bff0101014777c9003b6a48027ce6163035d14db09cf7a093e79e",
+      "release_sha256": "e49aa7816e2edd21e9fd8513c8e37e21d82fbe60ead1501ec682c80a155fc47e"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors01": {
+      "historical_sha256": "fba558b5cbdc4ff2a1cab45070e9fafb90d75f4b6861fd0702537b59bcdba3a1",
+      "release_sha256": "e960be1f1a35f556bec67457e492ee6cb67321a3fd102bb6e084b5e97ccf9c93"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors02": {
+      "historical_sha256": "e4f1010b7cda8ebde9d89f9a3b6d18e7c33a60b8e67a5472d3232a4f96fccfba",
+      "release_sha256": "2bf621daea96ce45a9c7f65474c3a0b0c8a4d23bbabc871d1ad84fc2f547a5d7"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors03": {
+      "historical_sha256": "6decd9dc729e110ec8b7d3d143a484e94e9d7190d2dbade3445854dcc7c3530e",
+      "release_sha256": "9d06f2fb588115a330b6f4bfa5e0baff5dbf26260808ff849101e83959dc29dc"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors04": {
+      "historical_sha256": "1962c858a74ca29367b322fe1686cfd908c3681835935db5a81eae255a5d6989",
+      "release_sha256": "6bc765591fc475a806d2541d8f7e42f51e4912004439130aa4c763913357e2a6"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors05": {
+      "historical_sha256": "fe575bd63e61c2b734ce60bd18e68ed06d0c429f8fda62d5ba6592a70197397a",
+      "release_sha256": "6396346c15e7d4ef613ed04f5e140df4af6accd21b96fd85c844e47b2c5bb698"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors06": {
+      "historical_sha256": "309e2792706a41e1d6ba6748dab12d01b16d20bb1f39eefdd95b47252362a51c",
+      "release_sha256": "771cb2ef8b83d0b8a1f3a09f3bbd1d9be00bbc44ccdb50e58555f69e59128849"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors07": {
+      "historical_sha256": "6e277c20ab6126160b88ac3e12228cc593b3383867740e6bce94a5ae7598637f",
+      "release_sha256": "a28b8ab805048d61349894cfb22f36fcb6bd3259d679bd520206b5fc1d4f5af6"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors08": {
+      "historical_sha256": "5c04cd7877fb993382b846ea3d39b4a4f37a27fa28d4ba623ca8ef63906b2eeb",
+      "release_sha256": "97239fabd27ed7cda371b8f86497296359ae28e5e059031910aa93e214f10c08"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors09": {
+      "historical_sha256": "124bad89ef1783a666b45c2402dbf4e5b2b769d6c01fc80fb24458228bf53abc",
+      "release_sha256": "95c5b31fd0997fac097063a60e4572e5f7eee56afdcba671a5fc3bf2439099dd"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors10": {
+      "historical_sha256": "950f50d1ec28b35c4abcca9f3d7b19536fbf3cad9159673488ab4d4197acc3a0",
+      "release_sha256": "685353f98a2b15ef35630b75a81ea70a8fdd1e65dd40230dfa4827c342343e85"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors11": {
+      "historical_sha256": "9aa85e0bd1aa104e402c12e36a115308f81d18aa8f0fed7410eb1408d947c3bc",
+      "release_sha256": "b458027d0bfeeeb162aa2788cc4948376b5891373280506109bb33c82a336f00"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors12": {
+      "historical_sha256": "b7d2b09a1f758767040a47e5e94c8870418f1bf7ce9cb7237cef7fd44db1262e",
+      "release_sha256": "f4ead4a1bc724d998f9cfd23965dd17e7a5c291993ecc09254c346257ac3ad03"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors13": {
+      "historical_sha256": "45e2766dbaaea326f163e35c7a97fbd08dfcb79324eef3743f9a019935b8bf38",
+      "release_sha256": "90da6de30662594184c5bdea34245e7bad00f66d93eb0fcb6359a20ee72a377e"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors14": {
+      "historical_sha256": "119534b328de981bbe6c5cd6f8f896210204a1f4258ff6f7220fb1d89a249ec0",
+      "release_sha256": "9d76ec420d09c12b46fca28f1865d15cf38a1ccbce31e98155221efd0d132aa2"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors15": {
+      "historical_sha256": "03b5aff2d90b42df95e2693ef6d6ff4e5e010d8622d8bb3b8f3c22783bad3287",
+      "release_sha256": "85b469877d1ce45a3f2a34307816ae1c93a57bf0de64d47a8859b8ee321b1f0e"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors16": {
+      "historical_sha256": "e34d2f93d8b919ddea0a2c965d610fcd82ed8b42b1b5530a439f78c2e772c3fb",
+      "release_sha256": "41a144d6d0f197d2599b684bba3049f0030cdd697ace68c14ab44dd6622eaa09"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors17": {
+      "historical_sha256": "2be10ad5cfd518dac3636f608fa4cfc71e78ce64bd99375d50ebdad0fb30e961",
+      "release_sha256": "5338104178a2b6021f2897eb4932e359cf003cf72bc38ccc246138bd9436d5db"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootTables": {
+      "historical_sha256": "bcb881caf76550bbc6b30b35ccdc75c19a1ddf158b3f9728e029b0bbe2f11022",
+      "release_sha256": "bcb881caf76550bbc6b30b35ccdc75c19a1ddf158b3f9728e029b0bbe2f11022"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootBits": {
+      "historical_sha256": "8b6b3ed6db24276f98eee8125497474a473b68a048ca8282d15c3802edbf5d60",
+      "release_sha256": "04ac9f7d9d185c1a722a7e2148504516c1b9061a83c3a35ae4973825a47b5ae9"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Blocks": {
+      "historical_sha256": "57d6857cc313da280b01c7b845986afd4c707fa1bc56320d1af187dfd3a5b75b",
+      "release_sha256": "c5f6404eb64fde1ead4d9bde4e4a52ed4d1b33cf27a4333af906cbf115a5eb6b"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Extension": {
+      "historical_sha256": "5e23f833215d68f1de7759d4adee7b7c4b1c265629d6408961f3a751f985c8a2",
+      "release_sha256": "69a564f7a8500ab0f311cd5b19ae41f0c36a6c959a71419eec802295bae9da2c"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS1": {
+      "historical_sha256": "11acac8b1408f29970d20dc1f662c5b2bef250118c00df92322d065b27c71219",
+      "release_sha256": "7a42dccd2fb9a3da96c1067bf6a801c0d06c7d5116f0147df65bc9bf8aed23fb"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS30": {
+      "historical_sha256": "550d36e8421455a37abe9e641ffc09503f6edcb152f8a678d4b9f387164a2de4",
+      "release_sha256": "b44815c3d6ecbbd9c871f75c7aa26b572660d4bc8d2d3e61760c9c27bd2f1ac7"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS31": {
+      "historical_sha256": "649539104196ba255dff4d2a8a8c1972bf4f6993b1cf32192e37d25db587bb2e",
+      "release_sha256": "2d8f1e6252fd5a27e9ccf4cbecf51498a2be247a89fe83d65d701e89f32caf8c"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_01": {
+      "historical_sha256": "bd00872f8f7e263a4daed7c9e04625aabc119161ede5014cfcb3d98be3758761",
+      "release_sha256": "8a034c3c6af0e03c55bc3afc95b16bbd394ea66bbbe73f927dcd55681713c8fa"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_02": {
+      "historical_sha256": "c34474767d5038c43eaa63ae77e33adc4f2711446cacfd6fc8e28ef4e5c91eee",
+      "release_sha256": "6f15c7c9b1f11c29340122781d2c62873da4559e3cdc184afef8dedbcc3d1fb7"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_03": {
+      "historical_sha256": "91c9b92061129933edc81cf91eb33b81953d2d04ad8bc99d35217667f528d148",
+      "release_sha256": "c450fd76420acebc5b22dc37d85cb17c35f6aef29679c9251f08c4839b65076d"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_04": {
+      "historical_sha256": "5dc4edce22519697d8fa14880f300e9866f3309e79483ea6aa9ff7147c82e539",
+      "release_sha256": "2b0f83d3905e9872be492ea1034671d066d550928a2a674e5f24bd2b67e54424"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_05": {
+      "historical_sha256": "8632475c4957334dd476123c5814bed0499073ddf3e4ea332695bfcfb8dfde76",
+      "release_sha256": "c147714fa79cead22ec47a23aab4804b552f47fbde97b185c2474e3106de26e8"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_06": {
+      "historical_sha256": "55442830d85e9b8be2510ca64b262be6effe05aaa3f4497291abca82e99c4d60",
+      "release_sha256": "789f1be98514ef27fba5b0f9a5001ad9db53a0fd459884aa86f49f39ad2f190f"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_07": {
+      "historical_sha256": "1b8c58a729b29f4d0bc8fb5bbc01976799a8c7df7e5a2a98d089ec2649e7b441",
+      "release_sha256": "7953f343396b809b8b3ce000b515bb76f9752da035c9ca805a6be423f90ed453"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_08": {
+      "historical_sha256": "eb035f4bdd6febb9dcf4e73aba1a27dcf148313f1a8038738aa9c7f5194399b2",
+      "release_sha256": "e6d7e37fc83c263906b831db5a269a3344b4b58819d8220099b255853cd64ffa"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_09": {
+      "historical_sha256": "ce64b10ad130be515852d15d06059e471ba620b6ece0a881f213fb92e97eb2b3",
+      "release_sha256": "611f6f7f3c8a74f6cf9ea4f75e62110ac6c79032af7bc5e0216f29efc16e34d1"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_10": {
+      "historical_sha256": "fc3576bc422e0770cbeddf1bcfbe81cb48d812364fe1a68901edb411fd515a47",
+      "release_sha256": "4bee612fc228d7cf89a062d98d98a643783dc2fd0f1a22d8b6ef5bdcb5a71993"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_11": {
+      "historical_sha256": "6fbbcf3aefa9231ba219153032db7b9f739aa76941be3757985db1f8beda5fa8",
+      "release_sha256": "aa51d9b9a3976ef245830b43ed7ea1108f03ea2e53af09b36a1a6256125961f6"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_12": {
+      "historical_sha256": "fe3a4982d95984254f2e1fe8bfae6af9017bdfc3fa3d72a9342579717baa751f",
+      "release_sha256": "7fd2ae747dd8906ef80b163da643f2871a53e1cad179ae17cf797f8efada2fb7"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_13": {
+      "historical_sha256": "4b95a8c9f64c18e0746c31e36d321751ae10cff05ee648b179017a54b53a77c9",
+      "release_sha256": "4a71cfb7d7fae075d0ab30bf2ac26ed90d827422da31a12af522cc30f0f9b262"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_14": {
+      "historical_sha256": "c0f60ae73ed54c4aa73901f9c5cf3069caf6ab098f34464763b721b629444fe6",
+      "release_sha256": "030c8e6c18cf0ff90cfcd775c4de108f13ff69bbae2df103a426a80f96d5248c"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_15": {
+      "historical_sha256": "61008cbb2632ac1eece23391cebe4bb4621fbab16b08bbae8366c6fe3848e8ef",
+      "release_sha256": "d714119cef3b605f5287f039f98989d5cfc9f03cfb1afb88c97d914708451e50"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_16": {
+      "historical_sha256": "68e06b2992c7dacbeb6e622a743b2e6213640b69d13ecd0f9b7edf57d03d2dbf",
+      "release_sha256": "16599c5aa34e48da46fbada84088963db27ef6096acadb086309c2365dd5f385"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_17": {
+      "historical_sha256": "d5c6bce0e6aba64269255b06ea2e1f4e413d93126634257a81abfe4517b6cec1",
+      "release_sha256": "d0d231761a034aa29c72b65d74734cc0cb09bd87581dd746d9395a386a80d09e"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_18": {
+      "historical_sha256": "23de6818b3a6ba5b6f413bccb74a90bdb2b28ee4b454dd143d56550a2bfde595",
+      "release_sha256": "0e9e98f73d8af7643322191de0d502ee18c1c1c58b880f9e5d7cb98720152aa8"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_19": {
+      "historical_sha256": "1e499593be4a22e2f411b607ac00cb8c31ee134bed9a991944a5344d425996ea",
+      "release_sha256": "e2d8ef1e91703075fb89f8ef4e240e7a27b722ab9d3a1778f25f29ea5ee886cb"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_20": {
+      "historical_sha256": "3d830b836659258dc71e82a1b5c53aa13127e8a95ec459e72e49b92b9e17a3e3",
+      "release_sha256": "788e0b9e4f9b1a123239d778c2474ca866e9d7d2e6b7284984498e276dc55c75"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_21": {
+      "historical_sha256": "7ee59b185dc060f1142f1e7fa09026bcf0cad66ad845151302b83e8be43c0d70",
+      "release_sha256": "360aa940ee286f16ebfad7a03318a3c36817895ea42cd80ac43a8fed278071c4"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_22": {
+      "historical_sha256": "9861d15f5c5883c7b4efc29d62c92eacaa774c4a5d5d72e3c656dc3e11618269",
+      "release_sha256": "74647361f3856d9ed9158f05c51183107e702c947068036f88da7e049f9414b6"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_23": {
+      "historical_sha256": "2165485619e868731599d54d74e8e754381441dc9b4417728a46316bbef56af3",
+      "release_sha256": "5c5cbc83e6d89e253bea9ac070dca70ea2627f2e0d8221afefe3df014a1547e1"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_24": {
+      "historical_sha256": "4059b58894cfdf4b30aabd791fed318336e247b3c5e2e21acce3191c4d937421",
+      "release_sha256": "fad1a39856a920527c52ddd2e6f6535240fc5a42d2e7e7feab379695c62c76e9"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_25": {
+      "historical_sha256": "9fa80f43c6af5d11cec88e853cd0304bfa825baff6eaa94991cd1a5fc3d87047",
+      "release_sha256": "4dd7c6c13ec786060bdf6674d43acfca14a691c8a42e67564d0e43319a33c9ec"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_26": {
+      "historical_sha256": "76564ae63252cca0fb1ef3d3b614a8a7a5bb85ce07ad1135108eb6e359e881ec",
+      "release_sha256": "3264e1bebe54a13bd909b3ccc8fe3da7c898a843413f699917fd51138de9921d"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_27": {
+      "historical_sha256": "f0dd3469337c3dcf5f491d1084b8ea22c729c9c54973693055f49bb3f223635d",
+      "release_sha256": "98bba6c2bc6690874d35a630dca0e6879a83c65c53389d7c57c273a4ceab86e8"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_28": {
+      "historical_sha256": "e5a39f6ca7ddcd5337b22960bf3a7d3e41be3458495422a9b7242eb8563d9a52",
+      "release_sha256": "0fabef690d25ba5ff8158c52b8dbab941dfc02d7f4ce6d44db5b0b87b74f2703"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_29": {
+      "historical_sha256": "4dc57d1ab22cae32996196496295dbaf8b950b7aae28a4b52cd0dec8a413a376",
+      "release_sha256": "893a14473cbbf5c9f725be342a28949faa2fcd4a9ea0f6a8c5cf2a7495734d28"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_30": {
+      "historical_sha256": "3e35c99d033b513018bff72014626599be2a1d44446b21201de2797932225255",
+      "release_sha256": "07287ae862e4bec98bb1c6ced99de66201c19a9334c04ee925a2b72ebd078056"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_31": {
+      "historical_sha256": "9dd5ec25e58db1b6ecf4164a7bf8b2df12b86b1a35429d04e5764fa4a8d6ca29",
+      "release_sha256": "4712801dd7859627db9b00d9605cf67941b775b23cef16e1fd76afae04fe8d0d"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_32": {
+      "historical_sha256": "36a1b3fb97f5bae211ba4beec90996ac684e954a0bb0599745302b9538967e44",
+      "release_sha256": "219db57d7f8ddd6f89720c2c5855cb97303249a7a76da046e99e6723743e5f14"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_33": {
+      "historical_sha256": "96ce552ad7866e300f6baaae79fbd0ee0fbaf42adfce2621763b2c888ba017df",
+      "release_sha256": "0477491a57d65c85cd2c82058316e9e640006236e6f4f8e4a55eb49ce1120153"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_34": {
+      "historical_sha256": "c115eb8e190a0d1683b1afb86f541bb0e098c0874df7f17e3e9634f25f5876b4",
+      "release_sha256": "955271bcd25b30c8c47d811e4aca7670471405031814affa99e43a034e6d6544"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_35": {
+      "historical_sha256": "82cd9e4b047b22c5b1a4ccac519ead2e6cd4d720d038088437609615697d41ce",
+      "release_sha256": "c01d6e448f5ebb017d5b87ce670b53cd877abe3e5033d580892a50294fedada4"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_36": {
+      "historical_sha256": "8fe470095f7ce9365511159e425320f17c76d207c52df93d11e946d56a8d2756",
+      "release_sha256": "8aa605cb22e19b8f0ba4538459af43ffdad0f6911ad3fc8518d5f4ee00cc37c1"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_37": {
+      "historical_sha256": "bc34987a0079a1dee1947b0987c0a6bd4ff1546c99844ca0ae581f3ff61dcf01",
+      "release_sha256": "b40f045fd255217ead4dedf4c65dc958f684a068f59eb97128a28f92b46b922d"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_38": {
+      "historical_sha256": "65ef9834cdafa0be56bd0592d5c8561e05097e360e2599722faafea163255ca5",
+      "release_sha256": "cb07da65a215b7b08b5a667eb53f7b0de80b591ef48c4d626e5726eda9b8d05b"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_39": {
+      "historical_sha256": "934bb4515d3e019c30c7cb1e5a133ed1992034e36514c2abbeaff253acd3d6aa",
+      "release_sha256": "7962d9e65fc903548d177aff39e50dfdfec1436e067e26b36fd05503c11a8009"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_40": {
+      "historical_sha256": "1af5ceaf379ff03ab6a7e687fe2f4fe0e28f040b786e7e9ed606073cd0b7eeab",
+      "release_sha256": "b50fca34ce16402be5a5dcf12e757bc69536a7528b2f332985414970bda17455"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_41": {
+      "historical_sha256": "cff181878e15f4a277877ddc51ac781efe546f207f9be62827e604e71e343141",
+      "release_sha256": "28d2212a10a56335c581469cca035bb02c8165ed471366523ce1a7c9afd28406"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_42": {
+      "historical_sha256": "01e74ae738f8dd99c490a15cae2bc3aa5324eefefc62df7518d289a69784b8bb",
+      "release_sha256": "1b0b2c40fca37d24b7abc63a0467d08823fb10abf1af8515ea18f96676c46ab4"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_43": {
+      "historical_sha256": "1446a09e16b983304254c8851d2d608cf3a82bf3df636a66b5fa46b013ab2889",
+      "release_sha256": "23f185a915c26afbe830d859a071efa7470680a044c59e18345bf3789904baaa"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_44": {
+      "historical_sha256": "40af0a465e570abe8a8747acc38a590c7fa6efe6c77783531a348ec58de1363e",
+      "release_sha256": "53db67574307c2c329c219a0e3b2a421f318fb51de9fa288c3160abcebe86701"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_45": {
+      "historical_sha256": "2ada80117671cc4d9737773cc081bc93d3c23fbe010abe54953516abd34508a0",
+      "release_sha256": "dcae8232c04030f80168e64d46ddf01dff6ede79e1409a37bd55012508039a60"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_46": {
+      "historical_sha256": "4296f4d83a4e964a55a326b55a1d7f136798306ce8890b4197dddd5222c0f579",
+      "release_sha256": "dcad6df23c25d1913e69f28a24ba07a2f29b7895bdc364e287009f02ff07e124"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_47": {
+      "historical_sha256": "a9b888e3136e9f532c6bceb49a469dc9b4f029b24185a8bba5418d78f9bb1491",
+      "release_sha256": "8b61bb16e35a0cd91a16a234449eabf9224368a081788b97728ad6504c312da6"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_48": {
+      "historical_sha256": "2ed0b01a1dff62b2623ae6a91d29077804eeec308a3133049e65ff5aee79f63d",
+      "release_sha256": "1a1b2c3a0753d35a4b8d1ecd25408d949f8589da761da16eee05a65bf2e27ecd"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Covered": {
+      "historical_sha256": "eb7f1afb890d374259f77e2dddbb5acaff1973d889bf0c4d9bc8cf525e2d762b",
+      "release_sha256": "54ca28b371b6ad2911c0954129415c3146123f797e007f16762181b63cd38490"
+    },
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Realize": {
+      "historical_sha256": "2d0d7b268db28941d7684cf6a0cb5e295865aee2df9aafa6b7b450bb283950c0",
+      "release_sha256": "cb8452ee60a3cc07e8a9536b5c42152612136d5dedd584eee98d93913f4d719f"
     },
     "LeanFlagAlgebras.Core.Compute.Relabel6": {
       "historical_sha256": "de66daf85eabe9ddcf2aedb7a5db7e5d3cdfe2d62fd51e8cf52c79e8b38fc833",
       "release_sha256": "de66daf85eabe9ddcf2aedb7a5db7e5d3cdfe2d62fd51e8cf52c79e8b38fc833"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Edges": {
-      "historical_sha256": "11635c888d62de2039fda9181a7c4298564f44b7e8d94e3f8bfb0c9fb4b4a88b",
-      "release_sha256": "ed3a142b9b63d3b75ed068433a39a0f2dda65ee60f21dc4fc43eb4673c9df081"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Edges": {
+      "historical_sha256": "89b84954ac12c1467b464d020ed22fd3ec8a715fc635c2ea5069861935638e8e",
+      "release_sha256": "2c73c04e6c7b6a396f719c137d9a4b3846fc7baa0fc6a4cfef9866a1e025ad9d"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Split": {
-      "historical_sha256": "f6fb1a955783686fd84bdbd43ee7e80de8ab151dd13d104e2966ce9dcaba4b24",
-      "release_sha256": "db43be25c57e1759875f792d09394bdfee2ad7522d4e2007579c8ae87a3b0e2e"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Split": {
+      "historical_sha256": "6aa60fc59815802ec50a5f764b1545b45c77b198cc42dc0af8e770a16b998bc1",
+      "release_sha256": "b8c1782d20799eb68f7b0facb22457c2813de3c1baf87001327f2c192c7a038f"
     },
     "LeanFlagAlgebras.Core.Examples.TetrahedronStationarity": {
       "historical_sha256": "c59367b9708e699242d040756448d870244262b537a61c3c882bab840be26860",
       "release_sha256": "c59367b9708e699242d040756448d870244262b537a61c3c882bab840be26860"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronTuran": {
-      "historical_sha256": "cbcd73c732966f8f6efa9e8cd28440cc5811341570915fdae1fa2f873d77a61d",
-      "release_sha256": "b2a94f3b84e1425614db9b49fdac022081edc6a35c692ac4a872e9253798f060"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronTuran": {
+      "historical_sha256": "b78dc5827f704b9df972aae0052939568d447a23fa6c31c4b77ae1c75c5dcd43",
+      "release_sha256": "661e7860c186324026e0cdc59cd1476f1c8fc99e79343e44c53c5e1e14ce1b23"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealizedApply": {
-      "historical_sha256": "0835f4aa3fdbc71a0f223740e65ba0c04ccca15e7a53bb91ede5c7e2cca4c559",
-      "release_sha256": "ce11ed571e3afcfe8cfcf1dbda26c83f122d2a4fa1cab1c95f1972fc9836977b"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronRealizedApply": {
+      "historical_sha256": "e6c582ef40cca61cc5ca192175dc9a078a2dbf8c1268881c243bafcfa5254360",
+      "release_sha256": "c528a540e8e6b12e89219aada7b951705c4a9391f5e156fd940e8be884a66582"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitHom": {
-      "historical_sha256": "3f2ebc3f04997b7f50a9542d9e9a54f8546fef50ff9e14719ddfc6d66505b832",
-      "release_sha256": "9f72bbaaba6780e8acdbc093d13331ba2930fab65f252ae30c399515317fb76d"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronLimitHom": {
+      "historical_sha256": "273801365e804749d3aecfd8a14ef1f8fb3cfd86057446a3f1e274dce79e6862",
+      "release_sha256": "bf7bac5e0259580fb83f7c1608c2ddf1fbcfb32ef66540ae815af325d1042781"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitMul": {
-      "historical_sha256": "bbd06bdd8b2b3a8079c7161a3f813db1f277994571461d4a393c5ba8a62df69d",
-      "release_sha256": "0fb7a7f9f3824bc1bbc06164c020d1b82bd257a265335c239ab1374e69227a91"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronLimitMul": {
+      "historical_sha256": "bef30cf5e14e74ae9d43abcf3b16c82cabbb609ef1bbc9482a19f79596c4d4cc",
+      "release_sha256": "9a4e90434a4b3fb9b984d7b4fa8f517f103aac34620d94cb2f63abe5dee72609"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronLimitLin": {
-      "historical_sha256": "f8d8bec65065286b5401f9dfb4eaf1a2671d099d9a9e39b3c275b03f0fbabab1",
-      "release_sha256": "2e62bc763cae18cb7e2f951155162b901bd91fc1187a6183789bc893b9e556fe"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronLimitLin": {
+      "historical_sha256": "314bbedc17f4ed471093af79834d322e6404e864f4ece6ca389beff5a8e08038",
+      "release_sha256": "210403ad883fb576788502617a1e671bdc9870379c98869956a32c562675239f"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronCompact": {
-      "historical_sha256": "8fd089106ce1e0155e09863088d68c4fce7482118023eac3ef509f23d7c3e82c",
-      "release_sha256": "957116108847837fbfb74121c206d9fae56d181bdc895cd21d01ea8819f8e1f7"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronCompact": {
+      "historical_sha256": "11efa2993692f471518ff4bddd00fce4abd4f59bab99a9678154a0d8f7f638ce",
+      "release_sha256": "261db87f65edcf71fcfb429bff693f0544b809faea54c58a453e9d31def08848"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronRealize": {
-      "historical_sha256": "1ec46592d7b220bd110e8df0dcf7308b84d5ee8595060d11867842842e618354",
-      "release_sha256": "b09effb6ff984a174ca240725d4f49f34db6f0b9ff2599cdd0532b3f319e814d"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronRealize": {
+      "historical_sha256": "57379feedb66c494786de3df28d9620726b66aab55353a4e434ba61f58335ef1",
+      "release_sha256": "2adcabf3d02562ab30c08469d95d80762914422130cd72a2739889d3178d1306"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronMaximizer": {
-      "historical_sha256": "7c728f390f50ad35f951edd716e9e29118101eff7d6f6bc0203e17bb452a63b6",
-      "release_sha256": "6725f3ca12fe4e3907ab8376eaec819e6c215ef308bb97fa2db4533e1c6af3c1"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronMaximizer": {
+      "historical_sha256": "dcae0b4a6d8d38c122cf0b2ba19574ba285631e0b45fa4145f765378ee2c6d6c",
+      "release_sha256": "f6de53d13cbe914ba34d4d59f50680186456d46be2974ee2f7694c14d5d80353"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootScaled": {
-      "historical_sha256": "378194b05be601e95c829e743a16e3f0e11020ed5bcafbe8083a7153c2e66197",
-      "release_sha256": "5de0b8892fa0d2bc1bbb593016ef4224328f142220183fa767df3dbdaf898d8f"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootScaled": {
+      "historical_sha256": "6bbde2cae6f288a017040d1657d0af7880fabf3b52223f4495cb0a6c16feac3e",
+      "release_sha256": "d0381a0e8b259a4d083c4234edb3f7c0107926fa2d46e681e9e77dccf11776f4"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootExpand": {
-      "historical_sha256": "e4d25dfdb6c1820a864eae43f00ead5ce5af90c5bb9b7fb5c3d74bc06bbfd72c",
-      "release_sha256": "a2e45ea8b42018e518fb6ecd28560efc45b6b9492acad5e1d8408749bb3b0b63"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootExpand": {
+      "historical_sha256": "d36a471ff4595359096d79c32d2151fb51727b90e12e85130f63455c8cad8362",
+      "release_sha256": "b1255d16f9fb8323bc9ee388f5ae094881c1578070243a23e8409f0ba8ba1eaa"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSOS": {
-      "historical_sha256": "f85e6eeaef190f5e57dea3f26ad3e798fbc03cac820ff2ce075d23635efde95e",
-      "release_sha256": "2d501122383cb8d677b8ae533a251058813121cd8267a055ccef37acb06d2bd5"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootSOS": {
+      "historical_sha256": "54afefd4140891ca4bb7f5c3eac33ceab9e0ada4b48dc6bbdbaff36406c41534",
+      "release_sha256": "5d118db0d9346b625710452eb719355e6eb13d2dad680fe775ac4de57c1b2d7e"
     },
     "LeanFlagAlgebras.Core.Expand": {
       "historical_sha256": "fc1e26ed0656e4fa4cc2993d5e0e45353afcbc969380a1a1edb976e01b09e3dd",
@@ -705,49 +706,49 @@
       "historical_sha256": "571eb0420260fd145d90da7b3bd242ee7162cc2295614972325aa6feda2fa1ee",
       "release_sha256": "571eb0420260fd145d90da7b3bd242ee7162cc2295614972325aa6feda2fa1ee"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootFlags": {
-      "historical_sha256": "2201144b1f28ff25b64b5446191b38c46f818a283b1e9103eaa0b13b44c02432",
-      "release_sha256": "29d348e12a0779993b3abd44dcfada44c1d9e51a87798078500e90645d3aaf6e"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFlags": {
+      "historical_sha256": "c9374a57086b9eb613abb465461dcbab9c2d700c1c3796811a4d3d34f5b9ca77",
+      "release_sha256": "15d445515573a81aa9df3b41193b3395e8da3603f560840e3483ecd3acdb25d1"
     },
     "LeanFlagAlgebras.Core.Compute.MaskInj": {
       "historical_sha256": "0f04aa4def1d505aeebb58926c10587facfe7106511f2dbea15c71e0b9c0bbb5",
       "release_sha256": "0f04aa4def1d505aeebb58926c10587facfe7106511f2dbea15c71e0b9c0bbb5"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSem": {
-      "historical_sha256": "0a9983e1141ab98239c06e2d549408d8ead2159dfcc6dba82c8ee141db3733f3",
-      "release_sha256": "93f4673dc461a46b1b6f91ee95e75706de8f90a2a0b87a1152c9144bff2bf97a"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootSem": {
+      "historical_sha256": "c9db5735cde77466f2dae88775d257db66bb09bd87c1bca27ccc8c10a072575f",
+      "release_sha256": "b38d35d4c110f6fd77ba0061eee878fc400af61ba6a8e6b3943cbcb9cc39f10c"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootGramSem": {
-      "historical_sha256": "f435d1fdf7052a6879566191643b9de42d8729675b4b3278d9b196af16b16734",
-      "release_sha256": "fc9f8ccc699ab2cdefcb7cd681911a569d67e1340eafb478cd8a7214e013a4b4"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootGramSem": {
+      "historical_sha256": "3ec3c8226e5b1591f64a30b41820a2766849d6009c665effed7cd5161ee22085",
+      "release_sha256": "8e5794a777db8923838662c0724b430412e156ba9dfffaf01ae2474beb2e45ce"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedColumn": {
-      "historical_sha256": "17a185d2bdb504debccddb1db2d730fb68020385fe70a69b27918ea52082e846",
-      "release_sha256": "f8702193e6b257bd0bacaaa917d4b733c3ec32d9a74e111d819c1b3ec76a9731"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootOrderedColumn": {
+      "historical_sha256": "bb979b7842def2feddfe4eaa911a038fed83a1ce3a1caf85f3513f42b1d1a18f",
+      "release_sha256": "fc0e57860e19581150a05a2440572efcdcf0a431494110b2f181ef9b522b34b8"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedData": {
-      "historical_sha256": "fbcf2a17d850c0631d43a7e1db65a29da6651891c07af776fabf34a83b97750d",
-      "release_sha256": "fbcf2a17d850c0631d43a7e1db65a29da6651891c07af776fabf34a83b97750d"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootOrderedData": {
+      "historical_sha256": "42ba4203e29761c43fe92707917f82b7b2f9bf30b430cf4c3dae224f2a93116e",
+      "release_sha256": "42ba4203e29761c43fe92707917f82b7b2f9bf30b430cf4c3dae224f2a93116e"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootTableFacts": {
-      "historical_sha256": "1a692b40037df0fd24810eff6fe85da468ef341519e3bfb155e4a95ed9d8d55a",
-      "release_sha256": "0c79a73763ce210002b96dbe93a6e988c8aa925cfb25640eafba1cbb58fff048"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootTableFacts": {
+      "historical_sha256": "5cfa600abdc6f5c02ef3b47a76686392e1261536b9c1805521601f1eb6fcc24a",
+      "release_sha256": "a7190df0f6328d29f3e8187b7af1374bb3f1f9094ab7fab6235e6a60ab8d22ab"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootColumnSum": {
-      "historical_sha256": "4a4e9b771241ea72f491de04a1c5f16da766feedb06e0543a8cf20d631ca31db",
-      "release_sha256": "8b92c64723aeb81037a1afa4aef5fc59f2e3c11ecaa214e5956698a228f02bc5"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootColumnSum": {
+      "historical_sha256": "0f7de2b5e70268daf01afa74d6e0146e00522bf6f82cffac4d44c8b135f85dbc",
+      "release_sha256": "3444413ca3bbafbd4466dda457e58383fbf3139acb80b08b76e2539bc8e77cef"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootSamples": {
-      "historical_sha256": "fa4973585031d041d780047ec0487c95f47b78fe2777df25299b3bfc8689a7e3",
-      "release_sha256": "eddc6fba62049d54677b5e3f5f854039d00f0481c2834b781cc2dfe6c4e43461"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootSamples": {
+      "historical_sha256": "8199021bc8398befb2107b029ca272e37cf463f0d6f956a7d2b48758e5ae89aa",
+      "release_sha256": "c9b66a5548636e720408dcaf65701a1320f4c0092117c1a74d417757b05db284"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootPullback": {
-      "historical_sha256": "bb036884ef4f391b3eb8d2ff6542b2b32f925f36c817a85750d5b547d2bb3ef6",
-      "release_sha256": "d18b960d9a111cd102026794b57cee65726b706db0c2f4f8144ae00249f7c560"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootPullback": {
+      "historical_sha256": "1b31bbb38192a702507e6b755beccfe09692b587fcca4b1b8f73ff0037e499d6",
+      "release_sha256": "6a01a830e0146ddba7fa2acb617cb8fda3a9878972ab4a0d06858dc63671b07c"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FiveRootOrderedSem": {
-      "historical_sha256": "53eac6105cb9328ce4eba0230d282322619b2521cbe85540d81417ee7fb30d2d",
-      "release_sha256": "652f7f09c8a885c0e3be052f7870234555a9f2386834e104b2717afadd39e7be"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootOrderedSem": {
+      "historical_sha256": "03c59ae96778c148e5e02009811e85d7efcf1da4cbfd175e79cfd9d21b812da3",
+      "release_sha256": "84ed222b8c049758259ac7a311be51b768afc690e2f7a0b4523f15543f6ba685"
     },
     "LeanFlagAlgebras.Core.Compute.Mask6Inj": {
       "historical_sha256": "14c5b55ec44eca4eaafb1cb34414c8cddfbb158acd72d51e9491e897d241d857",
@@ -757,13 +758,13 @@
       "historical_sha256": "dc16475e50f1629c1a947189c369bb94aaf94f4f1fca115abdf13b1189d9389e",
       "release_sha256": "dc16475e50f1629c1a947189c369bb94aaf94f4f1fca115abdf13b1189d9389e"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reduce": {
-      "historical_sha256": "a8318a8a07e31f07634dca4ff1baa884d48819f681fd39c9f783b1f34c06f313",
-      "release_sha256": "be1a32fc6a1a382a0a0f63db4ca08079a57b483e31277ae9de24c4e515cf7675"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Reduce": {
+      "historical_sha256": "24ee03b28784d24aa96c5ab9337927761330a365f87a88e22036e24504de928a",
+      "release_sha256": "4b06025e47045fa77b37751ebdd0289a63bf9b78e9339230bb8157dcd2b124ba"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassNum": {
-      "historical_sha256": "f7fd903f594f1d9df27132a9861614b266564bc8702b651c62b778b439881b85",
-      "release_sha256": "dc3e58dbf204d60a6cb2e79f0b93645e62f249a9029d50b6f8e89a90061a0586"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7ClassNum": {
+      "historical_sha256": "d9e76229f423b89bb1a097bc7deebe30f42386205aa42a4bb17b4eba19ab36e2",
+      "release_sha256": "a9f89003ea5cac18d0a1be6e4e301b9b07dd1959b24b143aae100f891c0b0ceb"
     },
     "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Pairwise": {
       "historical_sha256": "8d1d5af0736b7e17240347a89acdee056c97a698124ca3a4f6d8260f2e42a758",
@@ -809,37 +810,37 @@
       "historical_sha256": "9f8dcf98226a8e8821e4212267450d6fadb6c2d6d0680de05521fca2b932cc63",
       "release_sha256": "9f8dcf98226a8e8821e4212267450d6fadb6c2d6d0680de05521fca2b932cc63"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Fiber": {
-      "historical_sha256": "0b6d70e14097dd0a0c821d6d126526f0741f83c771a8fe9587e8f68946e630df",
-      "release_sha256": "22d7972d388b6a708e5de2ea7e1f97d1e681a38aa70821df4fc3ab6c639b5cd9"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Fiber": {
+      "historical_sha256": "137b4f33b0c5b6d4f4a29abcf2ca32413d7b3997dc99c3420c58ae694fbefb09",
+      "release_sha256": "293845593352861e86c03904a56a01f43d27c38fb45d6f1f2c64bf73f8251d43"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7ClassIdx": {
-      "historical_sha256": "134f69e24b70e6435e18eb960755100d4e770017d549f17cd7a8a5e71031b0f5",
-      "release_sha256": "c9103378ffe10dee1788ff29f37ee81299ca04329f6da34d6e21f8ee34fb102b"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7ClassIdx": {
+      "historical_sha256": "36f091e21ec0f682290206e85895dc824688c0d125d31c61f2cf3bfbd68d2f27",
+      "release_sha256": "aabbf097604c9adc58440de328cf8b1d3762fa957f60f3e6c0229b3328a9b949"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Chain": {
-      "historical_sha256": "52d5dea7b88d143cd3bdff34803d90033f5476aeced95f998babdb7c29de125d",
-      "release_sha256": "4bc663082111b08936b1ccff3476aaa0c29b4de21d505909fa67d094354ccdf3"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Chain": {
+      "historical_sha256": "627c9f8241a1e92d603425bd671eba330ce8f605e6ae3c15f3557daabded3f6b",
+      "release_sha256": "a6679bf98daabb8d384da4af858754e391a40bca080748c728deb59925cf22a8"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induced": {
-      "historical_sha256": "4eff09875a1ac437873547fba2f5c697ef286d36c630ab4b1363903689934ed9",
-      "release_sha256": "8ba78b3c469191423121a03bb47a56d69fd9f365f90e53d92d4facd5da214da9"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Induced": {
+      "historical_sha256": "15e1bdbab2af7e6dcdd194a518fd9610d52ac621feb307ebffa889923bc0a7e6",
+      "release_sha256": "22c1bbddf5dbc91c380395fed417d8d4cb0056484d5b7f30c8f2ea845a8ebf4c"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Deck": {
-      "historical_sha256": "180b1d8423d36e4741cf7e0618bd7b29f238bfce4eed0c0637caf44937a6ea7f",
-      "release_sha256": "5a77c9ae2176c17b854eb4fedf6548f1b8325e6e463c3203005d0f95acd7e25c"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Deck": {
+      "historical_sha256": "69c175d7a00e95e278a49e865febe563ded5bfd873fcbfb309b5570a67e4cfdc",
+      "release_sha256": "353dfb61d51a5663c0e4a0b68b8cdb19b2ce71621f3e1db94eaa2900baa0c26f"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootExpand": {
-      "historical_sha256": "5d17467033914e422bef8e57f27529e4f39536dca87ff5c4e49aebee2395987a",
-      "release_sha256": "0aefdf56ab988f27ff9b0d8ba1ea445ed3b2e8987f9ea1902b5b68df364181e9"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootExpand": {
+      "historical_sha256": "b76fae7746f2d490b11cd4d6f97c5a007a05362e130f5cc9a73b81e6868a549e",
+      "release_sha256": "7d6a8cd268d2f4ea2b906b9ad76f7d1129311abcb4c69167054804acd93eff46"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootSOS": {
-      "historical_sha256": "dbd622b134fe0c0c038d74ff3a371e3bfe1c032a3d2ced6f027bd02b40aa82f2",
-      "release_sha256": "0d9b7e12c6c7981c30a76f5f1a244644d0a66826fa4dafdd6246df019aecf140"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootSOS": {
+      "historical_sha256": "1b2da5c9856f3f105703557e0d5425d96841238a0c1c0eee7690941a602f1726",
+      "release_sha256": "1b84cbf56003b26594e1448ee75a7d37d5bb6292595169bc2f960763925cab73"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootAcct": {
-      "historical_sha256": "174b7777b13ca6e0ff73285e51fc7ec9991d3d00f5c16fdea8d0753b41a28067",
-      "release_sha256": "2b891096f05676c4c8e3e86946f539f53014fb5ea1e0b8ccc6a159d3c21cfbcf"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootAcct": {
+      "historical_sha256": "bd00ec33ca87e2b68167575ec90627bdebd9d12e95018c79808c8aee9ec8b013",
+      "release_sha256": "f7684c4ad523189eedc689253ef7c0f66edf86e6c4f0e3b8a6196773f8e25fd0"
     },
     "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Parity": {
       "historical_sha256": "1065314ff52fd2b983cd09c0ee5cce6b44ff5293a134ca49f5645cab172dd43a",
@@ -849,105 +850,105 @@
       "historical_sha256": "0f56c2a58e36a52108c9f4cd835786ab7ae2e39088d2345602840bc285373b27",
       "release_sha256": "0f56c2a58e36a52108c9f4cd835786ab7ae2e39088d2345602840bc285373b27"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellSem": {
-      "historical_sha256": "56ebf09a020fdee91ef81209e1a643193445d8aea68eba4c202f2e3486f58ea6",
-      "release_sha256": "2f9166e44c50b5ccb53eaeeda64720c8b76c10d4e3a76c389b98ebc3518f8066"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7CellSem": {
+      "historical_sha256": "4f1b618b987f09e244534f697020273e107a2ed724c77c4cb9d810fec00620b8",
+      "release_sha256": "0d50ffeb0c621e5b41c874ae68743ce78fda61a700fb2aa35a7da700065c79de"
     },
     "LeanFlagAlgebras.Core.Compute.Sym3FlagIso": {
       "historical_sha256": "0d618b8cdb6ee129046c14fe3f9228e52dabde9f3ac0e20f99f87f7a2deb86a5",
       "release_sha256": "0d618b8cdb6ee129046c14fe3f9228e52dabde9f3ac0e20f99f87f7a2deb86a5"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7GatherPull": {
-      "historical_sha256": "a097b9140955a20e3a491ea26c18b21ec35dd683d53c8898ef66adc395ca90cc",
-      "release_sha256": "83ad25489f930e9b62f608ddffd5dcb20cfa67d5706312fdd2ad06af42a6bc30"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7GatherPull": {
+      "historical_sha256": "3653df4e3198d5c352df3af862b1e4fc9de009ac691f8a71321f94c92c7528e2",
+      "release_sha256": "3a1890890c108474ce8cfcc40c2c4f2821e611ac243d1d7aa7928218ce9e86ba"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7FoldSum": {
-      "historical_sha256": "4e1e0dce290ac49975d8a7b3032fc84513dd956328684fb83fec7137a4a18c63",
-      "release_sha256": "7b3282bad5da8e881b7b039e270ca356c754451997fc1e064f2c998bc8efb81c"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FoldSum": {
+      "historical_sha256": "2ce298c48fca3e1f6cdc870b91ef6858a3e89bcbfde98eab587b25d8850bdc67",
+      "release_sha256": "bb2b47792fe1b34fce8207b21b3f5fc6f145e16bd790b5e774b3ee6d1a3fee74"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootFlags": {
-      "historical_sha256": "ea04fce02a6cdf188cd78e8ffd9aabc1052c2fef2dc6056ff70646a09eaadd63",
-      "release_sha256": "811396d1235a26a538e184cc68c45a1ac0f2eb08f9badb41a3e939b03b3ab793"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootFlags": {
+      "historical_sha256": "b3e3cb6edf322d0bcd3a0b524ec2ae495f27a1dce84b403aaa7782638b6d8fac",
+      "release_sha256": "b822d8e8e9eac33c2619a8075a1ea14727a1a108006aa62b905957096d1ad613"
     },
     "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7ExtS1": {
       "historical_sha256": "e3eb37213c751a3796056ca85936fcbe9bf4b9e2e99afe070dd5a5ef84ab9d41",
       "release_sha256": "e3eb37213c751a3796056ca85936fcbe9bf4b9e2e99afe070dd5a5ef84ab9d41"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootMatch": {
-      "historical_sha256": "48e755bc727b1cb992290d8ded0b945272c390aec7173c31e1fc1c0a61b6a4a4",
-      "release_sha256": "1c07a26444bdf405cb97bfcf901ba1ccaa46017a8a3b1c71528bef575d7db09f"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootMatch": {
+      "historical_sha256": "012af0ad31a004ad942b260f9074bcf01481c8ffbed63b02b903fcab9b478e31",
+      "release_sha256": "f56ff7b1d4ba9234fc134e27704174b9374b826fd092a268f2cce2ec67e5bc64"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Reindex": {
-      "historical_sha256": "55945d0dcab45335ff9c1fcd31f4e150dadd224ed2db3eb6ad7c8c4f74dea861",
-      "release_sha256": "ce59c847f026fe78809f886296cdc59b3f20e74d234827b2c1e1ada97129d44a"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Reindex": {
+      "historical_sha256": "f80363e6c486110e857fcce348862e83392f3a07d2c8e8600769c7a45d4ec0a9",
+      "release_sha256": "846d59bcf617cf155628a423ed6cb462d208d6ff86be50f15f4dc7ed20ba81c9"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7CellWeight": {
-      "historical_sha256": "44a4f78d0450a83837cbfd4cec7acf6c691c0d0fa851964c2ec8d1bf7c47f0bd",
-      "release_sha256": "224347566a9377d04896a50852ecbd904656f38a9c2bbbbe0555c49e171c847a"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7CellWeight": {
+      "historical_sha256": "5453624ccdb81a84f87506c7ae316e3e751648bb93a0e41949770114ee056aab",
+      "release_sha256": "82d49cec9bf79202455743d4a15f487083c07dbf1733583bfda8e1b84e9373c4"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7RootElt": {
-      "historical_sha256": "0833620923039c40ed9d88d65abdea5e34fba943007a79f68561ea8f529d98a5",
-      "release_sha256": "0321320467729efcbdd4d5a14dc582e479f98b675f9402721e74b262ce429922"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7RootElt": {
+      "historical_sha256": "ed2f0f26fcbb3b5ef9dd190215e5215c8b9b6e05ab82d7b8438cb63cc19440ce",
+      "release_sha256": "c8fc00739324372bb14bbcff5a9116df2a3aa91d29e1aa1ab516cb2adffc4b44"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockElt": {
-      "historical_sha256": "4d9f714af55717fc731bedc935b4f60b510ac7e746f01b20a5c6fa1c14ce3730",
-      "release_sha256": "fe25b5badc21896b1e228c8ebe0cf04541d7cf82d8337cba64662167387ca6c6"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockElt": {
+      "historical_sha256": "a340491ade83ec21e700709a43b33bfa277bcd56597c140c7f01ecec0536df7a",
+      "release_sha256": "5206ae30be001a5569fee4d1bc071de31e7eb65bd0cbd2620173c40989732fc5"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockSOS": {
-      "historical_sha256": "79a18f09d3065601924e62f786b58f160e77a8a1c21d66120cb2dd6845266f6e",
-      "release_sha256": "21ab30a2d2110ad756d3e25a77a90b5fbd3e1a9a484b74b6e743049796e57cf3"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockSOS": {
+      "historical_sha256": "951b372d8f41bc145067713ae741f3f811f1ac377871881ff275866a2e78b4e9",
+      "release_sha256": "32d51d0a7b91797951263fa132e6e134b8096466551f46f789763007a7ce7900"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockCheck": {
-      "historical_sha256": "e2697f5eba78d704e8e3ce26f47ce7cf2446889f2af52df331f91436396957e7",
-      "release_sha256": "627f4eaca46868cf29b225d50f04e7200068c9ad2d91d8ec762c91f798ff5999"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockCheck": {
+      "historical_sha256": "7b9b31aaac841372c8152ec6b662baf7b407b8103a61bb8f740289a55fb05784",
+      "release_sha256": "0cf55a91205d014bd6de5a503e07b69e6bd596e99f847ec210e6224476c31fb5"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockGamma": {
-      "historical_sha256": "d3b1bed682ae61aa1f9a3235de7b5dd1e7918202f363b29a70d4e591b271aacf",
-      "release_sha256": "454daab0b080690e6db4aedda2dec0bb234c4dd25d324968d1a7a877e5c08469"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockGamma": {
+      "historical_sha256": "86ab9f82fcd6eb0c4e6b48cf4261342689d18f5ff06693a9e0a0f1f9f8646379",
+      "release_sha256": "32a70ba3efe56d2e6f48344419b09d0ee387e715c128af33bece52a404f21838"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext45": {
-      "historical_sha256": "3bb4c7b6e027d679ac4638eb949892f8b5de484b63664d38a26f991a2e45742f",
-      "release_sha256": "672977dbdf80b2cc4e8048592659e4d11e3e8bff3312f5a29cb4bf8f4c87b992"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Ext45": {
+      "historical_sha256": "8c1eeeb8dba9bdea4ff299b4e9df983b9d8f9fa8b4969f668a86ee974b6a10d5",
+      "release_sha256": "a98d8fc8f91d8451a95f49e1013b320e9cd6d9404c584dff837d265544ce99e8"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7BlockFlags": {
-      "historical_sha256": "ed056040af3f52349a224602dd8fc8e5492d971d2bb61ac6eef4c8baded0021b",
-      "release_sha256": "1bb7b09db430e7f45fddbe430fbf5c8393a8c66f9af5bb048835e41baf313447"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7BlockFlags": {
+      "historical_sha256": "12cb3a7178c423d76b085bbafdc9abb0b6ca2f31c6d0466be11687c93db785ff",
+      "release_sha256": "276988d1620bf6d28eb8c6deb54c9c3b7b853cb5594c2219ae5721f0aafe3938"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Induce5": {
-      "historical_sha256": "80d403e059b97ef880c773c784eeae63651504ae20349ab930f07f54b863afea",
-      "release_sha256": "f5e79dca448f97b3172318929ea649b7e949f95946eda67499c86a920d75d4ed"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Induce5": {
+      "historical_sha256": "e232a67eeb1dfb4bd0e1c542c8989bf36a6ffbeea982a34321fc610ba471f275",
+      "release_sha256": "77e7e02dda30769b173e779b09aacb8de51afea669b254a0fc44fc51cc2cde4a"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Ext24": {
-      "historical_sha256": "950047666e0e50e8a41f026086942b6354ef1f9d771053e2ed2c101b027afef6",
-      "release_sha256": "f8f94ec4288d860288a9edc568aea109a3353e2d075b5fba3fc854c6de4463df"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Ext24": {
+      "historical_sha256": "34e359dd89f789d3fef1251d5a66fd6e5244a8ce27bae8bdc543ac45d3ddefe2",
+      "release_sha256": "610023398871262273b2250dbb7c32021be071b5f49b00805232ca8d9107b6e5"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Pieces": {
-      "historical_sha256": "ed80e47d33407c3e14d1643d13099880c5a74cfbf61a2415681ec62aa626fb1e",
-      "release_sha256": "579e38b07a1a120da211fda9702e1d44b1d3524687719a4b76062f5184cddc7f"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Pieces": {
+      "historical_sha256": "9197ca812fc13640cd7f939b10ec39c0722c63242fdd7e5c8fa9f79a85593916",
+      "release_sha256": "63814fe2bc4b70fc374ec8e621c27518e640d49aecd352e7b50595a768e36748"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronOrder7Objective": {
-      "historical_sha256": "4bf663596dae821da8d79044e931925115280f237afab7e159c2f51c8a9efc07",
-      "release_sha256": "1f0baa38911638ea4e262d111e0b3e3761f45b5791cb16083ed5da4bd8c5a658"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Objective": {
+      "historical_sha256": "15469b5f6444449d233f1fea0bb2672bd1f74e15656506adce4717afb5c23fe5",
+      "release_sha256": "c1daed7258b9a79bcd3c784b3c4ea43fd2a1e8eda739269dd42ef53df9708bc6"
     },
     "LeanFlagAlgebras.Core.Examples.TetrahedronOrder5": {
       "historical_sha256": "897c4bcf1486cc6227913f2ecec62beba1d04f500333f8335086d0a77902c126",
       "release_sha256": "897c4bcf1486cc6227913f2ecec62beba1d04f500333f8335086d0a77902c126"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronDegreeCheck": {
-      "historical_sha256": "dc7f7315e88652e12c6bee589bbbfc5acadec3b0b8a958cbb869e8d87a484a62",
-      "release_sha256": "bdff45e5d20b4071bd2a10c8c4944bbb3b8d7e22833c94c1373cd84444761c0f"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronDegreeCheck": {
+      "historical_sha256": "46f04be24f6c9f2ee23a29c4742ebd562bd0e07c3abb7ff0a7668697b5219693",
+      "release_sha256": "f83283eb5795f0c84cfa0eaa1f3aa4879db641f366fb2b62537290a1cf92cb54"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronAntitone": {
-      "historical_sha256": "799841f8775d5b63f20960e508aef368001889f3fbf24d5510808dd17051e644",
-      "release_sha256": "2f74ac4f057149a60a48991cec252ed5faa80e8f1cf991bc2a8ae293bcf6fa48"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronAntitone": {
+      "historical_sha256": "ff3ae3869f1fb5fef390f8d9afb7ba5e2fb6a35dbecb9ca923cfd0462ff7b295",
+      "release_sha256": "db0d4236c808777027d7cc855300720d9a543e2d28e11940955444edf995bfaa"
     },
     "LeanFlagAlgebras.Core.Compute.Sym3Delete": {
       "historical_sha256": "c3528168f4ffc8fd22d9de018470fbeb3287d3cc78c64dfda8eccbdee57f1a52",
       "release_sha256": "c3528168f4ffc8fd22d9de018470fbeb3287d3cc78c64dfda8eccbdee57f1a52"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronExtremal": {
-      "historical_sha256": "21b2122362e868e88098c046123478bdc1a0ebe968c10d3fcc701fe47810598b",
-      "release_sha256": "bc4ff7ec37ee6a750d3b134a62c142671bcdb132b04d0e945ed8bd027080921e"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronExtremal": {
+      "historical_sha256": "e1d2fb89308aa92219de7d8376125338a7200687bd415f0d9a9beabb7d6f2d86",
+      "release_sha256": "18bee87c0d9a3819b660ae013110212bb6cf46eeda6d01c0e741d5b418a51e0e"
     },
     "LeanFlagAlgebras.Core.Examples.TetrahedronClone": {
       "historical_sha256": "0caf8baee65607d2933c32e8296c9ba32413cfa85bf6c4c5728d89cb870e3588",
@@ -957,13 +958,13 @@
       "historical_sha256": "7200b38c41b6f419da7835dbefb3e383839da5bdd3cf24d66a7a987b679e81ea",
       "release_sha256": "7200b38c41b6f419da7835dbefb3e383839da5bdd3cf24d66a7a987b679e81ea"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronBoost": {
-      "historical_sha256": "7c0326cb6151f7f3a577cd6529c498e742ac8377ccabe5ea55fcc7f811f165b4",
-      "release_sha256": "b67e3a67eab0ec418f425ffe55f89dc3934d2d0cce21ab7fce97cfdf2f070c50"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronBoost": {
+      "historical_sha256": "4a1d22f91c8e6dedadae7304c4b892eb49881f21a13b62a3565769214b50f39d",
+      "release_sha256": "dcedefa32baf764d6685409f7a5806b51974c1947b73884d5987d299973ca498"
     },
-    "LeanFlagAlgebras.Core.Examples.FullSevenLong.TetrahedronStatComb": {
-      "historical_sha256": "ff3b952a854b1c0d3759d3cb666127c1a07d6c48a77a4b8d20264e177d1d354d",
-      "release_sha256": "226c9003177ed52d45ee10723342c1c4a47299eea5814aca90e2b731bdde0546"
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronStatComb": {
+      "historical_sha256": "e6e4b7d74319d103b3585c0112307ba1e5a473e802683c29e90d43557e979ecf",
+      "release_sha256": "fdd98893b521e591abb5248de7388d8e21186d9c0be6bddcb4f1d009aa0d942f"
     },
     "LeanFlagAlgebras.Core.Compute.Sym3Var": {
       "historical_sha256": "e8ac68ec1a214b2c62a2700c2dd3cd444930dc2b464c844c07bca5ecff5baaa2",
@@ -971,14 +972,14 @@
     }
   },
   "additional_record_sha256": {
-    "PinnedHeadline.lean": "8e344e4f95253a63ae6aee0506df21e7aebfbc4f73c0930a979e701922139c50",
-    "sweeps/sweep-prerequisites.log": "6b54db59345ac505dd0105aaa5b31e943ba20dbae4aaa7fd88c891151e83d833",
-    "sweeps/sweep-report-00-48.json": "07054fb3af5587f521a6a41c22a38677d5bff3c4b17e89933b89c1d0cc73515d",
-    "sweeps/sweeps-00-11.log": "dc28c16dbe048505f0729184d3e0f3eb3f96c259c42eb9a463e5ddefd488b28d",
-    "sweeps/sweeps-12-23.log": "dc28c16dbe048505f0729184d3e0f3eb3f96c259c42eb9a463e5ddefd488b28d",
-    "sweeps/sweeps-24-35.log": "dc28c16dbe048505f0729184d3e0f3eb3f96c259c42eb9a463e5ddefd488b28d",
-    "sweeps/sweeps-36-47.log": "dc28c16dbe048505f0729184d3e0f3eb3f96c259c42eb9a463e5ddefd488b28d",
-    "sweeps/sweeps-48-48.log": "80005317f232d3d3538f12b76971babb9f51dcaf62f080e07664d8a2fa3e74e3"
+    "PinnedHeadline.lean": "0af18e912e07e8d8dfa9ba3a64549d8bf2e557d36637826ad59ed94f932f816e",
+    "sweeps/sweep-prerequisites.log": "60e3efc6facaf4fa502811d47b399c2a41f6984010d3db5e6785ef245aaddd02",
+    "sweeps/sweep-report-00-48.json": "a5b958b94d2072d97eff44c72965f5db1f828a177244ffd2db6d783d4109a0ba",
+    "sweeps/sweeps-00-11.log": "50db2280e7d22bd897a9a81cd2808ed237aad27c4b21e70ac61e5440ec37546a",
+    "sweeps/sweeps-12-23.log": "50db2280e7d22bd897a9a81cd2808ed237aad27c4b21e70ac61e5440ec37546a",
+    "sweeps/sweeps-24-35.log": "50db2280e7d22bd897a9a81cd2808ed237aad27c4b21e70ac61e5440ec37546a",
+    "sweeps/sweeps-36-47.log": "50db2280e7d22bd897a9a81cd2808ed237aad27c4b21e70ac61e5440ec37546a",
+    "sweeps/sweeps-48-48.log": "4797c0fc6f0961fdae73386e48c90f91841c2bea1665fd35609d10ff9b70809f"
   },
   "build_configuration_sha256": {
     "lean-toolchain": "e695e6e5d8e7a8be4d6cf159dfb995847993d26c6cc450353a86f387279025b9",

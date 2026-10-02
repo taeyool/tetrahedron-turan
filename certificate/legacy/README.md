@@ -11,8 +11,8 @@ the six-hour `LP-CUT-CG` search on `M7-all5` (paper, Appendix C.3), with scale
 ```
 
 It was the certificate of the main theorem in the first arXiv version of the
-paper and was formalized there as the Lean chain `FullSevenLong`; see commit
-[`f3ef8e6`](https://github.com/taeyool/tetrahedron-turan/tree/f3ef8e6bf57dd36da9e642124b24151c80e8021c).
+paper and was formalized there as the Lean chain `FullSevenLong`; see the tag
+[`arxiv-v1`](https://github.com/taeyool/tetrahedron-turan/tree/arxiv-v1).
 The main certificate [`../K4_turan_order7_certificate.json`](../K4_turan_order7_certificate.json)
 supersedes it. The continuation tooling in `experiments/` pins this file by
 hash as its baseline: a new candidate is accepted only if its bound is

@@ -1,0 +1,758 @@
+{
+ "status": "PASS",
+ "started_utc": "2026-10-02T00:37:34.891350+00:00",
+ "release_commit": "857fe4bc4e9fd63d268a9e1764d1c5ee79c1ab52",
+ "repository": "<repo>\\.research-repro\\lv",
+ "memory_cap_bytes": 42949672960,
+ "original_attempt_status_sha256": "28ab54b507a544c9237193b4a5ecee947bdaef46ecd5b2be4c08d66325108566",
+ "original_attempt_status": "failed",
+ "original_project_started_without_build_cache": true,
+ "original_source_hashes_sha256": "7d566c3435ac29fd9c4d7d2ea2b27af183c932492a9ab7c7600b14525c899c50",
+ "recovery_policy": "certificate-independent modules in dependency order, at most two targets per Lake invocation, a failed pair retried one target at a time",
+ "stages": [
+  {
+   "name": "preflight",
+   "command": [
+    "<home>\\anaconda3\\python.exe",
+    "-X",
+    "utf8",
+    "scripts/exact_certificate/verify_full_seven_converged.py",
+    "--check-only"
+   ],
+   "lean_num_threads": null,
+   "started_utc": "2026-10-02T00:37:35.917917+00:00",
+   "status": "passed",
+   "pid": 5836,
+   "returncode": 0,
+   "elapsed_seconds": 0.29699999999138527,
+   "completed_utc": "2026-10-02T00:37:36.222004+00:00",
+   "peak_job_commit_bytes": 42229760,
+   "log_sha256": "275672d312b7f719a3f2baf05e249b127f603de56faa1b36aa5b3370edf82a08",
+   "original_log_sha256": "275672d312b7f719a3f2baf05e249b127f603de56faa1b36aa5b3370edf82a08"
+  },
+  {
+   "name": "project-batch-000",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder5",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep00"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T00:37:36.254014+00:00",
+   "status": "failed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder5",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep00"
+   ],
+   "pid": 7148,
+   "returncode": 1,
+   "elapsed_seconds": 1067.2809999999881,
+   "completed_utc": "2026-10-02T00:55:23.382824+00:00",
+   "peak_job_commit_bytes": 42983170048,
+   "log_sha256": "7a96ed9d2e86fd08697d920440bf9b9b26611ccb43913f8148730f3d7c9816a0",
+   "original_log_sha256": "07fd67450feb6f124075895f50268f7d40161d0adb9e002c97ba01cd05c0c958"
+  },
+  {
+   "name": "project-batch-000-single-0",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder5"
+   ],
+   "lean_num_threads": 2,
+   "started_utc": "2026-10-02T00:55:23.396927+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder5"
+   ],
+   "pid": 5456,
+   "returncode": 0,
+   "elapsed_seconds": 699.4219999999914,
+   "completed_utc": "2026-10-02T01:07:02.737954+00:00",
+   "peak_job_commit_bytes": 39423094784,
+   "log_sha256": "e08ebca2b3e2ff066e915561ed10aec86103b401c4e3d1cdf08c97836f8b9fe1",
+   "original_log_sha256": "e08ebca2b3e2ff066e915561ed10aec86103b401c4e3d1cdf08c97836f8b9fe1"
+  },
+  {
+   "name": "project-batch-001",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep01",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep02"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T01:07:02.754010+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep01",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep02"
+   ],
+   "pid": 12732,
+   "returncode": 0,
+   "elapsed_seconds": 1235.7179999999935,
+   "completed_utc": "2026-10-02T01:27:38.381435+00:00",
+   "peak_job_commit_bytes": 17700696064,
+   "log_sha256": "1edfc72655724899155cb50e865c85a37ac5a98c5e8f2c2fbb9f1901032d945e",
+   "original_log_sha256": "1edfc72655724899155cb50e865c85a37ac5a98c5e8f2c2fbb9f1901032d945e"
+  },
+  {
+   "name": "project-batch-002",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep03",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep04"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T01:27:38.401649+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep03",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep04"
+   ],
+   "pid": 19320,
+   "returncode": 0,
+   "elapsed_seconds": 1408.0620000000054,
+   "completed_utc": "2026-10-02T01:51:06.393514+00:00",
+   "peak_job_commit_bytes": 18704977920,
+   "log_sha256": "1e100e4524b31202c5bc3b967746e199f751b805588aa80880ae7b77f111e9b1",
+   "original_log_sha256": "1e100e4524b31202c5bc3b967746e199f751b805588aa80880ae7b77f111e9b1"
+  },
+  {
+   "name": "project-batch-003",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep05",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep06"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T01:51:06.409143+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep05",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep06"
+   ],
+   "pid": 13200,
+   "returncode": 0,
+   "elapsed_seconds": 1413.2179999999935,
+   "completed_utc": "2026-10-02T02:14:39.591774+00:00",
+   "peak_job_commit_bytes": 18889781248,
+   "log_sha256": "77364936137290a90430765ed7ba6fb1f937f7b270bfaebcb688565219f58c46",
+   "original_log_sha256": "77364936137290a90430765ed7ba6fb1f937f7b270bfaebcb688565219f58c46"
+  },
+  {
+   "name": "project-batch-004",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep07",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep08"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T02:14:39.597358+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep07",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep08"
+   ],
+   "pid": 19924,
+   "returncode": 0,
+   "elapsed_seconds": 1483.4530000000086,
+   "completed_utc": "2026-10-02T02:39:23.034968+00:00",
+   "peak_job_commit_bytes": 18608504832,
+   "log_sha256": "0ac9f9d7d778a60147d1f642e405600ea4706eab5497a689a69ae5b245aa6cbe",
+   "original_log_sha256": "0ac9f9d7d778a60147d1f642e405600ea4706eab5497a689a69ae5b245aa6cbe"
+  },
+  {
+   "name": "project-batch-005",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep09",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep10"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T02:39:23.034968+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep09",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep10"
+   ],
+   "pid": 5436,
+   "returncode": 0,
+   "elapsed_seconds": 1333.0939999999828,
+   "completed_utc": "2026-10-02T03:01:36.113082+00:00",
+   "peak_job_commit_bytes": 19131740160,
+   "log_sha256": "78b7c397d27f6cf97dbf70d2f189f38c71610b9c370f35b7d5376491e3b9d11d",
+   "original_log_sha256": "78b7c397d27f6cf97dbf70d2f189f38c71610b9c370f35b7d5376491e3b9d11d"
+  },
+  {
+   "name": "project-batch-006",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep11",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep12"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T03:01:36.119868+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep11",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep12"
+   ],
+   "pid": 2368,
+   "returncode": 0,
+   "elapsed_seconds": 1328.5929999999935,
+   "completed_utc": "2026-10-02T03:23:44.700712+00:00",
+   "peak_job_commit_bytes": 17977528320,
+   "log_sha256": "55ded726045b0c4b1ff13b75dcb227e9feb9c995b57874c247bcdf659842c62c",
+   "original_log_sha256": "55ded726045b0c4b1ff13b75dcb227e9feb9c995b57874c247bcdf659842c62c"
+  },
+  {
+   "name": "project-batch-007",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep13",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep14"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T03:23:44.716439+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep13",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep14"
+   ],
+   "pid": 11332,
+   "returncode": 0,
+   "elapsed_seconds": 1198.7660000000033,
+   "completed_utc": "2026-10-02T03:43:43.484926+00:00",
+   "peak_job_commit_bytes": 19114823680,
+   "log_sha256": "c7a0ccdf5c84ce31a65819c39b7fa548ecc34671f51b1e931662bc9932f38cf7",
+   "original_log_sha256": "c7a0ccdf5c84ce31a65819c39b7fa548ecc34671f51b1e931662bc9932f38cf7"
+  },
+  {
+   "name": "project-batch-008",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep15",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep16"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T03:43:43.500685+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep15",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep16"
+   ],
+   "pid": 11816,
+   "returncode": 0,
+   "elapsed_seconds": 1482.2189999999828,
+   "completed_utc": "2026-10-02T04:08:25.701579+00:00",
+   "peak_job_commit_bytes": 18779373568,
+   "log_sha256": "601d40323d736ff11eb518f1cf0ca21242c2cf33afe259d7eddfcb5fc9dcf20d",
+   "original_log_sha256": "601d40323d736ff11eb518f1cf0ca21242c2cf33afe259d7eddfcb5fc9dcf20d"
+  },
+  {
+   "name": "project-batch-009",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep17",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep18"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T04:08:25.701579+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep17",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep18"
+   ],
+   "pid": 18092,
+   "returncode": 0,
+   "elapsed_seconds": 1335.6719999999914,
+   "completed_utc": "2026-10-02T04:30:41.378364+00:00",
+   "peak_job_commit_bytes": 18710937600,
+   "log_sha256": "2e7cc073e3154847f60a47a1dd264728b8e80ea03279740866ddf5253d6eb185",
+   "original_log_sha256": "2e7cc073e3154847f60a47a1dd264728b8e80ea03279740866ddf5253d6eb185"
+  },
+  {
+   "name": "project-batch-010",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep19",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep20"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T04:30:41.378364+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep19",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep20"
+   ],
+   "pid": 13028,
+   "returncode": 0,
+   "elapsed_seconds": 1339.9370000000054,
+   "completed_utc": "2026-10-02T04:53:01.430783+00:00",
+   "peak_job_commit_bytes": 18556968960,
+   "log_sha256": "b4744d65e8a0712db5a11fb0ec4ef6ad4b086009533c07c52422492e2e3c81cc",
+   "original_log_sha256": "b4744d65e8a0712db5a11fb0ec4ef6ad4b086009533c07c52422492e2e3c81cc"
+  },
+  {
+   "name": "project-batch-011",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep21",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep22"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T04:53:01.437245+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep21",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep22"
+   ],
+   "pid": 19364,
+   "returncode": 0,
+   "elapsed_seconds": 1200.2810000000172,
+   "completed_utc": "2026-10-02T05:13:01.788687+00:00",
+   "peak_job_commit_bytes": 18187513856,
+   "log_sha256": "271e848a312f5321b14feb000ae6ebaf50f8f17512f5f31aa52a0ffb508d2d11",
+   "original_log_sha256": "271e848a312f5321b14feb000ae6ebaf50f8f17512f5f31aa52a0ffb508d2d11"
+  },
+  {
+   "name": "project-batch-012",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep23",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep24"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T05:13:01.788687+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep23",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep24"
+   ],
+   "pid": 16628,
+   "returncode": 0,
+   "elapsed_seconds": 1557.1879999999946,
+   "completed_utc": "2026-10-02T05:38:59.051616+00:00",
+   "peak_job_commit_bytes": 18481090560,
+   "log_sha256": "6aef239713110c8d354c0dea3b2b63da0b909060d42c723c35db9e77b4479a75",
+   "original_log_sha256": "6aef239713110c8d354c0dea3b2b63da0b909060d42c723c35db9e77b4479a75"
+  },
+  {
+   "name": "project-batch-013",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep25",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep26"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T05:38:59.051616+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep25",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep26"
+   ],
+   "pid": 9912,
+   "returncode": 0,
+   "elapsed_seconds": 1374.3129999999946,
+   "completed_utc": "2026-10-02T06:01:53.403664+00:00",
+   "peak_job_commit_bytes": 18341801984,
+   "log_sha256": "f8909038cb9507748d3d8f4a8d20f76d0f04541bf74a6109e1eaffd9ab6837ee",
+   "original_log_sha256": "f8909038cb9507748d3d8f4a8d20f76d0f04541bf74a6109e1eaffd9ab6837ee"
+  },
+  {
+   "name": "project-batch-014",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep27",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep28"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T06:01:53.406538+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep27",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep28"
+   ],
+   "pid": 20288,
+   "returncode": 0,
+   "elapsed_seconds": 1424.9370000000054,
+   "completed_utc": "2026-10-02T06:25:38.371349+00:00",
+   "peak_job_commit_bytes": 17903251456,
+   "log_sha256": "89527ac157852419b334069bf7a689c021aaa53d77d07c0bacaf83eda317013d",
+   "original_log_sha256": "89527ac157852419b334069bf7a689c021aaa53d77d07c0bacaf83eda317013d"
+  },
+  {
+   "name": "project-batch-015",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep29",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Complete"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T06:25:38.379161+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Sweep29",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Complete"
+   ],
+   "pid": 8268,
+   "returncode": 0,
+   "elapsed_seconds": 842.5470000000205,
+   "completed_utc": "2026-10-02T06:39:40.934098+00:00",
+   "peak_job_commit_bytes": 9344749568,
+   "log_sha256": "2571daea928a5e67c55ff53825817b178be77004e4467b7a9d6b7ea5c9105acd",
+   "original_log_sha256": "2571daea928a5e67c55ff53825817b178be77004e4467b7a9d6b7ea5c9105acd"
+  },
+  {
+   "name": "project-batch-016",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Distinct",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit00"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T06:39:40.939302+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Distinct",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit00"
+   ],
+   "pid": 1488,
+   "returncode": 0,
+   "elapsed_seconds": 721.75,
+   "completed_utc": "2026-10-02T06:51:42.699304+00:00",
+   "peak_job_commit_bytes": 22450319360,
+   "log_sha256": "87d0cbb6e8d316da8879d2ef71d86fd75acb13d878a981e10c282fa501f2fc01",
+   "original_log_sha256": "87d0cbb6e8d316da8879d2ef71d86fd75acb13d878a981e10c282fa501f2fc01"
+  },
+  {
+   "name": "project-batch-017",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit01",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit02"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T06:51:42.699304+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit01",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit02"
+   ],
+   "pid": 6120,
+   "returncode": 0,
+   "elapsed_seconds": 605.5939999999828,
+   "completed_utc": "2026-10-02T07:01:48.296735+00:00",
+   "peak_job_commit_bytes": 8510513152,
+   "log_sha256": "d9d6904180f24fea632d1d64e822690a2fd3831040c743bdbcf1da4768049555",
+   "original_log_sha256": "d9d6904180f24fea632d1d64e822690a2fd3831040c743bdbcf1da4768049555"
+  },
+  {
+   "name": "project-batch-018",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit03",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit04"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T07:01:48.296735+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit03",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit04"
+   ],
+   "pid": 10212,
+   "returncode": 0,
+   "elapsed_seconds": 611.0620000000054,
+   "completed_utc": "2026-10-02T07:11:59.373812+00:00",
+   "peak_job_commit_bytes": 8420052992,
+   "log_sha256": "51e81d729f4bcabd9dc3f3f131b1c3ad6c2fbcceb24ba7e91a162992395b1848",
+   "original_log_sha256": "51e81d729f4bcabd9dc3f3f131b1c3ad6c2fbcceb24ba7e91a162992395b1848"
+  },
+  {
+   "name": "project-batch-019",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit05",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit06"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T07:11:59.376908+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit05",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit06"
+   ],
+   "pid": 3080,
+   "returncode": 0,
+   "elapsed_seconds": 619.5160000000033,
+   "completed_utc": "2026-10-02T07:22:18.890481+00:00",
+   "peak_job_commit_bytes": 8264544256,
+   "log_sha256": "26f7ff9423bb35d252e665dded3c007af1e08fa2412671e167e500ac9ed47312",
+   "original_log_sha256": "26f7ff9423bb35d252e665dded3c007af1e08fa2412671e167e500ac9ed47312"
+  },
+  {
+   "name": "project-batch-020",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit07",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit08"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T07:22:18.898070+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit07",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit08"
+   ],
+   "pid": 22520,
+   "returncode": 0,
+   "elapsed_seconds": 593.2190000000119,
+   "completed_utc": "2026-10-02T07:32:12.140057+00:00",
+   "peak_job_commit_bytes": 8453935104,
+   "log_sha256": "f9128791aaea7493031a7f1c79db6912ea886b91d277480799690f42829c8404",
+   "original_log_sha256": "f9128791aaea7493031a7f1c79db6912ea886b91d277480799690f42829c8404"
+  },
+  {
+   "name": "project-batch-021",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit09",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Pairwise"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T07:32:12.140057+00:00",
+   "status": "passed",
+   "targets": [
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Orbit09",
+    "LeanFlagAlgebras.Core.Examples.TetrahedronOrder7Pairwise"
+   ],
+   "pid": 4340,
+   "returncode": 0,
+   "elapsed_seconds": 359.5469999999914,
+   "completed_utc": "2026-10-02T07:38:11.703988+00:00",
+   "peak_job_commit_bytes": 4069519360,
+   "log_sha256": "de122a15d395f7aed704d94412a65215b179ca3d4a0da2836345f890c15bc79c",
+   "original_log_sha256": "de122a15d395f7aed704d94412a65215b179ca3d4a0da2836345f890c15bc79c"
+  },
+  {
+   "name": "chain-data",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors00",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors01",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors02",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors03",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors04",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors05",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors06",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors07",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors08",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors09",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors10",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors11",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors12",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors13",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors14",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors15",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors16",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootFactors17",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootData",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootTables",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FiveRootOrderedData",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS1",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS30",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7FactorsS31"
+   ],
+   "lean_num_threads": 8,
+   "started_utc": "2026-10-02T07:38:11.716183+00:00",
+   "status": "passed",
+   "pid": 5880,
+   "returncode": 0,
+   "elapsed_seconds": 140.25,
+   "completed_utc": "2026-10-02T07:40:31.966577+00:00",
+   "peak_job_commit_bytes": 6411972608,
+   "log_sha256": "faf011e97ee38920076dd813774451d9da636d6881d6b8b3ba98d4b73dd9a6c4",
+   "original_log_sha256": "faf011e97ee38920076dd813774451d9da636d6881d6b8b3ba98d4b73dd9a6c4"
+  },
+  {
+   "name": "chain-prerequisites",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Check"
+   ],
+   "lean_num_threads": 8,
+   "started_utc": "2026-10-02T07:40:31.966577+00:00",
+   "status": "passed",
+   "pid": 1780,
+   "returncode": 0,
+   "elapsed_seconds": 1250.5,
+   "completed_utc": "2026-10-02T08:01:22.498729+00:00",
+   "peak_job_commit_bytes": 1494945792,
+   "log_sha256": "4761ee7b407f7d2eb4c3169f5e54af46c99afda7f6f9bbdc4ca7350a87bf3f00",
+   "original_log_sha256": "4761ee7b407f7d2eb4c3169f5e54af46c99afda7f6f9bbdc4ca7350a87bf3f00"
+  },
+  {
+   "name": "chain-sweeps",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_00",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_01",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_02",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_03",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_04",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_05",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_06",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_07",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_08",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_09",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_10",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_11",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_12",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_13",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_14",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_15",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_16",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_17",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_18",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_19",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_20",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_21",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_22",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_23",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_24",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_25",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_26",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_27",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_28",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_29",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_30",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_31",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_32",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_33",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_34",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_35",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_36",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_37",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_38",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_39",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_40",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_41",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_42",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_43",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_44",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_45",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_46",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_47",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronOrder7Sweep7_48"
+   ],
+   "lean_num_threads": 12,
+   "started_utc": "2026-10-02T08:01:22.504124+00:00",
+   "status": "passed",
+   "pid": 20652,
+   "returncode": 0,
+   "elapsed_seconds": 15313.828999999998,
+   "completed_utc": "2026-10-02T12:16:36.688088+00:00",
+   "peak_job_commit_bytes": 13699461120,
+   "log_sha256": "dc24fef797594e52422088d1421b847564de008e868b138a3e524eac77969af4",
+   "original_log_sha256": "dc24fef797594e52422088d1421b847564de008e868b138a3e524eac77969af4"
+  },
+  {
+   "name": "chain-headlines",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronDifferential",
+    "LeanFlagAlgebras.Core.Examples.FullSevenConverged.TetrahedronBoost"
+   ],
+   "lean_num_threads": 6,
+   "started_utc": "2026-10-02T12:16:36.695478+00:00",
+   "status": "passed",
+   "pid": 22056,
+   "returncode": 0,
+   "elapsed_seconds": 1985.0469999999914,
+   "completed_utc": "2026-10-02T12:49:41.757422+00:00",
+   "peak_job_commit_bytes": 37950169088,
+   "log_sha256": "95b29244a410ad9334f9986232cdaa105382edbab5b68acc1aec262da8117381",
+   "original_log_sha256": "95b29244a410ad9334f9986232cdaa105382edbab5b68acc1aec262da8117381"
+  },
+  {
+   "name": "full-library",
+   "command": [
+    "<home>\\.elan\\bin\\lake.exe",
+    "build"
+   ],
+   "lean_num_threads": 4,
+   "started_utc": "2026-10-02T12:49:41.757422+00:00",
+   "status": "passed",
+   "pid": 9532,
+   "returncode": 0,
+   "elapsed_seconds": 13.21899999998277,
+   "completed_utc": "2026-10-02T12:49:54.979551+00:00",
+   "peak_job_commit_bytes": 660713472,
+   "log_sha256": "259862acee16be6a8d3825daebdd57839d473b258adf94e450f2e026ec0e1525",
+   "original_log_sha256": "259862acee16be6a8d3825daebdd57839d473b258adf94e450f2e026ec0e1525"
+  },
+  {
+   "name": "verification",
+   "command": [
+    "<home>\\anaconda3\\python.exe",
+    "-X",
+    "utf8",
+    "scripts/exact_certificate/verify_full_seven_converged.py",
+    "--threads",
+    "8",
+    "--sweep-batch-size",
+    "12",
+    "--output-dir",
+    "<repo>\\.research-repro\\lean-release-build-20261002\\attempt-02\\verification"
+   ],
+   "lean_num_threads": null,
+   "started_utc": "2026-10-02T12:49:54.986321+00:00",
+   "status": "passed",
+   "pid": 8700,
+   "returncode": 0,
+   "elapsed_seconds": 51.375,
+   "completed_utc": "2026-10-02T12:50:46.354107+00:00",
+   "peak_job_commit_bytes": 658006016,
+   "log_sha256": "bb60ef1e75fcb603e4b9c79c9a0b47989dc55a19d6f65d7a42ec7a3ff6749bb7",
+   "original_log_sha256": "987d97316ba0f33223e9845e8e9724a3fb17223d1d08b5b085eccc0ab108cfd4"
+  }
+ ],
+ "project_module_count": 246,
+ "updated_utc": "2026-10-02T12:50:46.428796+00:00",
+ "stage": "verification",
+ "all_project_modules_built": true,
+ "missing_build_products": [],
+ "source_files_unchanged": true,
+ "formalization_sha256": "766de607e13625fe29adb39c5346533c8383962b3651a22d3a81eb6f74621751",
+ "peak_job_commit_bytes": 42983170048,
+ "completed_utc": "2026-10-02T12:50:46.428796+00:00",
+ "archive_note": "Machine-local path prefixes were replaced by <repo> (the release checkout; the build ran in its clone <repo>\\.research-repro\\lv) and <home>. log_sha256 is the hash of the distributed log, original_log_sha256 the hash of the log as written by the build.",
+ "original_attempt_status_sha256_before_sanitization": "fd9a0d5d663f71948f150e6f392bc7bdff275092aa8cd80166419362804ab538"
+}
